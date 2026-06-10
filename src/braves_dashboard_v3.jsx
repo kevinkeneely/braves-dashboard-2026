@@ -2771,6 +2771,7 @@ function TeamStatsTab({T}) {
     { label:"Ideal Atk%",  value:TEAM_HEADER.idealAtk,  heatRef:LG.teamIdealAtk},
   ];
 
+   const sT = THEME.light;
   return (
     <>
       <TabTitle T={T} eyebrow="HEADLINE NUMBERS" title="TEAM STATS"/>
@@ -2779,15 +2780,15 @@ function TeamStatsTab({T}) {
         <div>
           <div style={{fontSize:11, letterSpacing:"0.18em", color:T.textMuted, fontWeight:700, marginBottom:8}}>BATTING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingGrid.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>PLATE DISCIPLINE</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingPlateDisc.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>BAT TRACKING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingBatTracking.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
         </div>
 
@@ -2802,15 +2803,15 @@ function TeamStatsTab({T}) {
         <div>
           <div style={{fontSize:11, letterSpacing:"0.18em", color:T.textMuted, fontWeight:700, marginBottom:8}}>PITCHING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingGrid.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>PLATE DISCIPLINE</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingPlateDisc.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>BAT TRACKING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingBatTracking.map(g => <StatBox key={g.label} T={T} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
         </div>
       </div>
