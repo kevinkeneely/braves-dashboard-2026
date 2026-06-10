@@ -530,6 +530,20 @@ export default function BravesDashboardV2() {
           .brv-mobile-toggle { display: inline-flex !important; }
         }
       `}</style>
+
+      {/* Fan-site disclaimer footer */}
+      <div style={{
+        marginTop: 32,
+        padding: "16px 12px 20px",
+        textAlign: "center",
+        fontSize: 11,
+        lineHeight: 1.5,
+        color: "rgba(234, 198, 120, 0.6)",
+        borderTop: "1px solid rgba(234, 198, 120, 0.15)",
+      }}>
+        Fan-made tracker. Not affiliated with the Atlanta Braves, Major League Baseball, or any of their affiliates.<br/>
+        Stats sourced from Baseball Reference, FanGraphs, and Baseball Savant. Updated daily during the 2026 MLB season.
+      </div>
     </div>
   );
 }
