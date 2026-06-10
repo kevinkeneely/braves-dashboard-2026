@@ -181,7 +181,7 @@
      batCSW: "25.7%",
      batChase: "33.4%",
      batWhiff: "24.7%",
-     chase: "31.2%",
+     chase: "31.0%",
      whiff: "26.6%",
    };
    
