@@ -2513,6 +2513,9 @@ function StatcastPitTable({T, onSelect}) {
    a red divider, then all pitcher cards in the same grid.
    ───────────────────────────────────────────────────────────────────────── */
 function SplitsCard({T, player, kind, onClick}) {
+  // For HITTER cards in dark mode, render as if light mode for the "with RISP" cream look.
+  // Pitcher cards untouched.
+  T = (kind === "hitter" && T === THEME.dark) ? THEME.light : T;
   const tier = kind === "hitter" ? hitterRoleTier(player) : pitcherRoleTier(player);
   const photo = HEADSHOTS[player.name];
   // Stat lines per card type
