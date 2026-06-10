@@ -1,0 +1,31 @@
+/* ───────────────────────────────────────────────────────────────
+   Braves Dashboard — global base styles
+   Replaces the default Vite template index.css.
+   Key fix: remove the template's #root max-width + body centering
+   so the dashboard fills the entire screen width.
+   ─────────────────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  /* no flex centering, no max-width — let the app control its own layout */
+  display: block;
+}
+
+#root {
+  /* full-bleed: the dashboard manages its own internal padding/columns */
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
