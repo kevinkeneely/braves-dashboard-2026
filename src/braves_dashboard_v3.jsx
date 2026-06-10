@@ -2459,6 +2459,7 @@ function StatcastPitTable({T, onSelect}) {
   }, [augmented, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
+   const sT = THEME.light;
   return (
     <div style={{overflowX:"auto"}}>
       <table style={tableShell(T)}>
@@ -2484,15 +2485,15 @@ function StatcastPitTable({T, onSelect}) {
                   // (allowing low EV, low Hard Hit%, low Barrel%, low xwOBA, etc.).
                   // K%, Chase%, Whiff% are no-invert because higher = better for pitchers.
                   const ref = leagueRef(c.key, c.invert ?? false);
-                  const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, T) : null;
+                  const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
                   const displayVal = c.key === "batSpeed"
                     ? (s.batSpeed?.toFixed(1) ?? "—")
                     : (s[c.key] ?? "—");
                   return (
                     <td key={c.key} style={{
-                      ...tdStyle(T, i),
+                      ...tdStyle(sT, i),
                       ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? T.rowBase : T.rowAlt}`, color: heatStyle.color }
+                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
                         : {}),
                     }}>{displayVal}</td>
                   );
