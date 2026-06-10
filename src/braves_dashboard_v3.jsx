@@ -2272,7 +2272,7 @@ function PitchingTab({T, onSelect}) {
   }, [allArms, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
-   const sT = THEME.light;
+const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
   return (
     <>
       <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
