@@ -1847,7 +1847,8 @@ function HitterStatBoxes({T, d, sc}) {
       {key:"bbpct",label:"BB%"},{key:"kpct",label:"K%"},{key:"babip",label:"BABIP"},
     ];
     const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
-    const risp = sp.risp || null;
+   const risp = sp.risp || null;
+    const sT = THEME.light;  // "with RISP" section renders as light mode (cream) in dark theme
     body = (
       <ProfileSection T={T} title="Platoon Splits">
         {sp.vsL || sp.vsR ? (
@@ -1865,18 +1866,20 @@ function HitterStatBoxes({T, d, sc}) {
           fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
           color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
         }}>with RISP</div>
-        {risp ? (
+      {risp ? (
           <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
             {order.map(({key, label}) => {
               const base = RISP_AVG[key];
-              const hs = base ? heat(risp[key], base.mean, base.spread, key === "kpct", T) : null;
+              const hs = base ? heat(risp[key], base.mean, base.spread, key === "kpct", sT) : null;
               return (
                 <div key={key} style={{
                   textAlign:"center", borderRadius:8, padding:"5px 2px",
-                  background: hs ? hs.bg : "transparent",
+                  background: hs && hs.bg !== "transparent"
+                    ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                    : sT.rowBase,
                 }}>
-                  <div style={{fontSize:10.5, color:T.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
-                  <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : T.text}}>{risp[key] ?? "—"}</div>
+                  <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                  <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{risp[key] ?? "—"}</div>
                 </div>
               );
             })}
