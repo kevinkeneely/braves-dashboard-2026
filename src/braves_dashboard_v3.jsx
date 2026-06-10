@@ -2190,6 +2190,7 @@ function HittingTab({T, onSelect}) {
     return leagueRef(key, false);
   };
 
+const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
   return (
     <>
       <TabTitle T={T} eyebrow="OFFENSIVE PRODUCTION" title="HITTING" count={visibleHitters.length}/>
@@ -2200,7 +2201,7 @@ function HittingTab({T, onSelect}) {
               <th style={thStickyLeft(T)}>PLAYER</th>
               <th style={{...thStyle(T), textAlign:"center"}}>POS</th>
               {cols.map(c => (
-                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                <th key={c.key} style={{...thStyle(sT), cursor:"pointer"}} onClick={()=>click(c.key)}>
                   {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
                 </th>
               ))}
@@ -2213,12 +2214,12 @@ function HittingTab({T, onSelect}) {
                 <td style={{...tdStyle(T, i), textAlign:"center", color:T.textMuted}}>{h.pos}</td>
                 {cols.map(c => {
                   const ref = heatRefFor(c.key);
-                  const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, T) : null;
+                  const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
                   return (
                     <td key={c.key} style={{
-                      ...tdStyle(T, i),
+                      ...tdStyle(sT, i),
                       ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? T.rowBase : T.rowAlt}`, color: heatStyle.color }
+                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
                         : {}),
                     }}>
                       {h[c.key] == null ? "—" : (typeof h[c.key] === "number" && (c.key === "war" || c.key === "war2") ? h[c.key].toFixed(1) : h[c.key])}
