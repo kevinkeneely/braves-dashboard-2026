@@ -2272,6 +2272,7 @@ function PitchingTab({T, onSelect}) {
   }, [allArms, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
+   const sT = THEME.light;
   return (
     <>
       <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
@@ -2301,9 +2302,9 @@ function PitchingTab({T, onSelect}) {
                   const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, T) : null;
                   return (
                     <td key={c.key} style={{
-                      ...tdStyle(T, i),
+                      ...tdStyle(sT, i),
                       ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? T.rowBase : T.rowAlt}`, color: heatStyle.color }
+                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
                         : {}),
                     }}>
                       {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
