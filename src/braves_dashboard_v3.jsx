@@ -2200,8 +2200,8 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tr>
               <th style={thStickyLeft(T)}>PLAYER</th>
               <th style={{...thStyle(T), textAlign:"center"}}>POS</th>
-              {cols.map(c => (
-                <th key={c.key} style={{...thStyle(sT), cursor:"pointer"}} onClick={()=>click(c.key)}>
+               {cols.map(c => (
+                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
                   {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
                 </th>
               ))}
@@ -2299,7 +2299,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
                   // For everything else, the cols def already encodes invert (true for
                   // ERA/WHIP/FIP/xFIP/SIERA/BB%; false for K%/SwStr%/CStr%/CSW%).
                   const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
-                  const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, T) : null;
+                  const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
                   return (
                     <td key={c.key} style={{
                       ...tdStyle(sT, i),
