@@ -262,6 +262,38 @@ const VS_RHP_AVG = {
 
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
     the stat has no league baseline (plain rendering). */
+/* 2026 MLB league averages for PITCHERS vs. LHH (FanGraphs splits leaderboard).
+   Used only to color the "vs. LHH" tile grid on the pitcher profile Splits tab.
+   For most pitching stats lower = better, so heat() is called with invert=true. */
+const VS_LHH_AVG = {
+  era:   { mean: 4.30,  spread: 1.00  },
+  fip:   { mean: 4.31,  spread: 1.00  },
+  xfip:  { mean: 4.24,  spread: 0.80  },
+  whip:  { mean: 1.36,  spread: 0.20  },
+  avg:   { mean: 0.246, spread: 0.030 },
+  obp:   { mean: 0.327, spread: 0.030 },
+  slg:   { mean: 0.407, spread: 0.045 },
+  woba:  { mean: 0.325, spread: 0.030 },
+  kpct:  { mean: 22.0,  spread: 4.0   },
+  bbpct: { mean: 9.8,   spread: 3.0   },
+  kbb:   { mean: 12.2,  spread: 5.0   },
+};
+
+/* 2026 MLB league averages for PITCHERS vs. RHH (FanGraphs splits leaderboard).
+   Used only to color the "vs. RHH" tile grid on the pitcher profile Splits tab. */
+const VS_RHH_AVG = {
+  era:   { mean: 4.04,  spread: 1.00  },
+  fip:   { mean: 4.03,  spread: 1.00  },
+  xfip:  { mean: 4.09,  spread: 0.80  },
+  whip:  { mean: 1.26,  spread: 0.20  },
+  avg:   { mean: 0.239, spread: 0.030 },
+  obp:   { mean: 0.312, spread: 0.030 },
+  slg:   { mean: 0.385, spread: 0.045 },
+  woba:  { mean: 0.310, spread: 0.030 },
+  kpct:  { mean: 22.1,  spread: 4.0   },
+  bbpct: { mean: 8.6,   spread: 3.0   },
+  kbb:   { mean: 13.5,  spread: 5.0   },
+};
 const leagueRef = (statKey, invert = false) => {
   const ent = LEAGUE_AVG[statKey];
   if (!ent) return null;
@@ -2186,16 +2218,73 @@ function PitcherStatBoxes({T, d, sc}) {
       {key:"whip",label:"WHIP"},{key:"avg",label:"AVG"},{key:"obp",label:"OBP"},{key:"slg",label:"SLG"},
       {key:"woba",label:"wOBA"},{key:"kpct",label:"K%"},{key:"bbpct",label:"BB%"},{key:"kbb",label:"K-BB%"},
     ];
-    const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
+const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
+    const sT = THEME.light;  // "vs. LHH" and "vs. RHH" sections render as light mode (cream) in dark theme
     body = (
       <ProfileSection T={T} title="Platoon Splits">
         {sp.vsL || sp.vsR ? (
-          <SplitsSection T={T} leftLabel="vs. LHH" rightLabel="vs. RHH" rows={rows}/>
+          <>
+            {/* vs. LHH */}
+            <div style={{
+              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
+              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
+            }}>vs. LHH</div>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
+              {order.map(({key, label}) => {
+                const base = VS_LHH_AVG[key];
+                const invert = !(key === "kpct" || key === "kbb");
+                const hs = base ? heat(L[key], base.mean, base.spread, invert, sT) : null;
+                return (
+                  <div key={key} style={{
+                    textAlign:"center", borderRadius:8, padding:"5px 2px",
+                    background: hs && hs.bg !== "transparent"
+                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                      : sT.rowBase,
+                  }}>
+                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{L[key] ?? "—"}</div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Horizontal red divider between vs. LHH and vs. RHH */}
+            <div style={{
+              height:3, borderRadius:3, margin:"18px 0 14px",
+              background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+              boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
+            }}/>
+
+            {/* vs. RHH */}
+            <div style={{
+              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
+              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
+            }}>vs. RHH</div>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
+              {order.map(({key, label}) => {
+                const base = VS_RHH_AVG[key];
+                const invert = !(key === "kpct" || key === "kbb");
+                const hs = base ? heat(R[key], base.mean, base.spread, invert, sT) : null;
+                return (
+                  <div key={key} style={{
+                    textAlign:"center", borderRadius:8, padding:"5px 2px",
+                    background: hs && hs.bg !== "transparent"
+                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                      : sT.rowBase,
+                  }}>
+                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{R[key] ?? "—"}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         ) : (
-          <div style={{fontSize:12, color:T.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
+          <div style={{fontSize:12, color:sT.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
         )}
       </ProfileSection>
     );
+  }
   }
 
   return (
