@@ -135,7 +135,7 @@
      { date:"Wed, Jun 10", opp:"White Sox",   home:false, result:"L", score:"1-2", record:"45-23"},
      { date:"Thu, Jun 11", opp:"White Sox",   home:false,},
       // Upcoming
-     { date:"Fri, Jun 12", opp:"Mets",        home:true,},
+     { date:"Fri, Jun 12", opp:"Mets",        home:false,},
      { date:"Sat, Jun 13", opp:"Mets",        home:false,},
      { date:"Sun, Jun 14", opp:"Mets",        home:false,},
      { date:"Tue, Jun 16", opp:"San Francisco",   home:true,},
