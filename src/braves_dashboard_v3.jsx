@@ -218,13 +218,16 @@ const RISP_AVG = {
    AVG / ISO / BABIP omitted for now — heat coloring stays neutral for those
    stats until the high-leverage league baseline is confirmed. */
 const HIGH_LEVERAGE_AVG = {
-  obp:   { mean: 0.334, spread: 0.030 },
+  avg:   { mean: 0.249, spread: 0.030 },
+  obp:   { mean: 0.333, spread: 0.030 },
   slg:   { mean: 0.392, spread: 0.045 },
-  ops:   { mean: 0.726, spread: 0.070 },
+  ops:   { mean: 0.725, spread: 0.070 },
   wrc:   { mean: 100,   spread: 20    },
-  woba:  { mean: 0.317, spread: 0.030 },
+  woba:  { mean: 0.316, spread: 0.030 },
+  iso:   { mean: 0.142, spread: 0.045 },
+  babip: { mean: 0.296, spread: 0.035 },
   bbpct: { mean: 10.4,  spread: 3.0   },
-  kpct:  { mean: 21.8,  spread: 4.0   },
+  kpct:  { mean: 21.9,  spread: 4.0   },
 };
 
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
