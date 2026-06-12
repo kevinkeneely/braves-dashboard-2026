@@ -1860,7 +1860,8 @@ function HitterStatBoxes({T, d, sc}) {
       {key:"ops",label:"OPS"},{key:"wrc",label:"wRC+"},{key:"woba",label:"wOBA"},{key:"iso",label:"ISO"},
       {key:"bbpct",label:"BB%"},{key:"kpct",label:"K%"},{key:"babip",label:"BABIP"},
     ];
-   const risp = sp.risp || null;
+    const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
+    const risp = sp.risp || null;
     const hl = sp.highLeverage || null;
     const sT = THEME.light;  // "with RISP" and "High Leverage" sections render as light mode (cream) in dark theme
     body = (
