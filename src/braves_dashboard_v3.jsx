@@ -1915,7 +1915,7 @@ function HitterStatBoxes({T, d, sc}) {
           fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
           color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
         }}>High Leverage</div>
-        {hl ? (
+{hl ? (
           <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
             {order.map(({key, label}) => {
               const base = HIGH_LEVERAGE_AVG[key];
@@ -1923,7 +1923,9 @@ function HitterStatBoxes({T, d, sc}) {
               return (
                 <div key={key} style={{
                   textAlign:"center", borderRadius:8, padding:"5px 2px",
-                  background: hs ? hs.bg : "transparent",
+                  background: hs && hs.bg !== "transparent"
+                    ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                    : sT.rowBase,
                 }}>
                   <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
                   <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{hl[key] ?? "—"}</div>
