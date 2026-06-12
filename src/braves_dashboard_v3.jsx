@@ -260,8 +260,6 @@ const VS_RHP_AVG = {
   kpct:  { mean: 21.9,  spread: 4.0   },
 };
 
-/** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
-    the stat has no league baseline (plain rendering). */
 /* 2026 MLB league averages for PITCHERS vs. LHH (FanGraphs splits leaderboard).
    Used only to color the "vs. LHH" tile grid on the pitcher profile Splits tab.
    For most pitching stats lower = better, so heat() is called with invert=true. */
@@ -294,6 +292,8 @@ const VS_RHH_AVG = {
   bbpct: { mean: 8.6,   spread: 3.0   },
   kbb:   { mean: 13.5,  spread: 5.0   },
 };
+/** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
+    the stat has no league baseline (plain rendering). */
 const leagueRef = (statKey, invert = false) => {
   const ent = LEAGUE_AVG[statKey];
   if (!ent) return null;
