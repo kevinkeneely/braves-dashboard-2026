@@ -144,23 +144,23 @@ const LEAGUE_AVG = {
   // Hitter rate stats
   avg:    { mean: 0.242, spread: 0.020 },
   obp:    { mean: 0.319, spread: 0.020 },
-  slg:    { mean: 0.394, spread: 0.035 },
-  ops:    { mean: 0.712, spread: 0.050 },
+  slg:    { mean: 0.396, spread: 0.035 },
+  ops:    { mean: 0.715, spread: 0.050 },
   woba:   { mean: 0.317, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
-  kpct:   { mean: 22.1,  spread: 3.5 },
+  kpct:   { mean: 22.0,  spread: 3.5 },
   bbpct:  { mean: 9.2,   spread: 1.8 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
-  era:    { mean: 4.15,  spread: 0.80 },
-  fip:    { mean: 4.15,  spread: 0.80 },
-  xfip:   { mean: 4.15,  spread: 0.60 },
-  siera:  { mean: 4.02,  spread: 0.60 },
-  whip:   { mean: 1.30,  spread: 0.15 },
+  era:    { mean: 4.16,  spread: 0.80 },
+  fip:    { mean: 4.16,  spread: 0.80 },
+  xfip:   { mean: 4.16,  spread: 0.60 },
+  siera:  { mean: 4.04,  spread: 0.60 },
+  whip:   { mean: 1.31,  spread: 0.15 },
   // Plate discipline (pitcher view) — higher = better for pitchers
   swstr:  { mean: 10.8,  spread: 2.5 },
   cstr:   { mean: 16.4,  spread: 2.0 },
-  csw:    { mean: 27.2,  spread: 3.0 },
+  csw:    { mean: 27.1,  spread: 3.0 },
   // WAR — 0.0 is league average (a replacement-level player); positive = above avg.
   // Spread tuned so ~+1.0 reads firmly red, ~-0.5 firmly blue at this point in the season.
   war:    { mean: 0.0,   spread: 0.6 },
@@ -172,7 +172,7 @@ const LEAGUE_AVG = {
   hardHit:     { mean: 39.3,  spread: 5.0  },
   barrel:      { mean: 8.2,   spread: 2.5  },
   xwoba:       { mean: 0.320, spread: 0.030 },
-  xba:         { mean: 0.245, spread: 0.020 },
+  xba:         { mean: 0.246, spread: 0.020 },
   xslg:        { mean: 0.402, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
   chase:       { mean: 30.1,  spread: 3.5  },
@@ -182,14 +182,14 @@ const LEAGUE_AVG = {
   fastSwing:   { mean: 26.1,  spread: 8.0  },
   squaredUp:   { mean: 25.0,  spread: 4.0  },
   laSwSp:      { mean: 33.8,  spread: 4.0  },
-  idealAttack: { mean: 51.3,  spread: 7.0  },
+  idealAttack: { mean: 51.2,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
   gbpct:       { mean: 42.5,  spread: 4.0  },
   fbpct:       { mean: 26.5,  spread: 4.0  },
   ldpct:       { mean: 23.5,  spread: 3.0  },
-  pupct:       { mean: 7.5,   spread: 2.5  },
+  pupct:       { mean: 7.4,   spread: 2.5  },
   pullAir:     { mean: 18.3,  spread: 4.0  },
   // Fielding metrics — 0 = league average, higher = better defense
   oaa:         { mean: 0,     spread: 2.5  },
@@ -201,16 +201,16 @@ const LEAGUE_AVG = {
    strong-but-realistic value reads firmly red. invert is applied at the call site
    (K% lower = better). */
 const RISP_AVG = {
-  avg:   { mean: 0.251, spread: 0.030 },
-  obp:   { mean: 0.339, spread: 0.030 },
-  slg:   { mean: 0.397, spread: 0.045 },
-  ops:   { mean: 0.735, spread: 0.070 },
-  wrc:   { mean: 105,   spread: 20    },
-  woba:  { mean: 0.324, spread: 0.030 },
-  iso:   { mean: 0.146, spread: 0.045 },
-  babip: { mean: 0.296, spread: 0.035 },
-  bbpct: { mean: 11.3,  spread: 3.0   },
-  kpct:  { mean: 21.4,  spread: 4.0   },
+  avg:   { mean: 0.249, spread: 0.030 },
+  obp:   { mean: 0.336, spread: 0.030 },
+  slg:   { mean: 0.398, spread: 0.045 },
+  ops:   { mean: 0.734, spread: 0.070 },
+  wrc:   { mean: 102,   spread: 20    },
+  woba:  { mean: 0.321, spread: 0.030 },
+  iso:   { mean: 0.149, spread: 0.045 },
+  babip: { mean: 0.294, spread: 0.035 },
+  bbpct: { mean: 11.0,  spread: 3.0   },
+  kpct:  { mean: 21.5,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages in HIGH-LEVERAGE situations (from FanGraphs splits).
