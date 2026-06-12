@@ -201,16 +201,30 @@ const LEAGUE_AVG = {
    strong-but-realistic value reads firmly red. invert is applied at the call site
    (K% lower = better). */
 const RISP_AVG = {
-  avg:   { mean: 0.250, spread: 0.030 },
-  obp:   { mean: 0.336, spread: 0.030 },
+  avg:   { mean: 0.251, spread: 0.030 },
+  obp:   { mean: 0.339, spread: 0.030 },
   slg:   { mean: 0.397, spread: 0.045 },
-  ops:   { mean: 0.733, spread: 0.070 },
-  wrc:   { mean: 103,   spread: 20    },
-  woba:  { mean: 0.321, spread: 0.030 },
-  iso:   { mean: 0.148, spread: 0.045 },
-  babip: { mean: 0.294, spread: 0.035 },
-  bbpct: { mean: 11.1,  spread: 3.0   },
-  kpct:  { mean: 21.5,  spread: 4.0   },
+  ops:   { mean: 0.735, spread: 0.070 },
+  wrc:   { mean: 105,   spread: 20    },
+  woba:  { mean: 0.324, spread: 0.030 },
+  iso:   { mean: 0.146, spread: 0.045 },
+  babip: { mean: 0.296, spread: 0.035 },
+  bbpct: { mean: 11.3,  spread: 3.0   },
+  kpct:  { mean: 21.4,  spread: 4.0   },
+};
+
+/* 2026 MLB league averages in HIGH-LEVERAGE situations (from FanGraphs splits).
+   Used only to color the "High Leverage" section of the profile Splits tab.
+   AVG / ISO / BABIP omitted for now — heat coloring stays neutral for those
+   stats until the high-leverage league baseline is confirmed. */
+const HIGH_LEVERAGE_AVG = {
+  obp:   { mean: 0.334, spread: 0.030 },
+  slg:   { mean: 0.392, spread: 0.045 },
+  ops:   { mean: 0.726, spread: 0.070 },
+  wrc:   { mean: 100,   spread: 20    },
+  woba:  { mean: 0.317, spread: 0.030 },
+  bbpct: { mean: 10.4,  spread: 3.0   },
+  kpct:  { mean: 21.8,  spread: 4.0   },
 };
 
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
@@ -1846,9 +1860,9 @@ function HitterStatBoxes({T, d, sc}) {
       {key:"ops",label:"OPS"},{key:"wrc",label:"wRC+"},{key:"woba",label:"wOBA"},{key:"iso",label:"ISO"},
       {key:"bbpct",label:"BB%"},{key:"kpct",label:"K%"},{key:"babip",label:"BABIP"},
     ];
-    const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
    const risp = sp.risp || null;
-    const sT = THEME.light;  // "with RISP" section renders as light mode (cream) in dark theme
+    const hl = sp.highLeverage || null;
+    const sT = THEME.light;  // "with RISP" and "High Leverage" sections render as light mode (cream) in dark theme
     body = (
       <ProfileSection T={T} title="Platoon Splits">
         {sp.vsL || sp.vsR ? (
@@ -1884,8 +1898,37 @@ function HitterStatBoxes({T, d, sc}) {
               );
             })}
           </div>
+) : (
+          <div style={{fontSize:12, color:sT.textMuted, padding:"4px 2px 8px"}}>RISP data not available.</div>
+        )}
+        {/* Horizontal red divider + "High Leverage" section */}
+        <div style={{
+          height:3, borderRadius:3, margin:"14px 0 14px",
+          background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+          boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
+        }}/>
+        <div style={{
+          fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
+          color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
+        }}>High Leverage</div>
+        {hl ? (
+          <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
+            {order.map(({key, label}) => {
+              const base = HIGH_LEVERAGE_AVG[key];
+              const hs = base ? heat(hl[key], base.mean, base.spread, key === "kpct", sT) : null;
+              return (
+                <div key={key} style={{
+                  textAlign:"center", borderRadius:8, padding:"5px 2px",
+                  background: hs ? hs.bg : "transparent",
+                }}>
+                  <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                  <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{hl[key] ?? "—"}</div>
+                </div>
+              );
+            })}
+          </div>
         ) : (
-          <div style={{fontSize:12, color:T.textMuted, padding:"4px 2px 8px"}}>RISP data not available.</div>
+          <div style={{fontSize:12, color:sT.textMuted, padding:"4px 2px 8px"}}>High-leverage data not available.</div>
         )}
       </ProfileSection>
     );
