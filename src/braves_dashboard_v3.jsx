@@ -2515,13 +2515,13 @@ function StatcastPitTable({T, onSelect}) {
    SPLITS TAB — all hitter cards (5-across desktop / 1-across phone),
    a red divider, then all pitcher cards in the same grid.
    ───────────────────────────────────────────────────────────────────────── */
-function SplitsCard({T, player, kind, onClick}) {
+function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
   const tier = kind === "hitter" ? hitterRoleTier(player) : pitcherRoleTier(player);
   const photo = HEADSHOTS[player.name];
   // Stat lines per card type
   const stats = kind === "hitter"
     ? (() => {
-        const rsp = player.splits?.risp || {};
+        const rsp = player.splits?.[splitsKey] || {};
         return [
           { label:"AVG", value:rsp.avg },
           { label:"OBP", value:rsp.obp },
@@ -2622,24 +2622,24 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose}) {
 }
 
 function SplitsTab({T, mode}) {
-  const allArms = [...starters, ...bullpen].filter(p => p.name !== "JR Ritchie");
-  const splitsHitters = hitters.filter(h => h.name !== "Sean Murphy");
-  // Which card is expanded in place. Stored as "hitter:Name" / "pitcher:Name".
+  const splitsHitters = hitters.filter(h => h.name !== "Sean Murphy" && h.name !== "Chadwick Tromp");
+  // Which card is expanded in place. Keyed by section + name so the same
+  // hitter can be open in the RISP grid without expanding in the HL grid.
   const [expanded, setExpanded] = useState(null);
-  const keyFor = (kind, name) => `${kind}:${name}`;
-  const toggle = (kind, name) => setExpanded(prev => prev === keyFor(kind, name) ? null : keyFor(kind, name));
+  const keyFor = (section, name) => `${section}:${name}`;
+  const toggle = (section, name) => setExpanded(prev => prev === keyFor(section, name) ? null : keyFor(section, name));
   // Phones (single-column grid) get a gentler shrink than wide screens.
   const isNarrow = typeof window !== "undefined" && window.innerWidth <= 560;
   const scale = isNarrow ? 0.8 : 0.6;
 
-  const renderGrid = (list, kind) => (
+  const renderGrid = (list, section, splitsKey) => (
     <div className="brv-splits-grid">
       {list.map(pl => {
-        const isOpen = expanded === keyFor(kind, pl.name);
+        const isOpen = expanded === keyFor(section, pl.name);
         return isOpen ? (
-          <ExpandedProfile key={pl.name} T={T} mode={mode} kind={kind} player={pl} scale={scale} onClose={()=>setExpanded(null)}/>
+          <ExpandedProfile key={pl.name} T={T} mode={mode} kind="hitter" player={pl} scale={scale} onClose={()=>setExpanded(null)}/>
         ) : (
-          <SplitsCard key={pl.name} T={T} player={pl} kind={kind} onClick={()=>toggle(kind, pl.name)}/>
+          <SplitsCard key={pl.name} T={T} player={pl} kind="hitter" splitsKey={splitsKey} onClick={()=>toggle(section, pl.name)}/>
         );
       })}
     </div>
@@ -2649,15 +2649,15 @@ function SplitsTab({T, mode}) {
     <>
       <TabTitle T={T} eyebrow="EVERY PLAYER · CARD VIEW" title="SPLITS"/>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:14, lineHeight:1.4}}>
-        All hitters, then all pitchers below the line · tap any card to expand it in place
+        Hitters with RISP up top, high-leverage splits below the line · tap any card to expand it in place
       </div>
 
-      {/* HITTERS */}
+      {/* HITTERS · with RISP */}
       <div style={{
         fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
         fontFamily:"'Cinzel',serif", marginBottom:10,
       }}>HITTERS · with RISP</div>
-      {renderGrid(splitsHitters, "hitter")}
+      {renderGrid(splitsHitters, "risp", "risp")}
 
       {/* RED DIVIDER — matches the STARTER badge red/black */}
       <div style={{
@@ -2667,12 +2667,12 @@ function SplitsTab({T, mode}) {
         border:`1px solid ${BRAND.goldBright}55`,
       }}/>
 
-      {/* PITCHERS */}
+      {/* HITTERS · High Leverage */}
       <div style={{
         fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
         fontFamily:"'Cinzel',serif", marginBottom:10,
-      }}>PITCHERS · {allArms.length}</div>
-      {renderGrid(allArms, "pitcher")}
+      }}>HITTERS · High Leverage</div>
+      {renderGrid(splitsHitters, "hl", "highLeverage")}
     </>
   );
 }
