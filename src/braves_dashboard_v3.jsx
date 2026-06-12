@@ -2285,7 +2285,6 @@ const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }
       </ProfileSection>
     );
   }
-  }
 
   return (
     <div>
