@@ -230,6 +230,34 @@ const HIGH_LEVERAGE_AVG = {
   kpct:  { mean: 21.9,  spread: 4.0   },
 };
 
+/* 2026 MLB league averages vs. LHP (from FanGraphs splits leaderboard).
+   Used only to color the "vs. LHP" tile grid in the profile Splits tab. */
+const VS_LHP_AVG = {
+  obp:   { mean: 0.318, spread: 0.030 },
+  slg:   { mean: 0.390, spread: 0.045 },
+  ops:   { mean: 0.708, spread: 0.070 },
+  wrc:   { mean: 98,    spread: 20    },
+  woba:  { mean: 0.314, spread: 0.030 },
+  iso:   { mean: 0.149, spread: 0.045 },
+  babip: { mean: 0.289, spread: 0.035 },
+  bbpct: { mean: 9.2,   spread: 3.0   },
+  kpct:  { mean: 22.3,  spread: 4.0   },
+};
+
+/* 2026 MLB league averages vs. RHP (from FanGraphs splits leaderboard).
+   Used only to color the "vs. RHP" tile grid in the profile Splits tab. */
+const VS_RHP_AVG = {
+  obp:   { mean: 0.320, spread: 0.030 },
+  slg:   { mean: 0.398, spread: 0.045 },
+  ops:   { mean: 0.718, spread: 0.070 },
+  wrc:   { mean: 101,   spread: 20    },
+  woba:  { mean: 0.318, spread: 0.030 },
+  iso:   { mean: 0.155, spread: 0.045 },
+  babip: { mean: 0.288, spread: 0.035 },
+  bbpct: { mean: 9.2,   spread: 3.0   },
+  kpct:  { mean: 21.9,  spread: 4.0   },
+};
+
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
     the stat has no league baseline (plain rendering). */
 const leagueRef = (statKey, invert = false) => {
@@ -1869,10 +1897,63 @@ function HitterStatBoxes({T, d, sc}) {
     const sT = THEME.light;  // "with RISP" and "High Leverage" sections render as light mode (cream) in dark theme
     body = (
       <ProfileSection T={T} title="Platoon Splits">
-        {sp.vsL || sp.vsR ? (
-          <SplitsSection T={T} leftLabel="vs. LHP" rightLabel="vs. RHP" rows={rows}/>
+{sp.vsL || sp.vsR ? (
+          <>
+            {/* vs. LHP */}
+            <div style={{
+              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
+              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
+            }}>vs. LHP</div>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
+              {order.map(({key, label}) => {
+                const base = VS_LHP_AVG[key];
+                const hs = base ? heat(L[key], base.mean, base.spread, key === "kpct", sT) : null;
+                return (
+                  <div key={key} style={{
+                    textAlign:"center", borderRadius:8, padding:"5px 2px",
+                    background: hs && hs.bg !== "transparent"
+                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                      : sT.rowBase,
+                  }}>
+                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{L[key] ?? "—"}</div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Horizontal red divider between vs. LHP and vs. RHP */}
+            <div style={{
+              height:3, borderRadius:3, margin:"18px 0 14px",
+              background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+              boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
+            }}/>
+
+            {/* vs. RHP */}
+            <div style={{
+              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
+              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
+            }}>vs. RHP</div>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
+              {order.map(({key, label}) => {
+                const base = VS_RHP_AVG[key];
+                const hs = base ? heat(R[key], base.mean, base.spread, key === "kpct", sT) : null;
+                return (
+                  <div key={key} style={{
+                    textAlign:"center", borderRadius:8, padding:"5px 2px",
+                    background: hs && hs.bg !== "transparent"
+                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
+                      : sT.rowBase,
+                  }}>
+                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
+                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{R[key] ?? "—"}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         ) : (
-          <div style={{fontSize:12, color:T.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
+          <div style={{fontSize:12, color:sT.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
         )}
         {/* Horizontal red divider + single-row "with RISP" section */}
         <div style={{
