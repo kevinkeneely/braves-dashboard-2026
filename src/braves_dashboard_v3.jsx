@@ -262,7 +262,7 @@ const HITTER_WAR_COLORS = {
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#c084fc","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
-  "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171",
+  "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171","Ritchie":"#fbbf24"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1296,7 +1296,7 @@ const PITCHER_WAR_KEY = {
   "Raisel Iglesias":"Iglesias", "Robert Suarez":"Suarez", "Didier Fuentes":"Fuentes",
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider",
-  "Dylan Dodd":"Dodd",
+  "Dylan Dodd":"Dodd", "JR Ritchie":"Ritchie",
 };
 
 function FullProfile({T, mode, player, onClose}) {
