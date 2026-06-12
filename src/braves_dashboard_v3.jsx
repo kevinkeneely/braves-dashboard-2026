@@ -233,6 +233,7 @@ const HIGH_LEVERAGE_AVG = {
 /* 2026 MLB league averages vs. LHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. LHP" tile grid in the profile Splits tab. */
 const VS_LHP_AVG = {
+  avg:   { mean: 0.240, spread: 0.030 },
   obp:   { mean: 0.318, spread: 0.030 },
   slg:   { mean: 0.390, spread: 0.045 },
   ops:   { mean: 0.708, spread: 0.070 },
@@ -247,6 +248,7 @@ const VS_LHP_AVG = {
 /* 2026 MLB league averages vs. RHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. RHP" tile grid in the profile Splits tab. */
 const VS_RHP_AVG = {
+  avg:   { mean: 0.243, spread: 0.030 },
   obp:   { mean: 0.320, spread: 0.030 },
   slg:   { mean: 0.398, spread: 0.045 },
   ops:   { mean: 0.718, spread: 0.070 },
