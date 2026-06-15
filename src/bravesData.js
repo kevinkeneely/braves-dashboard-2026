@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "June 14, 2026";
+   export const lastUpdated = "June 15, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -227,11 +227,11 @@
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:46,l:25,pct:".648",gb:"—", home:"22-11",away:"24-14", rs:359, ra:252, diff:+107, strk:"L1", l10:"5-5", highlight:true,  srs:1.6 },
-     { team:"PHI", full:"Philadelphia Phillies", w:38,l:33,pct:".535",gb:"8.0", home:"19-17",away:"19-16", rs:285, ra:308, diff:-23, strk:"L1", l10:"6-4", highlight:false, srs:-0.2 },
-     { team:"WSN", full:"Washington Nationals", w:37,l:35,pct:".514",gb:"9.5", home:"14-21",away:"23-14", rs:392, ra:379, diff:+13, strk:"W2", l10:"6-4", highlight:false, srs:0.3 },
-     { team:"MIA", full:"Miami Marlins",        w:36,l:36,pct:".500",gb:"10.5", home:"23-16",away:"13-20", rs:310, ra:310, diff:0, strk:"W1", l10:"8-2", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:32,l:39,pct:".451",gb:"14.0", home:"18-18",away:"14-21", rs:288, ra:299, diff:-11, strk:"W1", l10:"6-4", highlight:false, srs:-0.3 },
+     { team:"ATL", full:"Atlanta Braves",       w:46,l:25,pct:".648",gb:"—", home:"22-11",away:"24-14", rs:359, ra:252, diff:+107, strk:"L1", l10:"5-5", highlight:true,  srs:1.4 },
+     { team:"PHI", full:"Philadelphia Phillies", w:38,l:33,pct:".535",gb:"8.0", home:"19-17",away:"19-16", rs:285, ra:308, diff:-23, strk:"L1", l10:"6-4", highlight:false, srs:-0.3 },
+     { team:"WSN", full:"Washington Nationals", w:37,l:35,pct:".514",gb:"9.5", home:"14-21",away:"23-14", rs:392, ra:379, diff:+13, strk:"W2", l10:"6-4", highlight:false, srs:0.4 },
+     { team:"MIA", full:"Miami Marlins",        w:36,l:36,pct:".500",gb:"10.5", home:"23-16",away:"13-20", rs:310, ra:310, diff:0, strk:"W1", l10:"8-2", highlight:false, srs:0.2 },
+     { team:"NYM", full:"New York Mets",        w:32,l:39,pct:".451",gb:"14.0", home:"18-18",away:"14-21", rs:288, ra:299, diff:-11, strk:"W1", l10:"6-4", highlight:false, srs:-0.2 },
    ];
    
    export const statcastHitters = [
