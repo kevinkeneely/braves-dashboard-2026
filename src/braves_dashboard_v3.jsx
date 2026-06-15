@@ -142,23 +142,23 @@ const THEME = {
    spread = more aggressive shading near the mean.                            */
 const LEAGUE_AVG = {
   // Hitter rate stats
-  avg:    { mean: 0.242, spread: 0.020 },
-  obp:    { mean: 0.319, spread: 0.020 },
-  slg:    { mean: 0.396, spread: 0.035 },
-  ops:    { mean: 0.715, spread: 0.050 },
-  woba:   { mean: 0.317, spread: 0.020 },
+  avg:    { mean: 0.243, spread: 0.020 },
+  obp:    { mean: 0.320, spread: 0.020 },
+  slg:    { mean: 0.398, spread: 0.035 },
+  ops:    { mean: 0.717, spread: 0.050 },
+  woba:   { mean: 0.320, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
   kpct:   { mean: 22.0,  spread: 3.5 },
-  bbpct:  { mean: 9.2,   spread: 1.8 },
+  bbpct:  { mean: 9.1,   spread: 1.8 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
-  era:    { mean: 4.16,  spread: 0.80 },
-  fip:    { mean: 4.16,  spread: 0.80 },
-  xfip:   { mean: 4.16,  spread: 0.60 },
-  siera:  { mean: 4.04,  spread: 0.60 },
+  era:    { mean: 4.19,  spread: 0.80 },
+  fip:    { mean: 4.19,  spread: 0.80 },
+  xfip:   { mean: 4.19,  spread: 0.60 },
+  siera:  { mean: 4.07,  spread: 0.60 },
   whip:   { mean: 1.31,  spread: 0.15 },
   // Plate discipline (pitcher view) — higher = better for pitchers
-  swstr:  { mean: 10.8,  spread: 2.5 },
+  swstr:  { mean: 10.7,  spread: 2.5 },
   cstr:   { mean: 16.4,  spread: 2.0 },
   csw:    { mean: 27.1,  spread: 3.0 },
   // WAR — 0.0 is league average (a replacement-level player); positive = above avg.
@@ -170,13 +170,13 @@ const LEAGUE_AVG = {
   // from a hitter's view; pitcher tables pass invert:true on these columns.
   ev:          { mean: 89.0,  spread: 1.5  },
   hardHit:     { mean: 39.3,  spread: 5.0  },
-  barrel:      { mean: 8.2,   spread: 2.5  },
+  barrel:      { mean: 8.1,   spread: 2.5  },
   xwoba:       { mean: 0.320, spread: 0.030 },
   xba:         { mean: 0.246, spread: 0.020 },
   xslg:        { mean: 0.402, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
   chase:       { mean: 30.1,  spread: 3.5  },
-  whiff:       { mean: 25.2,  spread: 3.5  },
+  whiff:       { mean: 25.1,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
   batSpeed:    { mean: 72.0,  spread: 2.0  },
   fastSwing:   { mean: 26.1,  spread: 8.0  },
@@ -188,7 +188,7 @@ const LEAGUE_AVG = {
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
   gbpct:       { mean: 42.5,  spread: 4.0  },
   fbpct:       { mean: 26.5,  spread: 4.0  },
-  ldpct:       { mean: 23.5,  spread: 3.0  },
+  ldpct:       { mean: 23.6,  spread: 3.0  },
   pupct:       { mean: 7.4,   spread: 2.5  },
   pullAir:     { mean: 18.3,  spread: 4.0  },
   // Fielding metrics — 0 = league average, higher = better defense
