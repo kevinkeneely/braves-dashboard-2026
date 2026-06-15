@@ -190,7 +190,7 @@ const LEAGUE_AVG = {
   fbpct:       { mean: 26.5,  spread: 4.0  },
   ldpct:       { mean: 23.6,  spread: 3.0  },
   pupct:       { mean: 7.4,   spread: 2.5  },
-  pullAir:     { mean: 18.3,  spread: 4.0  },
+  pullAir:     { mean: 18.4,  spread: 4.0  },
   // Fielding metrics — 0 = league average, higher = better defense
   oaa:         { mean: 0,     spread: 2.5  },
   frv:         { mean: 0,     spread: 2.5  },
