@@ -128,12 +128,12 @@ const THEME = {
   },
 };
 
-/* ── TEAM-LEVEL HEADER STATS (June 8, 2026 · stats through June 8) ───────────
+/* ── TEAM-LEVEL HEADER STATS (June 15, 2026 · stats through June 15) ───────────
    Sources: Baseball-Reference team page, FanGraphs team batting/pitching,
    Baseball Savant. Pull these fresh daily and update inline.
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* ── LEAGUE AVERAGES (2026 MLB through ~G66) ───────────────────────────────
+/* ── LEAGUE AVERAGES (2026 MLB through ~G71) ───────────────────────────────
    Source: FanGraphs league-wide stat lines. These drive heat coloring across
    every player table (Hitting, Pitching, Statcast) and the Team Stats tab.
    Counting stats (PA, R, H, HR, SB, IP, etc.) and Statcast bat-tracking stats
@@ -2146,16 +2146,16 @@ function PitcherStatBoxes({T, d, sc}) {
       <>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
           <OverviewStat T={T} label="IP"      value={d.ip}/>
-          <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.15"  heatRef={leagueRef("era",   true)}/>
-          <OverviewStat T={T} label="WHIP"    value={d.whip}    sub="lg 1.30"  heatRef={leagueRef("whip",  true)}/>
-          <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.1%" heatRef={leagueRef("kpct")}/>
-          <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.2%"  heatRef={leagueRef("bbpct", true)}/>
-          <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.15"  heatRef={leagueRef("fip",   true)}/>
-          <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.15"  heatRef={leagueRef("xfip",  true)}/>
-          <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.02"  heatRef={leagueRef("siera", true)}/>
-          <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 24.6%" heatRef={leagueRef("whiff")}/>
-          <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.3%" heatRef={leagueRef("csw")}/>
-          <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 41.7%" heatRef={leagueRef("gbpct")}/>
+          <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.19"  heatRef={leagueRef("era",   true)}/>
+          <OverviewStat T={T} label="WHIP"    value={d.whip}    sub="lg 1.31"  heatRef={leagueRef("whip",  true)}/>
+          <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.0%" heatRef={leagueRef("kpct")}/>
+          <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.1%"  heatRef={leagueRef("bbpct", true)}/>
+          <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.19"  heatRef={leagueRef("fip",   true)}/>
+          <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.19"  heatRef={leagueRef("xfip",  true)}/>
+          <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.07"  heatRef={leagueRef("siera", true)}/>
+          <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.1%" heatRef={leagueRef("whiff")}/>
+          <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.1%" heatRef={leagueRef("csw")}/>
+          <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.5%" heatRef={leagueRef("gbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 89.0 mph"      heatRef={leagueRef("ev", true)}/>
         </div>
         <WarProgressionCard T={T} d={d} isHitter={false}/>
