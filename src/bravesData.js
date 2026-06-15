@@ -140,6 +140,12 @@
      { date:"Tue, Jun 16", opp:"San Francisco",   home:true,},
      { date:"Wed, Jun 17", opp:"San Francisco",   home:true,},
      { date:"Thu, Jun 18", opp:"San Francisco",   home:true,},
+     { date:"Fri, Jun 19", opp:"Milwaukee",   home:true,},
+     { date:"Sat, Jun 20", opp:"Milwaukee",   home:true,},
+     { date:"Sun, Jun 21", opp:"Milwaukee",   home:true,},
+     { date:"Mon, Jun 22", opp:"San Diego",   home:false,},
+     { date:"Tue, Jun 23", opp:"San Diego",   home:false,},
+     { date:"Wed, Jun 24", opp:"San Diego",   home:false,},
    ];
    
    export const TEAM_HEADER = {
