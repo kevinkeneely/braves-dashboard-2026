@@ -638,8 +638,8 @@ export default function BravesDashboardV2() {
             color: T.textMuted,
             fontWeight: 600,
           }}>
-            <span>Below League Avg</span>
-            <span>Above League Avg</span>
+            <span>Below (bad) League Avg</span>
+            <span>Above (good) League Avg</span>
           </div>
         </div>
       )}
