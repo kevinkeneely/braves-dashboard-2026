@@ -712,7 +712,7 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
           onClick={()=>setMode(mode === "dark" ? "light" : "dark")}
           style={{
             background:"transparent", border:`1px solid ${T.border}`, borderRadius:8,
-            color:T.text, padding:"6px 10px", cursor:"pointer", fontSize:12, fontWeight:600,
+            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:12, fontWeight:600,
             display:"flex", alignItems:"center", gap:6,
           }}
           title={`Switch to ${T.modeLabel}`}
@@ -725,19 +725,21 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
           onClick={()=>setLeftOpen(true)}
           style={{
             background:"transparent", border:`1px solid ${T.border}`, borderRadius:8,
-            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:14,
+            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:12, fontWeight:600,
+            letterSpacing:"0.08em",
           }}
           title="Open hitters"
-        >⚾</button>
+        >HITTERS</button>
         <button
           className="brv-mobile-toggle"
           onClick={()=>setRightOpen(true)}
           style={{
             background:"transparent", border:`1px solid ${T.border}`, borderRadius:8,
-            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:14,
+            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:12, fontWeight:600,
+            letterSpacing:"0.08em",
           }}
           title="Open pitchers"
-        >⚾</button>
+        >PITCHERS</button>
       </div>
 
       <style>{`
