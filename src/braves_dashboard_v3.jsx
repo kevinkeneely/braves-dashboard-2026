@@ -610,6 +610,40 @@ export default function BravesDashboardV2() {
         }
       `}</style>
 
+{/* Color legend — shown on every tab except WAR Progress */}
+      {tab !== "WAR Progress" && (
+        <div style={{
+          margin: "24px auto 0",
+          padding: "0 16px",
+          maxWidth: 420,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 8,
+        }}>
+          <div style={{
+            width: "100%",
+            height: 10,
+            borderRadius: 5,
+            background: `linear-gradient(90deg, ${T.heatColdTx} 0%, ${T.rowBase} 50%, ${T.heatHotTx} 100%)`,
+            border: `1px solid ${T.borderFaint}`,
+          }}/>
+          <div style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: 10,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: T.textMuted,
+            fontWeight: 600,
+          }}>
+            <span>Below League Avg</span>
+            <span>Above League Avg</span>
+          </div>
+        </div>
+      )}
+
       {/* Fan-site disclaimer footer */}
       <div style={{
         marginTop: 32,
@@ -623,7 +657,6 @@ export default function BravesDashboardV2() {
         Fan-made tracker. Not affiliated with the Atlanta Braves, Major League Baseball, or any of their affiliates.<br/>
         Stats sourced from Baseball Reference, FanGraphs, and Baseball Savant. Updated daily during the 2026 MLB season.
       </div>
-    </div>
   );
 }
 
