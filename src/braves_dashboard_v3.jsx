@@ -657,6 +657,7 @@ export default function BravesDashboardV2() {
         Fan-made tracker. Not affiliated with the Atlanta Braves, Major League Baseball, or any of their affiliates.<br/>
         Stats sourced from Baseball Reference, FanGraphs, and Baseball Savant. Updated daily during the 2026 MLB season.
       </div>
+    </div>
   );
 }
 
