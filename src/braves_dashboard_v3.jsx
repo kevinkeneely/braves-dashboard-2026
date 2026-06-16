@@ -712,7 +712,7 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
           onClick={()=>setMode(mode === "dark" ? "light" : "dark")}
           style={{
             background:"transparent", border:`1px solid ${T.border}`, borderRadius:8,
-            color:T.text, padding:"6px 8px", cursor:"pointer", fontSize:12, fontWeight:600,
+            color:T.text, padding:"4px 6px", cursor:"pointer", fontSize:11, fontWeight:600,
             display:"flex", alignItems:"center", gap:6,
           }}
           title={`Switch to ${T.modeLabel}`}
