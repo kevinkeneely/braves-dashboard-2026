@@ -717,7 +717,8 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
           }}
           title={`Switch to ${T.modeLabel}`}
         >
-        <span style={{letterSpacing:"0.08em"}}>{T.modeLabel.toUpperCase()}</span>
+          <span style={{fontSize:13}}>{T.modeIcon}</span>
+          <span style={{letterSpacing:"0.08em"}}>{T.modeLabel.toUpperCase()}</span>
         </button>
         <button
           className="brv-mobile-toggle"
