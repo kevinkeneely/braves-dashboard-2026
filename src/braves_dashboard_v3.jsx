@@ -846,16 +846,25 @@ function SubHeaderStrip({T}) {
    ───────────────────────────────────────────────────────────────────────── */
 function LeftRail({T, hitters, allCount, posFilter, setPosFilter, sort, setSort, selectedPlayer, onSelect}) {
   const posChips = ["ALL","C","IF","OF","DH"];
-  const sortOptions = [
-    { key:"war",  label:"bWAR" },
-    { key:"war2", label:"fWAR" },
-    { key:"wrc",  label:"wRC+" },
-    { key:"ops",  label:"OPS"  },
-    { key:"hr",   label:"HR"   },
-    { key:"r",    label:"R"    },
-    { key:"h",    label:"H"    },
-    { key:"bbpct",label:"BB%"  },
-    { key:"kpct", label:"K%"   },
+const sortOptions = [
+    { key:"war",   label:"bWAR" },
+    { key:"war2",  label:"fWAR" },
+    { key:"r",     label:"R"    },
+    { key:"h",     label:"H"    },
+    { key:"2b",    label:"2B"   },
+    { key:"3b",   label:"3B"    },
+    { key:"hr",    label:"HR"   },
+    { key:"rbi",   label:"RBI"  },
+    { key:"sb",    label:"SB"   },
+    { key:"avg",   label:"AVG"  },
+    { key:"obp",   label:"OBP"  },
+    { key:"slg",   label:"SLG"  },
+    { key:"ops",   label:"OPS"  },
+    { key:"wrc",   label:"wRC+" },
+    { key:"woba",  label:"wOBA" },
+    { key:"bbpct", label:"BB%"  },
+    { key:"kpct",  label:"K%"   },
+    { key:"oaa",   label:"OAA"  },
   ];
   return (
     <>
@@ -954,16 +963,23 @@ function LeftRail({T, hitters, allCount, posFilter, setPosFilter, sort, setSort,
    ───────────────────────────────────────────────────────────────────────── */
 function RightRail({T, pitchers, allCount, roleFilter, setRoleFilter, sort, setSort, selectedPlayer, onSelect}) {
   const roleChips = ["ALL","SP","RP","CL"];
-  const sortOptions = [
-    { key:"war",  label:"bWAR"  },
-    { key:"war2", label:"fWAR"  },
-    { key:"era",  label:"ERA"   },
-    { key:"whip", label:"WHIP"  },
-    { key:"fip",  label:"FIP"   },
-    { key:"xfip", label:"xFIP"  },
-    { key:"siera",label:"SIERA" },
-    { key:"bbpct",label:"BB%"   },
-    { key:"kpct", label:"K%"    },
+const sortOptions = [
+    { key:"war",   label:"bWAR"  },
+    { key:"war2",  label:"fWAR"  },
+    { key:"ip",    label:"IP"    },
+    { key:"sv",    label:"SV"    },
+    { key:"w",     label:"W"     },
+    { key:"era",   label:"ERA"   },
+    { key:"whip",  label:"WHIP"  },
+    { key:"fip",   label:"FIP"   },
+    { key:"xfip",  label:"xFIP"  },
+    { key:"siera", label:"SIERA" },
+    { key:"kbb",   label:"K-BB%" },
+    { key:"bbpct", label:"BB%"   },
+    { key:"kpct",  label:"K%"    },
+    { key:"swstr", label:"SwStr%"  },
+    { key:"cstr",  label:"CStr%"   },
+    { key:"csw",   label:"CSW%"    },
   ];
   return (
     <>
