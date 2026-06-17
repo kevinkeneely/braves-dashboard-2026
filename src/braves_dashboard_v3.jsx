@@ -427,7 +427,8 @@ export default function BravesDashboardV2() {
       if (av == null && bv == null) return 0;
       if (av == null) return 1;
       if (bv == null) return -1;
-      return bv - av;
+      const dir = hSort === "kpct" ? 1 : -1;
+      return dir * (bv - av);
     });
     return arr;
   }, [posFilter, search, hSort]);
@@ -963,12 +964,9 @@ const sortOptions = [
    ───────────────────────────────────────────────────────────────────────── */
 function RightRail({T, pitchers, allCount, roleFilter, setRoleFilter, sort, setSort, selectedPlayer, onSelect}) {
   const roleChips = ["ALL","SP","RP","CL"];
-const sortOptions = [
+  const sortOptions = [
     { key:"war",   label:"bWAR"  },
     { key:"war2",  label:"fWAR"  },
-    { key:"ip",    label:"IP"    },
-    { key:"sv",    label:"SV"    },
-    { key:"w",     label:"W"     },
     { key:"era",   label:"ERA"   },
     { key:"whip",  label:"WHIP"  },
     { key:"fip",   label:"FIP"   },
