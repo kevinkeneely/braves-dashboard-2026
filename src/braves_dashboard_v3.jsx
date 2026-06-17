@@ -324,7 +324,7 @@ const HITTER_WAR_COLORS = {
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#c084fc","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
-  "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171","Ritchie":"#fbbf24"
+  "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171","Ritchie":"#CE1141"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
