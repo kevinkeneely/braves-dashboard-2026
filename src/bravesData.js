@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "June 15, 2026";
+   export const lastUpdated = "June 16, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -146,6 +146,16 @@
      { date:"Mon, Jun 22", opp:"San Diego",   home:false,},
      { date:"Tue, Jun 23", opp:"San Diego",   home:false,},
      { date:"Wed, Jun 24", opp:"San Diego",   home:false,},
+     { date:"Fri, Jun 26", opp:"San Francisco",   home:false,},
+     { date:"Sat, Jun 27", opp:"San Francisco",   home:false,},
+     { date:"Sun, Jun 28", opp:"San Francisco",   home:false,},
+     { date:"Tue, Jun 30", opp:"St. Louis",   home:true,},
+     { date:"Wed, Jul 1", opp:"St. Louis",   home:true,},
+     { date:"Thu, Jul 2", opp:"St. Louis",   home:true,},
+     { date:"Fri, Jul 3", opp:"Mets",   home:true,},
+     { date:"Sat, Jul 4", opp:"Mets",   home:true,},
+     { date:"Sun, Jul 5", opp:"Mets",   home:true,},
+     { date:"Mon, Jul 6", opp:"Mets",   home:true,},
    ];
    
    export const TEAM_HEADER = {
