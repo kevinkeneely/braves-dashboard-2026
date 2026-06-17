@@ -610,8 +610,8 @@ export default function BravesDashboardV2() {
         }
       `}</style>
 
-{/* Color legend — shown on every tab except WAR Progress */}
-      {tab !== "WAR Progress" && (
+{/* Color legend — shown on every tab except WAR Progress, Standings */}
+        {!["WAR Progress", "Standings"].includes(tab) && (
         <div style={{
           margin: "24px auto 0",
           padding: "0 16px",
