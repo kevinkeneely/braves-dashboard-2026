@@ -651,8 +651,8 @@ export default function BravesDashboardV2() {
         textAlign: "center",
         fontSize: 11,
         lineHeight: 1.5,
-        color: "rgba(234, 198, 120, 0.6)",
-        borderTop: "1px solid rgba(234, 198, 120, 0.15)",
+        color: mode === "dark" ? "rgba(234, 198, 120, 0.6)" : T.textMid,
+        borderTop: `1px solid ${mode === "dark" ? "rgba(234, 198, 120, 0.15)" : T.border}`,
       }}>
         Fan-made tracker. Not affiliated with the Atlanta Braves, Major League Baseball, or any of their affiliates.<br/>
         Stats sourced from Baseball Reference, FanGraphs, and Baseball Savant. Updated daily during the 2026 MLB season.
