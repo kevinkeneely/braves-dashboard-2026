@@ -427,7 +427,7 @@ export default function BravesDashboardV2() {
       if (av == null && bv == null) return 0;
       if (av == null) return 1;
       if (bv == null) return -1;
-      const dir = hSort === "kpct" ? 1 : -1;
+      const dir = hSort === "kpct" ? -1 : 1;
       return dir * (bv - av);
     });
     return arr;
