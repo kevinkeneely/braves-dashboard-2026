@@ -144,9 +144,9 @@ const LEAGUE_AVG = {
   // Hitter rate stats
   avg:    { mean: 0.243, spread: 0.020 },
   obp:    { mean: 0.320, spread: 0.020 },
-  slg:    { mean: 0.398, spread: 0.035 },
-  ops:    { mean: 0.717, spread: 0.050 },
-  woba:   { mean: 0.320, spread: 0.020 },
+  slg:    { mean: 0.399, spread: 0.035 },
+  ops:    { mean: 0.718, spread: 0.050 },
+  woba:   { mean: 0.318, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
   kpct:   { mean: 22.0,  spread: 3.5 },
@@ -168,21 +168,21 @@ const LEAGUE_AVG = {
   // ── Statcast / quality-of-contact ────────────────────────────────────────
   // All values are 2026 MLB averages from baseballsavant.mlb.com. Higher = better
   // from a hitter's view; pitcher tables pass invert:true on these columns.
-  ev:          { mean: 89.0,  spread: 1.5  },
-  hardHit:     { mean: 39.3,  spread: 5.0  },
+  ev:          { mean: 88.9,  spread: 1.5  },
+  hardHit:     { mean: 39.2,  spread: 5.0  },
   barrel:      { mean: 8.1,   spread: 2.5  },
   xwoba:       { mean: 0.320, spread: 0.030 },
-  xba:         { mean: 0.246, spread: 0.020 },
-  xslg:        { mean: 0.402, spread: 0.040 },
+  xba:         { mean: 0.245, spread: 0.020 },
+  xslg:        { mean: 0.401, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
   chase:       { mean: 30.1,  spread: 3.5  },
   whiff:       { mean: 25.1,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
   batSpeed:    { mean: 72.0,  spread: 2.0  },
-  fastSwing:   { mean: 26.1,  spread: 8.0  },
+  fastSwing:   { mean: 26.2,  spread: 8.0  },
   squaredUp:   { mean: 25.0,  spread: 4.0  },
   laSwSp:      { mean: 33.8,  spread: 4.0  },
-  idealAttack: { mean: 51.2,  spread: 7.0  },
+  idealAttack: { mean: 51.1,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
@@ -1917,13 +1917,13 @@ function HitterStatBoxes({T, d, sc}) {
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
           <OverviewStat T={T} label="AVG"     value={d.avg}        sub="lg .243" heatRef={leagueRef("avg")}/>
           <OverviewStat T={T} label="OBP"     value={d.obp}        sub="lg .320" heatRef={leagueRef("obp")}/>
-          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .398" heatRef={leagueRef("slg")}/>
+          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .399" heatRef={leagueRef("slg")}/>
           <OverviewStat T={T} label="wRC+"    value={d.wrc}        sub="lg 100"  heatRef={leagueRef("wrc")}/>
-          <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .320"  heatRef={leagueRef("woba")}/>
+          <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .318"  heatRef={leagueRef("woba")}/>
           <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}         heatRef={leagueRef("xwoba")}/>
           <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.0%" heatRef={leagueRef("kpct", true)}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.1%"  heatRef={leagueRef("bbpct")}/>
-          <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 89.0 mph"      heatRef={leagueRef("ev")}/>
+          <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 88.9 mph"      heatRef={leagueRef("ev")}/>
           <OverviewStat T={T} label="HARDHIT" value={sc?.hardHit}                  heatRef={leagueRef("hardHit")}/>
           <OverviewStat T={T} label="BARREL"  value={sc?.barrel}                   heatRef={leagueRef("barrel")}/>
           <OverviewStat T={T} label="Pull-Air%" value={sc?.pullAir}  sub="lg 18.4%" heatRef={leagueRef("pullAir")}/>
@@ -2954,43 +2954,43 @@ function TeamStatsTab({T}) {
      Used to red/blue-tint the team boxes vs. league. Pitching uses invert=true
      because lower ERA/FIP/SIERA = better. */
   const LG = {
-    avg:        { mean: 0.242, spread: 0.012 },
-    obp:        { mean: 0.318, spread: 0.012 },
-    slg:        { mean: 0.394, spread: 0.020 },
-    ops:        { mean: 0.712, spread: 0.030 },
+    avg:        { mean: 0.243, spread: 0.012 },
+    obp:        { mean: 0.320, spread: 0.012 },
+    slg:        { mean: 0.399, spread: 0.020 },
+    ops:        { mean: 0.718, spread: 0.030 },
     wrc:        { mean: 100,   spread: 8     },
-    woba:       { mean: 0.316, spread: 0.012 },
+    woba:       { mean: 0.318, spread: 0.012 },
     xwoba:      { mean: 0.320, spread: 0.012 },
     battingK:   { mean: 22.0,  spread: 1.8, invert:true },   // lower K% = better for hitters
-    battingBB:  { mean: 9.2,   spread: 1.0 },                // higher BB% = better for hitters
-    era:        { mean: 4.14,  spread: 0.35, invert:true },
-    xera:       { mean: 4.14,  spread: 0.35, invert:true },
-    fip:        { mean: 4.14,  spread: 0.35, invert:true },
-    xfip:       { mean: 4.14,  spread: 0.30, invert:true },
-    siera:      { mean: 4.02,  spread: 0.30, invert:true },
-    whip:       { mean: 1.30,  spread: 0.08, invert:true },
-    gb:         { mean: 41.7,  spread: 3.0  },                // higher GB% = better for pitchers
+    battingBB:  { mean: 9.1,   spread: 1.0 },                // higher BB% = better for hitters
+    era:        { mean: 4.19,  spread: 0.35, invert:true },
+    xera:       { mean: 4.19,  spread: 0.35, invert:true },
+    fip:        { mean: 4.19,  spread: 0.35, invert:true },
+    xfip:       { mean: 4.19,  spread: 0.30, invert:true },
+    siera:      { mean: 4.07,  spread: 0.30, invert:true },
+    whip:       { mean: 1.31,  spread: 0.08, invert:true },
+    gb:         { mean: 42.5,  spread: 3.0  },                // higher GB% = better for pitchers
     pitchingK:  { mean: 22.0,  spread: 1.8 },                // higher K% = better for pitchers
-    pitchingBB: { mean: 9.2,   spread: 1.0, invert:true },   // lower BB% = better for pitchers
+    pitchingBB: { mean: 9.1,   spread: 1.0, invert:true },   // lower BB% = better for pitchers
     pitchingKBB:{ mean: 12.9,  spread: 2.0 },                // K-BB% higher = better
-    teamSwStr:  { mean: 10.8,  spread: 1.5 },                // higher SwStr% = better for pitchers
+    teamSwStr:  { mean: 10.7,  spread: 1.5 },                // higher SwStr% = better for pitchers
     teamCStr:   { mean: 16.4,  spread: 1.2 },                // higher CStr% = better for pitchers
-    teamCSW:    { mean: 27.2,  spread: 1.8 },                // higher CSW% = better for pitchers
-    teamChase:  { mean: 28.5,  spread: 3.5 },                // higher Chase% = better for pitchers
-    teamWhiff:  { mean: 24.8,  spread: 3.5 },                // higher Whiff% = better for pitchers
-    teamFastSw: { mean: 26.1,  spread: 3.0, invert:true },   // lower opp Fast Swing% = better for pitchers
+    teamCSW:    { mean: 27.1,  spread: 1.8 },                // higher CSW% = better for pitchers
+    teamChase:  { mean: 30.1,  spread: 3.5 },                // higher Chase% = better for pitchers
+    teamWhiff:  { mean: 25.1,  spread: 3.5 },                // higher Whiff% = better for pitchers
+    teamFastSw: { mean: 26.2,  spread: 3.0, invert:true },   // lower opp Fast Swing% = better for pitchers
     teamSqUpSw: { mean: 25.0,  spread: 2.0, invert:true },   // lower opp Squared-Up swing% = better
     teamBlastSw:{ mean: 10.6,  spread: 2.0, invert:true },   // lower opp Blast swing% = better
-    teamIdealAtk:{ mean: 51.3, spread: 4.0, invert:true },   // lower opp Ideal Attack Angle% = better
-    teamBatFastSw: { mean: 26.1,  spread: 3.0 },             // higher Fast Swing% = better for hitters
+    teamIdealAtk:{ mean: 51.1, spread: 4.0, invert:true },   // lower opp Ideal Attack Angle% = better
+    teamBatFastSw: { mean: 26.2,  spread: 3.0 },             // higher Fast Swing% = better for hitters
     teamBatSqUpSw: { mean: 25.0,  spread: 2.0 },             // higher Squared-Up swing% = better for hitters
     teamBatBlastSw:{ mean: 10.6,  spread: 2.0 },             // higher Blast swing% = better for hitters
-    teamBatIdealAtk:{ mean: 51.3, spread: 4.0 },             // higher Ideal Attack Angle% = better for hitters
-    teamBatSwStr: { mean: 10.8,  spread: 1.5, invert:true }, // lower SwStr% = better for hitters
+    teamBatIdealAtk:{ mean: 51.1, spread: 4.0 },             // higher Ideal Attack Angle% = better for hitters
+    teamBatSwStr: { mean: 10.7,  spread: 1.5, invert:true }, // lower SwStr% = better for hitters
     teamBatCStr:  { mean: 16.4,  spread: 1.2, invert:true }, // lower CStr% = better for hitters
-    teamBatCSW:   { mean: 27.2,  spread: 1.8, invert:true }, // lower CSW% = better for hitters
-    teamBatChase: { mean: 28.5,  spread: 3.5, invert:true }, // lower Chase% = better for hitters
-    teamBatWhiff: { mean: 24.8,  spread: 3.5, invert:true }, // lower Whiff% = better for hitters
+    teamBatCSW:   { mean: 27.1,  spread: 1.8, invert:true }, // lower CSW% = better for hitters
+    teamBatChase: { mean: 30.1,  spread: 3.5, invert:true }, // lower Chase% = better for hitters
+    teamBatWhiff: { mean: 25.1,  spread: 3.5, invert:true }, // lower Whiff% = better for hitters
   };
 
   const battingGrid = [
