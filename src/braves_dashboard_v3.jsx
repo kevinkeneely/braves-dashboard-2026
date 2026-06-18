@@ -2851,8 +2851,11 @@ function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
             <span style={{fontSize:9, color:T.textMuted, fontWeight:700, letterSpacing:"0.08em"}}>{player.pos || player.role || "P"}</span>
             <span style={{
               fontSize:8.5, fontWeight:800, letterSpacing:"0.1em",
-              color:tier.color, border:`1px solid ${tier.border}`, borderRadius:4,
-              padding:"1px 5px", background:"rgba(0,0,0,0.15)",
+              color: T === THEME.dark ? tier.color : "#fff",
+              border:`1px solid ${T === THEME.dark ? tier.border : BRAND.red}`,
+              borderRadius:4,
+              padding:"1px 5px",
+              background: T === THEME.dark ? "rgba(0,0,0,0.15)" : BRAND.red,
             }}>{tier.label}</span>
           </div>
         </div>
