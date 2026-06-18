@@ -136,9 +136,9 @@
      { date:"Fri, Jun 12", opp:"Mets",        home:false, result:"L", score:"5-7", record:"45-24"},
      { date:"Sat, Jun 13", opp:"Mets",        home:false, result:"W", score:"3-1", record:"46-24"},
      { date:"Sun, Jun 14", opp:"Mets",        home:false, result:"L", score:"1-8", record:"46-25"},
+     { date:"Tue, Jun 16", opp:"San Francisco",   home:true, result:"L", score:"2-7", record:"46-26"},
+     { date:"Wed, Jun 17", opp:"San Francisco",   home:true, result:"L", score:"5-7", record:"46-27"},
       // Upcoming
-     { date:"Tue, Jun 16", opp:"San Francisco",   home:true,},
-     { date:"Wed, Jun 17", opp:"San Francisco",   home:true,},
      { date:"Thu, Jun 18", opp:"San Francisco",   home:true,},
      { date:"Fri, Jun 19", opp:"Milwaukee",   home:true,},
      { date:"Sat, Jun 20", opp:"Milwaukee",   home:true,},
@@ -173,7 +173,7 @@
      xera: "3.70",
      xfip: "3.98",
      whip: "1.19",
-     gb: "41.2%",
+     gb: "41.3%",
      pitchingKBB: "14.5%",
      siera: "3.89",
      battingK: "20.8%",
@@ -194,10 +194,10 @@
      batSwStr: "10.9%",
      batCStr: "14.9%",
      batCSW: "25.7%",
-     batChase: "33.6%",
+     batChase: "33.5%",
      batWhiff: "24.6%",
      chase: "30.9%",
-     whiff: "26.6%",
+     whiff: "26.4%",
    };
    
 export const hitters = [
