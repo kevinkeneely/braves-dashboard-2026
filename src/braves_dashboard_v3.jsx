@@ -1340,11 +1340,13 @@ function CarouselCard({T, kind, data, selected, onClick}) {
       {/* Top: tier badge */}
       <div style={{
         position:"absolute", top:6, left:6,
-        background: `linear-gradient(135deg, ${tier.bg1}, ${tier.bg2})`,
-        border:`1px solid ${tier.border}`,
+        background: T === THEME.dark
+          ? `linear-gradient(135deg, ${tier.bg1}, ${tier.bg2})`
+          : `linear-gradient(135deg, ${BRAND.red}, ${BRAND.redGlow || BRAND.red})`,
+        border:`1px solid ${T === THEME.dark ? tier.border : BRAND.red}`,
         borderRadius:4, padding:"2px 6px",
         fontSize:8, fontWeight:800, letterSpacing:"0.12em",
-        color:tier.color,
+        color: T === THEME.dark ? tier.color : "#fff",
       }}>{tier.label}</div>
 
       {/* Avatar — headshot if available, otherwise initials */}
@@ -1376,7 +1378,7 @@ function CarouselCard({T, kind, data, selected, onClick}) {
       <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:4, marginTop:"auto", paddingTop:6, borderTop:`1px solid ${T.borderFaint}`}}>
         {stats.map(s => (
           <div key={s.label}>
-            <div style={{fontSize:11.5, fontWeight:800, color:BRAND.goldBright, fontFamily:"'JetBrains Mono',monospace", lineHeight:1.1}}>{s.value}</div>
+          <div style={{fontSize:11.5, fontWeight:800, color: T === THEME.dark ? BRAND.goldBright : T.text, fontFamily:"'JetBrains Mono',monospace", lineHeight:1.1}}>{s.value}</div>
             <div style={{fontSize:8, color:T.textFaint, fontWeight:600, letterSpacing:"0.08em"}}>{s.label}</div>
           </div>
         ))}
