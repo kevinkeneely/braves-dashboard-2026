@@ -2205,7 +2205,7 @@ function PitcherStatBoxes({T, d, sc}) {
           <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.1%" heatRef={leagueRef("whiff")}/>
           <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.1%" heatRef={leagueRef("csw")}/>
           <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.5%" heatRef={leagueRef("gbpct")}/>
-          <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 89.0 mph"      heatRef={leagueRef("ev", true)}/>
+          <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 88.9 mph"      heatRef={leagueRef("ev", true)}/>
         </div>
         <WarProgressionCard T={T} d={d} isHitter={false}/>
       </>
