@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "June 18, 2026";
+   export const lastUpdated = "June 19, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -201,7 +201,7 @@
    };
    
 export const hitters = [
-     // Updated June 15, 2026 — RISP, High Leverage, vsL/vsR splits all refreshed from FanGraphs; season totals + Savant held from June 18
+     // Updated June 19, 2026 — RISP, High Leverage, vsL/vsR splits all refreshed from FanGraphs; season totals + Savant held from June 19
      { name:"Ronald Acuña Jr.", pos:"RF", pa:236, avg:".251", obp:".373", slg:".421", ops:".793", hr:7, rbi:22, r:31, h:49, doubles:10, triples:1, sb:15, bbpct:"14.8%", kpct:"22.0%", war:0.9, war2:0.9, wrc:123, woba:".352", xwoba:".379", oaa:-4, frv:-4, batSpeed:76.0, squaredUp:"21.3%", fastSwing:"62.3%", laSwSp:"32.4%", idealAttack:"53.8%", armValue:null, armStrength:93.1, abs:{netOvr:-2.5, netRuns:-0.6, chal:16, won:7, lost:9, wonPct:"44%", chalRate:"14.4%", xChalRate:"6.2%", rateVsExp:"+8.2%"}, splits:{vsL:{pa:81,r:12,h:12,hr:1,rbi:1,avg:".179",obp:".321",slg:".313",ops:".634",wrc:82,woba:".291",iso:".134",bbpct:"16.0%",kpct:"29.6%",babip:".262"}, vsR:{pa:155,r:19,h:37,hr:6,rbi:21,avg:".289",obp:".400",slg:".477",ops:".877",wrc:146,woba:".385",iso:".188",bbpct:"14.2%",kpct:"18.1%",babip:".323"}, risp:{pa:41,r:1,h:7,hr:1,rbi:14,avg:".250",obp:".439",slg:".393",ops:".832",wrc:131,woba:".363",iso:".143",bbpct:"22.0%",kpct:"19.5%",babip:".286"}, highLeverage:{pa:14,r:8,h:2,hr:0,rbi:1,avg:".222",obp:".500",slg:".222",ops:".722",wrc:143,woba:".380",iso:".000",bbpct:"28.6%",kpct:"14.3%",babip:".286"}}},
      { name:"Drake Baldwin", pos:"C", pa:226, avg:".298", obp:".381", slg:".540", ops:".921", hr:14, rbi:39, r:41, h:59, doubles:6, triples:0, sb:1, bbpct:"10.6%", kpct:"21.7%", war:2.3, war2:2.1, wrc:155, woba:".398", xwoba:".418", oaa:null, frv:-1, batSpeed:75.0, squaredUp:"26.3%", fastSwing:"52.7%", laSwSp:"42.1%", idealAttack:"49.1%", avgPop:1.93, armValue:null, armStrength:null, abs:{netOvr:0.5, netRuns:0.2, chal:1, won:1, lost:0, wonPct:"100%", chalRate:"1.0%", xChalRate:"3.8%", rateVsExp:"-2.8%"}, absCatch:{netOvr:12.6, netRuns:0.5, chal:27, won:20, lost:7, wonPct:"74%", chalRate:"2.0%", xChalRate:"2.1%", rateVsExp:"-0.1%"}, splits:{vsL:{pa:92,r:18,h:26,hr:7,rbi:16,avg:".321",obp:".402",slg:".605",ops:"1.007",wrc:179,woba:".434",iso:".284",bbpct:"9.8%",kpct:"17.4%",babip:".328"}, vsR:{pa:134,r:23,h:33,hr:7,rbi:23,avg:".282",obp:".366",slg:".496",ops:".861",wrc:138,woba:".373",iso:".214",bbpct:"11.2%",kpct:"24.6%",babip:".333"}, risp:{pa:56,r:0,h:16,hr:0,rbi:24,avg:".340",obp:".429",slg:".447",ops:".875",wrc:144,woba:".383",iso:".106",bbpct:"14.3%",kpct:"16.1%",babip:".410"}, highLeverage:{pa:12,r:11,h:4,hr:0,rbi:7,avg:".364",obp:".417",slg:".455",ops:".871",wrc:147,woba:".387",iso:".091",bbpct:"8.3%",kpct:"8.3%",babip:".400"}}},
      { name:"Matt Olson", pos:"1B", pa:321, avg:".276", obp:".346", slg:".552", ops:".898", hr:20, rbi:51, r:52, h:79, doubles:19, triples:0, sb:2, bbpct:"9.7%", kpct:"22.7%", war:3.2, war2:2.7, wrc:144, woba:".382", xwoba:".373", oaa:6, frv:5, batSpeed:74.9, squaredUp:"24.3%", fastSwing:"51.0%", laSwSp:"33.5%", idealAttack:"54.0%", armValue:null, armStrength:82.3, abs:{netOvr:1.3, netRuns:0.2, chal:7, won:2, lost:5, wonPct:"29%", chalRate:"3.9%", xChalRate:"3.1%", rateVsExp:"+0.7%"}, splits:{vsL:{pa:140,r:23,h:35,hr:8,rbi:20,avg:".278",obp:".343",slg:".548",ops:".890",wrc:143,woba:".382",iso:".270",bbpct:"8.6%",kpct:"20.7%",babip:".300"}, vsR:{pa:181,r:29,h:44,hr:12,rbi:31,avg:".275",obp:".348",slg:".556",ops:".904",wrc:144,woba:".383",iso:".281",bbpct:"10.5%",kpct:"24.3%",babip:".302"}, risp:{pa:80,r:2,h:15,hr:2,rbi:25,avg:".231",obp:".338",slg:".415",ops:".753",wrc:102,woba:".320",iso:".185",bbpct:"15.0%",kpct:"22.5%",babip:".271"}, highLeverage:{pa:30,r:14,h:6,hr:3,rbi:9,avg:".231",obp:".300",slg:".577",ops:".877",wrc:124,woba:".353",iso:".346",bbpct:"10.0%",kpct:"30.0%",babip:".200"}}},
@@ -242,10 +242,10 @@ export const starters = [
    
    export const standings = [
      { team:"ATL", full:"Atlanta Braves",       w:46,l:27,pct:".630",gb:"—", home:"22-13",away:"24-14", rs:366, ra:266, diff:+100, strk:"L3", l10:"4-6", highlight:true,  srs:1.3 },
-     { team:"PHI", full:"Philadelphia Phillies", w:40,l:34,pct:".541",gb:"6.5", home:"21-18",away:"19-16", rs:304, ra:322, diff:-18, strk:"L1", l10:"6-4", highlight:false, srs:-0.2 },
+     { team:"PHI", full:"Philadelphia Phillies", w:40,l:35,pct:".533",gb:"7.0", home:"21-19",away:"19-16", rs:308, ra:328, diff:-20, strk:"L2", l10:"5-5", highlight:false, srs:-0.2 },
      { team:"WSN", full:"Washington Nationals", w:39,l:36,pct:".520",gb:"8.0", home:"16-22",away:"23-14", rs:407, ra:392, diff:+15, strk:"L1", l10:"6-4", highlight:false, srs:0.4 },
      { team:"MIA", full:"Miami Marlins",        w:37,l:38,pct:".493",gb:"10.0", home:"23-16",away:"14-22", rs:324, ra:329, diff:-5, strk:"W1", l10:"7-3", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:33,l:41,pct:".446",gb:"13.5", home:"18-18",away:"15-23", rs:300, ra:317, diff:-17, strk:"W1", l10:"5-5", highlight:false, srs:-0.3 },
+     { team:"NYM", full:"New York Mets",        w:34,l:41,pct:".453",gb:"13.0", home:"18-18",away:"16-23", rs:306, ra:321, diff:-15, strk:"W2", l10:"5-5", highlight:false, srs:-0.3 },
    ];
    
 export const statcastHitters = [
