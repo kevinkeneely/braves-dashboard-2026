@@ -309,3 +309,66 @@ export const statcastPitchers = [
      { week:"G66", "Elder":1.6,"Sale":1.9,"D.Lee":1.0,"Iglesias":0.9,"Suarez":0.7,"Fuentes":0.7,"Pérez":0.6,"Holmes":0.1,"Kinley":0.1,"López":0.0,"Strider":0.3,"Ritchie":-0.2,"Dodd":0.3 },
      { week:"G73", "Elder":1.5,"Sale":2.2,"D.Lee":1.1,"Iglesias":0.8,"Suarez":0.8,"Fuentes":0.8,"Pérez":0.8,"Holmes":0.0,"Kinley":0.1,"López":0.0,"Strider":0.0,"Ritchie":-0.4,"Dodd":0.0 },
    ];
+
+// =====================================================================
+// COMPOSITE METRICS — append to bottom of bravesData.js
+// Adds h.truHit (hitters) and p.truArm (pitchers) to every player.
+// 100 = league avg · 115 = good · 130 = elite · 70 = poor
+// =====================================================================
+
+// League average constants (2026 MLB approximations)
+const LG = {
+  wrc:    100,   sd_wrc:    30,
+  xwoba:  0.315, sd_xwoba:  0.040,
+  barrel: 7.5,   sd_barrel: 4.0,
+  chase:  28.5,  sd_chase:  5.0,
+  siera:  4.10,  sd_siera:  0.75,
+  kbb:    14.0,  sd_kbb:    5.0,
+  csw:    30.0,  sd_csw:    3.0,
+};
+
+// Weights — the four/three-axis design
+const W_HIT = { wrc: 0.35, xwoba: 0.30, barrel: 0.20, chase: 0.15 };
+const W_ARM = { siera: 0.50, kbb: 0.30, csw: 0.20 };
+
+const _pct = (s) => { if (s == null) return null; const n = parseFloat(String(s).replace("%","")); return isNaN(n) ? null : n; };
+const _avg = (s) => { if (s == null) return null; const n = parseFloat(s); return isNaN(n) ? null : n; };
+const _z   = (v, m, sd) => (v - m) / sd;
+
+// Lookup statcast row by name (only needed for barrel% and chase%)
+const _SCH = Object.fromEntries(statcastHitters.map(h => [h.name, h]));
+
+export function computeTruHit(h) {
+  const sc = _SCH[h.name];
+  if (!sc) return null;
+  const wrc    = h.wrc;
+  const xwoba  = _avg(h.xwoba) ?? _avg(sc.xwoba);
+  const barrel = _pct(sc.barrel);
+  const chase  = _pct(sc.chase);
+  if (wrc == null || xwoba == null || barrel == null || chase == null) return null;
+  const composite =
+      W_HIT.wrc    * _z(wrc,    LG.wrc,    LG.sd_wrc)
+    + W_HIT.xwoba  * _z(xwoba,  LG.xwoba,  LG.sd_xwoba)
+    + W_HIT.barrel * _z(barrel, LG.barrel, LG.sd_barrel)
+    - W_HIT.chase  * _z(chase,  LG.chase,  LG.sd_chase); // invert: lower chase = better
+  // 100-centered, 15 per composite SD → 130 ≈ elite, 70 ≈ poor
+  return Math.round(100 + composite * 15);
+}
+
+export function computeTruArm(p) {
+  const siera = _avg(p.siera);
+  const k     = _pct(p.kpct);
+  const bb    = _pct(p.bbpct);
+  const csw   = _pct(p.csw);
+  if (siera == null || k == null || bb == null || csw == null) return null;
+  const kbb = k - bb;
+  const composite =
+    - W_ARM.siera * _z(siera, LG.siera, LG.sd_siera)   // invert: lower SIERA = better
+    + W_ARM.kbb   * _z(kbb,   LG.kbb,   LG.sd_kbb)
+    + W_ARM.csw   * _z(csw,   LG.csw,   LG.sd_csw);
+  return Math.round(100 + composite * 15);
+}
+
+// Attach so every player has the field — sortable / heatable like any other stat
+hitters.forEach(h  => { h.truHit = computeTruHit(h); });
+pitchers.forEach(p => { p.truArm = computeTruArm(p); });
