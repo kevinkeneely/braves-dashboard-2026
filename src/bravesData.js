@@ -371,4 +371,5 @@ export function computeTruArm(p) {
 
 // Attach so every player has the field — sortable / heatable like any other stat
 hitters.forEach(h  => { h.truHit = computeTruHit(h); });
-pitchers.forEach(p => { p.truArm = computeTruArm(p); });
+starters.forEach(p => { p.truArm = computeTruArm(p); });
+bullpen.forEach(p  => { p.truArm = computeTruArm(p); });
