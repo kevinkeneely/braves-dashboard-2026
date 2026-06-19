@@ -864,6 +864,7 @@ const sortOptions = [
     { key:"bbpct", label:"BB%"  },
     { key:"kpct",  label:"K%"   },
     { key:"oaa",   label:"OAA"  },
+    { key: "truHit", label: "TruHit+" },
   ];
   return (
     <>
@@ -975,6 +976,7 @@ function RightRail({T, pitchers, allCount, roleFilter, setRoleFilter, sort, setS
     { key:"swstr", label:"SwStr%"  },
     { key:"cstr",  label:"CStr%"   },
     { key:"csw",   label:"CSW%"    },
+    { key: "truArm", label: "TruArm+" },
   ];
   return (
     <>
