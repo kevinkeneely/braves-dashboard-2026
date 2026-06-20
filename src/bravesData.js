@@ -315,66 +315,88 @@ export const statcastPitchers = [
      { week:"G73", "Elder":1.5,"Sale":2.2,"D.Lee":1.1,"Iglesias":0.8,"Suarez":0.8,"Fuentes":0.8,"Pérez":0.8,"Holmes":0.0,"Kinley":0.1,"López":0.0,"Strider":0.0,"Ritchie":-0.4,"Dodd":0.0 },
    ];
 
-// =====================================================================
-// COMPOSITE METRICS — append to bottom of bravesData.js
-// Adds h.trackerHit (hitters) and p.trackerArm (pitchers) to every player.
-// 100 = league avg · 115 = good · 130 = elite · 70 = poor
-// =====================================================================
+// ════════════════════════════════════════════════════════════════════════════
+// TrackerHit+ / TrackerArm+ — Composite performance metrics
+// Updated June 20, 2026 — expanded variable sets
+//   Hitters:  wRC+ (30) · xwOBA (22) · Barrel% (16) · EV (12) · LA SwSp% (10) · Squared-Up% (10)
+//   Pitchers: SIERA inv (32) · K-BB% (24) · xwOBA inv (18) · CSW% (14) · EV inv (12)
+// 100-centered, 15 points per pooled standard deviation. Recalibrate league
+// constants at season end from Baseball Savant / FanGraphs MLB-wide leaderboards.
+// ════════════════════════════════════════════════════════════════════════════
 
-// League average constants (2026 MLB approximations)
-const LG = {
-  wrc:    100,   sd_wrc:    30,
-  xwoba:  0.315, sd_xwoba:  0.040,
-  barrel: 7.5,   sd_barrel: 4.0,
-  chase:  28.5,  sd_chase:  5.0,
-  siera:  4.10,  sd_siera:  0.75,
-  kbb:    14.0,  sd_kbb:    5.0,
-  csw:    30.0,  sd_csw:    3.0,
+const _pct = (v) => (typeof v === "string" ? parseFloat(v.replace("%","")) : Number(v));
+const _num = (v) => (typeof v === "string" ? parseFloat(v.replace(/[^\d.\-]/g,"")) : Number(v));
+const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
+
+// ─── League constants ──────────────────────────────────────────────────────
+const LG_HIT = {
+  wrc:       { mean: 100,   sd: 20    },
+  xwoba:     { mean: 0.320, sd: 0.030 },
+  barrel:    { mean: 8.0,   sd: 4.0   },
+  ev:        { mean: 88.7,  sd: 2.0   },
+  laSwSp:    { mean: 33.0,  sd: 4.0   },
+  squaredUp: { mean: 33.0,  sd: 3.0   },
+};
+const W_HIT = {
+  wrc: 0.30, xwoba: 0.22, barrel: 0.16, ev: 0.12, laSwSp: 0.10, squaredUp: 0.10,
 };
 
-// Weights — the four/three-axis design
-const W_HIT = { wrc: 0.35, xwoba: 0.30, barrel: 0.20, chase: 0.15 };
-const W_ARM = { siera: 0.50, kbb: 0.30, csw: 0.20 };
+const LG_PIT = {
+  siera: { mean: 4.00,  sd: 0.50  },   // inverted (lower = better)
+  kbb:   { mean: 15.0,  sd: 5.0   },
+  xwoba: { mean: 0.320, sd: 0.030 },   // inverted (lower allowed = better)
+  csw:   { mean: 29.0,  sd: 3.0   },
+  ev:    { mean: 88.7,  sd: 2.0   },   // inverted (lower allowed = better)
+};
+const W_PIT = {
+  siera: 0.32, kbb: 0.24, xwoba: 0.18, csw: 0.14, ev: 0.12,
+};
 
-const _pct = (s) => { if (s == null) return null; const n = parseFloat(String(s).replace("%","")); return isNaN(n) ? null : n; };
-const _avg = (s) => { if (s == null) return null; const n = parseFloat(s); return isNaN(n) ? null : n; };
-const _z   = (v, m, sd) => (v - m) / sd;
+// ─── Lookup tables ─────────────────────────────────────────────────────────
+const _scHitterByName  = Object.fromEntries(statcastHitters.map(s => [s.name, s]));
+const _scPitcherByName = Object.fromEntries(statcastPitchers.map(s => [s.name, s]));
 
-// Lookup statcast row by name (only needed for barrel% and chase%)
-const _SCH = Object.fromEntries(statcastHitters.map(h => [h.name, h]));
+// ─── Compute TrackerHit+ for a hitter ──────────────────────────────────────
+const _computeTrackerHit = (h) => {
+  const sc = _scHitterByName[h.name] || {};
+  const wrc       = Number(h.wrc);
+  const xwoba     = _num(h.xwoba ?? sc.xwoba);
+  const barrel    = _pct(sc.barrel);
+  const ev        = _num(sc.ev);
+  const laSwSp    = _pct(h.laSwSp);
+  const squaredUp = _pct(h.squaredUp);
+  if ([wrc, xwoba, barrel, ev, laSwSp, squaredUp].some(v => !isFinite(v))) return null;
+  const z =
+      W_HIT.wrc       * _z(wrc,       LG_HIT.wrc.mean,       LG_HIT.wrc.sd)
+    + W_HIT.xwoba     * _z(xwoba,     LG_HIT.xwoba.mean,     LG_HIT.xwoba.sd)
+    + W_HIT.barrel    * _z(barrel,    LG_HIT.barrel.mean,    LG_HIT.barrel.sd)
+    + W_HIT.ev        * _z(ev,        LG_HIT.ev.mean,        LG_HIT.ev.sd)
+    + W_HIT.laSwSp    * _z(laSwSp,    LG_HIT.laSwSp.mean,    LG_HIT.laSwSp.sd)
+    + W_HIT.squaredUp * _z(squaredUp, LG_HIT.squaredUp.mean, LG_HIT.squaredUp.sd);
+  return Math.round(100 + 15 * z);
+};
 
-export function computeTrackerHit(h) {
-  const sc = _SCH[h.name];
-  if (!sc) return null;
-  const wrc    = h.wrc;
-  const xwoba  = _avg(h.xwoba) ?? _avg(sc.xwoba);
-  const barrel = _pct(sc.barrel);
-  const chase  = _pct(sc.chase);
-  if (wrc == null || xwoba == null || barrel == null || chase == null) return null;
-  const composite =
-      W_HIT.wrc    * _z(wrc,    LG.wrc,    LG.sd_wrc)
-    + W_HIT.xwoba  * _z(xwoba,  LG.xwoba,  LG.sd_xwoba)
-    + W_HIT.barrel * _z(barrel, LG.barrel, LG.sd_barrel)
-    - W_HIT.chase  * _z(chase,  LG.chase,  LG.sd_chase); // invert: lower chase = better
-  // 100-centered, 15 per composite SD → 130 ≈ elite, 70 ≈ poor
-  return Math.round(100 + composite * 15);
-}
-
-export function computeTrackerArm(p) {
-  const siera = _avg(p.siera);
-  const k     = _pct(p.kpct);
-  const bb    = _pct(p.bbpct);
+// ─── Compute TrackerArm+ for a pitcher ─────────────────────────────────────
+const _computeTrackerArm = (p) => {
+  const sc = _scPitcherByName[p.name] || {};
+  const siera = _num(p.siera);
+  const kpct  = _pct(p.kpct);
+  const bbpct = _pct(p.bbpct);
+  const kbb   = kpct - bbpct;
+  const xwoba = _num(sc.xwoba);
   const csw   = _pct(p.csw);
-  if (siera == null || k == null || bb == null || csw == null) return null;
-  const kbb = k - bb;
-  const composite =
-    - W_ARM.siera * _z(siera, LG.siera, LG.sd_siera)   // invert: lower SIERA = better
-    + W_ARM.kbb   * _z(kbb,   LG.kbb,   LG.sd_kbb)
-    + W_ARM.csw   * _z(csw,   LG.csw,   LG.sd_csw);
-  return Math.round(100 + composite * 15);
-}
+  const ev    = _num(sc.ev);
+  if ([siera, kbb, xwoba, csw, ev].some(v => !isFinite(v))) return null;
+  const z =
+      W_PIT.siera * -_z(siera, LG_PIT.siera.mean, LG_PIT.siera.sd)   // inverted
+    + W_PIT.kbb   *  _z(kbb,   LG_PIT.kbb.mean,   LG_PIT.kbb.sd)
+    + W_PIT.xwoba * -_z(xwoba, LG_PIT.xwoba.mean, LG_PIT.xwoba.sd)   // inverted
+    + W_PIT.csw   *  _z(csw,   LG_PIT.csw.mean,   LG_PIT.csw.sd)
+    + W_PIT.ev    * -_z(ev,    LG_PIT.ev.mean,    LG_PIT.ev.sd);     // inverted
+  return Math.round(100 + 15 * z);
+};
 
-// Attach so every player has the field — sortable / heatable like any other stat
-hitters.forEach(h  => { h.trackerHit = computeTrackerHit(h); });
-starters.forEach(p => { p.trackerArm = computeTrackerArm(p); });
-bullpen.forEach(p  => { p.trackerArm = computeTrackerArm(p); });
+// ─── Attach to player objects ──────────────────────────────────────────────
+hitters.forEach(h => { h.trackerHit = _computeTrackerHit(h); });
+starters.forEach(p => { p.trackerArm = _computeTrackerArm(p); });
+bullpen.forEach(p => { p.trackerArm = _computeTrackerArm(p); });
