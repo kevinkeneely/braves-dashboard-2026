@@ -317,7 +317,7 @@ export const statcastPitchers = [
 
 // =====================================================================
 // COMPOSITE METRICS — append to bottom of bravesData.js
-// Adds h.truHit (hitters) and p.truArm (pitchers) to every player.
+// Adds h.trackerHit (hitters) and p.trackerArm (pitchers) to every player.
 // 100 = league avg · 115 = good · 130 = elite · 70 = poor
 // =====================================================================
 
@@ -343,7 +343,7 @@ const _z   = (v, m, sd) => (v - m) / sd;
 // Lookup statcast row by name (only needed for barrel% and chase%)
 const _SCH = Object.fromEntries(statcastHitters.map(h => [h.name, h]));
 
-export function computeTruHit(h) {
+export function computeTrackerHit(h) {
   const sc = _SCH[h.name];
   if (!sc) return null;
   const wrc    = h.wrc;
@@ -360,7 +360,7 @@ export function computeTruHit(h) {
   return Math.round(100 + composite * 15);
 }
 
-export function computeTruArm(p) {
+export function computeTrackerArm(p) {
   const siera = _avg(p.siera);
   const k     = _pct(p.kpct);
   const bb    = _pct(p.bbpct);
@@ -375,6 +375,6 @@ export function computeTruArm(p) {
 }
 
 // Attach so every player has the field — sortable / heatable like any other stat
-hitters.forEach(h  => { h.truHit = computeTruHit(h); });
-starters.forEach(p => { p.truArm = computeTruArm(p); });
-bullpen.forEach(p  => { p.truArm = computeTruArm(p); });
+hitters.forEach(h  => { h.truHit = computeTrackerHit(h); });
+starters.forEach(p => { p.truArm = computeTrackerArm(p); });
+bullpen.forEach(p  => { p.truArm = computeTrackerArm(p); });
