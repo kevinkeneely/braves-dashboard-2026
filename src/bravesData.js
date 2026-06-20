@@ -50,6 +50,8 @@
       //   - Didier Fuentes
       //   - Reynaldo López
       //   - Dylan Dodd
+      //   - James Karinchak
+      //   - Carlos Carrasco
       ───────────────────────────────────────────────────────────────────────────
       QUICK CHECK before saving:
       • Did you keep quotes on rate stats?   avg:".271"   kpct:"11.8%"
