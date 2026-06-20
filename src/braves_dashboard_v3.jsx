@@ -476,13 +476,14 @@ export default function BravesDashboardV2() {
       {/* ═══ THREE-COLUMN LAYOUT: LEFT RAIL · CENTER · RIGHT RAIL ════════ */}
       <div style={{
         display:"grid",
-        gridTemplateColumns:"260px 1fr 260px",
+        gridTemplateColumns: tab === "Splits" ? "1fr" : "260px 1fr 260px",
         gap:12,
         padding:"12px 16px 32px 16px",
         position:"relative",
         zIndex:1,
       }} className="brv-grid">
         {/* Left rail */}
+        {tab !== "Splits" && (
         <aside className="brv-left" style={{
           ...navyGloss(T),
           borderRadius:14, padding:10,
@@ -497,6 +498,7 @@ export default function BravesDashboardV2() {
             onSelect={(h) => setSelectedPlayer({kind:"hitter", data:h})}
           />
         </aside>
+        )}
 
         {/* Center */}
         <main className="brv-center" style={{ minWidth:0, display:"flex", flexDirection:"column", gap:12 }}>
@@ -521,6 +523,7 @@ export default function BravesDashboardV2() {
         </main>
 
         {/* Right rail */}
+        {tab !== "Splits" && (
         <aside className="brv-right" style={{
           ...navyGloss(T),
           borderRadius:14, padding:10,
@@ -535,6 +538,7 @@ export default function BravesDashboardV2() {
             onSelect={(p) => setSelectedPlayer({kind:"pitcher", data:p})}
           />
         </aside>
+        )}
       </div>
 
       {/* Mobile drawer overlays */}
