@@ -1084,6 +1084,7 @@ const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harr
 const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
   "Chadwick Tromp",
+  "Sandy León",
   "James Karinchak",
   "Carlos Carrasco",
 ]);
