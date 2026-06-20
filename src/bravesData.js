@@ -140,9 +140,8 @@
      { date:"Sun, Jun 14", opp:"Mets",        home:false, result:"L", score:"1-8", record:"46-25"},
      { date:"Tue, Jun 16", opp:"San Francisco",   home:true, result:"L", score:"2-7", record:"46-26"},
      { date:"Wed, Jun 17", opp:"San Francisco",   home:true, result:"L", score:"5-7", record:"46-27"},
+     { date:"Fri, Jun 19", opp:"Milwaukee",   home:true, result:"W", score:"3-2", record:"47-27"},
       // Upcoming
-     { date:"Thu, Jun 18", opp:"San Francisco",   home:true,},
-     { date:"Fri, Jun 19", opp:"Milwaukee",   home:true,},
      { date:"Sat, Jun 20", opp:"Milwaukee",   home:true,},
      { date:"Sun, Jun 21", opp:"Milwaukee",   home:true,},
      { date:"Mon, Jun 22", opp:"San Diego",   home:false,},
