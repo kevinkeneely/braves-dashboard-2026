@@ -1081,7 +1081,12 @@ const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harr
 
 /* Players to hide from the visible UI. Their data still lives in the arrays so
    they can be restored instantly, but every rendered surface filters through this. */
-const HIDDEN_PLAYERS = new Set(["Sean Murphy", "Chadwick Tromp"]);
+const HIDDEN_PLAYERS = new Set([
+  "Sean Murphy",
+  "Chadwick Tromp",
+  "James Karinchak",
+  "Carlos Carrasco",
+]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
 const visiblePitchers = [...starters, ...bullpen].filter(p => !isHidden(p.name));
