@@ -1083,6 +1083,7 @@ const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harr
    they can be restored instantly, but every rendered surface filters through this. */
 const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
+  "Spencer Strider",
   "Chadwick Tromp",
   "Sandy León",
   "James Karinchak",
