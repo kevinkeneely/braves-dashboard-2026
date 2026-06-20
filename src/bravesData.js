@@ -375,6 +375,6 @@ export function computeTrackerArm(p) {
 }
 
 // Attach so every player has the field — sortable / heatable like any other stat
-hitters.forEach(h  => { h.truHit = computeTrackerHit(h); });
-starters.forEach(p => { p.truArm = computeTrackerArm(p); });
-bullpen.forEach(p  => { p.truArm = computeTrackerArm(p); });
+hitters.forEach(h  => { h.trackerHit = computeTrackerHit(h); });
+starters.forEach(p => { p.trackerArm = computeTrackerArm(p); });
+bullpen.forEach(p  => { p.trackerArm = computeTrackerArm(p); });
