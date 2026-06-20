@@ -42,7 +42,7 @@
       //   - Grant Holmes
       //   - JR Ritchie
    
-      BULLPEN (7):
+      BULLPEN (9):
       //   - Raisel Iglesias
       //   - Dylan Lee
       //   - Robert Suarez
