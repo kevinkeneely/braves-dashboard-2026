@@ -319,7 +319,7 @@ export const statcastPitchers = [
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
 // Updated June 20, 2026 — expanded variable sets
 //   Hitters:  wRC+ (30) · xwOBA (22) · Barrel% (16) · EV (12) · LA SwSp% (10) · Squared-Up% (10)
-//   Pitchers: SIERA inv (32) · K-BB% (24) · xwOBA inv (18) · CSW% (14) · EV inv (12)
+//   Pitchers: SIERA inv (32) · K-BB% (24) · xwOBA inv (18) · SwStr% (14) · EV inv (12)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
 // constants at season end from Baseball Savant / FanGraphs MLB-wide leaderboards.
 // ════════════════════════════════════════════════════════════════════════════
@@ -345,11 +345,11 @@ const LG_PIT = {
   siera: { mean: 4.00,  sd: 0.50  },   // inverted (lower = better)
   kbb:   { mean: 15.0,  sd: 5.0   },
   xwoba: { mean: 0.320, sd: 0.030 },   // inverted (lower allowed = better)
-  csw:   { mean: 29.0,  sd: 3.0   },
+  swstr: { mean: 10.6,  sd: 1.5   },
   ev:    { mean: 88.7,  sd: 2.0   },   // inverted (lower allowed = better)
 };
 const W_PIT = {
-  siera: 0.32, kbb: 0.24, xwoba: 0.18, csw: 0.14, ev: 0.12,
+  siera: 0.32, kbb: 0.24, xwoba: 0.18, swstr: 0.14, ev: 0.12,
 };
 
 // ─── Lookup tables ─────────────────────────────────────────────────────────
@@ -384,14 +384,14 @@ const _computeTrackerArm = (p) => {
   const bbpct = _pct(p.bbpct);
   const kbb   = kpct - bbpct;
   const xwoba = _num(sc.xwoba);
-  const csw   = _pct(p.csw);
+  const swstr = _pct(p.swstr);
   const ev    = _num(sc.ev);
-  if ([siera, kbb, xwoba, csw, ev].some(v => !isFinite(v))) return null;
+  if ([siera, kbb, xwoba, swstr, ev].some(v => !isFinite(v))) return null;
   const z =
       W_PIT.siera * -_z(siera, LG_PIT.siera.mean, LG_PIT.siera.sd)   // inverted
     + W_PIT.kbb   *  _z(kbb,   LG_PIT.kbb.mean,   LG_PIT.kbb.sd)
     + W_PIT.xwoba * -_z(xwoba, LG_PIT.xwoba.mean, LG_PIT.xwoba.sd)   // inverted
-    + W_PIT.csw   *  _z(csw,   LG_PIT.csw.mean,   LG_PIT.csw.sd)
+    + W_PIT.swstr *  _z(swstr,   LG_PIT.swstr.mean,   LG_PIT.swstr.sd)
     + W_PIT.ev    * -_z(ev,    LG_PIT.ev.mean,    LG_PIT.ev.sd);     // inverted
   return Math.round(100 + 15 * z);
 };
