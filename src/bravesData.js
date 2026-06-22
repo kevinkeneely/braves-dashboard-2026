@@ -350,7 +350,7 @@ const LG_PIT = {
   ev:    { mean: 88.7,  sd: 2.0   },   // inverted (lower allowed = better)
 };
 const W_PIT = {
-  siera: 0.26, kbb: 0.22, whip: 0.18, xwoba: 0.14, swstr: 0.12, ev: 0.08,
+  siera: 0.26, kbb: 0.24, whip: 0.20, xwoba: 0.12, swstr: 0.10, ev: 0.08,
 };
 
 // ─── Lookup tables ─────────────────────────────────────────────────────────
