@@ -317,9 +317,9 @@ export const statcastPitchers = [
 
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
-// Updated June 20, 2026
-//   Hitters:  wRC+ (30) · xwOBA (22) · Barrel% (16) · EV (12) · LA SwSp% (10) · Squared-Up% (10)
-//   Pitchers: SIERA inv (27) · K-BB% (22) · WHIP inv (18) · xwOBA inv (14) · SwStr% (12) · EV inv (8)
+// Updated June 22, 2026
+//   Hitters:  wRC+ (30) · xwOBA (24) · Barrel% (10) · EV (08) · LA SwSp% (16) · Squared-Up% (12)
+//   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) · SwStr% (10) · EV inv (8)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
 // constants at season end from Baseball Savant / FanGraphs MLB-wide leaderboards.
 // ════════════════════════════════════════════════════════════════════════════
