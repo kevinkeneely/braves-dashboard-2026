@@ -338,7 +338,7 @@ const LG_HIT = {
   squaredUp: { mean: 33.0,  sd: 3.0   },
 };
 const W_HIT = {
-  wrc: 0.30, xwoba: 0.22, barrel: 0.16, ev: 0.12, laSwSp: 0.10, squaredUp: 0.10,
+  wrc: 0.30, xwoba: 0.24, laSwSp: 0.16, squaredup: 0.12, barrel: 0.10, ev: 0.08,
 };
 
 const LG_PIT = {
