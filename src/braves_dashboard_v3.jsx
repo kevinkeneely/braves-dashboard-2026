@@ -2907,7 +2907,7 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose}) {
 }
 
 function SplitsTab({T, mode}) {
-  const splitsHitters = hitters.filter(h => h.name !== "Sean Murphy" && h.name !== "Chadwick Tromp");
+  const splitsHitters = hitters.filter(h => !HIDDEN_PLAYERS.has(h.name));
   // Which card is expanded in place. Keyed by section + name so the same
   // hitter can be open in the RISP grid without expanding in the HL grid.
   const [expanded, setExpanded] = useState(null);
