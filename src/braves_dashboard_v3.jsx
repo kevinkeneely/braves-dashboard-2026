@@ -3004,6 +3004,8 @@ function TeamStatsTab({T}) {
     teamBatCSW:   { mean: 27.1,  spread: 1.8, invert:true }, // lower CSW% = better for hitters
     teamBatChase: { mean: 30.1,  spread: 3.5, invert:true }, // lower Chase% = better for hitters
     teamBatWhiff: { mean: 25.1,  spread: 3.5, invert:true }, // lower Whiff% = better for hitters
+    teamBatBatSpeed: { mean: 72.0, spread: 0.6 },             // higher Bat Speed = better for hitters
+    teamBatSpeed:    { mean: 72.0, spread: 0.6, invert:true },// lower opp Bat Speed = better for pitchers
   };
 
   const battingGrid = [
@@ -3026,7 +3028,8 @@ function TeamStatsTab({T}) {
     { label:"Whiff%",  value:TEAM_HEADER.batWhiff,    heatRef:LG.teamBatWhiff  },
   ];
 
-  const battingBatTracking = [
+ const battingBatTracking = [
+    { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  heatRef:LG.teamBatBatSpeed },
     { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, heatRef:LG.teamBatFastSw  },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    heatRef:LG.teamBatSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   heatRef:LG.teamBatBlastSw },
@@ -3052,7 +3055,8 @@ function TeamStatsTab({T}) {
     { label:"Whiff%",  value:TEAM_HEADER.whiff,       heatRef:LG.teamWhiff  },
   ];
 
-  const pitchingBatTracking = [
+   const pitchingBatTracking = [
+    { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  heatRef:LG.teamBatSpeed },
     { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, heatRef:LG.teamFastSw  },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    heatRef:LG.teamSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   heatRef:LG.teamBlastSw },
