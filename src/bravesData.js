@@ -199,7 +199,9 @@
      batWhiff: "24.9%",
      chase: "30.8%",
      whiff: "26.3%",
-   };
+     batBatSpeed: "72.6",
+     batSpeed: "72.0",
+ };
    
 export const hitters = [
      // Updated June 23, 2026 PM — vsL + vsR refreshed from FanGraphs; RISP + High Leverage + season totals + Savant from June 23
