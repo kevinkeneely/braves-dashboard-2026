@@ -334,18 +334,18 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 const LG_HIT = {
   wrc:     { mean: 100,   sd: 20    },
   xwoba:   { mean: 0.320, sd: 0.030 },
-  hardHit: { mean: 40.0,  sd: 6.0   },
-  chase:   { mean: 28.5,  sd: 4.0   },   // inverted (lower = better)
-  whiff:   { mean: 24.5,  sd: 4.0   },   // inverted (lower = better)
+  hardHit: { mean: 39.2,  sd: 6.0   },
+  chase:   { mean: 30.0,  sd: 4.0   },   // inverted (lower = better)
+  whiff:   { mean: 25.0,  sd: 4.0   },   // inverted (lower = better)
   ev:      { mean: 88.7,  sd: 2.0   },
-  laSwSp:  { mean: 33.0,  sd: 4.0   },
+  laSwSp:  { mean: 33.7,  sd: 4.0   },
 };
 const W_HIT = {
   wrc: 0.28, xwoba: 0.22, hardHit: 0.16, chase: 0.12, whiff: 0.10, ev: 0.07, laSwSp: 0.05,
 };
 
 const LG_PIT = {
-  siera: { mean: 4.00,  sd: 0.50  },   // inverted (lower = better)
+  siera: { mean: 4.05,  sd: 0.50  },   // inverted (lower = better)
   kbb:   { mean: 15.0,  sd: 5.0   },
   whip:  { mean: 1.30,  sd: 0.15  },   // inverted (lower = better)
   xwoba: { mean: 0.320, sd: 0.030 },   // inverted (lower allowed = better)
