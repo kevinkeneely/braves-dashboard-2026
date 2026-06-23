@@ -183,7 +183,7 @@ const LEAGUE_AVG = {
   batSpeed:    { mean: 72.0,  spread: 2.0  },
   fastSwing:   { mean: 26.3,  spread: 8.0  },
   squaredUp:   { mean: 24.9,  spread: 4.0  },
-  laSwSp:      { mean: 33.8,  spread: 4.0  },
+  laSwSp:      { mean: 33.7,  spread: 4.0  },
   idealAttack: { mean: 51.1,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
