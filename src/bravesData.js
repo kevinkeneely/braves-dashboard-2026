@@ -317,9 +317,11 @@ export const statcastPitchers = [
 
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
-// Updated June 22, 2026
-//   Hitters:  wRC+ (30) · xwOBA (24) · Barrel% (10) · EV (08) · LA SwSp% (16) · Squared-Up% (12)
-//   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) · SwStr% (10) · EV inv (8)
+// Updated June 23, 2026
+//   Hitters:  wRC+ (28) · xwOBA (22) · Hard Hit% (16) · Chase% inv (12) ·
+//             Whiff% inv (10) · EV (08) · LA SwSp% (05)
+//   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
+//             SwStr% (10) · EV inv (8)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
 // constants at season end from Baseball Savant / FanGraphs MLB-wide leaderboards.
 // ════════════════════════════════════════════════════════════════════════════
@@ -330,15 +332,16 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 
 // ─── League constants ──────────────────────────────────────────────────────
 const LG_HIT = {
-  wrc:       { mean: 100,   sd: 20    },
-  xwoba:     { mean: 0.320, sd: 0.030 },
-  barrel:    { mean: 8.0,   sd: 4.0   },
-  ev:        { mean: 88.7,  sd: 2.0   },
-  laSwSp:    { mean: 33.0,  sd: 4.0   },
-  squaredUp: { mean: 33.0,  sd: 3.0   },
+  wrc:     { mean: 100,   sd: 20    },
+  xwoba:   { mean: 0.320, sd: 0.030 },
+  hardHit: { mean: 40.0,  sd: 6.0   },
+  chase:   { mean: 28.5,  sd: 4.0   },   // inverted (lower = better)
+  whiff:   { mean: 24.5,  sd: 4.0   },   // inverted (lower = better)
+  ev:      { mean: 88.7,  sd: 2.0   },
+  laSwSp:  { mean: 33.0,  sd: 4.0   },
 };
 const W_HIT = {
-  wrc: 0.30, xwoba: 0.24, laSwSp: 0.16, squaredUp: 0.12, barrel: 0.10, ev: 0.08,
+  wrc: 0.28, xwoba: 0.22, hardHit: 0.16, chase: 0.12, whiff: 0.10, ev: 0.07, laSwSp: 0.05,
 };
 
 const LG_PIT = {
@@ -360,20 +363,22 @@ const _scPitcherByName = Object.fromEntries(statcastPitchers.map(s => [s.name, s
 // ─── Compute TrackerHit+ for a hitter ──────────────────────────────────────
 const _computeTrackerHit = (h) => {
   const sc = _scHitterByName[h.name] || {};
-  const wrc       = Number(h.wrc);
-  const xwoba     = _num(h.xwoba ?? sc.xwoba);
-  const barrel    = _pct(sc.barrel);
-  const ev        = _num(sc.ev);
-  const laSwSp    = _pct(h.laSwSp);
-  const squaredUp = _pct(h.squaredUp);
-  if ([wrc, xwoba, barrel, ev, laSwSp, squaredUp].some(v => !isFinite(v))) return null;
+  const wrc     = Number(h.wrc);
+  const xwoba   = _num(h.xwoba ?? sc.xwoba);
+  const hardHit = _pct(sc.hardHit);
+  const chase   = _pct(sc.chase);
+  const whiff   = _pct(sc.whiff);
+  const ev      = _num(sc.ev);
+  const laSwSp  = _pct(h.laSwSp);
+  if ([wrc, xwoba, hardHit, chase, whiff, ev, laSwSp].some(v => !isFinite(v))) return null;
   const z =
-      W_HIT.wrc       * _z(wrc,       LG_HIT.wrc.mean,       LG_HIT.wrc.sd)
-    + W_HIT.xwoba     * _z(xwoba,     LG_HIT.xwoba.mean,     LG_HIT.xwoba.sd)
-    + W_HIT.barrel    * _z(barrel,    LG_HIT.barrel.mean,    LG_HIT.barrel.sd)
-    + W_HIT.ev        * _z(ev,        LG_HIT.ev.mean,        LG_HIT.ev.sd)
-    + W_HIT.laSwSp    * _z(laSwSp,    LG_HIT.laSwSp.mean,    LG_HIT.laSwSp.sd)
-    + W_HIT.squaredUp * _z(squaredUp, LG_HIT.squaredUp.mean, LG_HIT.squaredUp.sd);
+      W_HIT.wrc     *  _z(wrc,     LG_HIT.wrc.mean,     LG_HIT.wrc.sd)
+    + W_HIT.xwoba   *  _z(xwoba,   LG_HIT.xwoba.mean,   LG_HIT.xwoba.sd)
+    + W_HIT.hardHit *  _z(hardHit, LG_HIT.hardHit.mean, LG_HIT.hardHit.sd)
+    + W_HIT.chase   * -_z(chase,   LG_HIT.chase.mean,   LG_HIT.chase.sd)   // inverted
+    + W_HIT.whiff   * -_z(whiff,   LG_HIT.whiff.mean,   LG_HIT.whiff.sd)   // inverted
+    + W_HIT.ev      *  _z(ev,      LG_HIT.ev.mean,      LG_HIT.ev.sd)
+    + W_HIT.laSwSp  *  _z(laSwSp,  LG_HIT.laSwSp.mean,  LG_HIT.laSwSp.sd);
   return Math.round(100 + 15 * z);
 };
 
