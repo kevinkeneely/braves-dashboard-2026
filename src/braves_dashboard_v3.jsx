@@ -145,10 +145,10 @@ const THEME = {
 const LEAGUE_AVG = {
   // Hitter rate stats
   avg:    { mean: 0.243, spread: 0.020 },
-  obp:    { mean: 0.320, spread: 0.020 },
+  obp:    { mean: 0.319, spread: 0.020 },
   slg:    { mean: 0.399, spread: 0.035 },
-  ops:    { mean: 0.718, spread: 0.050 },
-  woba:   { mean: 0.318, spread: 0.020 },
+  ops:    { mean: 0.719, spread: 0.050 },
+  woba:   { mean: 0.317, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
   kpct:   { mean: 22.0,  spread: 3.5 },
@@ -172,23 +172,23 @@ const LEAGUE_AVG = {
   // from a hitter's view; pitcher tables pass invert:true on these columns.
   ev:          { mean: 88.9,  spread: 1.5  },
   hardHit:     { mean: 39.2,  spread: 5.0  },
-  barrel:      { mean: 8.1,   spread: 2.5  },
-  xwoba:       { mean: 0.320, spread: 0.030 },
+  barrel:      { mean: 8.0,   spread: 2.5  },
+  xwoba:       { mean: 0.319, spread: 0.030 },
   xba:         { mean: 0.245, spread: 0.020 },
-  xslg:        { mean: 0.401, spread: 0.040 },
+  xslg:        { mean: 0.400, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
   chase:       { mean: 30.1,  spread: 3.5  },
   whiff:       { mean: 25.1,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
   batSpeed:    { mean: 72.0,  spread: 2.0  },
-  fastSwing:   { mean: 26.2,  spread: 8.0  },
-  squaredUp:   { mean: 25.0,  spread: 4.0  },
+  fastSwing:   { mean: 26.3,  spread: 8.0  },
+  squaredUp:   { mean: 24.9,  spread: 4.0  },
   laSwSp:      { mean: 33.8,  spread: 4.0  },
   idealAttack: { mean: 51.1,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
-  gbpct:       { mean: 42.5,  spread: 4.0  },
+  gbpct:       { mean: 42.4,  spread: 4.0  },
   fbpct:       { mean: 26.5,  spread: 4.0  },
   ldpct:       { mean: 23.6,  spread: 3.0  },
   pupct:       { mean: 7.4,   spread: 2.5  },
@@ -1929,10 +1929,10 @@ function HitterStatBoxes({T, d, sc}) {
       <>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
           <OverviewStat T={T} label="AVG"     value={d.avg}        sub="lg .243" heatRef={leagueRef("avg")}/>
-          <OverviewStat T={T} label="OBP"     value={d.obp}        sub="lg .320" heatRef={leagueRef("obp")}/>
+          <OverviewStat T={T} label="OBP"     value={d.obp}        sub="lg .319" heatRef={leagueRef("obp")}/>
           <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .399" heatRef={leagueRef("slg")}/>
           <OverviewStat T={T} label="wRC+"    value={d.wrc}        sub="lg 100"  heatRef={leagueRef("wrc")}/>
-          <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .318"  heatRef={leagueRef("woba")}/>
+          <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .317"  heatRef={leagueRef("woba")}/>
           <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}         heatRef={leagueRef("xwoba")}/>
           <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.0%" heatRef={leagueRef("kpct", true)}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.1%"  heatRef={leagueRef("bbpct")}/>
@@ -2217,7 +2217,7 @@ function PitcherStatBoxes({T, d, sc}) {
           <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.07"  heatRef={leagueRef("siera", true)}/>
           <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.1%" heatRef={leagueRef("whiff")}/>
           <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.1%" heatRef={leagueRef("csw")}/>
-          <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.5%" heatRef={leagueRef("gbpct")}/>
+          <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.4%" heatRef={leagueRef("gbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 88.9 mph"      heatRef={leagueRef("ev", true)}/>
         </div>
         <WarProgressionCard T={T} d={d} isHitter={false}/>
