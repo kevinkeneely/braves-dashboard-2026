@@ -195,10 +195,10 @@
      batSwStr: "11.0%",
      batCStr: "15.0%",
      batCSW: "26.0%",
-     batChase: "33.6%",
-     batWhiff: "24.8%",
+     batChase: "33.8%",
+     batWhiff: "24.9%",
      chase: "30.8%",
-     whiff: "26.2%",
+     whiff: "26.3%",
    };
    
 export const hitters = [
