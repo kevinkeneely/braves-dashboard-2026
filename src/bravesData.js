@@ -176,7 +176,7 @@
      xera: "3.76",
      xfip: "3.96",
      whip: "1.20",
-     gb: "41.0%",
+     gb: "41.7%",
      siera: "3.91",
      pitchingK: "23.4%",
      pitchingBB: "8.9%",
