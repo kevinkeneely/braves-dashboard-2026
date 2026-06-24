@@ -1682,7 +1682,7 @@ function StatBox({T, label, value, sub, accent, heatRef}) {
         lineHeight:1.1,
       }}>{value ?? "—"}</div>
       <div style={{fontSize:9.5, color:T.textMuted, fontWeight:700, letterSpacing:"0.10em", marginTop:3}}>{label}</div>
-      {sub && <div style={{fontSize:9, fontWeight:700, marginTop:3, letterSpacing:"0.04em", ...goldText}}>{sub}</div>}
+      {sub && <div style={{fontSize:9, fontWeight:800, marginTop:3, letterSpacing:"0.04em", color:BRAND.goldBright, textShadow:"0 1px 2px rgba(0,0,0,0.6)"}}>{sub}</div>}
     </div>
   );
 }
