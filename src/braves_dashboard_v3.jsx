@@ -1682,7 +1682,7 @@ function StatBox({T, label, value, sub, accent, heatRef}) {
         lineHeight:1.1,
       }}>{value ?? "—"}</div>
       <div style={{fontSize:9.5, color:T.textMuted, fontWeight:700, letterSpacing:"0.10em", marginTop:3}}>{label}</div>
-      {sub && <div style={{fontSize:8.5, color:T.textFaint, fontWeight:600, marginTop:1}}>{sub}</div>}
+      {sub && <div style={{fontSize:9, fontWeight:700, marginTop:3, letterSpacing:"0.04em", ...goldText}}>{sub}</div>}
     </div>
   );
 }
@@ -3009,59 +3009,59 @@ function TeamStatsTab({T}) {
     teamBatSpeed:    { mean: 72.0, spread: 0.6, invert:true },// lower opp Bat Speed = better for pitchers
   };
 
-  const battingGrid = [
-    { label:"AVG",     value:TEAM_HEADER.avg,  heatRef:LG.avg  },
-    { label:"OBP",     value:TEAM_HEADER.obp,  heatRef:LG.obp  },
-    { label:"SLG",     value:TEAM_HEADER.slg,  heatRef:LG.slg  },
-    { label:"OPS",     value:TEAM_HEADER.ops,  heatRef:LG.ops  },
-    { label:"K%",      value:TEAM_HEADER.battingK,  heatRef:LG.battingK  },
-    { label:"BB%",     value:TEAM_HEADER.battingBB, heatRef:LG.battingBB },
-    { label:"wRC+",    value:TEAM_HEADER.wrc,  heatRef:LG.wrc  },
-    { label:"wOBA",    value:TEAM_HEADER.woba, heatRef:LG.woba },
-    { label:"xwOBA",   value:TEAM_HEADER.xwoba,heatRef:LG.xwoba},
+const battingGrid = [
+    { label:"AVG",     value:TEAM_HEADER.avg,  sub:"lg .243", heatRef:LG.avg  },
+    { label:"OBP",     value:TEAM_HEADER.obp,  sub:"lg .320", heatRef:LG.obp  },
+    { label:"SLG",     value:TEAM_HEADER.slg,  sub:"lg .399", heatRef:LG.slg  },
+    { label:"OPS",     value:TEAM_HEADER.ops,  sub:"lg .718", heatRef:LG.ops  },
+    { label:"K%",      value:TEAM_HEADER.battingK,  sub:"lg 22.0%", heatRef:LG.battingK  },
+    { label:"BB%",     value:TEAM_HEADER.battingBB, sub:"lg 9.1%",  heatRef:LG.battingBB },
+    { label:"wRC+",    value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
+    { label:"wOBA",    value:TEAM_HEADER.woba, sub:"lg .318", heatRef:LG.woba },
+    { label:"xwOBA",   value:TEAM_HEADER.xwoba,sub:"lg .320", heatRef:LG.xwoba},
   ];
 
   const battingPlateDisc = [
-    { label:"SwStr%",  value:TEAM_HEADER.batSwStr,    heatRef:LG.teamBatSwStr  },
-    { label:"CStr%",   value:TEAM_HEADER.batCStr,     heatRef:LG.teamBatCStr   },
-    { label:"CSW%",    value:TEAM_HEADER.batCSW,      heatRef:LG.teamBatCSW    },
-    { label:"Chase%",  value:TEAM_HEADER.batChase,    heatRef:LG.teamBatChase  },
-    { label:"Whiff%",  value:TEAM_HEADER.batWhiff,    heatRef:LG.teamBatWhiff  },
+    { label:"SwStr%",  value:TEAM_HEADER.batSwStr,    sub:"lg 10.7%", heatRef:LG.teamBatSwStr  },
+    { label:"CStr%",   value:TEAM_HEADER.batCStr,     sub:"lg 16.4%", heatRef:LG.teamBatCStr   },
+    { label:"CSW%",    value:TEAM_HEADER.batCSW,      sub:"lg 27.1%", heatRef:LG.teamBatCSW    },
+    { label:"Chase%",  value:TEAM_HEADER.batChase,    sub:"lg 30.1%", heatRef:LG.teamBatChase  },
+    { label:"Whiff%",  value:TEAM_HEADER.batWhiff,    sub:"lg 25.1%", heatRef:LG.teamBatWhiff  },
   ];
 
- const battingBatTracking = [
-    { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  heatRef:LG.teamBatBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, heatRef:LG.teamBatFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    heatRef:LG.teamBatSqUpSw  },
-    { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   heatRef:LG.teamBatBlastSw },
-    { label:"Ideal Atk%",  value:TEAM_HEADER.batIdealAtk,  heatRef:LG.teamBatIdealAtk},
+  const battingBatTracking = [
+    { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatBatSpeed },
+    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.2%", heatRef:LG.teamBatFastSw  },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 25.0%", heatRef:LG.teamBatSqUpSw  },
+    { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   sub:"lg 10.6%", heatRef:LG.teamBatBlastSw },
+    { label:"Ideal Atk%",  value:TEAM_HEADER.batIdealAtk,  sub:"lg 51.1%", heatRef:LG.teamBatIdealAtk},
   ];
   const pitchingGrid = [
-    { label:"ERA",     value:TEAM_HEADER.era,         heatRef:LG.era        },
-    { label:"xERA",    value:TEAM_HEADER.xera,        heatRef:LG.xera       },
-    { label:"WHIP",    value:TEAM_HEADER.whip,        heatRef:LG.whip       },
-    { label:"K%",      value:TEAM_HEADER.pitchingK,   heatRef:LG.pitchingK  },
-    { label:"BB%",     value:TEAM_HEADER.pitchingBB,  heatRef:LG.pitchingBB },
-    { label:"K-BB%",   value:TEAM_HEADER.pitchingKBB, heatRef:LG.pitchingKBB},
-    { label:"FIP",     value:TEAM_HEADER.fip,         heatRef:LG.fip        },
-    { label:"xFIP",    value:TEAM_HEADER.xfip,        heatRef:LG.xfip       },
-    { label:"SIERA",   value:TEAM_HEADER.siera,       heatRef:LG.siera      },
+    { label:"ERA",     value:TEAM_HEADER.era,         sub:"lg 4.19",  heatRef:LG.era        },
+    { label:"xERA",    value:TEAM_HEADER.xera,        sub:"lg 4.19",  heatRef:LG.xera       },
+    { label:"WHIP",    value:TEAM_HEADER.whip,        sub:"lg 1.31",  heatRef:LG.whip       },
+    { label:"K%",      value:TEAM_HEADER.pitchingK,   sub:"lg 22.0%", heatRef:LG.pitchingK  },
+    { label:"BB%",     value:TEAM_HEADER.pitchingBB,  sub:"lg 9.1%",  heatRef:LG.pitchingBB },
+    { label:"K-BB%",   value:TEAM_HEADER.pitchingKBB, sub:"lg 12.9%", heatRef:LG.pitchingKBB},
+    { label:"FIP",     value:TEAM_HEADER.fip,         sub:"lg 4.19",  heatRef:LG.fip        },
+    { label:"xFIP",    value:TEAM_HEADER.xfip,        sub:"lg 4.19",  heatRef:LG.xfip       },
+    { label:"SIERA",   value:TEAM_HEADER.siera,       sub:"lg 4.07",  heatRef:LG.siera      },
   ];
 
   const pitchingPlateDisc = [
-    { label:"SwStr%",  value:TEAM_HEADER.swstr,       heatRef:LG.teamSwStr  },
-    { label:"CStr%",   value:TEAM_HEADER.cstr,        heatRef:LG.teamCStr   },
-    { label:"CSW%",    value:TEAM_HEADER.csw,         heatRef:LG.teamCSW    },
-    { label:"Chase%",  value:TEAM_HEADER.chase,       heatRef:LG.teamChase  },
-    { label:"Whiff%",  value:TEAM_HEADER.whiff,       heatRef:LG.teamWhiff  },
+    { label:"SwStr%",  value:TEAM_HEADER.swstr,       sub:"lg 10.7%", heatRef:LG.teamSwStr  },
+    { label:"CStr%",   value:TEAM_HEADER.cstr,        sub:"lg 16.4%", heatRef:LG.teamCStr   },
+    { label:"CSW%",    value:TEAM_HEADER.csw,         sub:"lg 27.1%", heatRef:LG.teamCSW    },
+    { label:"Chase%",  value:TEAM_HEADER.chase,       sub:"lg 30.1%", heatRef:LG.teamChase  },
+    { label:"Whiff%",  value:TEAM_HEADER.whiff,       sub:"lg 25.1%", heatRef:LG.teamWhiff  },
   ];
 
-   const pitchingBatTracking = [
-    { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  heatRef:LG.teamBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, heatRef:LG.teamFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    heatRef:LG.teamSqUpSw  },
-    { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   heatRef:LG.teamBlastSw },
-    { label:"Ideal Atk%",  value:TEAM_HEADER.idealAtk,  heatRef:LG.teamIdealAtk},
+  const pitchingBatTracking = [
+    { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatSpeed },
+    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.2%", heatRef:LG.teamFastSw  },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 25.0%", heatRef:LG.teamSqUpSw  },
+    { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   sub:"lg 10.6%", heatRef:LG.teamBlastSw },
+    { label:"Ideal Atk%",  value:TEAM_HEADER.idealAtk,  sub:"lg 51.1%", heatRef:LG.teamIdealAtk},
   ];
 
    const sT = THEME.light;
@@ -3073,15 +3073,15 @@ function TeamStatsTab({T}) {
         <div>
           <div style={{fontSize:11, letterSpacing:"0.18em", color:T.textMuted, fontWeight:700, marginBottom:8}}>BATTING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>PLATE DISCIPLINE</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>BAT TRACKING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {battingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {battingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
         </div>
 
@@ -3096,15 +3096,15 @@ function TeamStatsTab({T}) {
         <div>
           <div style={{fontSize:11, letterSpacing:"0.18em", color:T.textMuted, fontWeight:700, marginBottom:8}}>PITCHING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingGrid.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>PLATE DISCIPLINE</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingPlateDisc.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
           <div style={{fontSize:9.5, letterSpacing:"0.16em", color:T.textMuted, fontWeight:600, opacity:0.85, margin:"12px 0 7px"}}>BAT TRACKING</div>
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(90px,1fr))", gap:6}}>
-            {pitchingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} accent={g.accent} heatRef={g.heatRef}/>)}
+            {pitchingBatTracking.map(g => <StatBox key={g.label} T={sT} label={g.label} value={g.value} sub={g.sub} accent={g.accent} heatRef={g.heatRef}/>)}
           </div>
         </div>
       </div>
