@@ -172,15 +172,15 @@ const LEAGUE_AVG = {
   // from a hitter's view; pitcher tables pass invert:true on these columns.
   ev:          { mean: 88.9,  spread: 1.5  },
   hardHit:     { mean: 39.2,  spread: 5.0  },
-  barrel:      { mean: 8.0,   spread: 2.5  },
+  barrel:      { mean: 8.1,   spread: 2.5  },
   xwoba:       { mean: 0.319, spread: 0.030 },
   xba:         { mean: 0.245, spread: 0.020 },
-  xslg:        { mean: 0.400, spread: 0.040 },
+  xslg:        { mean: 0.401, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
-  chase:       { mean: 30.1,  spread: 3.5  },
-  whiff:       { mean: 25.1,  spread: 3.5  },
+  chase:       { mean: 30.2,  spread: 3.5  },
+  whiff:       { mean: 25.2,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
-  batSpeed:    { mean: 72.0,  spread: 2.0  },
+  batSpeed:    { mean: 72.1,  spread: 2.0  },
   fastSwing:   { mean: 26.3,  spread: 8.0  },
   squaredUp:   { mean: 24.9,  spread: 4.0  },
   laSwSp:      { mean: 33.7,  spread: 4.0  },
@@ -203,15 +203,15 @@ const LEAGUE_AVG = {
    strong-but-realistic value reads firmly red. invert is applied at the call site
    (K% lower = better). */
 const RISP_AVG = {
-  avg:   { mean: 0.250, spread: 0.030 },
-  obp:   { mean: 0.336, spread: 0.030 },
-  slg:   { mean: 0.399, spread: 0.045 },
-  ops:   { mean: 0.735, spread: 0.070 },
+  avg:   { mean: 0.249, spread: 0.030 },
+  obp:   { mean: 0.335, spread: 0.030 },
+  slg:   { mean: 0.402, spread: 0.045 },
+  ops:   { mean: 0.737, spread: 0.070 },
   wrc:   { mean: 102,   spread: 20    },
-  woba:  { mean: 0.321, spread: 0.030 },
-  iso:   { mean: 0.150, spread: 0.045 },
-  babip: { mean: 0.294, spread: 0.035 },
-  bbpct: { mean: 11.0,  spread: 3.0   },
+  woba:  { mean: 0.320, spread: 0.030 },
+  iso:   { mean: 0.153, spread: 0.045 },
+  babip: { mean: 0.293, spread: 0.035 },
+  bbpct: { mean: 10.9,  spread: 3.0   },
   kpct:  { mean: 21.6,  spread: 4.0   },
 };
 
@@ -220,79 +220,79 @@ const RISP_AVG = {
    AVG / ISO / BABIP omitted for now — heat coloring stays neutral for those
    stats until the high-leverage league baseline is confirmed. */
 const HIGH_LEVERAGE_AVG = {
-  avg:   { mean: 0.250, spread: 0.030 },
-  obp:   { mean: 0.334, spread: 0.030 },
+  avg:   { mean: 0.248, spread: 0.030 },
+  obp:   { mean: 0.331, spread: 0.030 },
   slg:   { mean: 0.393, spread: 0.045 },
-  ops:   { mean: 0.727, spread: 0.070 },
-  wrc:   { mean: 100,   spread: 20    },
-  woba:  { mean: 0.316, spread: 0.030 },
-  iso:   { mean: 0.143, spread: 0.045 },
-  babip: { mean: 0.296, spread: 0.035 },
-  bbpct: { mean: 10.4,  spread: 3.0   },
-  kpct:  { mean: 21.9,  spread: 4.0   },
+  ops:   { mean: 0.724, spread: 0.070 },
+  wrc:   { mean: 98,   spread: 20    },
+  woba:  { mean: 0.314, spread: 0.030 },
+  iso:   { mean: 0.144, spread: 0.045 },
+  babip: { mean: 0.294, spread: 0.035 },
+  bbpct: { mean: 10.2,  spread: 3.0   },
+  kpct:  { mean: 22.0,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages vs. LHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. LHP" tile grid in the profile Splits tab. */
 const VS_LHP_AVG = {
-  avg:   { mean: 0.242, spread: 0.030 },
-  obp:   { mean: 0.319, spread: 0.030 },
-  slg:   { mean: 0.392, spread: 0.045 },
-  ops:   { mean: 0.711, spread: 0.070 },
-  wrc:   { mean: 98,    spread: 20    },
-  woba:  { mean: 0.315, spread: 0.030 },
-  iso:   { mean: 0.150, spread: 0.045 },
-  babip: { mean: 0.289, spread: 0.035 },
+  avg:   { mean: 0.241, spread: 0.030 },
+  obp:   { mean: 0.317, spread: 0.030 },
+  slg:   { mean: 0.390, spread: 0.045 },
+  ops:   { mean: 0.708, spread: 0.070 },
+  wrc:   { mean: 97,    spread: 20    },
+  woba:  { mean: 0.313, spread: 0.030 },
+  iso:   { mean: 0.149, spread: 0.045 },
+  babip: { mean: 0.290, spread: 0.035 },
   bbpct: { mean: 9.1,   spread: 3.0   },
-  kpct:  { mean: 22.2,  spread: 4.0   },
+  kpct:  { mean: 22.4,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages vs. RHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. RHP" tile grid in the profile Splits tab. */
 const VS_RHP_AVG = {
-  avg:   { mean: 0.243, spread: 0.030 },
+  avg:   { mean: 0.244, spread: 0.030 },
   obp:   { mean: 0.320, spread: 0.030 },
-  slg:   { mean: 0.400, spread: 0.045 },
-  ops:   { mean: 0.720, spread: 0.070 },
-  wrc:   { mean: 100,   spread: 20    },
+  slg:   { mean: 0.404, spread: 0.045 },
+  ops:   { mean: 0.724, spread: 0.070 },
+  wrc:   { mean: 101,   spread: 20    },
   woba:  { mean: 0.319, spread: 0.030 },
-  iso:   { mean: 0.157, spread: 0.045 },
-  babip: { mean: 0.288, spread: 0.035 },
+  iso:   { mean: 0.159, spread: 0.045 },
+  babip: { mean: 0.289, spread: 0.035 },
   bbpct: { mean: 9.1,   spread: 3.0   },
-  kpct:  { mean: 21.9,  spread: 4.0   },
+  kpct:  { mean: 22.0,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages for PITCHERS vs. LHH (FanGraphs splits leaderboard).
    Used only to color the "vs. LHH" tile grid on the pitcher profile Splits tab.
    For most pitching stats lower = better, so heat() is called with invert=true. */
 const VS_LHH_AVG = {
-  era:   { mean: 4.33,  spread: 1.00  },
-  fip:   { mean: 4.33,  spread: 1.00  },
-  xfip:  { mean: 4.27,  spread: 0.80  },
+  era:   { mean: 4.31,  spread: 1.00  },
+  fip:   { mean: 4.35,  spread: 1.00  },
+  xfip:  { mean: 4.28,  spread: 0.80  },
   whip:  { mean: 1.36,  spread: 0.20  },
-  avg:   { mean: 0.246, spread: 0.030 },
+  avg:   { mean: 0.247, spread: 0.030 },
   obp:   { mean: 0.327, spread: 0.030 },
-  slg:   { mean: 0.48, spread: 0.045 },
+  slg:   { mean: 0.411, spread: 0.045 },
   woba:  { mean: 0.325, spread: 0.030 },
   kpct:  { mean: 22.0,  spread: 4.0   },
   bbpct: { mean: 9.8,   spread: 3.0   },
-  kbb:   { mean: 12.2,  spread: 5.0   },
+  kbb:   { mean: 12.3,  spread: 5.0   },
 };
 
 /* 2026 MLB league averages for PITCHERS vs. RHH (FanGraphs splits leaderboard).
    Used only to color the "vs. RHH" tile grid on the pitcher profile Splits tab. */
 const VS_RHH_AVG = {
-  era:   { mean: 4.06,  spread: 1.00  },
-  fip:   { mean: 4.05,  spread: 1.00  },
+  era:   { mean: 4.08,  spread: 1.00  },
+  fip:   { mean: 4.04,  spread: 1.00  },
   xfip:  { mean: 4.11,  spread: 0.80  },
   whip:  { mean: 1.26,  spread: 0.20  },
   avg:   { mean: 0.240, spread: 0.030 },
   obp:   { mean: 0.312, spread: 0.030 },
-  slg:   { mean: 0.388, spread: 0.045 },
-  woba:  { mean: 0.311, spread: 0.030 },
-  kpct:  { mean: 22.0,  spread: 4.0   },
-  bbpct: { mean: 8.5,   spread: 3.0   },
-  kbb:   { mean: 13.5,  spread: 5.0   },
+  slg:   { mean: 0.390, spread: 0.045 },
+  woba:  { mean: 0.310, spread: 0.030 },
+  kpct:  { mean: 22.1,  spread: 4.0   },
+  bbpct: { mean: 8.4,   spread: 3.0   },
+  kbb:   { mean: 13.7,  spread: 5.0   },
 };
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
     the stat has no league baseline (plain rendering). */
