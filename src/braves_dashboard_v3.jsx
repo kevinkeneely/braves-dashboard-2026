@@ -146,12 +146,12 @@ const LEAGUE_AVG = {
   // Hitter rate stats
   avg:    { mean: 0.243, spread: 0.020 },
   obp:    { mean: 0.319, spread: 0.020 },
-  slg:    { mean: 0.399, spread: 0.035 },
+  slg:    { mean: 0.400, spread: 0.035 },
   ops:    { mean: 0.719, spread: 0.050 },
   woba:   { mean: 0.317, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
-  kpct:   { mean: 22.0,  spread: 3.5 },
+  kpct:   { mean: 22.1,  spread: 3.5 },
   bbpct:  { mean: 9.1,   spread: 1.8 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
   era:    { mean: 4.19,  spread: 0.80 },
@@ -160,9 +160,9 @@ const LEAGUE_AVG = {
   siera:  { mean: 4.07,  spread: 0.60 },
   whip:   { mean: 1.31,  spread: 0.15 },
   // Plate discipline (pitcher view) — higher = better for pitchers
-  swstr:  { mean: 10.7,  spread: 2.5 },
+  swstr:  { mean: 10.8,  spread: 2.5 },
   cstr:   { mean: 16.4,  spread: 2.0 },
-  csw:    { mean: 27.1,  spread: 3.0 },
+  csw:    { mean: 27.2,  spread: 3.0 },
   // WAR — 0.0 is league average (a replacement-level player); positive = above avg.
   // Spread tuned so ~+1.0 reads firmly red, ~-0.5 firmly blue at this point in the season.
   war:    { mean: 0.0,   spread: 0.6 },
@@ -1936,11 +1936,11 @@ function HitterStatBoxes({T, d, sc}) {
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
           <OverviewStat T={T} label="AVG"     value={d.avg}        sub="lg .243" heatRef={leagueRef("avg")}/>
           <OverviewStat T={T} label="OBP"     value={d.obp}        sub="lg .319" heatRef={leagueRef("obp")}/>
-          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .399" heatRef={leagueRef("slg")}/>
+          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .400" heatRef={leagueRef("slg")}/>
           <OverviewStat T={T} label="wRC+"    value={d.wrc}        sub="lg 100"  heatRef={leagueRef("wrc")}/>
           <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .317"  heatRef={leagueRef("woba")}/>
           <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}         heatRef={leagueRef("xwoba")}/>
-          <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.0%" heatRef={leagueRef("kpct", true)}/>
+          <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.1%" heatRef={leagueRef("kpct", true)}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.1%"  heatRef={leagueRef("bbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 88.9 mph"      heatRef={leagueRef("ev")}/>
           <OverviewStat T={T} label="HARDHIT" value={sc?.hardHit}                  heatRef={leagueRef("hardHit")}/>
@@ -2216,13 +2216,13 @@ function PitcherStatBoxes({T, d, sc}) {
           <OverviewStat T={T} label="IP"      value={d.ip}/>
           <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.19"  heatRef={leagueRef("era",   true)}/>
           <OverviewStat T={T} label="WHIP"    value={d.whip}    sub="lg 1.31"  heatRef={leagueRef("whip",  true)}/>
-          <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.0%" heatRef={leagueRef("kpct")}/>
+          <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.1%" heatRef={leagueRef("kpct")}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.1%"  heatRef={leagueRef("bbpct", true)}/>
           <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.19"  heatRef={leagueRef("fip",   true)}/>
           <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.19"  heatRef={leagueRef("xfip",  true)}/>
           <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.07"  heatRef={leagueRef("siera", true)}/>
-          <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.1%" heatRef={leagueRef("whiff")}/>
-          <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.1%" heatRef={leagueRef("csw")}/>
+          <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.2%" heatRef={leagueRef("whiff")}/>
+          <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.2%" heatRef={leagueRef("csw")}/>
           <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.4%" heatRef={leagueRef("gbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 88.9 mph"      heatRef={leagueRef("ev", true)}/>
         </div>
@@ -2974,13 +2974,13 @@ function TeamStatsTab({T}) {
      because lower ERA/FIP/SIERA = better. */
   const LG = {
     avg:        { mean: 0.243, spread: 0.012 },
-    obp:        { mean: 0.320, spread: 0.012 },
-    slg:        { mean: 0.399, spread: 0.020 },
-    ops:        { mean: 0.718, spread: 0.030 },
+    obp:        { mean: 0.319, spread: 0.012 },
+    slg:        { mean: 0.400, spread: 0.020 },
+    ops:        { mean: 0.719, spread: 0.030 },
     wrc:        { mean: 100,   spread: 8     },
-    woba:       { mean: 0.318, spread: 0.012 },
-    xwoba:      { mean: 0.320, spread: 0.012 },
-    battingK:   { mean: 22.0,  spread: 1.8, invert:true },   // lower K% = better for hitters
+    woba:       { mean: 0.317, spread: 0.012 },
+    xwoba:      { mean: 0.319, spread: 0.012 },
+    battingK:   { mean: 22.1,  spread: 1.8, invert:true },   // lower K% = better for hitters
     battingBB:  { mean: 9.1,   spread: 1.0 },                // higher BB% = better for hitters
     era:        { mean: 4.19,  spread: 0.35, invert:true },
     xera:       { mean: 4.19,  spread: 0.35, invert:true },
@@ -2988,26 +2988,26 @@ function TeamStatsTab({T}) {
     xfip:       { mean: 4.19,  spread: 0.30, invert:true },
     siera:      { mean: 4.07,  spread: 0.30, invert:true },
     whip:       { mean: 1.31,  spread: 0.08, invert:true },
-    gb:         { mean: 42.5,  spread: 3.0  },                // higher GB% = better for pitchers
-    pitchingK:  { mean: 22.0,  spread: 1.8 },                // higher K% = better for pitchers
+    gb:         { mean: 42.4,  spread: 3.0  },                // higher GB% = better for pitchers
+    pitchingK:  { mean: 22.1,  spread: 1.8 },                // higher K% = better for pitchers
     pitchingBB: { mean: 9.1,   spread: 1.0, invert:true },   // lower BB% = better for pitchers
-    pitchingKBB:{ mean: 12.9,  spread: 2.0 },                // K-BB% higher = better
-    teamSwStr:  { mean: 10.7,  spread: 1.5 },                // higher SwStr% = better for pitchers
+    pitchingKBB:{ mean: 13.0,  spread: 2.0 },                // K-BB% higher = better
+    teamSwStr:  { mean: 10.8,  spread: 1.5 },                // higher SwStr% = better for pitchers
     teamCStr:   { mean: 16.4,  spread: 1.2 },                // higher CStr% = better for pitchers
-    teamCSW:    { mean: 27.1,  spread: 1.8 },                // higher CSW% = better for pitchers
+    teamCSW:    { mean: 27.2,  spread: 1.8 },                // higher CSW% = better for pitchers
     teamChase:  { mean: 30.1,  spread: 3.5 },                // higher Chase% = better for pitchers
     teamWhiff:  { mean: 25.1,  spread: 3.5 },                // higher Whiff% = better for pitchers
-    teamFastSw: { mean: 26.2,  spread: 3.0, invert:true },   // lower opp Fast Swing% = better for pitchers
-    teamSqUpSw: { mean: 25.0,  spread: 2.0, invert:true },   // lower opp Squared-Up swing% = better
+    teamFastSw: { mean: 26.3,  spread: 3.0, invert:true },   // lower opp Fast Swing% = better for pitchers
+    teamSqUpSw: { mean: 24.9,  spread: 2.0, invert:true },   // lower opp Squared-Up swing% = better
     teamBlastSw:{ mean: 10.6,  spread: 2.0, invert:true },   // lower opp Blast swing% = better
     teamIdealAtk:{ mean: 51.1, spread: 4.0, invert:true },   // lower opp Ideal Attack Angle% = better
-    teamBatFastSw: { mean: 26.2,  spread: 3.0 },             // higher Fast Swing% = better for hitters
-    teamBatSqUpSw: { mean: 25.0,  spread: 2.0 },             // higher Squared-Up swing% = better for hitters
+    teamBatFastSw: { mean: 26.3,  spread: 3.0 },             // higher Fast Swing% = better for hitters
+    teamBatSqUpSw: { mean: 24.9,  spread: 2.0 },             // higher Squared-Up swing% = better for hitters
     teamBatBlastSw:{ mean: 10.6,  spread: 2.0 },             // higher Blast swing% = better for hitters
     teamBatIdealAtk:{ mean: 51.1, spread: 4.0 },             // higher Ideal Attack Angle% = better for hitters
-    teamBatSwStr: { mean: 10.7,  spread: 1.5, invert:true }, // lower SwStr% = better for hitters
+    teamBatSwStr: { mean: 10.8,  spread: 1.5, invert:true }, // lower SwStr% = better for hitters
     teamBatCStr:  { mean: 16.4,  spread: 1.2, invert:true }, // lower CStr% = better for hitters
-    teamBatCSW:   { mean: 27.1,  spread: 1.8, invert:true }, // lower CSW% = better for hitters
+    teamBatCSW:   { mean: 27.2,  spread: 1.8, invert:true }, // lower CSW% = better for hitters
     teamBatChase: { mean: 30.1,  spread: 3.5, invert:true }, // lower Chase% = better for hitters
     teamBatWhiff: { mean: 25.1,  spread: 3.5, invert:true }, // lower Whiff% = better for hitters
     teamBatBatSpeed: { mean: 72.0, spread: 0.6 },             // higher Bat Speed = better for hitters
@@ -3016,28 +3016,28 @@ function TeamStatsTab({T}) {
 
 const battingGrid = [
     { label:"AVG",     value:TEAM_HEADER.avg,  sub:"lg .243", heatRef:LG.avg  },
-    { label:"OBP",     value:TEAM_HEADER.obp,  sub:"lg .320", heatRef:LG.obp  },
-    { label:"SLG",     value:TEAM_HEADER.slg,  sub:"lg .399", heatRef:LG.slg  },
-    { label:"OPS",     value:TEAM_HEADER.ops,  sub:"lg .718", heatRef:LG.ops  },
-    { label:"K%",      value:TEAM_HEADER.battingK,  sub:"lg 22.0%", heatRef:LG.battingK  },
+    { label:"OBP",     value:TEAM_HEADER.obp,  sub:"lg .319", heatRef:LG.obp  },
+    { label:"SLG",     value:TEAM_HEADER.slg,  sub:"lg .400", heatRef:LG.slg  },
+    { label:"OPS",     value:TEAM_HEADER.ops,  sub:"lg .719", heatRef:LG.ops  },
+    { label:"K%",      value:TEAM_HEADER.battingK,  sub:"lg 22.1%", heatRef:LG.battingK  },
     { label:"BB%",     value:TEAM_HEADER.battingBB, sub:"lg 9.1%",  heatRef:LG.battingBB },
     { label:"wRC+",    value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
-    { label:"wOBA",    value:TEAM_HEADER.woba, sub:"lg .318", heatRef:LG.woba },
-    { label:"xwOBA",   value:TEAM_HEADER.xwoba,sub:"lg .320", heatRef:LG.xwoba},
+    { label:"wOBA",    value:TEAM_HEADER.woba, sub:"lg .317", heatRef:LG.woba },
+    { label:"xwOBA",   value:TEAM_HEADER.xwoba,sub:"lg .319", heatRef:LG.xwoba},
   ];
 
   const battingPlateDisc = [
-    { label:"SwStr%",  value:TEAM_HEADER.batSwStr,    sub:"lg 10.7%", heatRef:LG.teamBatSwStr  },
+    { label:"SwStr%",  value:TEAM_HEADER.batSwStr,    sub:"lg 10.8%", heatRef:LG.teamBatSwStr  },
     { label:"CStr%",   value:TEAM_HEADER.batCStr,     sub:"lg 16.4%", heatRef:LG.teamBatCStr   },
-    { label:"CSW%",    value:TEAM_HEADER.batCSW,      sub:"lg 27.1%", heatRef:LG.teamBatCSW    },
+    { label:"CSW%",    value:TEAM_HEADER.batCSW,      sub:"lg 27.2%", heatRef:LG.teamBatCSW    },
     { label:"Chase%",  value:TEAM_HEADER.batChase,    sub:"lg 30.1%", heatRef:LG.teamBatChase  },
     { label:"Whiff%",  value:TEAM_HEADER.batWhiff,    sub:"lg 25.1%", heatRef:LG.teamBatWhiff  },
   ];
 
   const battingBatTracking = [
     { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.2%", heatRef:LG.teamBatFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 25.0%", heatRef:LG.teamBatSqUpSw  },
+    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.3%", heatRef:LG.teamBatFastSw  },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 24.9%", heatRef:LG.teamBatSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   sub:"lg 10.6%", heatRef:LG.teamBatBlastSw },
     { label:"Ideal Atk%",  value:TEAM_HEADER.batIdealAtk,  sub:"lg 51.1%", heatRef:LG.teamBatIdealAtk},
   ];
@@ -3045,26 +3045,26 @@ const battingGrid = [
     { label:"ERA",     value:TEAM_HEADER.era,         sub:"lg 4.19",  heatRef:LG.era        },
     { label:"xERA",    value:TEAM_HEADER.xera,        sub:"lg 4.19",  heatRef:LG.xera       },
     { label:"WHIP",    value:TEAM_HEADER.whip,        sub:"lg 1.31",  heatRef:LG.whip       },
-    { label:"K%",      value:TEAM_HEADER.pitchingK,   sub:"lg 22.0%", heatRef:LG.pitchingK  },
+    { label:"K%",      value:TEAM_HEADER.pitchingK,   sub:"lg 22.1%", heatRef:LG.pitchingK  },
     { label:"BB%",     value:TEAM_HEADER.pitchingBB,  sub:"lg 9.1%",  heatRef:LG.pitchingBB },
-    { label:"K-BB%",   value:TEAM_HEADER.pitchingKBB, sub:"lg 12.9%", heatRef:LG.pitchingKBB},
+    { label:"K-BB%",   value:TEAM_HEADER.pitchingKBB, sub:"lg 13.0%", heatRef:LG.pitchingKBB},
     { label:"FIP",     value:TEAM_HEADER.fip,         sub:"lg 4.19",  heatRef:LG.fip        },
     { label:"xFIP",    value:TEAM_HEADER.xfip,        sub:"lg 4.19",  heatRef:LG.xfip       },
     { label:"SIERA",   value:TEAM_HEADER.siera,       sub:"lg 4.07",  heatRef:LG.siera      },
   ];
 
   const pitchingPlateDisc = [
-    { label:"SwStr%",  value:TEAM_HEADER.swstr,       sub:"lg 10.7%", heatRef:LG.teamSwStr  },
+    { label:"SwStr%",  value:TEAM_HEADER.swstr,       sub:"lg 10.8%", heatRef:LG.teamSwStr  },
     { label:"CStr%",   value:TEAM_HEADER.cstr,        sub:"lg 16.4%", heatRef:LG.teamCStr   },
-    { label:"CSW%",    value:TEAM_HEADER.csw,         sub:"lg 27.1%", heatRef:LG.teamCSW    },
+    { label:"CSW%",    value:TEAM_HEADER.csw,         sub:"lg 27.2%", heatRef:LG.teamCSW    },
     { label:"Chase%",  value:TEAM_HEADER.chase,       sub:"lg 30.1%", heatRef:LG.teamChase  },
     { label:"Whiff%",  value:TEAM_HEADER.whiff,       sub:"lg 25.1%", heatRef:LG.teamWhiff  },
   ];
 
   const pitchingBatTracking = [
     { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.2%", heatRef:LG.teamFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 25.0%", heatRef:LG.teamSqUpSw  },
+    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.3%", heatRef:LG.teamFastSw  },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 24.9%", heatRef:LG.teamSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   sub:"lg 10.6%", heatRef:LG.teamBlastSw },
     { label:"Ideal Atk%",  value:TEAM_HEADER.idealAtk,  sub:"lg 51.1%", heatRef:LG.teamIdealAtk},
   ];
