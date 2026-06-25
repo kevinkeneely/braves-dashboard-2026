@@ -212,6 +212,29 @@
      whiff: "26.3%",
      batBatSpeed: "72.6",
      batSpeed: "72.1",
+// Plate Discipline additions
+     batZoneSwing: "68.1%",
+     batZoneContact: "83.9%",
+     batChaseContact: "59.5%",
+     zoneSwing: "66.5%",
+     zoneContact: "84.1%",
+     chaseContact: "54.1%",
+// Statcast (hitters)
+     batBarrel: "9.2%",
+     batHardHit: "39.8%",
+     batExitVelo: "89.3",
+     batXBA: ".252",
+     batXSLG: ".428",
+     batXwOBAcon: ".379",
+// batXwOBA reuses existing `xwoba` field (.326)
+// Statcast (pitchers)
+     barrel: "6.6%",
+     hardHit: "37.6%",
+     exitVelo: "88.7",
+     xBA: ".235",
+     xSLG: ".373",
+     pXwOBA: ".304",
+     xwOBAcon: ".352",
  };
    
 export const hitters = [
