@@ -1095,6 +1095,8 @@ const HIDDEN_PLAYERS = new Set([
   "Sandy León",
   "Carlos Carrasco",
   "JR Ritchie",
+  "Joey Bart",
+  "Rowdy Tellez",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
