@@ -337,7 +337,7 @@ export const statcastPitchers = [
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
 // Updated June 25, 2026
-//   Hitters:  wRC+ (26) · xwOBA (21) · Hard Hit% (15) · Chase% inv (10) ·
+//   Hitters:  wRC+ (26) · wOBA (21) · Hard Hit% (15) · Chase% inv (10) ·
 //             Whiff% inv (12) · EV (07) · LA SwSp% (09)
 //   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
 //             SwStr% (10) · EV inv (8)
@@ -352,7 +352,7 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 // ─── League constants ──────────────────────────────────────────────────────
 const LG_HIT = {
   wrc:     { mean: 100,   sd: 20    },
-  xwoba:   { mean: 0.320, sd: 0.030 },
+  woba:   { mean: 0.317, sd: 0.030 },
   hardHit: { mean: 39.2,  sd: 6.0   },
   chase:   { mean: 30.0,  sd: 4.0   },   // inverted (lower = better)
   whiff:   { mean: 25.0,  sd: 4.0   },   // inverted (lower = better)
@@ -360,7 +360,7 @@ const LG_HIT = {
   laSwSp:  { mean: 33.7,  sd: 4.0   },
 };
 const W_HIT = {
-  wrc: 0.26, xwoba: 0.21, hardHit: 0.15, whiff: 0.12, chase: 0.10, laSwSp: 0.09, ev: 0.07,
+  wrc: 0.26, woba: 0.21, hardHit: 0.15, whiff: 0.12, chase: 0.10, laSwSp: 0.09, ev: 0.07,
 };
 
 const LG_PIT = {
@@ -383,7 +383,7 @@ const _scPitcherByName = Object.fromEntries(statcastPitchers.map(s => [s.name, s
 const _computeTrackerHit = (h) => {
   const sc = _scHitterByName[h.name] || {};
   const wrc     = Number(h.wrc);
-  const xwoba   = _num(h.xwoba ?? sc.xwoba);
+  const woba   = _num(h.woba ?? sc.woba);
   const hardHit = _pct(sc.hardHit);
   const chase   = _pct(sc.chase);
   const whiff   = _pct(sc.whiff);
@@ -392,7 +392,7 @@ const _computeTrackerHit = (h) => {
   if ([wrc, xwoba, hardHit, chase, whiff, ev, laSwSp].some(v => !isFinite(v))) return null;
   const z =
       W_HIT.wrc     *  _z(wrc,     LG_HIT.wrc.mean,     LG_HIT.wrc.sd)
-    + W_HIT.xwoba   *  _z(xwoba,   LG_HIT.xwoba.mean,   LG_HIT.xwoba.sd)
+    + W_HIT.woba    *  _z(woba,    LG_HIT.woba.mean,    LG_HIT.woba.sd)
     + W_HIT.hardHit *  _z(hardHit, LG_HIT.hardHit.mean, LG_HIT.hardHit.sd)
     + W_HIT.chase   * -_z(chase,   LG_HIT.chase.mean,   LG_HIT.chase.sd)   // inverted
     + W_HIT.whiff   * -_z(whiff,   LG_HIT.whiff.mean,   LG_HIT.whiff.sd)   // inverted
