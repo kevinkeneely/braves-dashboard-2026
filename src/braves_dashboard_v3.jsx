@@ -3215,8 +3215,9 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const hitterKeys = Object.keys(HITTER_WAR_COLORS);
-  const pitcherKeys = Object.keys(PITCHER_WAR_COLORS);
+  const WAR_PROGRESS_HIDDEN = new Set(["León", "Ritchie", "Strider", "Murphy", "Tromp"]);
+  const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
+  const pitcherKeys = Object.keys(PITCHER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
 
   // Click a legend name to isolate that player's line (click again to clear)
   const [selHitter, setSelHitter] = useState(null);
