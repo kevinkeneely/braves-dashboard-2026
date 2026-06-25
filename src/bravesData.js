@@ -195,12 +195,12 @@
      swstr: "11.4%",
      cstr: "16.2%",
      csw: "27.6%",
-     fastSwing: "26.0%",
+     fastSwing: "26.1%",
      sqUpSw: "24.2%",
      blastSw: "10.0%",
      idealAtk: "49.2%",
      batFastSwing: "32.0%",
-     batSqUpSw: "24.6%",
+     batSqUpSw: "24.5%",
      batBlastSw: "11.1%",
      batIdealAtk: "50.3%",
      batSwStr: "11.1%",
@@ -211,7 +211,7 @@
      chase: "30.7%",
      whiff: "26.3%",
      batBatSpeed: "72.6",
-     batSpeed: "72.0",
+     batSpeed: "72.1",
  };
    
 export const hitters = [
