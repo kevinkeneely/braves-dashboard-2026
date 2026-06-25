@@ -360,7 +360,7 @@ const LG_HIT = {
   laSwSp:  { mean: 33.7,  sd: 4.0   },
 };
 const W_HIT = {
-  wrc: 0.28, xwoba: 0.22, hardHit: 0.15, whiff: 0.12, chase: 0.10, ev: 0.07, laSwSp: 0.06,
+  wrc: 0.26, xwoba: 0.21, hardHit: 0.15, whiff: 0.12, chase: 0.10, ev: 0.07, laSwSp: 0.09,
 };
 
 const LG_PIT = {
