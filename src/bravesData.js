@@ -33,6 +33,7 @@
       //   - Sandy León
       //   - Chadwick Tromp
       //   - Sean Murphy
+      //   - Joey Bart
    
       STARTERS (6):
       //   - Chris Sale
@@ -52,6 +53,7 @@
       //   - Dylan Dodd
       //   - James Karinchak
       //   - Carlos Carrasco
+      //   - Ian Hamilton
       ───────────────────────────────────────────────────────────────────────────
       QUICK CHECK before saving:
       • Did you keep quotes on rate stats?   avg:".271"   kpct:"11.8%"
