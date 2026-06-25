@@ -336,9 +336,9 @@ export const statcastPitchers = [
 
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
-// Updated June 23, 2026
-//   Hitters:  wRC+ (28) · xwOBA (22) · Hard Hit% (16) · Chase% inv (12) ·
-//             Whiff% inv (10) · EV (08) · LA SwSp% (05)
+// Updated June 25, 2026
+//   Hitters:  wRC+ (28) · xwOBA (22) · Hard Hit% (15) · Chase% inv (10) ·
+//             Whiff% inv (12) · EV (07) · LA SwSp% (06)
 //   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
 //             SwStr% (10) · EV inv (8)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
@@ -360,7 +360,7 @@ const LG_HIT = {
   laSwSp:  { mean: 33.7,  sd: 4.0   },
 };
 const W_HIT = {
-  wrc: 0.28, xwoba: 0.22, hardHit: 0.16, chase: 0.12, whiff: 0.10, ev: 0.07, laSwSp: 0.05,
+  wrc: 0.28, xwoba: 0.22, hardHit: 0.15, whiff: 0.12, chase: 0.10, ev: 0.07, laSwSp: 0.06,
 };
 
 const LG_PIT = {
