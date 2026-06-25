@@ -2980,6 +2980,7 @@ function TeamStatsTab({T}) {
     wrc:        { mean: 100,   spread: 8     },
     woba:       { mean: 0.317, spread: 0.012 },
     xwoba:      { mean: 0.319, spread: 0.012 },
+    iso:        { mean: 0.157, spread: 0.015 },
     battingK:   { mean: 22.1,  spread: 1.8, invert:true },
     battingBB:  { mean: 9.1,   spread: 1.0 },
     era:        { mean: 4.19,  spread: 0.35, invert:true },
@@ -3036,7 +3037,7 @@ function TeamStatsTab({T}) {
     teamXwOBAcon:  { mean: 0.367, spread: 0.015, invert:true },
   };
 
-  const battingGrid = [
+ const battingGrid = [
     { label:"AVG",     value:TEAM_HEADER.avg,  sub:"lg .243", heatRef:LG.avg  },
     { label:"OBP",     value:TEAM_HEADER.obp,  sub:"lg .319", heatRef:LG.obp  },
     { label:"SLG",     value:TEAM_HEADER.slg,  sub:"lg .400", heatRef:LG.slg  },
@@ -3045,7 +3046,7 @@ function TeamStatsTab({T}) {
     { label:"BB%",     value:TEAM_HEADER.battingBB, sub:"lg 9.1%",  heatRef:LG.battingBB },
     { label:"wRC+",    value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
     { label:"wOBA",    value:TEAM_HEADER.woba, sub:"lg .317", heatRef:LG.woba },
-    { label:"xwOBA",   value:TEAM_HEADER.xwoba,sub:"lg .319", heatRef:LG.xwoba},
+    { label:"ISO",     value:TEAM_HEADER.iso,  sub:"lg .157", heatRef:LG.iso  },
   ];
 
   const battingStatcast = [
