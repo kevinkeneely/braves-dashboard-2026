@@ -383,7 +383,7 @@ const _scPitcherByName = Object.fromEntries(statcastPitchers.map(s => [s.name, s
 const _computeTrackerHit = (h) => {
   const sc = _scHitterByName[h.name] || {};
   const wrc     = Number(h.wrc);
-  const woba   = _num(h.woba ?? sc.woba);
+  const woba    = _num(h.woba);
   const hardHit = _pct(sc.hardHit);
   const chase   = _pct(sc.chase);
   const whiff   = _pct(sc.whiff);
