@@ -2996,8 +2996,8 @@ function TeamStatsTab({T}) {
     teamSwStr:  { mean: 10.8,  spread: 1.5 },
     teamCStr:   { mean: 16.4,  spread: 1.2 },
     teamCSW:    { mean: 27.2,  spread: 1.8 },
-    teamChase:  { mean: 30.1,  spread: 3.5 },
-    teamWhiff:  { mean: 25.1,  spread: 3.5 },
+    teamChase:  { mean: 30.2,  spread: 3.5 },
+    teamWhiff:  { mean: 25.2,  spread: 3.5 },
     teamFastSw: { mean: 26.3,  spread: 3.0, invert:true },
     teamSqUpSw: { mean: 24.9,  spread: 2.0, invert:true },
     teamBlastSw:{ mean: 10.6,  spread: 2.0, invert:true },
@@ -3009,10 +3009,10 @@ function TeamStatsTab({T}) {
     teamBatSwStr: { mean: 10.8,  spread: 1.5, invert:true },
     teamBatCStr:  { mean: 16.4,  spread: 1.2, invert:true },
     teamBatCSW:   { mean: 27.2,  spread: 1.8, invert:true },
-    teamBatChase: { mean: 30.1,  spread: 3.5, invert:true },
-    teamBatWhiff: { mean: 25.1,  spread: 3.5, invert:true },
-    teamBatBatSpeed: { mean: 72.0, spread: 0.6 },
-    teamBatSpeed:    { mean: 72.0, spread: 0.6, invert:true },
+    teamBatChase: { mean: 30.2,  spread: 3.5, invert:true },
+    teamBatWhiff: { mean: 25.2,  spread: 3.5, invert:true },
+    teamBatBatSpeed: { mean: 72.1, spread: 0.6 },
+    teamBatSpeed:    { mean: 72.1, spread: 0.6, invert:true },
     // Plate Discipline — Zone Swing/Contact/Chase Contact (NEW)
     teamBatZoneSwing:    { mean: 66.2, spread: 2.0 },                  // hitter: higher = aggressive (good)
     teamBatZoneContact:  { mean: 83.8, spread: 2.0 },                  // hitter: higher contact = better
@@ -3063,15 +3063,15 @@ function TeamStatsTab({T}) {
     { label:"SwStr%",        value:TEAM_HEADER.batSwStr,        sub:"lg 10.8%", heatRef:LG.teamBatSwStr        },
     { label:"CStr%",         value:TEAM_HEADER.batCStr,         sub:"lg 16.4%", heatRef:LG.teamBatCStr         },
     { label:"CSW%",          value:TEAM_HEADER.batCSW,          sub:"lg 27.2%", heatRef:LG.teamBatCSW          },
-    { label:"Chase%",        value:TEAM_HEADER.batChase,        sub:"lg 30.1%", heatRef:LG.teamBatChase        },
-    { label:"Whiff%",        value:TEAM_HEADER.batWhiff,        sub:"lg 25.1%", heatRef:LG.teamBatWhiff        },
+    { label:"Chase%",        value:TEAM_HEADER.batChase,        sub:"lg 30.2%", heatRef:LG.teamBatChase        },
+    { label:"Whiff%",        value:TEAM_HEADER.batWhiff,        sub:"lg 25.2%", heatRef:LG.teamBatWhiff        },
     { label:"Z-Swing%",      value:TEAM_HEADER.batZoneSwing,    sub:"lg 66.2%", heatRef:LG.teamBatZoneSwing    },
     { label:"Z-Contact%",    value:TEAM_HEADER.batZoneContact,  sub:"lg 83.8%", heatRef:LG.teamBatZoneContact  },
     { label:"O-Contact%",    value:TEAM_HEADER.batChaseContact, sub:"lg 56.9%", heatRef:LG.teamBatChaseContact },
   ];
 
   const battingBatTracking = [
-    { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatBatSpeed },
+    { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatBatSpeed },
     { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.3%", heatRef:LG.teamBatFastSw  },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 24.9%", heatRef:LG.teamBatSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   sub:"lg 10.6%", heatRef:LG.teamBatBlastSw },
@@ -3104,15 +3104,15 @@ function TeamStatsTab({T}) {
     { label:"SwStr%",        value:TEAM_HEADER.swstr,         sub:"lg 10.8%", heatRef:LG.teamSwStr        },
     { label:"CStr%",         value:TEAM_HEADER.cstr,          sub:"lg 16.4%", heatRef:LG.teamCStr         },
     { label:"CSW%",          value:TEAM_HEADER.csw,           sub:"lg 27.2%", heatRef:LG.teamCSW          },
-    { label:"Chase%",        value:TEAM_HEADER.chase,         sub:"lg 30.1%", heatRef:LG.teamChase        },
-    { label:"Whiff%",        value:TEAM_HEADER.whiff,         sub:"lg 25.1%", heatRef:LG.teamWhiff        },
+    { label:"Chase%",        value:TEAM_HEADER.chase,         sub:"lg 30.2%", heatRef:LG.teamChase        },
+    { label:"Whiff%",        value:TEAM_HEADER.whiff,         sub:"lg 25.2%", heatRef:LG.teamWhiff        },
     { label:"Z-Swing%",      value:TEAM_HEADER.zoneSwing,     sub:"lg 66.2%", heatRef:LG.teamZoneSwing    },
     { label:"Z-Contact%",    value:TEAM_HEADER.zoneContact,   sub:"lg 83.8%", heatRef:LG.teamZoneContact  },
     { label:"O-Contact%",    value:TEAM_HEADER.chaseContact,  sub:"lg 56.9%", heatRef:LG.teamChaseContact },
   ];
 
   const pitchingBatTracking = [
-    { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.0",  heatRef:LG.teamBatSpeed },
+    { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatSpeed },
     { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.3%", heatRef:LG.teamFastSw  },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 24.9%", heatRef:LG.teamSqUpSw  },
     { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   sub:"lg 10.6%", heatRef:LG.teamBlastSw },
