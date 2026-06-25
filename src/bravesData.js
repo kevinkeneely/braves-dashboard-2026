@@ -151,6 +151,7 @@
      { date:"Sat, Jun 27", opp:"San Francisco",   home:false,},
      { date:"Sun, Jun 28", opp:"San Francisco",   home:false,},
      { date:"Tue, Jun 30", opp:"St. Louis",   home:true,},
+      // July
      { date:"Wed, Jul 1", opp:"St. Louis",   home:true,},
      { date:"Thu, Jul 2", opp:"St. Louis",   home:true,},
      { date:"Fri, Jul 3", opp:"Mets",   home:true,},
@@ -163,6 +164,7 @@
      { date:"Fri, Jul 10", opp:"St. Louis",   home:false,},
      { date:"Sat, Jul 11", opp:"St. Louis",   home:false,},
      { date:"Sun, Jul 12", opp:"St. Louis",   home:false,},
+      // All-Star Break
    ];
    
    export const TEAM_HEADER = {
