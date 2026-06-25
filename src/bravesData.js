@@ -179,6 +179,7 @@
      slg: ".416",
      ops: ".730",
      wrc: 101,
+     iso: ".165",
      battingK: "21.3%",
      battingBB: "7.8%",
      woba: ".320",
