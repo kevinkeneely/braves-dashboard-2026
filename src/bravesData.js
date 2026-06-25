@@ -145,8 +145,8 @@
      { date:"Sun, Jun 21", opp:"Milwaukee",   home:true, result:"L", score:"4-9", record:"48-28"},
      { date:"Mon, Jun 22", opp:"San Diego",   home:false, result:"L", score:"0-1", record:"48-29"},
      { date:"Tue, Jun 23", opp:"San Diego",   home:false, result:"L", score:"6-7", record:"48-30"},
+     { date:"Wed, Jun 24", opp:"San Diego",   home:false, result:"L", score:"2-5", record:"48-31"},
       // Upcoming
-     { date:"Wed, Jun 24", opp:"San Diego",   home:false,},
      { date:"Fri, Jun 26", opp:"San Francisco",   home:false,},
      { date:"Sat, Jun 27", opp:"San Francisco",   home:false,},
      { date:"Sun, Jun 28", opp:"San Francisco",   home:false,},
@@ -157,6 +157,12 @@
      { date:"Sat, Jul 4", opp:"Mets",   home:true,},
      { date:"Sun, Jul 5", opp:"Mets",   home:true,},
      { date:"Mon, Jul 6", opp:"Mets",   home:true,},
+     { date:"Tue, Jul 7", opp:"Pittsburgh",   home:false,},
+     { date:"Wed, Jul 8", opp:"Pittsburgh",   home:false,},
+     { date:"Thu, Jul 9", opp:"Pittsburgh",   home:false,},
+     { date:"Fri, Jul 10", opp:"St. Louis",   home:false,},
+     { date:"Sat, Jul 11", opp:"St. Louis",   home:false,},
+     { date:"Sun, Jul 12", opp:"St. Louis",   home:false,},
    ];
    
    export const TEAM_HEADER = {
