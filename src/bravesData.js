@@ -352,7 +352,7 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 // ─── League constants ──────────────────────────────────────────────────────
 const LG_HIT = {
   wrc:     { mean: 100,   sd: 20    },
-  woba:   { mean: 0.317, sd: 0.030 },
+  woba:    { mean: 0.317, sd: 0.030 },
   hardHit: { mean: 39.2,  sd: 6.0   },
   chase:   { mean: 30.0,  sd: 4.0   },   // inverted (lower = better)
   whiff:   { mean: 25.0,  sd: 4.0   },   // inverted (lower = better)
