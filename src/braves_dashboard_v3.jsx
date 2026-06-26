@@ -511,7 +511,7 @@ export default function BravesDashboardV2() {
             <ScheduleStrip T={T}/>
           ) : tab === "Splits" ? null : (
             <PlayerCarousel
-              T={T} tab={tab} statcastMode={statcastMode}
+              T={T} tab={tab} statcastMode={statcastMode} playerStatsMode={playerStatsMode}
               onSelect={(kind, data) => setSelectedPlayer({kind, data})}
               selectedPlayer={selectedPlayer}
             />
@@ -1164,12 +1164,12 @@ function MobileDrawer({T, side, onClose, children}) {
    Shows hitters on Hitting/Statcast tabs, pitchers on Pitching tab,
    both stacked on Team Stats / Standings / WAR Progress
    ───────────────────────────────────────────────────────────────────────── */
-function PlayerCarousel({T, tab, statcastMode, onSelect, selectedPlayer}) {
-  // For Statcast, mirror the in-tab toggle. Other tabs keep their existing rule.
-  const showHitters = tab === "Hitting"
+function PlayerCarousel({T, tab, statcastMode, playerStatsMode, onSelect, selectedPlayer}) {
+  // For Player Stats and Statcast, mirror the in-tab toggle. Other tabs keep their existing rule.
+  const showHitters = (tab === "Player Stats" && playerStatsMode === "hitters")
     || (tab === "Statcast" && statcastMode === "hitters")
     || tab === "Team Stats" || tab === "WAR Progress";
-  const showPitchers = tab === "Pitching"
+  const showPitchers = (tab === "Player Stats" && playerStatsMode === "pitchers")
     || (tab === "Statcast" && statcastMode === "pitchers")
     || tab === "Team Stats" || tab === "WAR Progress";
 
@@ -2442,8 +2442,7 @@ const tdStyle = (T, i, isName) => {
 function PlayerStatsTab({T, mode, setMode, onSelectHitter, onSelectPitcher}) {
   return (
     <>
-      <TabTitle T={T} eyebrow={mode === "hitters" ? "OFFENSIVE PRODUCTION" : "STAFF PERFORMANCE"} title="PLAYER STATS"/>
-      <div style={{display:"flex", gap:6, marginBottom:10}}>
+          <div style={{display:"flex", gap:6, marginBottom:10}}>
         {["hitters","pitchers"].map(m => (
           <button key={m} onClick={()=>setMode(m)} style={{
             background: mode === m ? "linear-gradient(135deg, rgba(206,17,65,0.20), rgba(196,163,90,0.12))" : "transparent",
