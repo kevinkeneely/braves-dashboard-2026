@@ -2821,22 +2821,25 @@ function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
           { label:"K%",  value:rsp.kpct },
         ];
       })()
-    : [
-        { label:"IP",   value:player.ip },
-        { label:"ERA",  value:player.era },
-        { label:"WHIP", value:(() => {
-            const w = parseFloat(player.whip);
-            return isNaN(w) ? player.whip : w.toFixed(2);
-          })() },
-        { label:"K-BB%", value:(() => {
-            const k = parseFloat(player.kpct), b = parseFloat(player.bbpct);
-            return (isNaN(k) || isNaN(b)) ? "—" : `${(k - b).toFixed(1)}%`;
-          })() },
-        { label:"SIERA",value:player.siera },
-        { label:"FIP",  value:player.fip },
-        { label:"bWAR", value:(player.war ?? 0).toFixed(1) },
-        { label:"fWAR", value:(player.war2 ?? 0).toFixed(1) },
-      ];
+: (() => {
+        const sp = player.splits?.[splitsKey] || {};
+        return [
+          { label:"IP",   value:sp.ip },
+          { label:"ERA",  value:sp.era },
+          { label:"WHIP", value:(() => {
+              const w = parseFloat(sp.whip);
+              return isNaN(w) ? sp.whip : w.toFixed(2);
+            })() },
+          { label:"K-BB%", value:(() => {
+              const k = parseFloat(sp.kpct), b = parseFloat(sp.bbpct);
+              return (isNaN(k) || isNaN(b)) ? "—" : `${(k - b).toFixed(1)}%`;
+            })() },
+          { label:"xFIP", value:sp.xfip },
+          { label:"FIP",  value:sp.fip },
+          { label:"AVG",  value:sp.avg },
+          { label:"wOBA", value:sp.woba },
+        ];
+      })();
   return (
     <button onClick={onClick} className="brv-splits-card brv-card-shine" style={{
       background: T === THEME.dark
