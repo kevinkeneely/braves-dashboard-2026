@@ -2881,7 +2881,7 @@ function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
         {stats.map(st => (
           <div key={st.label} style={{textAlign:"center"}}>
             <div style={{fontSize:8, color:T.textMuted, fontWeight:700, letterSpacing:"0.06em", marginBottom:1}}>{st.label}</div>
-            <div style={{fontSize:11.5, fontWeight:700, color: st.label === "wRC+" ? "#22c55e" : T.text, fontFamily:"'JetBrains Mono',monospace"}}>{st.value ?? "—"}</div>
+            <div style={{fontSize:11.5, fontWeight:700, color: (st.label === "wRC+" || st.label === "K-BB%") ? "#22c55e" : T.text, fontFamily:"'JetBrains Mono',monospace"}}>{st.value ?? "—"}</div>
           </div>
         ))}
       </div>
