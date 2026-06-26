@@ -388,21 +388,23 @@ const navyGloss = (T) => ({
     : "0 8px 32px rgba(19,39,79,0.10), inset 0 1px 0 rgba(255,255,255,0.6)",
 });
 
-const TABS = ["Hitting","Pitching","Statcast","Team Stats","Splits","Standings","WAR Progress"];
+const TABS = ["Player Stats","Statcast","Splits","Team Stats","Standings","WAR Progress"];
 
 /* ── MAIN COMPONENT ─────────────────────────────────────────────────────── */
 export default function BravesDashboardV2() {
   const [mode, setMode] = useState("dark");
   const T = THEME[mode];
-  const [tab, setTab] = useState("Hitting");
+  const [tab, setTab] = useState("Player Stats");
   const [search, setSearch] = useState("");
   const [selectedPlayer, setSelectedPlayer] = useState(null); // {kind:'hitter'|'pitcher', data}
   const [posFilter, setPosFilter] = useState("ALL");
   const [roleFilter, setRoleFilter] = useState("ALL");
   const [hSort, setHSort] = useState("war");
   const [pSort, setPSort] = useState("war");
-  // Statcast tab's hitter/pitcher toggle — lifted so the carousel can mirror it.
+// Statcast tab's hitter/pitcher toggle — lifted so the carousel can mirror it.
   const [statcastMode, setStatcastMode] = useState("hitters");
+  // Player Stats tab's hitter/pitcher toggle
+  const [playerStatsMode, setPlayerStatsMode] = useState("hitters");
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
 
@@ -514,12 +516,13 @@ export default function BravesDashboardV2() {
               selectedPlayer={selectedPlayer}
             />
           )}
-          <TabContent
-            T={T} mode={mode} tab={tab}
-            statcastMode={statcastMode} setStatcastMode={setStatcastMode}
-            onSelectHitter={(h)=>setSelectedPlayer({kind:"hitter", data:h})}
-            onSelectPitcher={(p)=>setSelectedPlayer({kind:"pitcher", data:p})}
-          />
+            <TabContent
+              T={T} mode={mode} tab={tab}
+              playerStatsMode={playerStatsMode} setPlayerStatsMode={setPlayerStatsMode}
+              statcastMode={statcastMode} setStatcastMode={setStatcastMode}
+              onSelectHitter={(h)=>setSelectedPlayer({kind:"hitter", data:h})}
+              onSelectPitcher={(p)=>setSelectedPlayer({kind:"pitcher", data:p})}
+            />
           {selectedPlayer && (
             <FullProfile T={T} mode={mode} player={selectedPlayer} onClose={()=>setSelectedPlayer(null)} />
           )}
@@ -2365,14 +2368,13 @@ const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }
 /* ─────────────────────────────────────────────────────────────────────────
    TAB CONTENT DISPATCHER
    ───────────────────────────────────────────────────────────────────────── */
-function TabContent({T, mode, tab, statcastMode, setStatcastMode, onSelectHitter, onSelectPitcher}) {
+function TabContent({T, mode, tab, playerStatsMode, setPlayerStatsMode, statcastMode, setStatcastMode, onSelectHitter, onSelectPitcher}) {
   return (
     <div style={{
       ...navyGloss(T),
       borderRadius:14, padding:14, minHeight:280,
     }}>
-      {tab === "Hitting"      && <HittingTab T={T} onSelect={onSelectHitter}/>}
-      {tab === "Pitching"     && <PitchingTab T={T} onSelect={onSelectPitcher}/>}
+      {tab === "Player Stats" && <PlayerStatsTab T={T} mode={playerStatsMode} setMode={setPlayerStatsMode} onSelectHitter={onSelectHitter} onSelectPitcher={onSelectPitcher}/>}
       {tab === "Statcast"     && <StatcastTab T={T} mode={statcastMode} setMode={setStatcastMode} onSelectHitter={onSelectHitter} onSelectPitcher={onSelectPitcher}/>}
       {tab === "Team Stats"   && <TeamStatsTab T={T}/>}
       {tab === "Splits"       && <SplitsTab T={T} mode={mode}/>}
@@ -2435,6 +2437,27 @@ const tdStyle = (T, i, isName) => {
     } : {}),
   };
 };
+
+/* ── PLAYER STATS TAB (toggles between hitters and pitchers) ─────────────── */
+function PlayerStatsTab({T, mode, setMode, onSelectHitter, onSelectPitcher}) {
+  return (
+    <>
+      <TabTitle T={T} eyebrow={mode === "hitters" ? "OFFENSIVE PRODUCTION" : "STAFF PERFORMANCE"} title="PLAYER STATS"/>
+      <div style={{display:"flex", gap:6, marginBottom:10}}>
+        {["hitters","pitchers"].map(m => (
+          <button key={m} onClick={()=>setMode(m)} style={{
+            background: mode === m ? "linear-gradient(135deg, rgba(206,17,65,0.20), rgba(196,163,90,0.12))" : "transparent",
+            border:`1px solid ${mode === m ? BRAND.gold : T.borderFaint}`,
+            borderRadius:6, padding:"5px 12px", fontSize:10.5, fontWeight:700,
+            color: mode === m ? BRAND.goldBright : T.textMid,
+            cursor:"pointer", letterSpacing:"0.10em", textTransform:"uppercase",
+          }}>{m}</button>
+        ))}
+      </div>
+      {mode === "hitters" ? <HittingTab T={T} onSelect={onSelectHitter}/> : <PitchingTab T={T} onSelect={onSelectPitcher}/>}
+    </>
+  );
+}
 
 /* ── HITTING TAB ─────────────────────────────────────────────────────────── */
 function HittingTab({T, onSelect}) {
