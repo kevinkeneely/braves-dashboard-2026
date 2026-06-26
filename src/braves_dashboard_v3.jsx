@@ -2914,42 +2914,71 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose}) {
 
 function SplitsTab({T, mode}) {
   const splitsHitters = hitters.filter(h => !HIDDEN_PLAYERS.has(h.name));
+  const splitsPitchers = [...starters, ...bullpen].filter(p => !HIDDEN_PLAYERS.has(p.name));
+  // Local toggle: which side of the splits we're viewing (hitters or pitchers)
+  const [splitsView, setSplitsView] = useState("hitters");
   // Which card is expanded in place. Keyed by section + name so the same
-  // hitter can be open in the RISP grid without expanding in the HL grid.
+  // player can be open in one grid without expanding in the other.
   const [expanded, setExpanded] = useState(null);
   const keyFor = (section, name) => `${section}:${name}`;
   const toggle = (section, name) => setExpanded(prev => prev === keyFor(section, name) ? null : keyFor(section, name));
   // Phones (single-column grid) get a gentler shrink than wide screens.
   const isNarrow = typeof window !== "undefined" && window.innerWidth <= 560;
   const scale = isNarrow ? 0.8 : 0.6;
-
-  const renderGrid = (list, section, splitsKey) => (
+  const renderGrid = (list, section, splitsKey, kind) => (
     <div className="brv-splits-grid">
       {list.map(pl => {
         const isOpen = expanded === keyFor(section, pl.name);
         return isOpen ? (
-          <ExpandedProfile key={pl.name} T={T} mode={mode} kind="hitter" player={pl} scale={scale} onClose={()=>setExpanded(null)}/>
+          <ExpandedProfile key={pl.name} T={T} mode={mode} kind={kind} player={pl} scale={scale} onClose={()=>setExpanded(null)}/>
         ) : (
-          <SplitsCard key={pl.name} T={T} player={pl} kind="hitter" splitsKey={splitsKey} onClick={()=>toggle(section, pl.name)}/>
+          <SplitsCard key={pl.name} T={T} player={pl} kind={kind} splitsKey={splitsKey} onClick={()=>toggle(section, pl.name)}/>
         );
       })}
     </div>
   );
 
+  // Section labels swap with the view
+  const topLabel    = splitsView === "hitters" ? "HITTERS · with RISP"      : "PITCHERS · vs LHH";
+  const bottomLabel = splitsView === "hitters" ? "HITTERS · High Leverage"  : "PITCHERS · vs RHH";
+  const topKey      = splitsView === "hitters" ? "risp"         : "vsL";
+  const bottomKey   = splitsView === "hitters" ? "highLeverage" : "vsR";
+  const topSection    = splitsView === "hitters" ? "risp" : "vsL";
+  const bottomSection = splitsView === "hitters" ? "hl"   : "vsR";
+  const list = splitsView === "hitters" ? splitsHitters : splitsPitchers;
+  const kind = splitsView === "hitters" ? "hitter" : "pitcher";
+
+  // Reset expanded card when switching views so nothing carries over
+  const handleViewChange = (v) => {
+    setSplitsView(v);
+    setExpanded(null);
+  };
+
   return (
     <>
       <TabTitle T={T} eyebrow="EVERY PLAYER · CARD VIEW" title="SPLITS"/>
-      <div style={{fontSize:11, color:T.textMuted, marginBottom:14, lineHeight:1.4}}>
-        Hitters with RISP up top, high-leverage splits below the line · tap any card to expand it in place
+      <div style={{display:"flex", gap:6, marginBottom:10}}>
+        {["hitters","pitchers"].map(v => (
+          <button key={v} onClick={()=>handleViewChange(v)} style={{
+            background: splitsView === v ? "linear-gradient(135deg, rgba(206,17,65,0.20), rgba(196,163,90,0.12))" : "transparent",
+            border:`1px solid ${splitsView === v ? BRAND.gold : T.borderFaint}`,
+            borderRadius:6, padding:"5px 12px", fontSize:10.5, fontWeight:700,
+            color: splitsView === v ? BRAND.goldBright : T.textMid,
+            cursor:"pointer", letterSpacing:"0.10em", textTransform:"uppercase",
+          }}>{v}</button>
+        ))}
       </div>
-
-      {/* HITTERS · with RISP */}
+      <div style={{fontSize:11, color:T.textMuted, marginBottom:14, lineHeight:1.4}}>
+        {splitsView === "hitters"
+          ? "Hitters with RISP up top, high-leverage splits below the line · tap any card to expand it in place"
+          : "Pitchers vs LHH up top, vs RHH below the line · tap any card to expand it in place"}
+      </div>
+      {/* TOP SECTION */}
       <div style={{
         fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
         fontFamily:"'Cinzel',serif", marginBottom:10,
-      }}>HITTERS · with RISP</div>
-      {renderGrid(splitsHitters, "risp", "risp")}
-
+      }}>{topLabel}</div>
+      {renderGrid(list, topSection, topKey, kind)}
       {/* RED DIVIDER — matches the STARTER badge red/black */}
       <div style={{
         height:4, borderRadius:3, margin:"26px 0 22px",
@@ -2957,13 +2986,12 @@ function SplitsTab({T, mode}) {
         boxShadow:`0 0 12px rgba(206,17,65,0.55)`,
         border:`1px solid ${BRAND.goldBright}55`,
       }}/>
-
-      {/* HITTERS · High Leverage */}
+      {/* BOTTOM SECTION */}
       <div style={{
         fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
         fontFamily:"'Cinzel',serif", marginBottom:10,
-      }}>HITTERS · High Leverage</div>
-      {renderGrid(splitsHitters, "hl", "highLeverage")}
+      }}>{bottomLabel}</div>
+      {renderGrid(list, bottomSection, bottomKey, kind)}
     </>
   );
 }
