@@ -3324,13 +3324,21 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["León", "Ritchie", "Strider", "Murphy", "Tromp"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["León", "Ritchie", "Strider", "Murphy", "Tromp", "Carrasco"]);
+
+  // Define which pitcher keys are starters vs. relievers
+  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "Holmes", "López"]);
+  // Anything not in SP_KEYS (and not hidden) falls into the bullpen
+
   const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
-  const pitcherKeys = Object.keys(PITCHER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
+  const allPitcherKeys = Object.keys(PITCHER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
+  const spKeys = allPitcherKeys.filter(k => SP_KEYS.has(k));
+  const rpKeys = allPitcherKeys.filter(k => !SP_KEYS.has(k));
 
   // Click a legend name to isolate that player's line (click again to clear)
   const [selHitter, setSelHitter] = useState(null);
-  const [selPitcher, setSelPitcher] = useState(null);
+  const [selSP, setSelSP] = useState(null);
+  const [selRP, setSelRP] = useState(null);
   const toggle = (sel, setSel) => (e) => {
     const k = e && (e.dataKey || e.value);
     if (!k) return;
@@ -3349,74 +3357,89 @@ function WarProgressTab({T}) {
     };
   };
 
-  // Compute summary leaders for each chart
+  // Compute leaders from final-week data
   const lastH = hitterWarProgress[hitterWarProgress.length - 1];
   const lastP = pitcherWarProgress[pitcherWarProgress.length - 1];
+  const leaderOf = (keys, lastRow) => {
+    const visible = keys.filter(k => lastRow[k] != null);
+    if (!visible.length) return null;
+    return visible.reduce((best, k) => lastRow[k] > lastRow[best] ? k : best, visible[0]);
+  };
+  const hitterLeader = leaderOf(hitterKeys, lastH);
+  const spLeader = leaderOf(spKeys, lastP);
+  const rpLeader = leaderOf(rpKeys, lastP);
+
+  // Render helper to keep the three chart blocks consistent
+  const renderChart = ({title, keys, colors, sel, setSel, leader, leaderLabel, data, colorMap}) => (
+    <div style={{marginBottom:18}}>
+      <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
+        {title}
+      </div>
+      <div style={{fontSize:10.5, color:T.textMuted, marginBottom:8}}>
+        {keys.length} {leaderLabel} · {leader ? `${leader} leads at +${data[data.length-1][leader].toFixed(1)}` : "no data"}
+        {sel ? ` · isolating ${sel} (click again to reset)` : " · tap a name to isolate"}
+      </div>
+      <div style={{height:280, background: T === THEME.dark ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.5)", borderRadius:10, padding:10}}>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data} margin={{top:8, right:20, bottom:4, left:4}}>
+            <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
+            <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
+            <YAxis stroke={T.textMuted} fontSize={10}/>
+            <Tooltip
+              contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
+              itemStyle={{color:T.text}}
+              labelStyle={{color:T.textMuted, fontWeight:700}}
+            />
+            {keys.map(k => (
+              <Line key={k} type="monotone" dataKey={k} {...lineProps(k, sel, colorMap[k])} isAnimationActive={false}/>
+            ))}
+            <ReferenceLine y={0} stroke="rgba(255,255,255,0.9)" strokeDasharray="4 5" strokeWidth={2}/>
+            <Legend wrapperStyle={{fontSize:10, paddingTop:6, cursor:"pointer"}} onClick={toggle(sel, setSel)}/>
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
 
   return (
     <>
-      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G60" title="WAR PROGRESS"/>
+      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G73" title="WAR PROGRESS"/>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:12, lineHeight:1.4}}>
         Cumulative fWAR gained as the 2026 season has progressed · weekly checkpoints · FanGraphs
       </div>
 
-      <div style={{marginBottom:18}}>
-        <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
-          Position Players — Cumulative fWAR
-        </div>
-        <div style={{fontSize:10.5, color:T.textMuted, marginBottom:8}}>
-          {hitterKeys.length} contributors · Olson leads at +{lastH["Olson"].toFixed(1)}
-          {selHitter ? ` · isolating ${selHitter} (click again to reset)` : " · tap a name to isolate"}
-        </div>
-        <div style={{height:280, background: T === THEME.dark ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.5)", borderRadius:10, padding:10}}>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={hitterWarProgress} margin={{top:8, right:20, bottom:4, left:4}}>
-              <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
-              <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
-              <YAxis stroke={T.textMuted} fontSize={10}/>
-              <Tooltip
-                contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
-                itemStyle={{color:T.text}}
-                labelStyle={{color:T.textMuted, fontWeight:700}}
-              />
-              {hitterKeys.map(k => (
-                <Line key={k} type="monotone" dataKey={k} {...lineProps(k, selHitter, HITTER_WAR_COLORS[k])} isAnimationActive={false}/>
-              ))}
-              <ReferenceLine y={0} stroke="rgba(255,255,255,0.9)" strokeDasharray="4 5" strokeWidth={2}/>
-              <Legend wrapperStyle={{fontSize:10, paddingTop:6, cursor:"pointer"}} onClick={toggle(selHitter, setSelHitter)}/>
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+      {renderChart({
+        title: "Position Players — Cumulative fWAR",
+        keys: hitterKeys,
+        sel: selHitter,
+        setSel: setSelHitter,
+        leader: hitterLeader,
+        leaderLabel: "contributors",
+        data: hitterWarProgress,
+        colorMap: HITTER_WAR_COLORS,
+      })}
 
-      <div>
-        <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
-          Pitchers (SP + RP) — Cumulative fWAR
-        </div>
-        <div style={{fontSize:10.5, color:T.textMuted, marginBottom:8}}>
-          {pitcherKeys.length} arms · Sale leads starters at +{lastP["Sale"].toFixed(1)} · D.Lee leads relievers +{lastP["D.Lee"].toFixed(1)}
-          {selPitcher ? ` · isolating ${selPitcher} (click again to reset)` : " · tap a name to isolate"}
-        </div>
-        <div style={{height:280, background: T === THEME.dark ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.5)", borderRadius:10, padding:10}}>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={pitcherWarProgress} margin={{top:8, right:20, bottom:4, left:4}}>
-              <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
-              <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
-              <YAxis stroke={T.textMuted} fontSize={10}/>
-              <Tooltip
-                contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
-                itemStyle={{color:T.text}}
-                labelStyle={{color:T.textMuted, fontWeight:700}}
-              />
-              {pitcherKeys.map(k => (
-                <Line key={k} type="monotone" dataKey={k} {...lineProps(k, selPitcher, PITCHER_WAR_COLORS[k])} isAnimationActive={false}/>
-              ))}
-              <ReferenceLine y={0} stroke="rgba(255,255,255,0.9)" strokeDasharray="4 5" strokeWidth={2}/>
-              <Legend wrapperStyle={{fontSize:10, paddingTop:6, cursor:"pointer"}} onClick={toggle(selPitcher, setSelPitcher)}/>
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+      {renderChart({
+        title: "Starting Pitchers — Cumulative fWAR",
+        keys: spKeys,
+        sel: selSP,
+        setSel: setSelSP,
+        leader: spLeader,
+        leaderLabel: "starters",
+        data: pitcherWarProgress,
+        colorMap: PITCHER_WAR_COLORS,
+      })}
+
+      {renderChart({
+        title: "Bullpen — Cumulative fWAR",
+        keys: rpKeys,
+        sel: selRP,
+        setSel: setSelRP,
+        leader: rpLeader,
+        leaderLabel: "relievers",
+        data: pitcherWarProgress,
+        colorMap: PITCHER_WAR_COLORS,
+      })}
     </>
   );
 }
