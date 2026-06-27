@@ -1093,11 +1093,9 @@ const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harr
    they can be restored instantly, but every rendered surface filters through this. */
 const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
-  "Spencer Strider",
   "Chadwick Tromp",
   "Sandy León",
   "Carlos Carrasco",
-  "JR Ritchie",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
