@@ -324,9 +324,9 @@ const HITTER_WAR_COLORS = {
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
-  "Suarez":"#c084fc","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
-  "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#CE1141","Karinchak":"#22d3ee"
+  "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
+  "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
+  "Ritchie":"#CE1141","Karinchak":"#22d3ee","Hamilton":"#94a3b8"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1423,7 +1423,7 @@ const PITCHER_WAR_KEY = {
   "Raisel Iglesias":"Iglesias", "Robert Suarez":"Suarez", "Didier Fuentes":"Fuentes",
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
-   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak",
+   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
 };
 
 function FullProfile({T, mode, player, onClose}) {
@@ -3324,10 +3324,10 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["León", "Ritchie", "Strider", "Murphy", "Tromp", "Carrasco"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["León", "Murphy", "Tromp", "Carrasco"]);
 
   // Define which pitcher keys are starters vs. relievers
-  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "Holmes", "López"]);
+  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "Holmes", "López", "Strider", "Ritchie"]);
   // Anything not in SP_KEYS (and not hidden) falls into the bullpen
 
   const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
