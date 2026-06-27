@@ -320,11 +320,11 @@ const leagueRef = (statKey, invert = false) => {
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
-  "Riley":"#a78bfa","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24","Bart":"#22d3ee","Tellez":"#e879f9"
+  "Riley":#f59e0b,"White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24","Bart":"#22d3ee","Tellez":"#e879f9"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
-  "Suarez":"#60a5fa","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
+  "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
   "Ritchie":"#f87171","Karinchak":"#22d3ee","Hamilton":"#94a3b8"
 };
