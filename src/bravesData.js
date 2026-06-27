@@ -287,7 +287,7 @@ export const starters = [
    export const standings = [
      { team:"ATL", full:"Atlanta Braves",       w:49,l:31,pct:".613",gb:"—", home:"24-14",away:"25-17", rs:388, ra:294, diff:+94, strk:"W1", l10:"3-7", highlight:true,  srs:1.2 },
      { team:"PHI", full:"Philadelphia Phillies", w:46,l:36,pct:".561",gb:"4.0", home:"23-19",away:"23-17", rs:361, ra:356, diff:+5, strk:"W4", l10:"7-3", highlight:false, srs:0.1 },
-     { team:"MIA", full:"Miami Marlins",        w:43,l:39,pct:".524",gb:"7.0", home:"28-17",away:"15-22", rs:353, ra:346, diff:+7, strk:"W3", l10:"7-3", highlight:false, srs:0.1 },
+     { team:"MIA", full:"Miami Marlins",        w:43,l:39,pct:".524",gb:"7.0", home:"28-17",away:"15-22", rs:353, ra:346, diff:+7, strk:"W3", l10:"7-3", highlight:false, srs:0.2 },
      { team:"WSN", full:"Washington Nationals", w:41,l:42,pct:".494",gb:"9.5", home:"17-25",away:"24-17", rs:439, ra:437, diff:+2, strk:"L4", l10:"3-7", highlight:false, srs:0.2 },
      { team:"NYM", full:"New York Mets",        w:34,l:48,pct:".415",gb:"16.0", home:"18-23",away:"16-25", rs:329, ra:377, diff:-48, strk:"L7", l10:"2-8", highlight:false, srs:-0.6 },
    ];
