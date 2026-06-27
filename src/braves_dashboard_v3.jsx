@@ -319,14 +319,14 @@ const leagueRef = (statKey, invert = false) => {
 
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
-  "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#34d399",
-  "Riley":"#a78bfa","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24"
+  "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
+  "Riley":"#a78bfa","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24","Bart":"#22d3ee","Tellez":"#e879f9"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#c084fc","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#94a3b8","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#CE1141","Karinchak":"#2dd4bf"
+  "Ritchie":"#CE1141","Karinchak":"#22d3ee"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1416,7 +1416,7 @@ const HITTER_WAR_KEY = {
   "Michael Harris II":"Harris", "Mauricio Dubón":"Dubón", "Ronald Acuña Jr.":"Acuña",
   "Dominic Smith":"Smith", "Jorge Mateo":"Mateo", "Austin Riley":"Riley",
   "Eli White":"White", "Mike Yastrzemski":"Yaz", "Sean Murphy":"Murphy",
-  "Ha-Seong Kim":"Kim", 
+  "Ha-Seong Kim":"Kim", "Joey Bart":"Bart", "Rowdy Tellez":"Tellez",
 };
 const PITCHER_WAR_KEY = {
   "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"D.Lee",
