@@ -320,8 +320,7 @@ const leagueRef = (statKey, invert = false) => {
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#34d399",
-  "Riley":"#a78bfa","White":"#94a3b8","Yaz":"#f87171","León":"#2dd4bf",
-  "Kim":"#fbbf24"
+  "Riley":"#a78bfa","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
@@ -1417,14 +1416,14 @@ const HITTER_WAR_KEY = {
   "Michael Harris II":"Harris", "Mauricio Dubón":"Dubón", "Ronald Acuña Jr.":"Acuña",
   "Dominic Smith":"Smith", "Jorge Mateo":"Mateo", "Austin Riley":"Riley",
   "Eli White":"White", "Mike Yastrzemski":"Yaz", "Sean Murphy":"Murphy",
-  "Ha-Seong Kim":"Kim", "Sandy León":"León",
+  "Ha-Seong Kim":"Kim", 
 };
 const PITCHER_WAR_KEY = {
   "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"D.Lee",
   "Raisel Iglesias":"Iglesias", "Robert Suarez":"Suarez", "Didier Fuentes":"Fuentes",
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
-  "Reynaldo López":"López", "Spencer Strider":"Strider",
-  "Dylan Dodd":"Dodd", "JR Ritchie":"Ritchie",
+  "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
+   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak",
 };
 
 function FullProfile({T, mode, player, onClose}) {
