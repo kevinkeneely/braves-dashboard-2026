@@ -185,7 +185,7 @@
      battingBB: "7.8%",
      woba: ".320",
      xwoba: ".326",
-     fip: "3.96",
+     fip: "3.95",
      xera: "3.79",
      xfip: "3.98",
      whip: "1.21",
