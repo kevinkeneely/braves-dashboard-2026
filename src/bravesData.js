@@ -151,7 +151,7 @@
      { date:"Tue, Jun 23", opp:"San Diego",   home:false, result:"L", score:"6-7", record:"48-30"},
      { date:"Wed, Jun 24", opp:"San Diego",   home:false, result:"L", score:"2-5", record:"48-31"},
      { date:"Fri, Jun 26", opp:"San Francisco",   home:false, result:"W", score:"3-1", record:"49-31"},
-     { date:"Sat, Jun 27", opp:"San Francisco",   home:false, result:"L", score"0-5", record:"49-32"},
+     { date:"Sat, Jun 27", opp:"San Francisco",   home:false, result:"L", score:"0-5", record:"49-32"},
       // Upcoming
      { date:"Sun, Jun 28", opp:"San Francisco",   home:false,},
      { date:"Tue, Jun 30", opp:"St. Louis",   home:true,},
