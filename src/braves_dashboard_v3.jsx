@@ -1095,6 +1095,9 @@ const HIDDEN_PLAYERS = new Set([
   "Chadwick Tromp",
   "Sandy León",
   "Carlos Carrasco",
+  "Ronald Acuña Jr.",
+  "Spencer Strider",
+  "JR Ritchie",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
