@@ -320,13 +320,14 @@ const leagueRef = (statKey, invert = false) => {
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
-  "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24","Bart":"#22d3ee","Tellez":"#e879f9"
+  "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24",
+  "Bart":"#22d3ee","Tellez":"#e879f9","Murphy":"#051E39"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#f87171","Karinchak":"#22d3ee","Hamilton":"#94a3b8"
+  "Ritchie":"#f87171","Karinchak":"#22d3ee","Hamilton":"#94a3b8","Waldrep":"#051E39"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1427,7 +1428,8 @@ const PITCHER_WAR_KEY = {
   "Raisel Iglesias":"Iglesias", "Robert Suarez":"Suarez", "Didier Fuentes":"Fuentes",
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
-   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
+  "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
+  "Hurston Waldrep":"Waldrep",
 };
 
 function FullProfile({T, mode, player, onClose}) {
@@ -3328,10 +3330,10 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["León", "Murphy", "Tromp", "Carrasco"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["León", "Tromp", "Carrasco"]);
 
   // Define which pitcher keys are starters vs. relievers
-  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "Holmes", "López", "Strider", "Ritchie"]);
+  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie"]);
   // Anything not in SP_KEYS (and not hidden) falls into the bullpen
 
   const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
