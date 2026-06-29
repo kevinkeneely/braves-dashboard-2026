@@ -1098,6 +1098,7 @@ const HIDDEN_PLAYERS = new Set([
   "Ronald Acuña Jr.",
   "Spencer Strider",
   "JR Ritchie",
+  "Robert Suarez",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
