@@ -2051,7 +2051,7 @@ function HitterStatBoxes({T, d, sc}) {
                     <th key={g.name} colSpan={g.keys.length} style={{
                       fontFamily:"'Cinzel',serif",
                       fontSize:9.5, fontWeight:800, letterSpacing:"0.18em",
-                      color:BRAND.goldBright, textAlign:"center",
+                      color:sT.textMid, textAlign:"center",
                       padding:"8px 6px 2px",
                       borderBottom:`1px solid ${sT.borderFaint}`,
                       borderLeft: gi > 0 ? `1px solid ${sT.borderFaint}` : "none",
@@ -2083,10 +2083,10 @@ function HitterStatBoxes({T, d, sc}) {
               <tbody>
                 {splitRows.map((row, ri) => (
                   <tr key={row.label}>
-                    {/* Row label cell — gold Cinzel, all-caps */}
+                    {/* Row label cell — dark Cinzel, all-caps */}
                     <td style={{
                       fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:800,
-                      letterSpacing:"0.14em", color:BRAND.goldBright,
+                      letterSpacing:"0.14em", color:sT.text,
                       textAlign:"left", padding:"11px 10px",
                       textTransform:"uppercase",
                       borderBottom: ri < splitRows.length - 1 ? `1px solid ${sT.borderFaint}` : "none",
