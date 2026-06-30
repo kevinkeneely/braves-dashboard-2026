@@ -1990,137 +1990,131 @@ function HitterStatBoxes({T, d, sc}) {
     const sp = d.splits || {};
     const L = sp.vsL || {};
     const R = sp.vsR || {};
-    const order = [
-      {key:"pa",label:"PA"},{key:"r",label:"R"},{key:"h",label:"H"},{key:"hr",label:"HR"},
-      {key:"rbi",label:"RBI"},{key:"avg",label:"AVG"},{key:"obp",label:"OBP"},{key:"slg",label:"SLG"},
-      {key:"ops",label:"OPS"},{key:"wrc",label:"wRC+"},{key:"woba",label:"wOBA"},{key:"iso",label:"ISO"},
-      {key:"bbpct",label:"BB%"},{key:"kpct",label:"K%"},{key:"babip",label:"BABIP"},
-    ];
-    const rows = order.map(({key, label}) => ({ label, left: L[key], right: R[key] }));
     const risp = sp.risp || null;
     const hl = sp.highLeverage || null;
-    const sT = THEME.light;  // "with RISP" and "High Leverage" sections render as light mode (cream) in dark theme
+    const sT = THEME.light;  // splits sections render as light mode (cream) in dark theme
+
+    // Column groups for the dense table layout (basketball-reference style)
+    const groups = [
+      { name:"COUNTING",   keys:[{key:"pa",label:"PA"},{key:"r",label:"R"},{key:"h",label:"H"},{key:"hr",label:"HR"},{key:"rbi",label:"RBI"}] },
+      { name:"RATE",       keys:[{key:"avg",label:"AVG"},{key:"obp",label:"OBP"},{key:"slg",label:"SLG"},{key:"ops",label:"OPS"}] },
+      { name:"ADVANCED",   keys:[{key:"wrc",label:"wRC+"},{key:"woba",label:"wOBA"},{key:"iso",label:"ISO"}] },
+      { name:"DISCIPLINE", keys:[{key:"bbpct",label:"BB%"},{key:"kpct",label:"K%"},{key:"babip",label:"BABIP"}] },
+    ];
+
+    // Row assembly — only include splits that have data
+    const splitRows = [];
+    if (sp.vsL || sp.vsR) {
+      splitRows.push({ label:"vs. LHP",       data:L,    baseMap:VS_LHP_AVG });
+      splitRows.push({ label:"vs. RHP",       data:R,    baseMap:VS_RHP_AVG });
+    }
+    if (risp) splitRows.push({ label:"with RISP",      data:risp, baseMap:RISP_AVG });
+    if (hl)   splitRows.push({ label:"High Leverage",  data:hl,   baseMap:HIGH_LEVERAGE_AVG });
+
+    // Flatten all column headers and compute group boundary indices for thin left borders
+    const flatHeaders = groups.flatMap(g => g.keys);
+    const groupBoundaries = new Set();
+    {
+      let _i = 0;
+      groups.forEach((g, gi) => {
+        if (gi > 0) groupBoundaries.add(_i);
+        _i += g.keys.length;
+      });
+    }
+
     body = (
       <ProfileSection T={T} title="Platoon Splits">
-{sp.vsL || sp.vsR ? (
-          <>
-            {/* vs. LHP */}
-            <div style={{
-              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
-              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
-            }}>vs. LHP</div>
-            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
-              {order.map(({key, label}) => {
-                const base = VS_LHP_AVG[key];
-                const hs = base ? heat(L[key], base.mean, base.spread, key === "kpct", sT) : null;
-                return (
-                  <div key={key} style={{
-                    textAlign:"center", borderRadius:8, padding:"5px 2px",
-                    background: hs && hs.bg !== "transparent"
-                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
-                      : sT.rowBase,
-                  }}>
-                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
-                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{L[key] ?? "—"}</div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Horizontal red divider between vs. LHP and vs. RHP */}
-            <div style={{
-              height:3, borderRadius:3, margin:"18px 0 14px",
-              background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
-              boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
-            }}/>
-
-            {/* vs. RHP */}
-            <div style={{
-              fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
-              color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
-            }}>vs. RHP</div>
-            <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
-              {order.map(({key, label}) => {
-                const base = VS_RHP_AVG[key];
-                const hs = base ? heat(R[key], base.mean, base.spread, key === "kpct", sT) : null;
-                return (
-                  <div key={key} style={{
-                    textAlign:"center", borderRadius:8, padding:"5px 2px",
-                    background: hs && hs.bg !== "transparent"
-                      ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
-                      : sT.rowBase,
-                  }}>
-                    <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
-                    <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{R[key] ?? "—"}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </>
-        ) : (
+        {splitRows.length === 0 ? (
           <div style={{fontSize:12, color:sT.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
-        )}
-        {/* Horizontal red divider + single-row "with RISP" section */}
-        <div style={{
-          height:3, borderRadius:3, margin:"4px 0 14px",
-          background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
-          boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
-        }}/>
-        <div style={{
-          fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
-          color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
-        }}>with RISP</div>
-      {risp ? (
-          <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
-            {order.map(({key, label}) => {
-              const base = RISP_AVG[key];
-              const hs = base ? heat(risp[key], base.mean, base.spread, key === "kpct", sT) : null;
-              return (
-                <div key={key} style={{
-                  textAlign:"center", borderRadius:8, padding:"5px 2px",
-                  background: hs && hs.bg !== "transparent"
-                    ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
-                    : sT.rowBase,
-                }}>
-                  <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
-                  <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{risp[key] ?? "—"}</div>
-                </div>
-              );
-            })}
-          </div>
-) : (
-          <div style={{fontSize:12, color:sT.textMuted, padding:"4px 2px 8px"}}>RISP data not available.</div>
-        )}
-        {/* Horizontal red divider + "High Leverage" section */}
-        <div style={{
-          height:3, borderRadius:3, margin:"14px 0 14px",
-          background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
-          boxShadow:`0 0 10px rgba(206,17,65,0.55)`,
-        }}/>
-        <div style={{
-          fontSize:11, letterSpacing:"0.14em", fontWeight:800, textTransform:"uppercase",
-          color:BRAND.goldBright, fontFamily:"'Cinzel',serif", marginBottom:10,
-        }}>High Leverage</div>
-{hl ? (
-          <div style={{display:"grid", gridTemplateColumns:"repeat(5, 1fr)", gap:"12px 8px"}}>
-            {order.map(({key, label}) => {
-              const base = HIGH_LEVERAGE_AVG[key];
-              const hs = base ? heat(hl[key], base.mean, base.spread, key === "kpct", sT) : null;
-              return (
-                <div key={key} style={{
-                  textAlign:"center", borderRadius:8, padding:"5px 2px",
-                  background: hs && hs.bg !== "transparent"
-                    ? `linear-gradient(${hs.bg}, ${hs.bg}), ${sT.rowBase}`
-                    : sT.rowBase,
-                }}>
-                  <div style={{fontSize:10.5, color:sT.textMuted, fontWeight:600, marginBottom:2, letterSpacing:"0.02em"}}>{label}</div>
-                  <div style={{fontFamily:"'JetBrains Mono', monospace", fontSize:13.5, fontWeight:800, color: hs ? hs.color : sT.text}}>{hl[key] ?? "—"}</div>
-                </div>
-              );
-            })}
-          </div>
         ) : (
-          <div style={{fontSize:12, color:sT.textMuted, padding:"4px 2px 8px"}}>High-leverage data not available.</div>
+          <div style={{
+            position:"relative",
+            background:sT.rowBase,
+            borderRadius:10,
+            border:`1px solid ${sT.borderFaint}`,
+            overflowX:"auto",
+            WebkitOverflowScrolling:"touch",
+          }}>
+            {/* Top red accent strip — brand continuity for the consolidated card */}
+            <div style={{
+              position:"absolute", top:0, left:0, right:0, height:3,
+              background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+              borderTopLeftRadius:9, borderTopRightRadius:9,
+              boxShadow:`0 0 10px rgba(206,17,65,0.45)`,
+            }}/>
+            <table style={{width:"100%", borderCollapse:"collapse", minWidth:560, marginTop:6}}>
+              <thead>
+                {/* Row 1: column group labels (COUNTING / RATE / ADVANCED / DISCIPLINE) */}
+                <tr>
+                  <th style={{padding:"8px 10px 2px", borderBottom:`1px solid ${sT.borderFaint}`}}/>
+                  {groups.map((g, gi) => (
+                    <th key={g.name} colSpan={g.keys.length} style={{
+                      fontFamily:"'Cinzel',serif",
+                      fontSize:9.5, fontWeight:800, letterSpacing:"0.18em",
+                      color:BRAND.goldBright, textAlign:"center",
+                      padding:"8px 6px 2px",
+                      borderBottom:`1px solid ${sT.borderFaint}`,
+                      borderLeft: gi > 0 ? `1px solid ${sT.borderFaint}` : "none",
+                      textTransform:"uppercase",
+                    }}>{g.name}</th>
+                  ))}
+                </tr>
+                {/* Row 2: stat labels (PA, R, H, AVG, OBP, etc.) */}
+                <tr>
+                  <th style={{
+                    fontSize:9.5, fontWeight:800, letterSpacing:"0.10em",
+                    color:sT.textMuted, textAlign:"left",
+                    padding:"7px 10px",
+                    borderBottom:`2px solid ${BRAND.red}`,
+                    textTransform:"uppercase",
+                  }}>SPLIT</th>
+                  {flatHeaders.map((h, hi) => (
+                    <th key={h.key} style={{
+                      fontSize:9.5, fontWeight:800, letterSpacing:"0.08em",
+                      color:sT.textMuted, textAlign:"center",
+                      padding:"7px 5px",
+                      borderBottom:`2px solid ${BRAND.red}`,
+                      borderLeft: groupBoundaries.has(hi) ? `1px solid ${sT.borderFaint}` : "none",
+                      textTransform:"uppercase",
+                    }}>{h.label}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {splitRows.map((row, ri) => (
+                  <tr key={row.label}>
+                    {/* Row label cell — gold Cinzel, all-caps */}
+                    <td style={{
+                      fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:800,
+                      letterSpacing:"0.14em", color:BRAND.goldBright,
+                      textAlign:"left", padding:"11px 10px",
+                      textTransform:"uppercase",
+                      borderBottom: ri < splitRows.length - 1 ? `1px solid ${sT.borderFaint}` : "none",
+                      whiteSpace:"nowrap",
+                    }}>{row.label}</td>
+                    {/* Data cells — heat-colored using the existing baseline maps */}
+                    {flatHeaders.map((h, hi) => {
+                      const v = row.data[h.key];
+                      const base = row.baseMap ? row.baseMap[h.key] : null;
+                      const hs = base ? heat(v, base.mean, base.spread, h.key === "kpct", sT) : null;
+                      return (
+                        <td key={h.key} style={{
+                          fontFamily:"'JetBrains Mono', monospace",
+                          fontSize:12.5, fontWeight:800,
+                          color: hs ? hs.color : sT.text,
+                          textAlign:"center",
+                          padding:"11px 5px",
+                          background: hs && hs.bg !== "transparent" ? hs.bg : "transparent",
+                          borderLeft: groupBoundaries.has(hi) ? `1px solid ${sT.borderFaint}` : "none",
+                          borderBottom: ri < splitRows.length - 1 ? `1px solid ${sT.borderFaint}` : "none",
+                        }}>{v ?? "—"}</td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </ProfileSection>
     );
