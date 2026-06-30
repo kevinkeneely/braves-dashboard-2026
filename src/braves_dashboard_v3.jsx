@@ -3222,7 +3222,6 @@ function TeamStatsTab({T}) {
   const sT = THEME.light;
 
   // Inline heat helper — computes cell tint based on value vs league baseline.
-  // Self-contained so the dense-table redesign doesn't depend on the StatBox internals.
   const cellHeat = (value, ref) => {
     if (!ref) return {};
     const num = typeof value === "number" ? value : parseFloat(String(value).replace("%",""));
@@ -3230,8 +3229,8 @@ function TeamStatsTab({T}) {
     let delta = (num - ref.mean) / ref.spread;
     if (ref.invert) delta = -delta;
     const mag = Math.min(Math.abs(delta), 2);
-    if (mag < 0.30) return {}; // neutral zone — no tint
-    const intensity = mag / 2; // 0..1
+    if (mag < 0.30) return {}; // neutral zone
+    const intensity = mag / 2;
     if (delta > 0) {
       return { background: `rgba(206,17,65,${(0.08 + intensity * 0.26).toFixed(3)})`, color: "#8a1a3c" };
     }
@@ -3239,59 +3238,129 @@ function TeamStatsTab({T}) {
   };
 
   // Renders a single section's compact 2-row table (BRAVES + Lg avg).
-  const MiniTable = ({rows, minWidth}) => (
-    <div style={{overflowX:"auto", marginBottom:14}}>
-      <table style={{width:"100%", borderCollapse:"collapse", fontSize:11, minWidth}}>
-        <thead>
-          <tr>
-            <th style={{
-              textAlign:"left", padding:"4px 8px", fontSize:9, fontWeight:700,
-              letterSpacing:"0.10em", color:sT.textMuted, textTransform:"uppercase",
-              borderBottom:`1.5px solid ${BRAND.red}`,
-            }}></th>
-            {rows.map(r => (
-              <th key={r.label} style={{
-                textAlign:"center", padding:"4px 4px", fontSize:9, fontWeight:700,
-                letterSpacing:"0.08em", color:sT.textMuted, textTransform:"uppercase",
-                borderBottom:`1.5px solid ${BRAND.red}`, whiteSpace:"nowrap",
-              }}>{r.label}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody style={{fontFamily:"'JetBrains Mono', 'SF Mono', Consolas, monospace"}}>
-          <tr>
-            <td style={{
-              textAlign:"left", padding:"7px 8px", fontFamily:"'Cinzel', Georgia, serif",
-              fontSize:10, fontWeight:800, letterSpacing:"0.14em", color:sT.text,
-              textTransform:"uppercase", borderBottom:`1px solid ${sT.borderFaint}`,
-              whiteSpace:"nowrap",
-            }}>BRAVES</td>
-            {rows.map(r => (
-              <td key={r.label} style={{
-                textAlign:"center", padding:"7px 4px", fontSize:12, fontWeight:800,
-                color:sT.text, borderBottom:`1px solid ${sT.borderFaint}`,
-                whiteSpace:"nowrap",
-                ...cellHeat(r.value, r.heatRef),
-              }}>{r.value}</td>
-            ))}
-          </tr>
-          <tr>
-            <td style={{
-              textAlign:"left", padding:"6px 8px", fontFamily:"'Cinzel', Georgia, serif",
-              fontSize:9, fontWeight:700, letterSpacing:"0.14em", color:sT.textMuted,
-              textTransform:"uppercase", whiteSpace:"nowrap",
-            }}>Lg avg</td>
-            {rows.map(r => (
-              <td key={r.label} style={{
-                textAlign:"center", padding:"6px 4px", fontSize:11, fontWeight:600,
-                color:sT.textMuted, whiteSpace:"nowrap",
-              }}>{r.sub.replace(/^lg\s*/i,"")}</td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
+  // tableLayout:"fixed" + percentage label-col width = even column distribution,
+  // so 9-column tables fit cleanly in a ~385px-wide card on desktop.
+  const MiniTable = ({rows}) => {
+    const labelColPct = 22; // % of table width reserved for the BRAVES/Lg label column
+    const dataColPct = (100 - labelColPct) / rows.length;
+    return (
+      <div style={{overflowX:"auto", marginBottom:12}}>
+        <table style={{width:"100%", borderCollapse:"collapse", tableLayout:"fixed", fontSize:10}}>
+          <colgroup>
+            <col style={{width:`${labelColPct}%`}}/>
+            {rows.map((r,i) => <col key={i} style={{width:`${dataColPct}%`}}/>)}
+          </colgroup>
+          <thead>
+            <tr>
+              <th style={{
+                textAlign:"left", padding:"3px 4px", fontSize:8, fontWeight:700,
+                letterSpacing:"0.06em", color:sT.textMuted, textTransform:"uppercase",
+                borderBottom:`1.5px solid ${BRAND.red}`,
+              }}></th>
+              {rows.map(r => (
+                <th key={r.label} style={{
+                  textAlign:"center", padding:"3px 2px", fontSize:8, fontWeight:700,
+                  letterSpacing:"0.04em", color:sT.textMuted, textTransform:"uppercase",
+                  borderBottom:`1.5px solid ${BRAND.red}`,
+                  whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis",
+                }}>{r.label}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody style={{fontFamily:"'JetBrains Mono', 'SF Mono', Consolas, monospace"}}>
+            <tr>
+              <td style={{
+                textAlign:"left", padding:"5px 4px", fontFamily:"'Cinzel', Georgia, serif",
+                fontSize:9, fontWeight:800, letterSpacing:"0.10em", color:sT.text,
+                textTransform:"uppercase", borderBottom:`1px solid ${sT.borderFaint}`,
+              }}>BRAVES</td>
+              {rows.map(r => (
+                <td key={r.label} style={{
+                  textAlign:"center", padding:"5px 2px", fontSize:11, fontWeight:800,
+                  color:sT.text, borderBottom:`1px solid ${sT.borderFaint}`,
+                  whiteSpace:"nowrap",
+                  ...cellHeat(r.value, r.heatRef),
+                }}>{r.value}</td>
+              ))}
+            </tr>
+            <tr>
+              <td style={{
+                textAlign:"left", padding:"4px 4px", fontFamily:"'Cinzel', Georgia, serif",
+                fontSize:8.5, fontWeight:700, letterSpacing:"0.10em", color:sT.textMuted,
+                textTransform:"uppercase",
+              }}>Lg avg</td>
+              {rows.map(r => (
+                <td key={r.label} style={{
+                  textAlign:"center", padding:"4px 2px", fontSize:9.5, fontWeight:600,
+                  color:sT.textMuted, whiteSpace:"nowrap",
+                }}>{r.sub.replace(/^lg\s*/i,"")}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  const SectionLabel = ({children}) => (
+    <div style={{
+      fontFamily:"'Cinzel', Georgia, serif", fontSize:9, fontWeight:700,
+      letterSpacing:"0.18em", color:sT.textMuted, textTransform:"uppercase",
+      marginBottom:3, marginTop:2,
+    }}>{children}</div>
+  );
+
+  // One cream card per side, with red accent strip on top.
+  const SideCard = ({title, sections}) => (
+    <div style={{
+      position:"relative", background:sT.rowBase, borderRadius:10,
+      padding:"16px 12px 12px", minWidth:0, overflow:"hidden",
+    }}>
+      <div style={{
+        position:"absolute", top:0, left:0, right:0, height:3,
+        background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+        borderTopLeftRadius:9, borderTopRightRadius:9,
+        boxShadow:`0 0 10px rgba(206,17,65,0.45)`,
+      }}/>
+      <div style={{
+        fontFamily:"'Cinzel', Georgia, serif", fontSize:12, fontWeight:800,
+        letterSpacing:"0.20em", color:sT.textMid, textTransform:"uppercase",
+        marginBottom:12,
+      }}>{title}</div>
+      {sections.map((s, i) => (
+        <div key={s.label + i}>
+          {s.label ? <SectionLabel>{s.label}</SectionLabel> : null}
+          <MiniTable rows={s.rows}/>
+        </div>
+      ))}
     </div>
   );
+
+  return (
+    <>
+      <TabTitle T={T} eyebrow="HEADLINE NUMBERS" title="TEAM STATS"/>
+
+      <div style={{display:"grid", gridTemplateColumns:"minmax(0,1fr) minmax(0,1fr)", gap:12}} className="brv-team-grid">
+        <SideCard title="BATTING" sections={[
+          {label:null,               rows:battingGrid       },
+          {label:"STATCAST",         rows:battingStatcast   },
+          {label:"PLATE DISCIPLINE", rows:battingPlateDisc  },
+          {label:"BAT TRACKING",     rows:battingBatTracking},
+        ]}/>
+        <SideCard title="PITCHING" sections={[
+          {label:null,               rows:pitchingGrid       },
+          {label:"STATCAST",         rows:pitchingStatcast   },
+          {label:"PLATE DISCIPLINE", rows:pitchingPlateDisc  },
+          {label:"BAT TRACKING",     rows:pitchingBatTracking},
+        ]}/>
+      </div>
+
+      <style>{`@media (max-width: 900px) {
+        .brv-team-grid { grid-template-columns: 1fr !important; }
+      }`}</style>
+    </>
+  );
+}
 
   const SectionLabel = ({children}) => (
     <div style={{
