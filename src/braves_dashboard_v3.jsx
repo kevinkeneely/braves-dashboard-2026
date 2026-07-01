@@ -3094,6 +3094,7 @@ function tsCellHeat(value, ref) {
 function TSMiniTable(props) {
   const rows = props.rows;
   const sT = props.sT;
+  const gap = typeof props.bottomGap === "number" ? props.bottomGap : 12;
   const labelWidth = "22%";
   const dataWidth = (78 / rows.length).toFixed(2) + "%";
   const redBorder = "1.5px solid " + BRAND.red;
@@ -3101,13 +3102,13 @@ function TSMiniTable(props) {
 
   const labelHdrStyle = {
     width: labelWidth,
-    textAlign: "left", padding: "3px 4px", fontSize: 8, fontWeight: 700,
+    textAlign: "left", padding: "3px 4px", fontSize: 8.5, fontWeight: 700,
     letterSpacing: "0.06em", color: sT.textMuted, textTransform: "uppercase",
     borderBottom: redBorder,
   };
   const dataHdrStyle = {
     width: dataWidth,
-    textAlign: "center", padding: "3px 2px", fontSize: 8, fontWeight: 700,
+    textAlign: "center", padding: "3px 2px", fontSize: 8.5, fontWeight: 700,
     letterSpacing: "0.04em", color: sT.textMuted, textTransform: "uppercase",
     borderBottom: redBorder,
     whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
@@ -3119,7 +3120,7 @@ function TSMiniTable(props) {
     color: sT.text, textTransform: "uppercase", borderBottom: rowBorder,
   };
   const bravesValueBase = {
-    textAlign: "center", padding: "5px 2px", fontSize: 11, fontWeight: 800,
+    textAlign: "center", padding: "5px 2px", fontSize: 11.5, fontWeight: 800,
     color: sT.text, borderBottom: rowBorder, whiteSpace: "nowrap",
   };
   const lgLabelStyle = {
@@ -3129,7 +3130,7 @@ function TSMiniTable(props) {
     color: sT.textMuted, textTransform: "uppercase",
   };
   const lgValueStyle = {
-    textAlign: "center", padding: "4px 2px", fontSize: 9.5, fontWeight: 600,
+    textAlign: "center", padding: "4px 2px", fontSize: 10, fontWeight: 600,
     color: sT.textMuted, whiteSpace: "nowrap",
   };
   const tableStyle = {
@@ -3139,7 +3140,7 @@ function TSMiniTable(props) {
   const tbodyStyle = {
     fontFamily: "'JetBrains Mono', 'SF Mono', Consolas, monospace",
   };
-  const wrapStyle = { overflowX: "auto", marginBottom: 12 };
+  const wrapStyle = { overflowX: "auto", marginBottom: gap };
 
   return (
     <div style={wrapStyle}>
@@ -3171,15 +3172,16 @@ function TSMiniTable(props) {
 function TSSectionLabel(props) {
   const style = {
     fontFamily: "'Cinzel', Georgia, serif",
-    fontSize: 9, fontWeight: 700, letterSpacing: "0.18em",
+    fontSize: 9.5, fontWeight: 700, letterSpacing: "0.18em",
     color: props.sT.textMuted, textTransform: "uppercase",
-    marginBottom: 3, marginTop: 2,
+    marginBottom: 4, marginTop: 8,
   };
   return <div style={style}>{props.children}</div>;
 }
 
 function TSSideCard(props) {
   const sT = props.sT;
+  const sections = props.sections;
   const cardStyle = {
     position: "relative", background: sT.rowBase, borderRadius: 10,
     padding: "16px 12px 12px", minWidth: 0, overflow: "hidden",
@@ -3193,19 +3195,25 @@ function TSSideCard(props) {
   const titleStyle = {
     fontFamily: "'Cinzel', Georgia, serif", fontSize: 12, fontWeight: 800,
     letterSpacing: "0.20em", color: sT.textMid, textTransform: "uppercase",
-    marginBottom: 12,
+    marginBottom: 10,
   };
 
   return (
     <div style={cardStyle}>
       <div style={stripStyle}></div>
       <div style={titleStyle}>{props.title}</div>
-      {props.sections.map((s, i) => (
-        <div key={(s.label || "first") + i}>
-          {s.label ? <TSSectionLabel sT={sT}>{s.label}</TSSectionLabel> : null}
-          <TSMiniTable rows={s.rows} sT={sT} />
-        </div>
-      ))}
+      {sections.map((s, i) => {
+        // Tight pair spacing: if next section has null label, current is first-of-pair.
+        const next = sections[i + 1];
+        const isPairStart = next && next.label === null;
+        const gap = isPairStart ? 4 : 12;
+        return (
+          <div key={i}>
+            {s.label ? <TSSectionLabel sT={sT}>{s.label}</TSSectionLabel> : null}
+            <TSMiniTable rows={s.rows} sT={sT} bottomGap={gap} />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -3280,102 +3288,146 @@ function TeamStatsTab({T}) {
     teamXwOBAcon:  { mean: 0.367, spread: 0.015, invert:true },
   };
 
-  const battingGrid = [
-    { label:"AVG",     value:TEAM_HEADER.avg,  sub:"lg .243", heatRef:LG.avg  },
-    { label:"OBP",     value:TEAM_HEADER.obp,  sub:"lg .319", heatRef:LG.obp  },
-    { label:"SLG",     value:TEAM_HEADER.slg,  sub:"lg .400", heatRef:LG.slg  },
-    { label:"OPS",     value:TEAM_HEADER.ops,  sub:"lg .719", heatRef:LG.ops  },
-    { label:"K%",      value:TEAM_HEADER.battingK,  sub:"lg 22.1%", heatRef:LG.battingK  },
-    { label:"BB%",     value:TEAM_HEADER.battingBB, sub:"lg 9.1%",  heatRef:LG.battingBB },
-    { label:"wRC+",    value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
-    { label:"wOBA",    value:TEAM_HEADER.woba, sub:"lg .317", heatRef:LG.woba },
-    { label:"ISO",     value:TEAM_HEADER.iso,  sub:"lg .157", heatRef:LG.iso  },
+  // ─── BATTING — split into two-row sub-groups ────────────────────────────
+  // Row A of Batting Standard (5 stats)
+  const battingGridA = [
+    { label:"AVG",   value:TEAM_HEADER.avg,  sub:"lg .243", heatRef:LG.avg  },
+    { label:"OBP",   value:TEAM_HEADER.obp,  sub:"lg .319", heatRef:LG.obp  },
+    { label:"SLG",   value:TEAM_HEADER.slg,  sub:"lg .400", heatRef:LG.slg  },
+    { label:"OPS",   value:TEAM_HEADER.ops,  sub:"lg .719", heatRef:LG.ops  },
+    { label:"wRC+",  value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
+  ];
+  // Row B of Batting Standard (4 stats)
+  const battingGridB = [
+    { label:"K%",    value:TEAM_HEADER.battingK,  sub:"lg 22.1%", heatRef:LG.battingK  },
+    { label:"BB%",   value:TEAM_HEADER.battingBB, sub:"lg 9.1%",  heatRef:LG.battingBB },
+    { label:"wOBA",  value:TEAM_HEADER.woba,      sub:"lg .317",  heatRef:LG.woba      },
+    { label:"ISO",   value:TEAM_HEADER.iso,       sub:"lg .157",  heatRef:LG.iso       },
   ];
 
-  const battingStatcast = [
-    { label:"Barrel%",   value:TEAM_HEADER.batBarrel,    sub:"lg 8.1%",  heatRef:LG.teamBatBarrel   },
-    { label:"HardHit%",  value:TEAM_HEADER.batHardHit,   sub:"lg 39.2%", heatRef:LG.teamBatHardHit  },
-    { label:"Exit Velo", value:TEAM_HEADER.batExitVelo,  sub:"lg 88.9",  heatRef:LG.teamBatExitVelo },
-    { label:"xBA",       value:TEAM_HEADER.batXBA,       sub:"lg .245",  heatRef:LG.teamBatXBA      },
-    { label:"xSLG",      value:TEAM_HEADER.batXSLG,      sub:"lg .401",  heatRef:LG.teamBatXSLG     },
-    { label:"xwOBA",     value:TEAM_HEADER.xwoba,        sub:"lg .319",  heatRef:LG.xwoba           },
-    { label:"xwOBAcon",  value:TEAM_HEADER.batXwOBAcon,  sub:"lg .367",  heatRef:LG.teamBatXwOBAcon },
+  // Row A of Batting Statcast (4 stats)
+  const battingStatcastA = [
+    { label:"Barrel%",   value:TEAM_HEADER.batBarrel,   sub:"lg 8.1%",  heatRef:LG.teamBatBarrel   },
+    { label:"HardHit%",  value:TEAM_HEADER.batHardHit,  sub:"lg 39.2%", heatRef:LG.teamBatHardHit  },
+    { label:"Exit Velo", value:TEAM_HEADER.batExitVelo, sub:"lg 88.9",  heatRef:LG.teamBatExitVelo },
+    { label:"xwOBA",     value:TEAM_HEADER.xwoba,       sub:"lg .319",  heatRef:LG.xwoba           },
+  ];
+  // Row B of Batting Statcast (3 stats)
+  const battingStatcastB = [
+    { label:"xBA",       value:TEAM_HEADER.batXBA,      sub:"lg .245",  heatRef:LG.teamBatXBA      },
+    { label:"xSLG",      value:TEAM_HEADER.batXSLG,     sub:"lg .401",  heatRef:LG.teamBatXSLG     },
+    { label:"xwOBAcon",  value:TEAM_HEADER.batXwOBAcon, sub:"lg .367",  heatRef:LG.teamBatXwOBAcon },
   ];
 
-  const battingPlateDisc = [
-    { label:"SwStr%",     value:TEAM_HEADER.batSwStr,        sub:"lg 10.8%", heatRef:LG.teamBatSwStr        },
-    { label:"CStr%",      value:TEAM_HEADER.batCStr,         sub:"lg 16.4%", heatRef:LG.teamBatCStr         },
-    { label:"CSW%",       value:TEAM_HEADER.batCSW,          sub:"lg 27.2%", heatRef:LG.teamBatCSW          },
-    { label:"Chase%",     value:TEAM_HEADER.batChase,        sub:"lg 30.2%", heatRef:LG.teamBatChase        },
+  // Row A of Batting Plate Discipline (4 stats)
+  const battingPlateDiscA = [
+    { label:"SwStr%",  value:TEAM_HEADER.batSwStr, sub:"lg 10.8%", heatRef:LG.teamBatSwStr },
+    { label:"CStr%",   value:TEAM_HEADER.batCStr,  sub:"lg 16.4%", heatRef:LG.teamBatCStr  },
+    { label:"CSW%",    value:TEAM_HEADER.batCSW,   sub:"lg 27.2%", heatRef:LG.teamBatCSW   },
+    { label:"Chase%",  value:TEAM_HEADER.batChase, sub:"lg 30.2%", heatRef:LG.teamBatChase },
+  ];
+  // Row B of Batting Plate Discipline (4 stats)
+  const battingPlateDiscB = [
     { label:"Whiff%",     value:TEAM_HEADER.batWhiff,        sub:"lg 25.2%", heatRef:LG.teamBatWhiff        },
     { label:"Z-Swing%",   value:TEAM_HEADER.batZoneSwing,    sub:"lg 66.2%", heatRef:LG.teamBatZoneSwing    },
     { label:"Z-Contact%", value:TEAM_HEADER.batZoneContact,  sub:"lg 83.8%", heatRef:LG.teamBatZoneContact  },
     { label:"O-Contact%", value:TEAM_HEADER.batChaseContact, sub:"lg 56.9%", heatRef:LG.teamBatChaseContact },
   ];
 
-  const battingBatTracking = [
+  // Row A of Batting Bat Tracking (3 stats)
+  const battingBatTrackingA = [
     { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.3%", heatRef:LG.teamBatFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 24.9%", heatRef:LG.teamBatSqUpSw  },
-    { label:"Blast Sw%",   value:TEAM_HEADER.batBlastSw,   sub:"lg 10.6%", heatRef:LG.teamBatBlastSw },
-    { label:"Ideal Atk%",  value:TEAM_HEADER.batIdealAtk,  sub:"lg 51.1%", heatRef:LG.teamBatIdealAtk},
+    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.3%", heatRef:LG.teamBatFastSw   },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 24.9%", heatRef:LG.teamBatSqUpSw   },
+  ];
+  // Row B of Batting Bat Tracking (2 stats)
+  const battingBatTrackingB = [
+    { label:"Blast Sw%",  value:TEAM_HEADER.batBlastSw,  sub:"lg 10.6%", heatRef:LG.teamBatBlastSw },
+    { label:"Ideal Atk%", value:TEAM_HEADER.batIdealAtk, sub:"lg 51.1%", heatRef:LG.teamBatIdealAtk},
   ];
 
-  const pitchingGrid = [
-    { label:"ERA",     value:TEAM_HEADER.era,         sub:"lg 4.19",  heatRef:LG.era        },
-    { label:"xERA",    value:TEAM_HEADER.xera,        sub:"lg 4.19",  heatRef:LG.xera       },
-    { label:"WHIP",    value:TEAM_HEADER.whip,        sub:"lg 1.31",  heatRef:LG.whip       },
-    { label:"K%",      value:TEAM_HEADER.pitchingK,   sub:"lg 22.1%", heatRef:LG.pitchingK  },
-    { label:"BB%",     value:TEAM_HEADER.pitchingBB,  sub:"lg 9.1%",  heatRef:LG.pitchingBB },
-    { label:"K-BB%",   value:TEAM_HEADER.pitchingKBB, sub:"lg 13.0%", heatRef:LG.pitchingKBB},
-    { label:"FIP",     value:TEAM_HEADER.fip,         sub:"lg 4.19",  heatRef:LG.fip        },
-    { label:"xFIP",    value:TEAM_HEADER.xfip,        sub:"lg 4.19",  heatRef:LG.xfip       },
-    { label:"SIERA",   value:TEAM_HEADER.siera,       sub:"lg 4.07",  heatRef:LG.siera      },
+  // ─── PITCHING — split into two-row sub-groups ───────────────────────────
+  // Row A of Pitching Standard (5 stats)
+  const pitchingGridA = [
+    { label:"ERA",   value:TEAM_HEADER.era,        sub:"lg 4.19",  heatRef:LG.era        },
+    { label:"xERA",  value:TEAM_HEADER.xera,       sub:"lg 4.19",  heatRef:LG.xera       },
+    { label:"WHIP",  value:TEAM_HEADER.whip,       sub:"lg 1.31",  heatRef:LG.whip       },
+    { label:"K%",    value:TEAM_HEADER.pitchingK,  sub:"lg 22.1%", heatRef:LG.pitchingK  },
+    { label:"BB%",   value:TEAM_HEADER.pitchingBB, sub:"lg 9.1%",  heatRef:LG.pitchingBB },
+  ];
+  // Row B of Pitching Standard (4 stats)
+  const pitchingGridB = [
+    { label:"K-BB%", value:TEAM_HEADER.pitchingKBB, sub:"lg 13.0%", heatRef:LG.pitchingKBB},
+    { label:"FIP",   value:TEAM_HEADER.fip,         sub:"lg 4.19",  heatRef:LG.fip       },
+    { label:"xFIP",  value:TEAM_HEADER.xfip,        sub:"lg 4.19",  heatRef:LG.xfip      },
+    { label:"SIERA", value:TEAM_HEADER.siera,       sub:"lg 4.07",  heatRef:LG.siera     },
   ];
 
-  const pitchingStatcast = [
-    { label:"Barrel%",   value:TEAM_HEADER.barrel,    sub:"lg 8.1%",  heatRef:LG.teamBarrel    },
-    { label:"HardHit%",  value:TEAM_HEADER.hardHit,   sub:"lg 39.2%", heatRef:LG.teamHardHit   },
-    { label:"Exit Velo", value:TEAM_HEADER.exitVelo,  sub:"lg 88.9",  heatRef:LG.teamExitVelo  },
-    { label:"xBA",       value:TEAM_HEADER.xBA,       sub:"lg .245",  heatRef:LG.teamXBA       },
-    { label:"xSLG",      value:TEAM_HEADER.xSLG,      sub:"lg .401",  heatRef:LG.teamXSLG      },
-    { label:"xwOBA",     value:TEAM_HEADER.pXwOBA,    sub:"lg .319",  heatRef:LG.teamPXwOBA    },
-    { label:"xwOBAcon",  value:TEAM_HEADER.xwOBAcon,  sub:"lg .367",  heatRef:LG.teamXwOBAcon  },
+  // Row A of Pitching Statcast (4 stats)
+  const pitchingStatcastA = [
+    { label:"Barrel%",   value:TEAM_HEADER.barrel,   sub:"lg 8.1%",  heatRef:LG.teamBarrel   },
+    { label:"HardHit%",  value:TEAM_HEADER.hardHit,  sub:"lg 39.2%", heatRef:LG.teamHardHit  },
+    { label:"Exit Velo", value:TEAM_HEADER.exitVelo, sub:"lg 88.9",  heatRef:LG.teamExitVelo },
+    { label:"xwOBA",     value:TEAM_HEADER.pXwOBA,   sub:"lg .319",  heatRef:LG.teamPXwOBA   },
+  ];
+  // Row B of Pitching Statcast (3 stats)
+  const pitchingStatcastB = [
+    { label:"xBA",       value:TEAM_HEADER.xBA,      sub:"lg .245",  heatRef:LG.teamXBA      },
+    { label:"xSLG",      value:TEAM_HEADER.xSLG,     sub:"lg .401",  heatRef:LG.teamXSLG     },
+    { label:"xwOBAcon",  value:TEAM_HEADER.xwOBAcon, sub:"lg .367",  heatRef:LG.teamXwOBAcon },
   ];
 
-  const pitchingPlateDisc = [
-    { label:"SwStr%",     value:TEAM_HEADER.swstr,         sub:"lg 10.8%", heatRef:LG.teamSwStr        },
-    { label:"CStr%",      value:TEAM_HEADER.cstr,          sub:"lg 16.4%", heatRef:LG.teamCStr         },
-    { label:"CSW%",       value:TEAM_HEADER.csw,           sub:"lg 27.2%", heatRef:LG.teamCSW          },
-    { label:"Chase%",     value:TEAM_HEADER.chase,         sub:"lg 30.2%", heatRef:LG.teamChase        },
-    { label:"Whiff%",     value:TEAM_HEADER.whiff,         sub:"lg 25.2%", heatRef:LG.teamWhiff        },
-    { label:"Z-Swing%",   value:TEAM_HEADER.zoneSwing,     sub:"lg 66.2%", heatRef:LG.teamZoneSwing    },
-    { label:"Z-Contact%", value:TEAM_HEADER.zoneContact,   sub:"lg 83.8%", heatRef:LG.teamZoneContact  },
-    { label:"O-Contact%", value:TEAM_HEADER.chaseContact,  sub:"lg 56.9%", heatRef:LG.teamChaseContact },
+  // Row A of Pitching Plate Discipline (4 stats)
+  const pitchingPlateDiscA = [
+    { label:"SwStr%",  value:TEAM_HEADER.swstr, sub:"lg 10.8%", heatRef:LG.teamSwStr },
+    { label:"CStr%",   value:TEAM_HEADER.cstr,  sub:"lg 16.4%", heatRef:LG.teamCStr  },
+    { label:"CSW%",    value:TEAM_HEADER.csw,   sub:"lg 27.2%", heatRef:LG.teamCSW   },
+    { label:"Chase%",  value:TEAM_HEADER.chase, sub:"lg 30.2%", heatRef:LG.teamChase },
+  ];
+  // Row B of Pitching Plate Discipline (4 stats)
+  const pitchingPlateDiscB = [
+    { label:"Whiff%",     value:TEAM_HEADER.whiff,        sub:"lg 25.2%", heatRef:LG.teamWhiff        },
+    { label:"Z-Swing%",   value:TEAM_HEADER.zoneSwing,    sub:"lg 66.2%", heatRef:LG.teamZoneSwing    },
+    { label:"Z-Contact%", value:TEAM_HEADER.zoneContact,  sub:"lg 83.8%", heatRef:LG.teamZoneContact  },
+    { label:"O-Contact%", value:TEAM_HEADER.chaseContact, sub:"lg 56.9%", heatRef:LG.teamChaseContact },
   ];
 
-  const pitchingBatTracking = [
+  // Row A of Pitching Bat Tracking (3 stats)
+  const pitchingBatTrackingA = [
     { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.3%", heatRef:LG.teamFastSw  },
-    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 24.9%", heatRef:LG.teamSqUpSw  },
-    { label:"Blast Sw%",   value:TEAM_HEADER.blastSw,   sub:"lg 10.6%", heatRef:LG.teamBlastSw },
-    { label:"Ideal Atk%",  value:TEAM_HEADER.idealAtk,  sub:"lg 51.1%", heatRef:LG.teamIdealAtk},
+    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.3%", heatRef:LG.teamFastSw   },
+    { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 24.9%", heatRef:LG.teamSqUpSw   },
+  ];
+  // Row B of Pitching Bat Tracking (2 stats)
+  const pitchingBatTrackingB = [
+    { label:"Blast Sw%",  value:TEAM_HEADER.blastSw,  sub:"lg 10.6%", heatRef:LG.teamBlastSw },
+    { label:"Ideal Atk%", value:TEAM_HEADER.idealAtk, sub:"lg 51.1%", heatRef:LG.teamIdealAtk},
   ];
 
   const sT = THEME.light;
 
+  // Each section is now TWO consecutive entries: first with a label (or null
+  // for the implicit opening section), second with null label as continuation.
   const battingSections = [
-    {label: null,               rows: battingGrid       },
-    {label: "STATCAST",         rows: battingStatcast   },
-    {label: "PLATE DISCIPLINE", rows: battingPlateDisc  },
-    {label: "BAT TRACKING",     rows: battingBatTracking},
+    { label: null,               rows: battingGridA         },
+    { label: null,               rows: battingGridB         },
+    { label: "STATCAST",         rows: battingStatcastA     },
+    { label: null,               rows: battingStatcastB     },
+    { label: "PLATE DISCIPLINE", rows: battingPlateDiscA    },
+    { label: null,               rows: battingPlateDiscB    },
+    { label: "BAT TRACKING",     rows: battingBatTrackingA  },
+    { label: null,               rows: battingBatTrackingB  },
   ];
 
   const pitchingSections = [
-    {label: null,               rows: pitchingGrid       },
-    {label: "STATCAST",         rows: pitchingStatcast   },
-    {label: "PLATE DISCIPLINE", rows: pitchingPlateDisc  },
-    {label: "BAT TRACKING",     rows: pitchingBatTracking},
+    { label: null,               rows: pitchingGridA         },
+    { label: null,               rows: pitchingGridB         },
+    { label: "STATCAST",         rows: pitchingStatcastA     },
+    { label: null,               rows: pitchingStatcastB     },
+    { label: "PLATE DISCIPLINE", rows: pitchingPlateDiscA    },
+    { label: null,               rows: pitchingPlateDiscB    },
+    { label: "BAT TRACKING",     rows: pitchingBatTrackingA  },
+    { label: null,               rows: pitchingBatTrackingB  },
   ];
 
   const gridStyle = {
