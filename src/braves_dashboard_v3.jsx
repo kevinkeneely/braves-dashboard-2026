@@ -3218,11 +3218,16 @@ function TSMiniTable(props) {
 }
 
 function TSSectionLabel(props) {
+  const sT = props.sT;
   const style = {
     fontFamily: "'Cinzel', Georgia, serif",
-    fontSize: 9.5, fontWeight: 700, letterSpacing: "0.18em",
-    color: props.sT.textMuted, textTransform: "uppercase",
-    marginBottom: 4, marginTop: 8,
+    fontSize: 10.5, fontWeight: 800, letterSpacing: "0.20em",
+    color: sT.text, textTransform: "uppercase",
+    marginBottom: 6, marginTop: 12,
+    padding: "4px 10px",
+    background: "rgba(0,0,0,0.05)",
+    borderLeft: "3px solid " + BRAND.red,
+    borderRadius: "0 3px 3px 0",
   };
   return <div style={style}>{props.children}</div>;
 }
