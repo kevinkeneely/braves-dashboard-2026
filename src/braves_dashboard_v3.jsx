@@ -621,39 +621,87 @@ export default function BravesDashboardV2() {
         }
       `}</style>
 
-{/* Color legend — shown on every tab except WAR Progress, Standings */}
+        {/* Color legend — shown on every tab except WAR Progress, Standings */}
         {!["WAR Progress", "Standings"].includes(tab) && (
-        <div style={{
-          margin: "24px auto 0",
-          padding: "0 16px",
-          maxWidth: 420,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 8,
-        }}>
-          <div style={{
-            width: "100%",
-            height: 10,
-            borderRadius: 5,
-            background: `linear-gradient(90deg, ${T.heatColdTx} 0%, ${T.rowBase} 50%, ${T.heatHotTx} 100%)`,
-            border: `1px solid ${T.borderFaint}`,
-          }}/>
-          <div style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            fontSize: 10,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: T.textMuted,
-            fontWeight: 600,
-          }}>
-            <span>Below League Avg (bad)</span>
-            <span>Above League Avg (good)</span>
-          </div>
-        </div>
-      )}
+          T === THEME.dark ? (
+            /* DARK MODE — cream card wrapper matching Team Stats card language */
+            <div style={{
+              margin: "24px auto 0",
+              maxWidth: 452,
+              position: "relative",
+              background: THEME.light.rowBase,
+              borderRadius: 10,
+              padding: "18px 16px 14px",
+              overflow: "hidden",
+            }}>
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: 3,
+                background: "linear-gradient(90deg, " + BRAND.red + " 0%, #8a0a28 100%)",
+                borderTopLeftRadius: 9, borderTopRightRadius: 9,
+                boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+              }}></div>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 8,
+              }}>
+                <div style={{
+                  width: "100%",
+                  height: 10,
+                  borderRadius: 5,
+                  background: "linear-gradient(90deg, " + T.heatColdTx + " 0%, " + THEME.light.rowBase + " 50%, " + T.heatHotTx + " 100%)",
+                  border: "1px solid " + THEME.light.borderFaint,
+                }}></div>
+                <div style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: 10,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: THEME.light.textMuted,
+                  fontWeight: 600,
+                }}>
+                  <span>Below League Avg (bad)</span>
+                  <span>Above League Avg (good)</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* LIGHT MODE — unchanged from original */
+            <div style={{
+              margin: "24px auto 0",
+              padding: "0 16px",
+              maxWidth: 420,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 8,
+            }}>
+              <div style={{
+                width: "100%",
+                height: 10,
+                borderRadius: 5,
+                background: "linear-gradient(90deg, " + T.heatColdTx + " 0%, " + T.rowBase + " 50%, " + T.heatHotTx + " 100%)",
+                border: "1px solid " + T.borderFaint,
+              }}></div>
+              <div style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                fontSize: 10,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                color: T.textMuted,
+                fontWeight: 600,
+              }}>
+                <span>Below League Avg (bad)</span>
+                <span>Above League Avg (good)</span>
+              </div>
+            </div>
+          )
+        )}
 
       {/* Fan-site disclaimer footer */}
       <div style={{
