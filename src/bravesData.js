@@ -154,9 +154,9 @@
      { date:"Fri, Jun 26", opp:"San Francisco",   home:false, result:"W", score:"3-1", record:"49-31"},
      { date:"Sat, Jun 27", opp:"San Francisco",   home:false, result:"L", score:"0-5", record:"49-32"},
      { date:"Sun, Jun 28", opp:"San Francisco",   home:false, result:"L", score:"2-3", record:"49-33"},
-      // Upcoming
-     { date:"Tue, Jun 30", opp:"St. Louis",   home:true,},
+     { date:"Tue, Jun 30", opp:"St. Louis",   home:true, result:"L", score:"3-5", record:"49-34"},
       // July
+      // Upcoming
      { date:"Wed, Jul 1", opp:"St. Louis",   home:true,},
      { date:"Thu, Jul 2", opp:"St. Louis",   home:true,},
      { date:"Fri, Jul 3", opp:"Mets",   home:true,},
@@ -175,12 +175,12 @@
    export const TEAM_HEADER = {
      record: "49-34",
      runs: 393,
-     era: "3.41",
-     avg: ".248",
+     era: "3.43",
+     avg: ".247",
      obp: ".311",
-     slg: ".409",
-     ops: ".719",
-     wrc: 99,
+     slg: ".406",
+     ops: ".716",
+     wrc: 98,
      iso: ".161",
      battingK: "21.1%",
      battingBB: "7.8%",
