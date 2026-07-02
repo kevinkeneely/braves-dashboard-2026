@@ -175,8 +175,8 @@
    export const TEAM_HEADER = {
      record: "50-34",
      runs: 398,
-     era: "3.43",
-     avg: ".247",
+     era: "3.40",
+     avg: ".246",
      obp: ".311",
      slg: ".406",
      ops: ".717",
