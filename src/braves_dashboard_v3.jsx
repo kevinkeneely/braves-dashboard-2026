@@ -1150,7 +1150,8 @@ const HIDDEN_PLAYERS = new Set([
   "James Karinchak",
   "Ian Hamilton",
   "Ha-Seong Kim",
-  "JR Ritchie",
+  "Carlos Carrasco",
+  "Martín Pérez",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
