@@ -35,15 +35,18 @@
       //   - Sean Murphy
       //   - Joey Bart
       //   - Rowdy Tellez
+      //   - Jim Jarvis
    
       STARTERS (6):
       //   - Chris Sale
       //   - Spencer Strider
       //   - Bryce Elder
+      //   - Reynaldo López
       //   - Martín Pérez
       //   - Grant Holmes
-      //   - JR Ritchie
       //   - Hurston Waldrep
+      //   - JR Ritchie
+      //   - Owen Murphy
    
       BULLPEN (9):
       //   - Raisel Iglesias
@@ -51,12 +54,11 @@
       //   - Robert Suarez
       //   - Tyler Kinley
       //   - Didier Fuentes
-      //   - Reynaldo López
       //   - Dylan Dodd
       //   - James Karinchak
       //   - Carlos Carrasco
       //   - Ian Hamilton
-      //   - Hurston Waldrep
+      //   - Danny Young
       ───────────────────────────────────────────────────────────────────────────
       QUICK CHECK before saving:
       • Did you keep quotes on rate stats?   avg:".271"   kpct:"11.8%"
