@@ -1147,7 +1147,6 @@ const HIDDEN_PLAYERS = new Set([
   "Spencer Strider",
   "Robert Suarez",
   "Rowdy Tellez",
-  "James Karinchak",
   "Ian Hamilton",
   "Ha-Seong Kim",
   "Carlos Carrasco",
