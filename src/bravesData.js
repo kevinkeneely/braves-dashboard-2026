@@ -324,7 +324,7 @@ export const statcastHitters = [
   { name:"Sean Murphy", ev:"80.3",hardHit:"25.0%",xwoba:".133",xba:".140",xslg:".160",barrel:"0.0%",chase:"54.5%",whiff:"45.8%",kpct:"42.9%",bbpct:"0.0%", gbpct:"62.5%",fbpct:"25.0%",ldpct:"12.5%",pupct:"0.0%",pullAir:"0.0%"},
   { name:"Joey Bart", ev:"86.7",hardHit:"35.7%",xwoba:".285",xba:".209",xslg:".380",barrel:"8.9%",chase:"32.2%",whiff:"25.8%",kpct:"27.6%",bbpct:"3.4%", gbpct:"39.3%",fbpct:"37.5%",ldpct:"17.9%",pupct:"5.4%",pullAir:"21.4%"},
   { name:"Rowdy Tellez", ev:"91.8",hardHit:"42.9%",xwoba:".487",xba:".339",xslg:".828",barrel:"28.6%",chase:"33.3%",whiff:"28.6%",kpct:"30.0%",bbpct:"0.0%", gbpct:"14.3%",fbpct:"57.1%",ldpct:"28.6%",pupct:"0.0%",pullAir:"14.3%"},
-  { name:"Jim Jarvis", ev:"85.1",hardHit:"27.3%",xwoba:".200",xba:".180",xslg:".202",barrel:"0.0%",chase:"36.1%",whiff:"15.2%",kpct:"25.0%",bbpct:"6.3%", gbpct:"63.6%",fbpct:"27.3%",ldpct:"9.1%",pupct:"0.0%",pullAir:"—"},
+  { name:"Jim Jarvis", ev:"85.1",hardHit:"27.3%",xwoba:".200",xba:".180",xslg:".202",barrel:"0.0%",chase:"36.1%",whiff:"15.2%",kpct:"25.0%",bbpct:"6.3%", gbpct:"63.6%",fbpct:"27.3%",ldpct:"9.1%",pupct:"0.0%",pullAir:"0.0%"},
 ];
 
 export const statcastPitchers = [
