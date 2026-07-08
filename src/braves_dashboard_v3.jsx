@@ -3109,7 +3109,7 @@ function SplitsTab({T, mode}) {
       </div>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:14, lineHeight:1.4}}>
         {splitsView === "hitters"
-          ? "Hitters with RISP up top, high-leverage splits below the line · tap any card to expand it in place"
+          ? "Hitters with RISP up top, high-leverage splits in the middle, with 2 outs down below · tap any card to expand it in place"
           : "Pitchers vs LHH up top, vs RHH below the line · tap any card to expand it in place"}
       </div>
       {/* TOP SECTION */}
@@ -3131,6 +3131,22 @@ function SplitsTab({T, mode}) {
         fontFamily:"'Cinzel',serif", marginBottom:10,
       }}>{bottomLabel}</div>
       {renderGrid(list, bottomSection, bottomKey, kind)}
+      {/* THIRD SECTION — HITTERS · With 2 Outs (hitters view only) */}
+      {splitsView === "hitters" && (
+        <>
+          <div style={{
+            height:4, borderRadius:3, margin:"26px 0 22px",
+            background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+            boxShadow:`0 0 12px rgba(206,17,65,0.55)`,
+            border:`1px solid ${BRAND.goldBright}55`,
+          }}/>
+          <div style={{
+            fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
+            fontFamily:"'Cinzel',serif", marginBottom:10,
+          }}>HITTERS · With 2 Outs</div>
+          {renderGrid(splitsHitters, "twoOuts", "twoOuts", "hitter")}
+        </>
+      )}
     </>
   );
 }
