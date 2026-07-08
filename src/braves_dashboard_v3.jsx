@@ -232,6 +232,22 @@ const HIGH_LEVERAGE_AVG = {
   kpct:  { mean: 22.0,  spread: 4.0   },
 };
 
+/* 2026 MLB league averages WITH 2 OUTS (from FanGraphs splits leaderboard).
+   Used only to color the "with 2 outs" section of the profile Splits tab.
+   Spreads mirror RISP_AVG since 2-outs is a similar situational hitting split. */
+const TWO_OUTS_AVG = {
+  avg:   { mean: 0.235, spread: 0.030 },
+  obp:   { mean: 0.318, spread: 0.030 },
+  slg:   { mean: 0.386, spread: 0.045 },
+  ops:   { mean: 0.704, spread: 0.070 },
+  wrc:   { mean: 96,    spread: 20    },
+  woba:  { mean: 0.312, spread: 0.030 },
+  iso:   { mean: 0.152, spread: 0.045 },
+  babip: { mean: 0.285, spread: 0.035 },
+  bbpct: { mean: 9.7,   spread: 3.0   },
+  kpct:  { mean: 22.9,  spread: 4.0   },
+};
+
 /* 2026 MLB league averages vs. LHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. LHP" tile grid in the profile Splits tab. */
 const VS_LHP_AVG = {
