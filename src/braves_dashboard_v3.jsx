@@ -2059,6 +2059,7 @@ function HitterStatBoxes({T, d, sc}) {
     const R = sp.vsR || {};
     const risp = sp.risp || null;
     const hl = sp.highLeverage || null;
+    const twoOuts = sp.twoOuts || null;
     const sT = THEME.light;  // splits sections render as light mode (cream) in dark theme
 
     // Column groups for the dense table layout (basketball-reference style)
@@ -2077,6 +2078,7 @@ function HitterStatBoxes({T, d, sc}) {
     }
     if (risp) splitRows.push({ label:"with RISP",      data:risp, baseMap:RISP_AVG });
     if (hl)   splitRows.push({ label:"High Leverage",  data:hl,   baseMap:HIGH_LEVERAGE_AVG });
+    if (twoOuts) splitRows.push({ label:"with 2 outs", data:twoOuts, baseMap:TWO_OUTS_AVG });
 
     // Flatten all column headers and compute group boundary indices for thin left borders
     const flatHeaders = groups.flatMap(g => g.keys);
