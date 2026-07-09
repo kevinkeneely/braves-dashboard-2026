@@ -3639,7 +3639,7 @@ function WarProgressTab({T}) {
   const WAR_PROGRESS_HIDDEN = new Set(["León", "Tromp", "Carrasco"]);
 
   // Define which pitcher keys are starters vs. relievers
-  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie"]);
+  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Waldrep"]);
   // Anything not in SP_KEYS (and not hidden) falls into the bullpen
 
   const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
@@ -3715,7 +3715,7 @@ function WarProgressTab({T}) {
 
   return (
     <>
-      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G73" title="WAR PROGRESS"/>
+      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G90" title="WAR PROGRESS"/>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:12, lineHeight:1.4}}>
         Cumulative fWAR gained as the 2026 season has progressed · weekly checkpoints · FanGraphs
       </div>
