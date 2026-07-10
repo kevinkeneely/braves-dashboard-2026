@@ -1167,6 +1167,7 @@ const HIDDEN_PLAYERS = new Set([
   "Ha-Seong Kim",
   "Carlos Carrasco",
   "Martín Pérez",
+  "Hurston Waldrep",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
