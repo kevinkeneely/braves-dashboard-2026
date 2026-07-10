@@ -3683,36 +3683,47 @@ function WarProgressTab({T}) {
   const rpLeader = leaderOf(rpKeys, lastP);
 
   // Render helper to keep the three chart blocks consistent
-  const renderChart = ({title, keys, colors, sel, setSel, leader, leaderLabel, data, colorMap}) => (
-    <div style={{marginBottom:18}}>
-      <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
-        {title}
+  const renderChart = ({title, keys, colors, sel, setSel, leader, leaderLabel, data, colorMap}) => {
+    // Tight y-axis domain from actual data — prevents Recharts from auto-picking overly wide "nice" bounds
+    // (e.g. position-player chart was defaulting to [-2, 6] for data that only spans ~[-1.2, +2.9])
+    const allVals = data.flatMap(row => keys.map(k => row[k])).filter(v => v != null && !isNaN(v));
+    const dataMin = allVals.length ? Math.min(...allVals) : 0;
+    const dataMax = allVals.length ? Math.max(...allVals) : 1;
+    const pad = Math.max(0.15, (dataMax - dataMin) * 0.08);
+    const yMin = Math.min(0, dataMin - pad);
+    const yMax = dataMax + pad;
+
+    return (
+      <div style={{marginBottom:18}}>
+        <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
+          {title}
+        </div>
+        <div style={{fontSize:10.5, color:T.textMuted, marginBottom:8}}>
+          {keys.length} {leaderLabel} · {leader ? `${leader} leads at +${data[data.length-1][leader].toFixed(1)}` : "no data"}
+          {sel ? ` · isolating ${sel} (click again to reset)` : " · tap a name to isolate"}
+        </div>
+        <div style={{height:280, background: T === THEME.dark ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.5)", borderRadius:10, padding:10}}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data} margin={{top:8, right:20, bottom:4, left:4}}>
+              <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
+              <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
+              <YAxis stroke={T.textMuted} fontSize={10} domain={[yMin, yMax]}/>
+              <Tooltip
+                contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
+                itemStyle={{color:T.text}}
+                labelStyle={{color:T.textMuted, fontWeight:700}}
+              />
+              {keys.map(k => (
+                <Line key={k} type="monotone" dataKey={k} {...lineProps(k, sel, colorMap[k])} isAnimationActive={false}/>
+              ))}
+              <ReferenceLine y={0} stroke="rgba(255,255,255,0.9)" strokeDasharray="4 5" strokeWidth={2}/>
+              <Legend wrapperStyle={{fontSize:10, paddingTop:6, cursor:"pointer"}} onClick={toggle(sel, setSel)}/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </div>
-      <div style={{fontSize:10.5, color:T.textMuted, marginBottom:8}}>
-        {keys.length} {leaderLabel} · {leader ? `${leader} leads at +${data[data.length-1][leader].toFixed(1)}` : "no data"}
-        {sel ? ` · isolating ${sel} (click again to reset)` : " · tap a name to isolate"}
-      </div>
-      <div style={{height:280, background: T === THEME.dark ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.5)", borderRadius:10, padding:10}}>
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{top:8, right:20, bottom:4, left:4}}>
-            <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
-            <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
-            <YAxis stroke={T.textMuted} fontSize={10}/>
-            <Tooltip
-              contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
-              itemStyle={{color:T.text}}
-              labelStyle={{color:T.textMuted, fontWeight:700}}
-            />
-            {keys.map(k => (
-              <Line key={k} type="monotone" dataKey={k} {...lineProps(k, sel, colorMap[k])} isAnimationActive={false}/>
-            ))}
-            <ReferenceLine y={0} stroke="rgba(255,255,255,0.9)" strokeDasharray="4 5" strokeWidth={2}/>
-            <Legend wrapperStyle={{fontSize:10, paddingTop:6, cursor:"pointer"}} onClick={toggle(sel, setSel)}/>
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -3756,3 +3767,4 @@ function WarProgressTab({T}) {
     </>
   );
 }
+
