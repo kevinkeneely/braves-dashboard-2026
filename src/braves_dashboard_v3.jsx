@@ -144,25 +144,25 @@ const THEME = {
    spread = more aggressive shading near the mean.                            */
 const LEAGUE_AVG = {
   // Hitter rate stats
-  avg:    { mean: 0.243, spread: 0.020 },
+  avg:    { mean: 0.244, spread: 0.020 },
   obp:    { mean: 0.319, spread: 0.020 },
-  slg:    { mean: 0.400, spread: 0.035 },
-  ops:    { mean: 0.719, spread: 0.050 },
+  slg:    { mean: 0.402, spread: 0.035 },
+  ops:    { mean: 0.721, spread: 0.050 },
   woba:   { mean: 0.317, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
   kpct:   { mean: 22.1,  spread: 3.5 },
-  bbpct:  { mean: 9.1,   spread: 1.8 },
+  bbpct:  { mean: 9.0,   spread: 1.8 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
-  era:    { mean: 4.19,  spread: 0.80 },
-  fip:    { mean: 4.19,  spread: 0.80 },
-  xfip:   { mean: 4.19,  spread: 0.60 },
-  siera:  { mean: 4.07,  spread: 0.60 },
+  era:    { mean: 4.22,  spread: 0.80 },
+  fip:    { mean: 4.22,  spread: 0.80 },
+  xfip:   { mean: 4.22,  spread: 0.60 },
+  siera:  { mean: 4.11,  spread: 0.60 },
   whip:   { mean: 1.31,  spread: 0.15 },
   // Plate discipline (pitcher view) — higher = better for pitchers
   swstr:  { mean: 10.8,  spread: 2.5 },
-  cstr:   { mean: 16.4,  spread: 2.0 },
-  csw:    { mean: 27.2,  spread: 3.0 },
+  cstr:   { mean: 16.3,  spread: 2.0 },
+  csw:    { mean: 27.1,  spread: 3.0 },
   // WAR — 0.0 is league average (a replacement-level player); positive = above avg.
   // Spread tuned so ~+1.0 reads firmly red, ~-0.5 firmly blue at this point in the season.
   war:    { mean: 0.0,   spread: 0.6 },
@@ -171,27 +171,27 @@ const LEAGUE_AVG = {
   // All values are 2026 MLB averages from baseballsavant.mlb.com. Higher = better
   // from a hitter's view; pitcher tables pass invert:true on these columns.
   ev:          { mean: 88.9,  spread: 1.5  },
-  hardHit:     { mean: 39.2,  spread: 5.0  },
-  barrel:      { mean: 8.1,   spread: 2.5  },
-  xwoba:       { mean: 0.319, spread: 0.030 },
+  hardHit:     { mean: 39.0,  spread: 5.0  },
+  barrel:      { mean: 8.0,   spread: 2.5  },
+  xwoba:       { mean: 0.318, spread: 0.030 },
   xba:         { mean: 0.245, spread: 0.020 },
-  xslg:        { mean: 0.401, spread: 0.040 },
+  xslg:        { mean: 0.400, spread: 0.040 },
   // Chase% / Whiff% — lower is better for hitters; call sites pass invert per view
   chase:       { mean: 30.2,  spread: 3.5  },
-  whiff:       { mean: 25.2,  spread: 3.5  },
+  whiff:       { mean: 25.1,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
   batSpeed:    { mean: 72.1,  spread: 2.0  },
-  fastSwing:   { mean: 26.3,  spread: 8.0  },
-  squaredUp:   { mean: 24.9,  spread: 4.0  },
+  fastSwing:   { mean: 26.5,  spread: 8.0  },
+  squaredUp:   { mean: 24.8,  spread: 4.0  },
   laSwSp:      { mean: 33.7,  spread: 4.0  },
-  idealAttack: { mean: 51.1,  spread: 7.0  },
+  idealAttack: { mean: 51.0,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
   gbpct:       { mean: 42.4,  spread: 4.0  },
-  fbpct:       { mean: 26.5,  spread: 4.0  },
-  ldpct:       { mean: 23.6,  spread: 3.0  },
-  pupct:       { mean: 7.4,   spread: 2.5  },
+  fbpct:       { mean: 26.6,  spread: 4.0  },
+  ldpct:       { mean: 23.7,  spread: 3.0  },
+  pupct:       { mean: 7.3,   spread: 2.5  },
   pullAir:     { mean: 18.4,  spread: 4.0  },
   // Fielding metrics — 0 = league average, higher = better defense
   oaa:         { mean: 0,     spread: 2.5  },
@@ -2281,13 +2281,13 @@ function PitcherStatBoxes({T, d, sc}) {
       <>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
           <OverviewStat T={T} label="IP"      value={d.ip}/>
-          <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.19"  heatRef={leagueRef("era",   true)}/>
+          <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.22"  heatRef={leagueRef("era",   true)}/>
           <OverviewStat T={T} label="WHIP"    value={d.whip}    sub="lg 1.31"  heatRef={leagueRef("whip",  true)}/>
           <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.1%" heatRef={leagueRef("kpct")}/>
-          <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.1%"  heatRef={leagueRef("bbpct", true)}/>
-          <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.19"  heatRef={leagueRef("fip",   true)}/>
-          <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.19"  heatRef={leagueRef("xfip",  true)}/>
-          <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.07"  heatRef={leagueRef("siera", true)}/>
+          <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.0%"  heatRef={leagueRef("bbpct", true)}/>
+          <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.22"  heatRef={leagueRef("fip",   true)}/>
+          <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.22"  heatRef={leagueRef("xfip",  true)}/>
+          <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.11"  heatRef={leagueRef("siera", true)}/>
           <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.2%" heatRef={leagueRef("whiff")}/>
           <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.2%" heatRef={leagueRef("csw")}/>
           <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.4%" heatRef={leagueRef("gbpct")}/>
