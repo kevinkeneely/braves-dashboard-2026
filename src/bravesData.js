@@ -59,6 +59,7 @@
       //   - Carlos Carrasco
       //   - Ian Hamilton
       //   - Danny Young
+      //   - Víctor Mederos
       ───────────────────────────────────────────────────────────────────────────
       QUICK CHECK before saving:
       • Did you keep quotes on rate stats?   avg:".271"   kpct:"11.8%"
@@ -297,6 +298,7 @@ export const starters = [
     { name:"Carlos Carrasco", role:"RP", era:"5.94", ip:"16.2", sv:0, kpct:"9.6%", bbpct:"4.1%", whip:"1.440", fip:"5.51", war:-0.2, war2:-0.2, xfip:"4.73", siera:"4.77", batSpeed:72.4, fastSwing:"32.2%", swstr:"9.3%", cstr:"12.6%", csw:"22.0%", laSwSp:"47.5%", idealAttack:"57.4", splits:{vsL:{ip:"10.1",era:"6.10",fip:"4.66",xfip:"4.88",whip:"1.45",avg:".317",obp:".364",slg:".415",woba:".346",kpct:"6.7%",bbpct:"4.4%",kbb:"2.2%"}, vsR:{ip:"6.1",era:"5.68",fip:"6.90",xfip:"4.49",whip:"1.42",avg:".320",obp:".370",slg:".600",woba:".416",kpct:"14.3%",bbpct:"3.6%",kbb:"10.7%"}}},
     { name:"Ian Hamilton", role:"RP", era:"7.71", ip:"4.2", sv:0, kpct:"17.4%", bbpct:"13.0%", whip:"1.929", fip:"3.33", war:-0.1, war2:0.0, xfip:"3.98", siera:"3.97", batSpeed:72.4, fastSwing:"28.6%", swstr:"12.0%", cstr:"19.6%", csw:"31.5%", laSwSp:"31.3%", idealAttack:"31.8%", splits:{vsL:{ip:"1.2",era:"10.80",fip:"3.71",xfip:"4.63",whip:"3.00",avg:".444",obp:".500",slg:".667",woba:".500",kpct:"10.0%",bbpct:"10.0%",kbb:"0.0%"}, vsR:{ip:"3.0",era:"6.00",fip:"3.11",xfip:"3.62",whip:"1.33",avg:".182",obp:".308",slg:".182",woba:".245",kpct:"23.1%",bbpct:"15.4%",kbb:"7.7%"}}},
     { name:"Danny Young", role:"RP", era:"2.70", ip:"3.1", sv:0, kpct:"25.0%", bbpct:"12.5%", whip:"0.857", fip:"2.69", war:0.2, war2:0.1, xfip:"2.69", siera:"1.84", batSpeed:71.8, fastSwing:"0.0%", swstr:"6.3%", cstr:"28.1%", csw:"34.4%", laSwSp:"0.0%", idealAttack:null, splits:{vsL:{ip:"1.0",era:"0.00",fip:"4.11",xfip:"4.11",whip:"2.00",avg:".333",obp:".500",slg:".333",woba:".397",kpct:"25.0%",bbpct:"25.0%",kbb:"0.0%"}, vsR:{ip:"1.1",era:"0.00",fip:"1.61",xfip:"1.61",whip:"0.00",avg:".000",obp:".000",slg:".000",woba:".000",kpct:"25.0%",bbpct:"0.0%",kbb:"25.0%"}}},
+    { name:"Víctor Mederos", role:"RP", era:"0.00", ip:"5.0", sv:0, kpct:"31.3%", bbpct:"6.3%", whip:"0.400", fip:"1.71", war:0.2, war2:0.1, xfip:"3.24", siera:"1.84", batSpeed:71.8, fastSwing:"0.0%", swstr:"6.3%", cstr:"28.1%", csw:"34.4%", laSwSp:"0.0%", idealAttack:null, splits:{vsL:{ip:"1.0",era:"0.00",fip:"4.11",xfip:"4.11",whip:"2.00",avg:".333",obp:".500",slg:".333",woba:".397",kpct:"25.0%",bbpct:"25.0%",kbb:"0.0%"}, vsR:{ip:"1.1",era:"0.00",fip:"1.61",xfip:"1.61",whip:"0.00",avg:".000",obp:".000",slg:".000",woba:".000",kpct:"25.0%",bbpct:"0.0%",kbb:"25.0%"}}},
   ];
    
    export const standings = [
