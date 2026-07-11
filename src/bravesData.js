@@ -329,7 +329,7 @@ export const statcastHitters = [
   { name:"Sean Murphy", ev:"80.3",hardHit:"25.0%",xwoba:".133",xba:".140",xslg:".160",barrel:"0.0%",chase:"54.5%",whiff:"45.8%",kpct:"42.9%",bbpct:"0.0%", gbpct:"62.5%",fbpct:"25.0%",ldpct:"12.5%",pupct:"0.0%",pullAir:"0.0%"},
   { name:"Joey Bart", ev:"87.0",hardHit:"36.7%",xwoba:".301",xba:".215",xslg:".419",barrel:"10.0%",chase:"32.2%",whiff:"24.9%",kpct:"26.4%",bbpct:"3.3%", gbpct:"40.0%",fbpct:"38.3%",ldpct:"16.7%",pupct:"5.0%",pullAir:"22.7%"},
   { name:"Rowdy Tellez", ev:"91.8",hardHit:"42.9%",xwoba:".487",xba:".339",xslg:".828",barrel:"28.6%",chase:"33.3%",whiff:"28.6%",kpct:"30.0%",bbpct:"0.0%", gbpct:"14.3%",fbpct:"57.1%",ldpct:"28.6%",pupct:"0.0%",pullAir:"14.3%"},
-  { name:"Jim Jarvis", ev:"83.1",hardHit:"21.1%",xwoba:".259",xba:".231",xslg:".326",barrel:"5.3%",chase:"36.2%",whiff:"16.0%",kpct:"20.0%",bbpct:"4.0%", gbpct:"52.6%",fbpct:"26.3%",ldpct:"15.8%",pupct:"5.3%",pullAir:"15.8%"},
+  { name:"Jim Jarvis", ev:"83.1",hardHit:"21.1%",xwoba:".259",xba:".231",xslg:".326",barrel:"5.3%",chase:"36.2%",whiff:"16.0%",kpct:"18.5%",bbpct:"3.7%", gbpct:"52.6%",fbpct:"26.3%",ldpct:"15.8%",pupct:"5.3%",pullAir:"15.8%"},
 ];
 
 export const statcastPitchers = [
@@ -353,6 +353,7 @@ export const statcastPitchers = [
   { name:"Carlos Carrasco", ev:"89.2",hardHit:"42.2%",xwoba:".358",xba:".325",xslg:".452",kpct:"11.1%",bbpct:"1.9%", barrel:"6.7%", chase:"43.6%",whiff:"17.2%",gbpct:"48.9%",fbpct:"11.1%",ldpct:"33.3%",pupct:"6.7%", pullAir:"26.2%"},
   { name:"Ian Hamilton", ev:"93.0",hardHit:"50.0%",xwoba:".342",xba:".307",xslg:".356",kpct:"17.4%",bbpct:"13.0%", barrel:"0.0%", chase:"30.0%",whiff:"28.6%",gbpct:"56.3%",fbpct:"12.5%",ldpct:"31.3%",pupct:"0.0%", pullAir:"12.5%"},
   { name:"Danny Young", ev:"96.7",hardHit:"80.0%",xwoba:".197",xba:".137",xslg:".144",kpct:"25.0%",bbpct:"12.5%", barrel:"0.0%", chase:"20.0%",whiff:"25.0%",gbpct:"100.0%",fbpct:"0.0%",ldpct:"0.0%",pupct:"0.0%", pullAir:"—"},
+  { name:"Víctor Mederos", ev:"96.7",hardHit:"80.0%",xwoba:".197",xba:".137",xslg:".144",kpct:"31.3%",bbpct:"6.3%", barrel:"0.0%", chase:"20.0%",whiff:"25.0%",gbpct:"100.0%",fbpct:"0.0%",ldpct:"0.0%",pupct:"0.0%", pullAir:"—"}
 ];
    
    export const hitterWarProgress = [
