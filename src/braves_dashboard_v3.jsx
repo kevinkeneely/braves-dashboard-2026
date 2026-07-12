@@ -1159,14 +1159,9 @@ const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
   "Chadwick Tromp",
   "Sandy León",
-  "Ronald Acuña Jr.",
-  "Spencer Strider",
-  "Robert Suarez",
   "Rowdy Tellez",
   "Ian Hamilton",
-  "Ha-Seong Kim",
   "Carlos Carrasco",
-  "Martín Pérez",
   "Hurston Waldrep",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
