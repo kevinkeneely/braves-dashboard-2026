@@ -17,7 +17,7 @@
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
       a player. This is just a reference comment; it does not affect the dashboard.
       ───────────────────────────────────────────────────────────────────────────
-      HITTERS (15):
+      HITTERS (18):
       //   - Ronald Acuña Jr.
       //   - Drake Baldwin
       //   - Matt Olson
@@ -37,7 +37,7 @@
       //   - Rowdy Tellez
       //   - Jim Jarvis
    
-      STARTERS (6):
+      STARTERS (9):
       //   - Chris Sale
       //   - Spencer Strider
       //   - Bryce Elder
@@ -48,7 +48,7 @@
       //   - JR Ritchie
       //   - Owen Murphy
    
-      BULLPEN (9):
+      BULLPEN (11):
       //   - Raisel Iglesias
       //   - Dylan Lee
       //   - Robert Suarez
