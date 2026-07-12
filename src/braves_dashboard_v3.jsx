@@ -1162,7 +1162,6 @@ const HIDDEN_PLAYERS = new Set([
   "Rowdy Tellez",
   "Ian Hamilton",
   "Carlos Carrasco",
-  "Hurston Waldrep",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
