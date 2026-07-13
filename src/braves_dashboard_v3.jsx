@@ -1159,7 +1159,6 @@ const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
   "Chadwick Tromp",
   "Sandy León",
-  "Rowdy Tellez",
   "Ian Hamilton",
   "Carlos Carrasco",
 ]);
