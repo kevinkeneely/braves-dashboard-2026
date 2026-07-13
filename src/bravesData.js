@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "July 12, 2026";
+   export const lastUpdated = "July 13, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -180,26 +180,26 @@
    export const TEAM_HEADER = {
      record: "55-40",
      runs: 460,
-     era: "3.61",
-     avg: ".247",
-     obp: ".312",
-     slg: ".410",
+     era: "3.60",
+     avg: ".246",
+     obp: ".313",
+     slg: ".409",
      ops: ".722",
-     wrc: 97,
-     iso: ".165",
+     wrc: 98,
+     iso: ".163",
      battingK: "21.3%",
      battingBB: "8.0%",
-     woba: ".318",
-     xwoba: ".322",
-     fip: "4.09",
-     xera: "3.89",
-     xfip: "4.10",
+     woba: ".316",
+     xwoba: ".320",
+     fip: "4.07",
+     xera: "3.90",
+     xfip: "4.08",
      whip: "1.23",
      gb: "41.7%",
-     siera: "4.04",
-     pitchingK: "22.7%",
+     siera: "4.02",
+     pitchingK: "22.9%",
      pitchingBB: "9.0%",
-     pitchingKBB: "13.7%",
+     pitchingKBB: "13.8%",
      swstr: "11.3%",
      cstr: "16.0%",
      csw: "27.3%",
