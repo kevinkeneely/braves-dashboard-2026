@@ -2385,6 +2385,18 @@ function PitcherStatBoxes({T, d, sc}) {
       });
     }
 
+    // Sticky SPLIT column — keeps row labels visible while user scrolls horizontally.
+    // Background matches sT.rowBase so scrolling numbers don't bleed through. zIndex sits
+    // above regular cells. boxShadow creates a subtle 1px right-edge divider that only
+    // becomes visible once scrolled (natural affordance for "more content to the right").
+    const stickyLeft = {
+      position:"sticky",
+      left:0,
+      background:sT.rowBase,
+      zIndex:2,
+      boxShadow:`1px 0 0 ${sT.borderFaint}`,
+    };
+
     body = (
       <ProfileSection T={T} title="Platoon Splits">
         {splitRows.length === 0 ? (
@@ -2405,11 +2417,13 @@ function PitcherStatBoxes({T, d, sc}) {
               borderTopLeftRadius:9, borderTopRightRadius:9,
               boxShadow:`0 0 10px rgba(206,17,65,0.45)`,
             }}/>
-            <table style={{width:"100%", borderCollapse:"collapse", minWidth:540, marginTop:6}}>
+            {/* borderCollapse must be "separate" for position:sticky to work on table cells.
+                Existing borders are per-cell borderBottom/borderLeft so visual output is unchanged. */}
+            <table style={{width:"100%", borderCollapse:"separate", borderSpacing:0, minWidth:540, marginTop:6}}>
               <thead>
                 {/* Row 1: column group labels (WORKLOAD / RUN PREVENTION / OPP. SLASH / DISCIPLINE) */}
                 <tr>
-                  <th style={{padding:"8px 10px 2px", borderBottom:`1px solid ${sT.borderFaint}`}}/>
+                  <th style={{padding:"8px 10px 2px", borderBottom:`1px solid ${sT.borderFaint}`, ...stickyLeft}}/>
                   {groups.map((g, gi) => (
                     <th key={g.name} colSpan={g.keys.length} style={{
                       fontFamily:"'Cinzel',serif",
@@ -2430,6 +2444,7 @@ function PitcherStatBoxes({T, d, sc}) {
                     padding:"7px 10px",
                     borderBottom:`2px solid ${BRAND.red}`,
                     textTransform:"uppercase",
+                    ...stickyLeft,
                   }}>SPLIT</th>
                   {flatHeaders.map((h, hi) => (
                     <th key={h.key} style={{
@@ -2446,7 +2461,7 @@ function PitcherStatBoxes({T, d, sc}) {
               <tbody>
                 {splitRows.map((row, ri) => (
                   <tr key={row.label}>
-                    {/* Row label cell — dark Cinzel, all-caps */}
+                    {/* Row label cell — dark Cinzel, all-caps · sticky to left edge */}
                     <td style={{
                       fontFamily:"'Cinzel',serif", fontSize:11, fontWeight:800,
                       letterSpacing:"0.14em", color:sT.text,
@@ -2454,6 +2469,7 @@ function PitcherStatBoxes({T, d, sc}) {
                       textTransform:"uppercase",
                       borderBottom: ri < splitRows.length - 1 ? `1px solid ${sT.borderFaint}` : "none",
                       whiteSpace:"nowrap",
+                      ...stickyLeft,
                     }}>{row.label}</td>
                     {/* Data cells — heat-colored. Pitcher inversion: lower is better EXCEPT K% and K-BB% */}
                     {flatHeaders.map((h, hi) => {
