@@ -175,6 +175,13 @@
       // All-Star Break
      { date:"Tue, Jul 14", opp:"All Star",    home:true,},
       // Second Half
+     { date:"Fri, Jul 17", opp:"Texas",    home:true,},
+     { date:"Sat, Jul 18", opp:"Texas",    home:true,},
+     { date:"Sun, Jul 19", opp:"Texas",    home:true,},
+     { date:"Mon, Jul 20", opp:"San Diego",    home:true,},
+     { date:"Tue, Jul 21", opp:"San Diego",    home:true,},
+     { date:"Wed, Jul 22", opp:"San Diego",    home:true,},
+     { date:"Thu, Jul 23", opp:"San Diego",    home:true,},
    ];
    
    export const TEAM_HEADER = {
