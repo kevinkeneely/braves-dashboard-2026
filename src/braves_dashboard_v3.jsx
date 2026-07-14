@@ -204,6 +204,85 @@ const LEAGUE_AVG = {
   oaa:         { mean: 0,     spread: 2.5  },
   frv:         { mean: 0,     spread: 2.5  },
 };
+/* ── LG AVG DISPLAY FORMATTERS ────────────────────────────────────────────
+   Format each stat exactly like its player cells. Reads LEAGUE_AVG.{key}.mean.
+   Counting stats + WAR render "—" per Kevin's preference (Option A).
+   ───────────────────────────────────────────────────────────────────────── */
+const LG_AVG_DASH_KEYS = new Set([
+  "pa","r","h","doubles","triples","hr","rbi","sb",   // hitting counting
+  "ip","wl","sv",                                      // pitching counting
+  "war","war2",                                        // WAR
+]);
+const LG_AVG_SLASH_KEYS  = new Set(["avg","obp","slg","ops","woba","xwoba","xba","xslg"]);
+const LG_AVG_TWO_DEC_KEYS = new Set(["era","fip","xfip","siera","whip"]);
+const LG_AVG_INT_KEYS     = new Set(["wrc"]);
+const LG_AVG_PCT_KEYS     = new Set([
+  "kpct","bbpct","swstr","cstr","csw",
+  "hardHit","barrel","chase","whiff",
+  "squaredUp","fastSwing","laSwSp","idealAttack",
+  "gbpct","fbpct","ldpct","pupct","pullAir",
+]);
+const LG_AVG_ONE_DEC_KEYS = new Set(["ev","batSpeed"]);
+
+function formatLgAvg(key) {
+  if (LG_AVG_DASH_KEYS.has(key)) return "—";
+  const ref = LEAGUE_AVG[key];
+  if (!ref || ref.mean == null) return "—";
+  const m = ref.mean;
+  if (LG_AVG_SLASH_KEYS.has(key)) {
+    const s = m.toFixed(3);
+    return s.startsWith("0.") ? s.slice(1) : s;
+  }
+  if (LG_AVG_TWO_DEC_KEYS.has(key)) return m.toFixed(2);
+  if (LG_AVG_INT_KEYS.has(key))     return Math.round(m).toString();
+  if (LG_AVG_PCT_KEYS.has(key))     return `${m.toFixed(1)}%`;
+  if (LG_AVG_ONE_DEC_KEYS.has(key)) return m.toFixed(1);
+  return typeof m === "number" ? m.toFixed(1) : String(m);
+}
+/* ── LgAvgRow: pinned reference row for player-stat tables ─────────────── */
+function LgAvgRow({ sT, cols, extraCells = 0 }) {
+  const border = sT.borderStrong || sT.border || "rgba(19,39,79,0.25)";
+  const labelStyle = {
+    padding: "6px 8px",
+    fontFamily: "'Cinzel', serif",
+    fontStyle: "italic",
+    fontWeight: 600,
+    fontSize: 11,
+    letterSpacing: "0.08em",
+    color: sT.textMuted,
+    background: "rgba(19, 39, 79, 0.04)",
+    borderTop: `1.5px solid ${border}`,
+    position: "sticky",
+    left: 0,
+    zIndex: 1,
+    whiteSpace: "nowrap",
+  };
+  const cellStyle = {
+    padding: "6px 8px",
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 11.5,
+    color: sT.textMuted,
+    fontStyle: "italic",
+    background: "rgba(19, 39, 79, 0.04)",
+    borderTop: `1.5px solid ${border}`,
+    textAlign: "right",
+    whiteSpace: "nowrap",
+  };
+  const extraCellStyle = { ...cellStyle, textAlign: "center" };
+  return (
+    <tr>
+      <td style={labelStyle}>LG AVG</td>
+      {Array.from({ length: extraCells }).map((_, idx) => (
+        <td key={`lgavg-extra-${idx}`} style={extraCellStyle}>—</td>
+      ))}
+      {cols.map(c => (
+        <td key={`lgavg-${c.key}`} style={cellStyle}>
+          {formatLgAvg(c.key)}
+        </td>
+      ))}
+    </tr>
+  );
+}
 
 /* 2026 MLB league averages WITH RISP (from FanGraphs splits). Used only to color
    the "with RISP" section of the profile Splits tab. Spreads tuned per stat so a
@@ -2689,6 +2768,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
                 })}
               </tr>
             ))}
+             <LgAvgRow sT={sT} cols={cols} extraCells={1} />
           </tbody>
         </table>
       </div>
@@ -2774,6 +2854,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
                 })}
               </tr>
             ))}
+             <LgAvgRow sT={sT} cols={cols} extraCells={1} />
           </tbody>
         </table>
       </div>
@@ -2878,6 +2959,7 @@ function StatcastHitTable({T, onSelect}) {
               </tr>
             );
           })}
+           <LgAvgRow sT={sT} cols={cols} extraCells={0} />
         </tbody>
       </table>
     </div>
@@ -2962,6 +3044,7 @@ function StatcastPitTable({T, onSelect}) {
               </tr>
             );
           })}
+           <LgAvgRow sT={sT} cols={cols} extraCells={0} />
         </tbody>
       </table>
     </div>
