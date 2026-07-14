@@ -1151,7 +1151,7 @@ function computePitcherOVR(p) {
   return Math.max(50, Math.min(99, Math.round(v)));
 }
 /* ── Role labels: STARTER/BENCH for hitters, SP/RP for pitchers ────────── */
-const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harris II","Mauricio Dubón","Ronald Acuña Jr.","Austin Riley","Ha-Seong Kim"];
+const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harris II","Mauricio Dubón","Ronald Acuña Jr.","Austin Riley","Mike Yastrzemski","Jim Jarvis"];
 
 /* Players to hide from the visible UI. Their data still lives in the arrays so
    they can be restored instantly, but every rendered surface filters through this. */
