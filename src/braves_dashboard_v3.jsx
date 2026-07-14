@@ -343,7 +343,7 @@ const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#8F713D"
+  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#8F713D","Young":"#EAC678"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1490,7 +1490,7 @@ const PITCHER_WAR_KEY = {
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
-  "Hurston Waldrep":"Waldrep", "Víctor Mederos":"Mederos", "Owen Murphy":"O.Murphy",
+  "Hurston Waldrep":"Waldrep", "Víctor Mederos":"Mederos", "Owen Murphy":"O.Murphy", "Danny Young":"Young",
 };
 
 function FullProfile({T, mode, player, onClose}) {
