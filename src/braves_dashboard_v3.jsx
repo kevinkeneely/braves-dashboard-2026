@@ -343,7 +343,7 @@ const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#38bdf8"
+  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#8F713D"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
