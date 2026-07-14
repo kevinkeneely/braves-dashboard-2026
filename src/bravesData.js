@@ -188,6 +188,11 @@
      { date:"Mon, Jul 27", opp:"Mets",    home:false,},
      { date:"Tue, Jul 28", opp:"Mets",    home:false,},
      { date:"Wed, Jul 29", opp:"Mets",    home:false,},
+     { date:"Thu, Jul 30", opp:"Nationals",    home:true,},
+     { date:"Fri, Jul 31", opp:"Nationals",    home:true,},
+      // August
+     { date:"Sat, Aug 1", opp:"Nationals",    home:true,},
+     { date:"Sun, Aug 2", opp:"Nationals",    home:true,},
    ];
    
    export const TEAM_HEADER = {
