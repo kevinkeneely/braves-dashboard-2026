@@ -182,6 +182,12 @@
      { date:"Tue, Jul 21", opp:"Padres",    home:true,},
      { date:"Wed, Jul 22", opp:"Padres",    home:true,},
      { date:"Thu, Jul 23", opp:"Padres",    home:true,},
+     { date:"Fri, Jul 24", opp:"Orioles",    home:false,},
+     { date:"Sat, Jul 25", opp:"Orioles",    home:false,},
+     { date:"Sun, Jul 26", opp:"Orioles",    home:false,},
+     { date:"Mon, Jul 27", opp:"Mets",    home:false,},
+     { date:"Tue, Jul 28", opp:"Mets",    home:false,},
+     { date:"Wed, Jul 29", opp:"Mets",    home:false,},
    ];
    
    export const TEAM_HEADER = {
