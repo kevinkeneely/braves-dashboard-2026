@@ -1998,18 +1998,18 @@ function HitterStatBoxes({T, d, sc}) {
     body = (
       <>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
-          <OverviewStat T={T} label="AVG"     value={d.avg}        sub="lg .243" heatRef={leagueRef("avg")}/>
+          <OverviewStat T={T} label="AVG"     value={d.avg}        sub="lg .244" heatRef={leagueRef("avg")}/>
           <OverviewStat T={T} label="OBP"     value={d.obp}        sub="lg .319" heatRef={leagueRef("obp")}/>
-          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .400" heatRef={leagueRef("slg")}/>
+          <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .402" heatRef={leagueRef("slg")}/>
           <OverviewStat T={T} label="wRC+"    value={d.wrc}        sub="lg 100"  heatRef={leagueRef("wrc")}/>
           <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .317"  heatRef={leagueRef("woba")}/>
           <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}         heatRef={leagueRef("xwoba")}/>
           <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.1%" heatRef={leagueRef("kpct", true)}/>
-          <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.1%"  heatRef={leagueRef("bbpct")}/>
+          <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.0%"  heatRef={leagueRef("bbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 88.9 mph"      heatRef={leagueRef("ev")}/>
           <OverviewStat T={T} label="HARDHIT" value={sc?.hardHit}                  heatRef={leagueRef("hardHit")}/>
           <OverviewStat T={T} label="BARREL"  value={sc?.barrel}                   heatRef={leagueRef("barrel")}/>
-          <OverviewStat T={T} label="Pull-Air%" value={sc?.pullAir}  sub="lg 18.4%" heatRef={leagueRef("pullAir")}/>
+          <OverviewStat T={T} label="Pull-Air%" value={sc?.pullAir}  sub="lg 18.5%" heatRef={leagueRef("pullAir")}/>
         </div>
         <WarProgressionCard T={T} d={d} isHitter={true}/>
       </>
