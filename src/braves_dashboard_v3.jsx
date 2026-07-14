@@ -337,13 +337,13 @@ const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
   "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24",
-  "Bart":"#22d3ee","Murphy":"#8F713D"
+  "Bart":"#22d3ee","Murphy":"#8F713D","Jarvis":"#a3e635"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D"
+  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#38bdf8"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1482,7 +1482,7 @@ const HITTER_WAR_KEY = {
   "Michael Harris II":"Harris", "Mauricio Dubón":"Dubón", "Ronald Acuña Jr.":"Acuña",
   "Dominic Smith":"Smith", "Jorge Mateo":"Mateo", "Austin Riley":"Riley",
   "Eli White":"White", "Mike Yastrzemski":"Yaz", "Sean Murphy":"Murphy",
-  "Ha-Seong Kim":"Kim", "Joey Bart":"Bart", "Rowdy Tellez":"Tellez",
+  "Ha-Seong Kim":"Kim", "Joey Bart":"Bart", "Rowdy Tellez":"Tellez", "Jim Jarvis":"Jarvis",
 };
 const PITCHER_WAR_KEY = {
   "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"D.Lee",
@@ -1490,7 +1490,7 @@ const PITCHER_WAR_KEY = {
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
-  "Hurston Waldrep":"Waldrep",
+  "Hurston Waldrep":"Waldrep", "Víctor Mederos":"Mederos", "Owen Murphy":"O.Murphy",
 };
 
 function FullProfile({T, mode, player, onClose}) {
