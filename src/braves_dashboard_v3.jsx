@@ -137,12 +137,12 @@ const THEME = {
   },
 };
 
-/* ── TEAM-LEVEL HEADER STATS (June 15, 2026 · stats through June 15) ───────────
+/* ── TEAM-LEVEL HEADER STATS (July 14, 2026 · stats through July 14) ───────────
    Sources: Baseball-Reference team page, FanGraphs team batting/pitching,
    Baseball Savant. Pull these fresh daily and update inline.
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* ── LEAGUE AVERAGES (2026 MLB through ~G71) ───────────────────────────────
+/* ── LEAGUE AVERAGES (2026 MLB through ~G95) ───────────────────────────────
    Source: FanGraphs league-wide stat lines. These drive heat coloring across
    every player table (Hitting, Pitching, Statcast) and the Team Stats tab.
    Counting stats (PA, R, H, HR, SB, IP, etc.) and Statcast bat-tracking stats
