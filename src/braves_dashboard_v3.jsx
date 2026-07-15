@@ -241,34 +241,43 @@ function formatLgAvg(key) {
 }
 /* ── LgAvgRow: pinned reference row for player-stat tables ─────────────── */
 function LgAvgRow({ sT, cols, extraCells = 0 }) {
-  const border = sT.borderStrong || sT.border || "rgba(19,39,79,0.25)";
+  const navy = sT.text || "#13274F";
+  const hairline = "rgba(19, 39, 79, 0.35)";
+
+  // Double-line divider: box-shadow simulates a second hairline above the border
+  const divider = {
+    borderTop: `1px solid ${hairline}`,
+    boxShadow: `inset 0 3px 0 -2px ${hairline}`,
+  };
+
   const labelStyle = {
-    padding: "6px 8px",
+    ...divider,
+    padding: "8px 10px",
     fontFamily: "'Cinzel', serif",
-    fontStyle: "italic",
-    fontWeight: 600,
+    fontWeight: 700,
     fontSize: 11,
-    letterSpacing: "0.08em",
-    color: sT.textMuted,
-    background: "rgba(19, 39, 79, 0.04)",
-    borderTop: `1.5px solid ${border}`,
+    letterSpacing: "0.14em",
+    textTransform: "uppercase",
+    color: navy,
+    background: "transparent",
     position: "sticky",
     left: 0,
     zIndex: 1,
     whiteSpace: "nowrap",
   };
   const cellStyle = {
-    padding: "6px 8px",
+    ...divider,
+    padding: "8px 10px",
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: 11.5,
-    color: sT.textMuted,
-    fontStyle: "italic",
-    background: "rgba(19, 39, 79, 0.04)",
-    borderTop: `1.5px solid ${border}`,
+    fontWeight: 500,
+    color: navy,
+    background: "transparent",
     textAlign: "right",
     whiteSpace: "nowrap",
   };
-  const extraCellStyle = { ...cellStyle, textAlign: "center" };
+  const extraCellStyle = { ...cellStyle, textAlign: "center", color: sT.textMuted };
+
   return (
     <tr>
       <td style={labelStyle}>LG AVG</td>
