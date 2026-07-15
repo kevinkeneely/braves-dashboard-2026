@@ -2882,7 +2882,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tbody>
               {sorted.map((p, i) => (
                 <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{p.name}</td>
                   <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>{p.displayRole}</td>
                   {cols.map(c => {
                     const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
