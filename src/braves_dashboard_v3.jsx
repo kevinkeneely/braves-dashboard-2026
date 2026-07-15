@@ -1087,7 +1087,34 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
           );
         })}
       </nav>
-
+       
+{/* Twitter/X link */}
+              
+                href="https://twitter.com/KevinKeneely1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow @KevinKeneely1 on X"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "5px 10px",
+                  borderRadius: 8,
+                  background: T === THEME.dark ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.5)",
+                  border: `1px solid ${T.border}`,
+                  color: T.text,
+                  textDecoration: "none",
+                  transition: "opacity 0.15s",
+                  alignSelf: "stretch",
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity = "0.75"}
+                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+     
       {/* Search */}
       <div style={{
         display:"flex", alignItems:"center",
