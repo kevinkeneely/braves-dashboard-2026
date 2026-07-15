@@ -202,6 +202,16 @@
      { date:"Mon, Aug 10", opp:"Mets",    home:true,},
      { date:"Tue, Aug 11", opp:"Mets",    home:true,},
      { date:"Wed, Aug 12", opp:"Mets",    home:true,},
+     { date:"Fri, Aug 14", opp:"Diamondbacks",    home:true,},
+     { date:"Sat, Aug 15", opp:"Diamondbacks",    home:true,},
+     { date:"Sun, Aug 16", opp:"Diamondbacks",    home:true,},
+     { date:"Mon, Aug 17", opp:"Twins",    home:false,},
+     { date:"Tue, Aug 18", opp:"Twins",    home:false,},
+     { date:"Wed, Aug 19", opp:"Twins",    home:false,},
+     { date:"Thu, Aug 20", opp:"White Sox",    home:false,},
+     { date:"Fri, Aug 21", opp:"Brewers",    home:false,},
+     { date:"Sat, Aug 22", opp:"Brewers",    home:false,},
+     { date:"Sun, Aug 23", opp:"Brewers",    home:false,},
    ];
    
    export const TEAM_HEADER = {
