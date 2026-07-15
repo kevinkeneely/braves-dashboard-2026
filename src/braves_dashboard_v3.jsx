@@ -2778,8 +2778,8 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tbody>
               {sorted.map((h, i) => (
                 <tr key={h.name} onClick={()=>onSelect(h)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{h.name}</td>
-                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{h.pos}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>...
                   {cols.map(c => {
                     const ref = heatRefFor(c.key);
                     const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
@@ -2882,8 +2882,8 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tbody>
               {sorted.map((p, i) => (
                 <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
-                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>{p.displayRole}</td>
                   {cols.map(c => {
                     const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
@@ -3004,7 +3004,7 @@ const sT = THEME.light;
               const h = hitters.find(x => x.name === s.name);
               return (
                 <tr key={s.name} onClick={()=>h && onSelect(h)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{s.name}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
                   {cols.map(c => {
                     const ref = leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
@@ -3106,7 +3106,7 @@ const sT = THEME.light;
               const p = allArms.find(x => x.name === s.name);
               return (
                 <tr key={s.name} onClick={()=>p && onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{s.name}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
                   {cols.map(c => {
                     const ref = leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
