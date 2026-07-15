@@ -241,8 +241,10 @@ function formatLgAvg(key) {
 }
 /* ── LgAvgRow: pinned reference row for player-stat tables ─────────────── */
 function LgAvgRow({ sT, cols, extraCells = 0 }) {
-  const navy = sT.text || "#13274F";
-  const hairline = "rgba(19, 39, 79, 0.35)";
+  // Use theme foreground for text (works in both light + dark modes)
+  const fg = sT.text || "#13274F";
+  // Use theme border if defined, otherwise a mode-agnostic translucent line
+  const hairline = sT.borderStrong || sT.border || "currentColor";
 
   // Double-line divider: box-shadow simulates a second hairline above the border
   const divider = {
@@ -258,7 +260,7 @@ function LgAvgRow({ sT, cols, extraCells = 0 }) {
     fontSize: 11,
     letterSpacing: "0.14em",
     textTransform: "uppercase",
-    color: navy,
+    color: fg,
     background: "transparent",
     position: "sticky",
     left: 0,
@@ -271,7 +273,7 @@ function LgAvgRow({ sT, cols, extraCells = 0 }) {
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: 11.5,
     fontWeight: 500,
-    color: navy,
+    color: fg,
     background: "transparent",
     textAlign: "right",
     whiteSpace: "nowrap",
