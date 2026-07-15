@@ -2779,7 +2779,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
               {sorted.map((h, i) => (
                 <tr key={h.name} onClick={()=>onSelect(h)} style={{cursor:"pointer"}}>
                   <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
-                  <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>...
+                  <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>{h.pos}</td>
                   {cols.map(c => {
                     const ref = heatRefFor(c.key);
                     const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
