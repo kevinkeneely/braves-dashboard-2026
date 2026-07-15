@@ -1089,7 +1089,7 @@ function TopHeader({T, mode, setMode, tab, setTab, search, setSearch, leftOpen, 
       </nav>
        
 {/* Twitter/X link */}
-              
+              <a              
                 href="https://twitter.com/KevinKeneely1"
                 target="_blank"
                 rel="noopener noreferrer"
