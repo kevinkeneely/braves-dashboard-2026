@@ -2101,8 +2101,8 @@ function HitterStatBoxes({T, d, sc}) {
           <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.1%" heatRef={leagueRef("kpct", true)}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.0%"  heatRef={leagueRef("bbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 88.9 mph"      heatRef={leagueRef("ev")}/>
-          <OverviewStat T={T} label="HARDHIT" value={sc?.hardHit}                  heatRef={leagueRef("hardHit")}/>
-          <OverviewStat T={T} label="BARREL"  value={sc?.barrel}                   heatRef={leagueRef("barrel")}/>
+          <OverviewStat T={T} label="HARDHIT" value={sc?.hardHit}        sub="lg 39.0%"          heatRef={leagueRef("hardHit")}/>
+          <OverviewStat T={T} label="BARREL"  value={sc?.barrel}        sub="lg 8.0%"           heatRef={leagueRef("barrel")}/>
           <OverviewStat T={T} label="Pull-Air%" value={sc?.pullAir}  sub="lg 18.5%" heatRef={leagueRef("pullAir")}/>
         </div>
         <WarProgressionCard T={T} d={d} isHitter={true}/>
