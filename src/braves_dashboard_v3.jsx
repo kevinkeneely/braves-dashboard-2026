@@ -2097,7 +2097,7 @@ function HitterStatBoxes({T, d, sc}) {
           <OverviewStat T={T} label="SLG"     value={d.slg}        sub="lg .402" heatRef={leagueRef("slg")}/>
           <OverviewStat T={T} label="wRC+"    value={d.wrc}        sub="lg 100"  heatRef={leagueRef("wrc")}/>
           <OverviewStat T={T} label="wOBA"    value={d.woba}       sub="lg .317"  heatRef={leagueRef("woba")}/>
-          <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}         heatRef={leagueRef("xwoba")}/>
+          <OverviewStat T={T} label="xwOBA"   value={sc?.xwoba ?? d.xwoba}      sub="lg .318"   heatRef={leagueRef("xwoba")}/>
           <OverviewStat T={T} label="K%"      value={d.kpct}       sub="lg 22.1%" heatRef={leagueRef("kpct", true)}/>
           <OverviewStat T={T} label="BB%"     value={d.bbpct}      sub="lg 9.0%"  heatRef={leagueRef("bbpct")}/>
           <OverviewStat T={T} label="EV"      value={sc?.ev}       sub="lg 88.9 mph"      heatRef={leagueRef("ev")}/>
