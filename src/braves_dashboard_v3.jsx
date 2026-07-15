@@ -3106,7 +3106,7 @@ const sT = THEME.light;
               const p = allArms.find(x => x.name === s.name);
               return (
                 <tr key={s.name} onClick={()=>p && onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{s.name}</td>
                   {cols.map(c => {
                     const ref = leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
