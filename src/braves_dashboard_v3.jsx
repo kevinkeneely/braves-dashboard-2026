@@ -2740,46 +2740,67 @@ function HittingTab({T, onSelect}) {
   };
 
 const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
+  const cardStyle = {
+    position: "relative",
+    background: sT.rowBase,
+    borderRadius: 10,
+    padding: "16px 12px 12px",
+    minWidth: 0,
+    overflow: "hidden",
+  };
+  const stripStyle = {
+    position: "absolute",
+    top: 0, left: 0, right: 0,
+    height: 3,
+    background: `linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+  };
   return (
     <>
-      <TabTitle T={T} eyebrow="OFFENSIVE PRODUCTION" title="HITTING" count={visibleHitters.length}/>
-      <div style={{overflowX:"auto"}}>
-        <table style={tableShell(T)}>
-          <thead>
-            <tr>
-              <th style={thStickyLeft(T)}>PLAYER</th>
-              <th style={{...thStyle(T), textAlign:"center"}}>POS</th>
-               {cols.map(c => (
-                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
-                  {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((h, i) => (
-              <tr key={h.name} onClick={()=>onSelect(h)} style={{cursor:"pointer"}}>
-                <td style={tdStyle(T, i, true)}>{h.name}</td>
-                <td style={{...tdStyle(T, i), textAlign:"center", color:T.textMuted}}>{h.pos}</td>
-                {cols.map(c => {
-                  const ref = heatRefFor(c.key);
-                  const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
-                  return (
-                    <td key={c.key} style={{
-                      ...tdStyle(sT, i),
-                      ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
-                        : {}),
-                    }}>
-                      {h[c.key] == null ? "—" : (typeof h[c.key] === "number" && (c.key === "war" || c.key === "war2") ? h[c.key].toFixed(1) : h[c.key])}
-                    </td>
-                  );
-                })}
+      <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
+      <div style={cardStyle}>
+        <div style={stripStyle}></div>
+        <div style={{overflowX:"auto"}}>
+          <table style={tableShell(T)}>
+            <thead>
+              <tr>
+                <th style={thStickyLeft(T)}>PLAYER</th>
+                <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
+                {cols.map(c => (
+                  <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                    {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
+                  </th>
+                ))}
               </tr>
-            ))}
-             <LgAvgRow sT={sT} cols={cols} extraCells={1} />
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {sorted.map((p, i) => (
+                <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
+                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+                  {cols.map(c => {
+                    const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
+                    const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    return (
+                      <td key={c.key} style={{
+                        ...tdStyle(sT, i),
+                        background: sT.rowBase,
+                        ...(heatStyle && heatStyle.bg !== "transparent"
+                          ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
+                          : {}),
+                      }}>
+                        {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+              <LgAvgRow sT={sT} cols={cols} extraCells={1} />
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
@@ -2823,49 +2844,67 @@ function PitchingTab({T, onSelect}) {
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
 const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
+  const cardStyle = {
+    position: "relative",
+    background: sT.rowBase,
+    borderRadius: 10,
+    padding: "16px 12px 12px",
+    minWidth: 0,
+    overflow: "hidden",
+  };
+  const stripStyle = {
+    position: "absolute",
+    top: 0, left: 0, right: 0,
+    height: 3,
+    background: `linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+  };
   return (
     <>
       <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
-      <div style={{overflowX:"auto"}}>
-        <table style={tableShell(T)}>
-          <thead>
-            <tr>
-              <th style={thStickyLeft(T)}>PLAYER</th>
-              <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
-              {cols.map(c => (
-                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
-                  {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((p, i) => (
-              <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                <td style={tdStyle(T, i, true)}>{p.name}</td>
-                <td style={{...tdStyle(T, i), textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
-                {cols.map(c => {
-                  // IP and WAR have no league baseline → render plain.
-                  // For everything else, the cols def already encodes invert (true for
-                  // ERA/WHIP/FIP/xFIP/SIERA/BB%; false for K%/SwStr%/CStr%/CSW%).
-                  const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
-                  const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
-                  return (
-                    <td key={c.key} style={{
-                      ...tdStyle(sT, i),
-                      ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
-                        : {}),
-                    }}>
-                      {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
-                    </td>
-                  );
-                })}
+      <div style={cardStyle}>
+        <div style={stripStyle}></div>
+        <div style={{overflowX:"auto"}}>
+          <table style={tableShell(T)}>
+            <thead>
+              <tr>
+                <th style={thStickyLeft(T)}>PLAYER</th>
+                <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
+                {cols.map(c => (
+                  <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                    {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
+                  </th>
+                ))}
               </tr>
-            ))}
-             <LgAvgRow sT={sT} cols={cols} extraCells={1} />
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {sorted.map((p, i) => (
+                <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
+                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+                  {cols.map(c => {
+                    const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
+                    const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    return (
+                      <td key={c.key} style={{
+                        ...tdStyle(sT, i),
+                        background: sT.rowBase,
+                        ...(heatStyle && heatStyle.bg !== "transparent"
+                          ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
+                          : {}),
+                      }}>
+                        {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+              <LgAvgRow sT={sT} cols={cols} extraCells={1} />
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
@@ -2927,50 +2966,68 @@ function StatcastHitTable({T, onSelect}) {
   }, [augmented, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
-   const sT = THEME.light;
+const sT = THEME.light;
+  const cardStyle = {
+    position: "relative",
+    background: sT.rowBase,
+    borderRadius: 10,
+    padding: "16px 12px 12px",
+    minWidth: 0,
+    overflow: "hidden",
+  };
+  const stripStyle = {
+    position: "absolute",
+    top: 0, left: 0, right: 0,
+    height: 3,
+    background: `linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+  };
   return (
-    <div style={{overflowX:"auto"}}>
-      <table style={tableShell(T)}>
-        <thead>
-          <tr>
-            <th style={thStickyLeft(T)}>PLAYER</th>
-            {cols.map(c => (
-              <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
-                {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((s, i) => {
-            const h = hitters.find(x => x.name === s.name);
-            return (
-              <tr key={s.name} onClick={()=>h && onSelect(h)} style={{cursor:"pointer"}}>
-                <td style={tdStyle(T, i, true)}>{s.name}</td>
-                {cols.map(c => {
-                  // Every Statcast/bat-tracking column has a league baseline in
-                  // LEAGUE_AVG. invert flag (set per column above) handles cases
-                  // where lower = better from a hitter's perspective (K%, Chase%, Whiff%).
-                  const ref = leagueRef(c.key, c.invert ?? false);
-                  const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
-                  const displayVal = c.key === "batSpeed"
-                    ? (s.batSpeed?.toFixed(1) ?? "—")
-                    : (s[c.key] ?? "—");
-                  return (
-                    <td key={c.key} style={{
-                      ...tdStyle(sT, i),
-                      ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
-                        : {}),
-                    }}>{displayVal}</td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-           <LgAvgRow sT={sT} cols={cols} extraCells={0} />
-        </tbody>
-      </table>
+    <div style={cardStyle}>
+      <div style={stripStyle}></div>
+      <div style={{overflowX:"auto"}}>
+        <table style={tableShell(T)}>
+          <thead>
+            <tr>
+              <th style={thStickyLeft(T)}>PLAYER</th>
+              {cols.map(c => (
+                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                  {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((s, i) => {
+              const h = hitters.find(x => x.name === s.name);
+              return (
+                <tr key={s.name} onClick={()=>h && onSelect(h)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{s.name}</td>
+                  {cols.map(c => {
+                    const ref = leagueRef(c.key, c.invert ?? false);
+                    const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    const displayVal = c.key === "batSpeed"
+                      ? (s.batSpeed?.toFixed(1) ?? "—")
+                      : (s[c.key] ?? "—");
+                    return (
+                      <td key={c.key} style={{
+                        ...tdStyle(sT, i),
+                        background: sT.rowBase,
+                        ...(heatStyle && heatStyle.bg !== "transparent"
+                          ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
+                          : {}),
+                      }}>{displayVal}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+            <LgAvgRow sT={sT} cols={cols} extraCells={0} />
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -3011,52 +3068,70 @@ function StatcastPitTable({T, onSelect}) {
   }, [augmented, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
-   const sT = THEME.light;
+const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
+  const cardStyle = {
+    position: "relative",
+    background: sT.rowBase,
+    borderRadius: 10,
+    padding: "16px 12px 12px",
+    minWidth: 0,
+    overflow: "hidden",
+  };
+  const stripStyle = {
+    position: "absolute",
+    top: 0, left: 0, right: 0,
+    height: 3,
+    background: `linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+    borderTopLeftRadius: 9,
+    borderTopRightRadius: 9,
+    boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+  };
   return (
-    <div style={{overflowX:"auto"}}>
-      <table style={tableShell(T)}>
-        <thead>
-          <tr>
-            <th style={thStickyLeft(T)}>PLAYER</th>
-            {cols.map(c => (
-              <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
-                {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((s, i) => {
-            const p = allArms.find(x => x.name === s.name);
-            return (
-              <tr key={s.name} onClick={()=>p && onSelect(p)} style={{cursor:"pointer"}}>
-                <td style={tdStyle(T, i, true)}>{s.name}</td>
-                {cols.map(c => {
-                  // Every Statcast/bat-tracking column has a league baseline.
-                  // Pitcher view: invert is set on cols where lower value = better
-                  // (allowing low EV, low Hard Hit%, low Barrel%, low xwOBA, etc.).
-                  // K%, Chase%, Whiff% are no-invert because higher = better for pitchers.
-                  const ref = leagueRef(c.key, c.invert ?? false);
-                  const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
-                  const displayVal = c.key === "batSpeed"
-                    ? (s.batSpeed?.toFixed(1) ?? "—")
-                    : (s[c.key] ?? "—");
-                  return (
-                    <td key={c.key} style={{
-                      ...tdStyle(sT, i),
-                      ...(heatStyle && heatStyle.bg !== "transparent"
-                        ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${i % 2 === 0 ? sT.rowBase : sT.rowAlt}`, color: heatStyle.color }
-                        : {}),
-                    }}>{displayVal}</td>
-                  );
-                })}
+    <>
+      <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
+      <div style={cardStyle}>
+        <div style={stripStyle}></div>
+        <div style={{overflowX:"auto"}}>
+          <table style={tableShell(T)}>
+            <thead>
+              <tr>
+                <th style={thStickyLeft(T)}>PLAYER</th>
+                <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
+                {cols.map(c => (
+                  <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                    {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-           <LgAvgRow sT={sT} cols={cols} extraCells={0} />
-        </tbody>
-      </table>
-    </div>
+            </thead>
+            <tbody>
+              {sorted.map((p, i) => (
+                <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
+                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+                  {cols.map(c => {
+                    const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
+                    const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    return (
+                      <td key={c.key} style={{
+                        ...tdStyle(sT, i),
+                        background: sT.rowBase,
+                        ...(heatStyle && heatStyle.bg !== "transparent"
+                          ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
+                          : {}),
+                      }}>
+                        {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+              <LgAvgRow sT={sT} cols={cols} extraCells={1} />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
   );
 }
 
