@@ -518,6 +518,7 @@ export default function BravesDashboardV2() {
   const [playerStatsMode, setPlayerStatsMode] = useState("hitters");
   const [leftOpen, setLeftOpen] = useState(false);
   const [rightOpen, setRightOpen] = useState(false);
+  const [glossaryOpen, setGlossaryOpen] = useState(false);
 
   /* combined pitcher list for right rail */
   const allPitchers = useMemo(() => {
@@ -813,6 +814,202 @@ export default function BravesDashboardV2() {
             </div>
           )
         )}
+
+       {/* Glossary — collapsible, shown on every tab except WAR Progress, Standings */}
+{!["WAR Progress", "Standings"].includes(tab) && (
+  (() => {
+    const isDark = T === THEME.dark;
+    const cardBg = isDark ? THEME.light.rowBase : T.rowBase;
+    const textMain = isDark ? THEME.light.text : T.text;
+    const textMuted = isDark ? THEME.light.textMuted : T.textMuted;
+    const textMid = isDark ? THEME.light.textMid : T.textMid;
+    const borderFaint = isDark ? THEME.light.borderFaint : T.borderFaint;
+
+    const groups = [
+      {
+        title: "HITTING",
+        entries: [
+          ["PA",    "Plate Appearances",   "Total times a batter completes a turn at the plate."],
+          ["R",     "Runs",                 "Times the player scored a run."],
+          ["H",     "Hits",                 "Singles, doubles, triples, and home runs combined."],
+          ["2B",    "Doubles",              "Hits where the batter safely reaches second base."],
+          ["3B",    "Triples",              "Hits where the batter safely reaches third base."],
+          ["HR",    "Home Runs",            "Hits where the batter circles all four bases."],
+          ["RBI",   "Runs Batted In",       "Runs that score as a direct result of the batter's at-bat."],
+          ["SB",    "Stolen Bases",         "Successful base steals."],
+          ["AVG",   "Batting Average",      "Hits divided by at-bats."],
+          ["OBP",   "On-Base Percentage",   "How often a batter reaches base (H + BB + HBP) / (AB + BB + HBP + SF)."],
+          ["SLG",   "Slugging Percentage",  "Total bases per at-bat; measures power."],
+          ["OPS",   "On-Base Plus Slugging","OBP + SLG; a quick all-around offensive value."],
+          ["wRC+",  "Weighted Runs Created Plus", "Total offensive value normalized so 100 = league average, park-adjusted."],
+          ["wOBA",  "Weighted On-Base Average", "Combines all offensive events, weighted by run value; league avg ~.320."],
+          ["BB%",   "Walk Rate",            "Walks as a percentage of plate appearances."],
+          ["K%",    "Strikeout Rate",       "Strikeouts as a percentage of plate appearances."],
+        ],
+      },
+      {
+        title: "PITCHING",
+        entries: [
+          ["W-L",   "Record",               "Wins and losses credited to the pitcher."],
+          ["SV",    "Saves",                "Games finished protecting a lead of 3 runs or fewer."],
+          ["IP",    "Innings Pitched",      "Total innings thrown. .1 = one out, .2 = two outs."],
+          ["ERA",   "Earned Run Average",   "Earned runs allowed per 9 innings."],
+          ["WHIP",  "Walks + Hits per IP",  "(Walks + Hits) ÷ Innings Pitched."],
+          ["FIP",   "Fielding Independent Pitching", "ERA-scaled stat based only on K, BB, HBP, HR — removes defense."],
+          ["xFIP",  "Expected FIP",         "FIP with HR rate normalized to league average."],
+          ["SIERA", "Skill-Interactive ERA","Predictive ERA-scale stat weighing K, BB, and batted-ball type."],
+          ["K%",    "Strikeout Rate",       "Strikeouts as a percentage of batters faced."],
+          ["BB%",   "Walk Rate",            "Walks as a percentage of batters faced."],
+        ],
+      },
+      {
+        title: "STATCAST · BATTED BALL",
+        entries: [
+          ["EV",       "Exit Velocity",       "Average speed of the ball off the bat, in MPH."],
+          ["Hard Hit%","Hard-Hit Rate",       "Percentage of batted balls with EV ≥ 95 MPH."],
+          ["Barrel%",  "Barrel Rate",         "Batted balls with the ideal combo of EV and launch angle."],
+          ["xwOBA",    "Expected wOBA",       "What a player's wOBA should be based on quality of contact."],
+          ["xBA",      "Expected Batting Avg","What a player's AVG should be based on quality of contact."],
+          ["xSLG",     "Expected Slugging",   "What a player's SLG should be based on quality of contact."],
+          ["GB%",      "Ground-Ball Rate",    "Percentage of batted balls hit on the ground."],
+          ["PU%",      "Popup Rate",          "Percentage of batted balls that become infield popups."],
+          ["Pull Air%","Pull Air Rate",       "Percentage of air-ball contact pulled to the batter's pull side."],
+          ["LA SwSp%", "Launch Angle Sweet-Spot Rate", "Percentage of batted balls with a launch angle between 8° and 32°."],
+        ],
+      },
+      {
+        title: "STATCAST · BAT TRACKING",
+        entries: [
+          ["Bat Speed",   "Average Bat Speed",    "Average sweet-spot speed of the bat at contact, in MPH."],
+          ["Fast Swing%", "Fast Swing Rate",      "Percentage of swings ≥ 75 MPH bat speed."],
+          ["Squared-Up%", "Squared-Up Rate",      "Percentage of swings with efficient bat-to-ball transfer."],
+        ],
+      },
+      {
+        title: "PLATE DISCIPLINE",
+        entries: [
+          ["Chase%", "Chase Rate",          "Percentage of pitches outside the strike zone swung at."],
+          ["Whiff%", "Whiff Rate",          "Percentage of swings that miss."],
+          ["SwStr%", "Swinging-Strike Rate","Swinging strikes as a percentage of all pitches."],
+          ["CStr%",  "Called-Strike Rate",  "Called strikes as a percentage of all pitches."],
+          ["CSW%",   "Called + Swinging Strike Rate", "SwStr% + CStr%; total strike-generation rate."],
+        ],
+      },
+      {
+        title: "FIELDING & VALUE",
+        entries: [
+          ["OAA",  "Outs Above Average", "Statcast defensive metric; runs saved by range vs an average fielder."],
+          ["FRV",  "Fielding Run Value", "Statcast total defensive value in runs."],
+          ["bWAR", "Baseball-Reference WAR", "Total wins above a replacement-level player, per Baseball-Reference."],
+          ["fWAR", "FanGraphs WAR",      "Total wins above a replacement-level player, per FanGraphs."],
+        ],
+      },
+    ];
+
+    return (
+      <div style={{
+        margin: "16px auto 0",
+        maxWidth: 900,
+        position: "relative",
+        background: cardBg,
+        borderRadius: 10,
+        padding: glossaryOpen ? "18px 20px 16px" : "0",
+        overflow: "hidden",
+        border: !isDark ? `1px solid ${borderFaint}` : "none",
+      }}>
+        {isDark && (
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 3,
+            background: `linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+            borderTopLeftRadius: 9, borderTopRightRadius: 9,
+            boxShadow: "0 0 10px rgba(206,17,65,0.45)",
+          }}></div>
+        )}
+        <button
+          onClick={() => setGlossaryOpen(o => !o)}
+          style={{
+            width: "100%",
+            background: "transparent",
+            border: "none",
+            padding: glossaryOpen ? "0 0 12px 0" : "14px 4px",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            fontFamily: "'Cinzel', Georgia, serif",
+            fontSize: 13,
+            fontWeight: 800,
+            letterSpacing: "0.18em",
+            color: textMid,
+            textTransform: "uppercase",
+          }}
+        >
+          <span>Glossary</span>
+          <span style={{
+            fontSize: 11,
+            transition: "transform 0.2s",
+            transform: glossaryOpen ? "rotate(180deg)" : "rotate(0deg)",
+            display: "inline-block",
+          }}>▼</span>
+        </button>
+
+        {glossaryOpen && (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "16px 24px",
+            marginTop: 4,
+          }}>
+            {groups.map(g => (
+              <div key={g.title}>
+                <div style={{
+                  fontFamily: "'Cinzel', Georgia, serif",
+                  fontSize: 10.5,
+                  fontWeight: 800,
+                  letterSpacing: "0.16em",
+                  color: textMuted,
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                  paddingBottom: 4,
+                  borderBottom: `1.5px solid ${BRAND.red}`,
+                }}>{g.title}</div>
+                <div>
+                  {g.entries.map(([abbr, full, def]) => (
+                    <div key={abbr} style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      marginBottom: 8,
+                      fontSize: 11.5,
+                      lineHeight: 1.4,
+                    }}>
+                      <div style={{ display: "flex", gap: 6, alignItems: "baseline" }}>
+                        <span style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontWeight: 700,
+                          color: textMain,
+                          minWidth: 68,
+                        }}>{abbr}</span>
+                        <span style={{
+                          fontWeight: 600,
+                          color: textMain,
+                        }}>{full}</span>
+                      </div>
+                      <div style={{
+                        color: textMuted,
+                        marginLeft: 74,
+                        fontSize: 11,
+                      }}>{def}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  })()
+)}
 
       {/* Fan-site disclaimer footer */}
       <div style={{
