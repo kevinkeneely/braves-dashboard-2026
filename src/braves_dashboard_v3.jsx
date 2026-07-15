@@ -2759,7 +2759,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
   };
   return (
     <>
-      <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
+      <TabTitle T={T} eyebrow="OFFENSIVE PRODUCTION" title="HITTING" count={visibleHitters.length}/>
       <div style={cardStyle}>
         <div style={stripStyle}></div>
         <div style={{overflowX:"auto"}}>
@@ -2767,7 +2767,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <thead>
               <tr>
                 <th style={thStickyLeft(T)}>PLAYER</th>
-                <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
+                <th style={{...thStyle(T), textAlign:"center"}}>POS</th>
                 {cols.map(c => (
                   <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
                     {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
@@ -2776,13 +2776,13 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
               </tr>
             </thead>
             <tbody>
-              {sorted.map((p, i) => (
-                <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
-                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+              {sorted.map((h, i) => (
+                <tr key={h.name} onClick={()=>onSelect(h)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{h.name}</td>
+                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{h.pos}</td>
                   {cols.map(c => {
-                    const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
-                    const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    const ref = heatRefFor(c.key);
+                    const heatStyle = ref ? heat(h[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
                     return (
                       <td key={c.key} style={{
                         ...tdStyle(sT, i),
@@ -2791,7 +2791,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
                           ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
                           : {}),
                       }}>
-                        {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
+                        {h[c.key] == null ? "—" : (typeof h[c.key] === "number" && (c.key === "war" || c.key === "war2") ? h[c.key].toFixed(1) : h[c.key])}
                       </td>
                     );
                   })}
@@ -3068,7 +3068,7 @@ function StatcastPitTable({T, onSelect}) {
   }, [augmented, sort]);
   const click = (k) => setSort(s => s.key === k ? {key:k, dir:-s.dir} : {key:k, dir:-1});
 
-const sT = THEME.light;  // stat cells render as light-mode (cream) regardless of theme
+const sT = THEME.light;
   const cardStyle = {
     position: "relative",
     background: sT.rowBase,
@@ -3087,31 +3087,32 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
     boxShadow: "0 0 10px rgba(206,17,65,0.45)",
   };
   return (
-    <>
-      <TabTitle T={T} eyebrow="STAFF PERFORMANCE" title="PITCHING" count={allArms.length}/>
-      <div style={cardStyle}>
-        <div style={stripStyle}></div>
-        <div style={{overflowX:"auto"}}>
-          <table style={tableShell(T)}>
-            <thead>
-              <tr>
-                <th style={thStickyLeft(T)}>PLAYER</th>
-                <th style={{...thStyle(T), textAlign:"center"}}>ROLE</th>
-                {cols.map(c => (
-                  <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
-                    {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {sorted.map((p, i) => (
-                <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{p.name}</td>
-                  <td style={{...tdStyle(T, i), background: sT.rowBase, textAlign:"center", color:T.textMuted}}>{p.displayRole}</td>
+    <div style={cardStyle}>
+      <div style={stripStyle}></div>
+      <div style={{overflowX:"auto"}}>
+        <table style={tableShell(T)}>
+          <thead>
+            <tr>
+              <th style={thStickyLeft(T)}>PLAYER</th>
+              {cols.map(c => (
+                <th key={c.key} style={{...thStyle(T), cursor:"pointer"}} onClick={()=>click(c.key)}>
+                  {c.label}{sort.key === c.key ? (sort.dir === -1 ? " ▼" : " ▲") : ""}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((s, i) => {
+              const p = allArms.find(x => x.name === s.name);
+              return (
+                <tr key={s.name} onClick={()=>p && onSelect(p)} style={{cursor:"pointer"}}>
+                  <td style={{...tdStyle(T, i, true), background: sT.rowBase}}>{s.name}</td>
                   {cols.map(c => {
-                    const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
-                    const heatStyle = ref ? heat(p[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    const ref = leagueRef(c.key, c.invert ?? false);
+                    const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
+                    const displayVal = c.key === "batSpeed"
+                      ? (s.batSpeed?.toFixed(1) ?? "—")
+                      : (s[c.key] ?? "—");
                     return (
                       <td key={c.key} style={{
                         ...tdStyle(sT, i),
@@ -3119,19 +3120,17 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
                         ...(heatStyle && heatStyle.bg !== "transparent"
                           ? { background: `linear-gradient(${heatStyle.bg}, ${heatStyle.bg}), ${sT.rowBase}`, color: heatStyle.color }
                           : {}),
-                      }}>
-                        {p[c.key] == null ? "—" : (typeof p[c.key] === "number" && (c.key === "war" || c.key === "war2") ? p[c.key].toFixed(1) : p[c.key])}
-                      </td>
+                      }}>{displayVal}</td>
                     );
                   })}
                 </tr>
-              ))}
-              <LgAvgRow sT={sT} cols={cols} extraCells={1} />
-            </tbody>
-          </table>
-        </div>
+              );
+            })}
+            <LgAvgRow sT={sT} cols={cols} extraCells={0} />
+          </tbody>
+        </table>
       </div>
-    </>
+    </div>
   );
 }
 
