@@ -431,7 +431,7 @@ const leagueRef = (statKey, invert = false) => {
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
-  "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24",
+  "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#8F713D",
   "Bart":"#22d3ee","Jarvis":"#a3e635"
 };
 const PITCHER_WAR_COLORS = {
@@ -439,7 +439,7 @@ const PITCHER_WAR_COLORS = {
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
   "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635",
-  "O.Murphy":"#8F713D","Young":"#EAC678"
+  "O.Murphy":"#a78bfa","Young":"#EAC678"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
