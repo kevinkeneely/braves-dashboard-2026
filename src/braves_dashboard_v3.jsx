@@ -4112,7 +4112,7 @@ function WarProgressTab({T}) {
   const rpLeader = leaderOf(rpKeys, lastP);
 
   // Render helper to keep the three chart blocks consistent
-  const renderChart = ({title, keys, colors, sel, setSel, leader, leaderLabel, data, colorMap}) => {
+  const renderChart = ({title, keys, colors, sel, setSel, leader, leaderLabel, data, colorMap, snap = 0.8}) => {
     // Tight y-axis domain from actual data — prevents Recharts from auto-picking overly wide "nice" bounds
     // (e.g. position-player chart was defaulting to [-2, 6] for data that only spans ~[-1.2, +2.9])
     const allVals = data.flatMap(row => keys.map(k => row[k])).filter(v => v != null && !isNaN(v));
@@ -4121,7 +4121,6 @@ function WarProgressTab({T}) {
     const pad = Math.max(0.15, (dataMax - dataMin) * 0.08);
     const yMin = Math.min(0, dataMin - pad);
     const yMax = dataMax + pad;
-
     return (
       <div style={{marginBottom:18}}>
         <div style={{fontSize:13, fontFamily:"'Cinzel',serif", fontWeight:700, color:T.text, marginBottom:4}}>
@@ -4140,8 +4139,8 @@ function WarProgressTab({T}) {
                       stroke={T.textMuted}
                       fontSize={10}
                       domain={[
-                        (dataMin) => Math.floor(dataMin / 0.8) * 0.8,
-                        (dataMax) => Math.ceil(dataMax / 0.8) * 0.8
+                        (dataMin) => Math.floor(dataMin / snap) * snap,
+                        (dataMax) => Math.ceil(dataMax / snap) * snap
                       ]}
                       tickFormatter={(v) => (Math.round(v * 100) / 100).toFixed(1)}
                     />
@@ -4200,6 +4199,7 @@ function WarProgressTab({T}) {
         leaderLabel: "relievers",
         data: pitcherWarProgress,
         colorMap: PITCHER_WAR_COLORS,
+        snap: 0.4,
       })}
     </>
   );
