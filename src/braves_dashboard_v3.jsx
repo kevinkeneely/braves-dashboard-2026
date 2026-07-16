@@ -1480,6 +1480,7 @@ const HIDDEN_PLAYERS = new Set([
   "Ian Hamilton",
   "Carlos Carrasco",
   "Sean Murphy",
+  "Rowdy Tellez",
   "Hurston Waldrep",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
