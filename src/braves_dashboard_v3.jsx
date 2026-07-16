@@ -4127,12 +4127,12 @@ function WarProgressTab({T}) {
             <LineChart data={data} margin={{top:8, right:20, bottom:4, left:4}}>
               <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
               <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
-              <YAxis
+                    <YAxis
                       stroke={T.textMuted}
                       fontSize={10}
                       domain={[
-                        (dataMin) => Math.floor(dataMin * 10) / 10,
-                        (dataMax) => Math.ceil(dataMax * 10) / 10
+                        (dataMin) => Math.floor(dataMin / 0.8) * 0.8,
+                        (dataMax) => Math.ceil(dataMax / 0.8) * 0.8
                       ]}
                       tickFormatter={(v) => (Math.round(v * 100) / 100).toFixed(1)}
                     />
