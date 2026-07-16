@@ -4127,7 +4127,15 @@ function WarProgressTab({T}) {
             <LineChart data={data} margin={{top:8, right:20, bottom:4, left:4}}>
               <CartesianGrid stroke={T.borderFaint} strokeDasharray="2 4"/>
               <XAxis dataKey="week" stroke={T.textMuted} fontSize={10}/>
-              <YAxis stroke={T.textMuted} fontSize={10} domain={[yMin, yMax]}/>
+              <YAxis
+                      stroke={T.textMuted}
+                      fontSize={10}
+                      domain={[
+                        (dataMin) => Math.floor(dataMin * 10) / 10,
+                        (dataMax) => Math.ceil(dataMax * 10) / 10
+                      ]}
+                      tickFormatter={(v) => (Math.round(v * 100) / 100).toFixed(1)}
+                    />
               <Tooltip
                 contentStyle={{background:T.surface2, border:`1px solid ${T.border}`, fontSize:11, borderRadius:6}}
                 itemStyle={{color:T.text}}
