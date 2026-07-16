@@ -413,7 +413,7 @@ const leagueRef = (statKey, invert = false) => {
   return { mean: ent.mean, spread: ent.spread, invert };
 };
 
-/* ── HITTERS (BR + FG + Savant, June 9 stats) ───────────────────────────── */
+/* ── HITTERS (BR + FG + Savant, July 16 stats) ───────────────────────────── */
 
 /* ── STARTING PITCHERS ──────────────────────────────────────────────────── */
 
@@ -425,20 +425,21 @@ const leagueRef = (statKey, invert = false) => {
 
 /* ── STATCAST PITCHERS ──────────────────────────────────────────────────── */
 
-/* ── WAR PROGRESS (every 6 games, thru G73 · June 17) ────────────────────── */
+/* ── WAR PROGRESS (every 6 games, thru G95 · July 16) ────────────────────── */
 
 
 const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
   "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#fbbf24",
-  "Bart":"#22d3ee","Murphy":"#8F713D","Jarvis":"#a3e635"
+  "Bart":"#22d3ee","Jarvis":"#a3e635"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","D.Lee":"#60a5fa","Iglesias":"#4ade80",
   "Suarez":"#CE1141","Fuentes":"#fb923c","Pérez":"#f472b6","Holmes":"#34d399",
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
-  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635","O.Murphy":"#8F713D","Young":"#EAC678"
+  "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635",
+  "O.Murphy":"#8F713D","Young":"#EAC678"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1800,11 +1801,12 @@ const HITTER_WAR_KEY = {
   "Matt Olson":"Olson", "Ozzie Albies":"Albies", "Drake Baldwin":"Baldwin",
   "Michael Harris II":"Harris", "Mauricio Dubón":"Dubón", "Ronald Acuña Jr.":"Acuña",
   "Dominic Smith":"Smith", "Jorge Mateo":"Mateo", "Austin Riley":"Riley",
-  "Eli White":"White", "Mike Yastrzemski":"Yaz", "Sean Murphy":"Murphy",
-  "Ha-Seong Kim":"Kim", "Joey Bart":"Bart", "Rowdy Tellez":"Tellez", "Jim Jarvis":"Jarvis",
+  "Eli White":"White", "Mike Yastrzemski":"Yaz", "Ha-Seong Kim":"Kim",
+  "Joey Bart":"Bart", "Rowdy Tellez":"Tellez", "Jim Jarvis":"Jarvis",
+  "Sean Murphy":"Murphy",
 };
 const PITCHER_WAR_KEY = {
-  "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"D.Lee",
+  "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"Lee",
   "Raisel Iglesias":"Iglesias", "Robert Suarez":"Suarez", "Didier Fuentes":"Fuentes",
   "Martín Pérez":"Pérez", "Grant Holmes":"Holmes", "Tyler Kinley":"Kinley",
   "Reynaldo López":"López", "Spencer Strider":"Strider", "Dylan Dodd":"Dodd",
@@ -4071,7 +4073,7 @@ function WarProgressTab({T}) {
   const WAR_PROGRESS_HIDDEN = new Set(["León", "Tromp", "Carrasco"]);
 
   // Define which pitcher keys are starters vs. relievers
-  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Waldrep", "Murphy"]);
+  const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Waldrep", "O.Murphy"]);
   // Anything not in SP_KEYS (and not hidden) falls into the bullpen
 
   const hitterKeys = Object.keys(HITTER_WAR_COLORS).filter(k => !WAR_PROGRESS_HIDDEN.has(k));
