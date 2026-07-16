@@ -2289,7 +2289,16 @@ function WarProgressionCard({T, d, isHitter}) {
           <LineChart data={warData} margin={{top:6, right:24, bottom:4, left:0}}>
             <CartesianGrid stroke={T.borderFaint} strokeDasharray="3 3"/>
             <XAxis dataKey="week" tick={{fill:T.textMuted, fontSize:11}} axisLine={{stroke:T.borderFaint}} tickLine={false}/>
-            <YAxis tick={{fill:T.textMuted, fontSize:11}} axisLine={{stroke:T.borderFaint}} tickLine={false} domain={['auto','auto']}/>
+            <YAxis
+                      tick={{fill:T.textMuted, fontSize:11}}
+                      axisLine={{stroke:T.borderFaint}}
+                      tickLine={false}
+                      domain={[
+                        (dataMin) => Math.floor(dataMin / 0.8) * 0.8,
+                        (dataMax) => Math.ceil(dataMax / 0.8) * 0.8
+                      ]}
+                      tickFormatter={(v) => (Math.round(v * 100) / 100).toFixed(1)}
+            />
             {otherKeys.map(k => (
               <Line key={k} type="monotone" dataKey={k}
                 stroke={isHitter ? HITTER_WAR_COLORS[k] : PITCHER_WAR_COLORS[k]}
