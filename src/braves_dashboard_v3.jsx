@@ -1478,6 +1478,8 @@ const HIDDEN_PLAYERS = new Set([
   "Sandy León",
   "Ian Hamilton",
   "Carlos Carrasco",
+  "Sean Murphy",
+  "Hurston Waldrep",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
