@@ -1967,16 +1967,6 @@ function FullProfile({T, mode, player, onClose}) {
   };
 
   return (
-   Card padding 16→12
-   "FULL PROFILE" label marginBottom 10→6
-   Header gap 14→10  ·  marginBottom 14→10  ·  paddingBottom 14→10
-   Avatar 78→60  ·  border 3px→2px  ·  glow 28→20  ·  initials fontSize 28→22
-   Name fontSize 26→22
-   Subtitle fontSize 11→10  ·  marginTop 4→3
-   WAR pills marginTop 8→6  ·  gap 8→6
-   WAR pill padding "4px 12px"→"3px 10px"  ·  minWidth 62→54
-   WAR pill value fontSize 16→14
-   ───────────────────────────────────────────────────────────────────────── */
     <div ref={cardRef} style={{
       ...navyGloss(T),
       borderRadius:14, padding:12,
