@@ -649,7 +649,7 @@ export default function BravesDashboardV2() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "clamp(8px, 3vw, 20px)",
+                    padding: "clamp(80px, 12vh, 120px) clamp(8px, 3vw, 20px) clamp(8px, 3vw, 20px)",
                     overflowY: "auto",
                   }}
                 >
