@@ -636,7 +636,7 @@ export default function BravesDashboardV2() {
               onSelectHitter={(h)=>setSelectedPlayer({kind:"hitter", data:h})}
               onSelectPitcher={(p)=>setSelectedPlayer({kind:"pitcher", data:p})}
             />
-               {selectedPlayer && (
+            {selectedPlayer && (
                 <div
                   onClick={() => setSelectedPlayer(null)}
                   style={{
@@ -649,15 +649,15 @@ export default function BravesDashboardV2() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "20px",
+                    padding: "clamp(8px, 3vw, 20px)",
                     overflowY: "auto",
                   }}
                 >
                   <div
+                    ref={(el) => { if (el) el.scrollTop = 0; }}
                     onClick={(e) => e.stopPropagation()}
                     style={{
-                      maxWidth: 900,
-                      width: "100%",
+                      width: "min(900px, 100%)",
                       maxHeight: "calc(100vh - 40px)",
                       overflowY: "auto",
                       borderRadius: 14,
