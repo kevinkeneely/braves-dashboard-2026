@@ -343,7 +343,7 @@ export const starters = [
      { team:"PHI", full:"Philadelphia Phillies", w:54,l:44,pct:".551",gb:"2.5", home:"25-22",away:"29-22", rs:425, ra:438, diff:-13, strk:"L1", l10:"5-5", highlight:false, srs:-0.1 },
      { team:"MIA", full:"Miami Marlins",        w:52,l:45,pct:".536",gb:"4.0", home:"31-20",away:"21-25", rs:439, ra:415, diff:+24, strk:"L3", l10:"6-4", highlight:false, srs:0.3 },
      { team:"WSN", full:"Washington Nationals", w:48,l:49,pct:".495",gb:"8.0", home:"20-31",away:"28-18", rs:516, ra:509, diff:+7, strk:"L3", l10:"4-6", highlight:false, srs:0.2 },
-     { team:"NYM", full:"New York Mets",        w:41,l:57,pct:".418",gb:"15.5", home:"21-28",away:"20-29", rs:402, ra:464, diff:-62, strk:"W1", l10:"5-5", highlight:false, srs:-0.7 },
+     { team:"NYM", full:"New York Mets",        w:41,l:57,pct:".418",gb:"15.5", home:"21-28",away:"20-29", rs:402, ra:464, diff:-62, strk:"W1", l10:"5-5", highlight:false, srs:-0.6 },
    ];
    
 export const statcastHitters = [
