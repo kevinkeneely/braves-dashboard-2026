@@ -1967,45 +1967,55 @@ function FullProfile({T, mode, player, onClose}) {
   };
 
   return (
+   Card padding 16→12
+   "FULL PROFILE" label marginBottom 10→6
+   Header gap 14→10  ·  marginBottom 14→10  ·  paddingBottom 14→10
+   Avatar 78→60  ·  border 3px→2px  ·  glow 28→20  ·  initials fontSize 28→22
+   Name fontSize 26→22
+   Subtitle fontSize 11→10  ·  marginTop 4→3
+   WAR pills marginTop 8→6  ·  gap 8→6
+   WAR pill padding "4px 12px"→"3px 10px"  ·  minWidth 62→54
+   WAR pill value fontSize 16→14
+   ───────────────────────────────────────────────────────────────────────── */
     <div ref={cardRef} style={{
       ...navyGloss(T),
-      borderRadius:14, padding:16,
+      borderRadius:14, padding:12,
       position:"relative",
     }}>
       <button onClick={onClose} data-share-ignore="1" style={{
         position:"absolute", top:10, right:10,
         background:"transparent", border:`1px solid ${T.border}`, borderRadius:6,
         color:T.textMuted, padding:"3px 8px", cursor:"pointer", fontSize:11,
-      }}>✕</button>
+      }}>×</button>
 
-      <div style={{fontSize:10, letterSpacing:"0.20em", color:T.textMuted, fontWeight:700, marginBottom:10}}>
+      <div style={{fontSize:10, letterSpacing:"0.20em", color:T.textMuted, fontWeight:700, marginBottom:6}}>
         FULL PROFILE
       </div>
 
       {/* Header row: avatar + name + meta (unchanged) */}
-      <div style={{display:"flex", gap:14, alignItems:"center", flexWrap:"wrap", marginBottom:14, paddingBottom:14, borderBottom:`1px solid ${T.borderFaint}`}}>
+      <div style={{display:"flex", gap:10, alignItems:"center", flexWrap:"wrap", marginBottom:10, paddingBottom:10, borderBottom:`1px solid ${T.borderFaint}`}}>
         <div style={{
-          width:78, height:78, borderRadius:"50%",
+          width:60, height:60, borderRadius:"50%",
           background: HEADSHOTS[d.name]
             ? `url(${HEADSHOTS[d.name]}) center/cover, linear-gradient(135deg, ${tier.bg1}, ${tier.bg2})`
             : `linear-gradient(135deg, ${tier.bg1}, ${tier.bg2})`,
-          border:`3px solid ${tier.border}`,
+          border:`2px solid ${tier.border}`,
           display:"flex", alignItems:"center", justifyContent:"center",
-          fontSize:28, fontWeight:800, color:"#fff",
-          boxShadow:`0 0 28px ${tier.glow}`,
+          fontSize:22, fontWeight:800, color:"#fff",
+          boxShadow:`0 0 20px ${tier.glow}`,
           overflow:"hidden",
         }}>{HEADSHOTS[d.name] ? "" : initials(d.name)}</div>
         <div style={{flex:1, minWidth:200}}>
           <div style={{
-            fontFamily:"'Cinzel',serif", fontSize:26, fontWeight:800,
+            fontFamily:"'Cinzel',serif", fontSize:22, fontWeight:800,
             color:T.text, letterSpacing:"0.04em", lineHeight:1.1,
             textTransform:"uppercase",
           }}>{d.name}</div>
-          <div style={{fontSize:11, color:T.textMuted, marginTop:4, letterSpacing:"0.10em", fontWeight:600}}>
+          <div style={{fontSize:10, color:T.textMuted, marginTop:3, letterSpacing:"0.10em", fontWeight:600}}>
             {isHitter ? d.pos : (d.kind || (d.role === "CL" ? "CL" : "P"))} · ATLANTA BRAVES · <span style={{color:tier.color}}>{tier.label}</span>
           </div>
           {/* WAR chips on the right of the name line, like the reference screenshot */}
-          <div style={{display:"flex", gap:8, marginTop:8, flexWrap:"wrap"}}>
+          <div style={{display:"flex", gap:6, marginTop:6, flexWrap:"wrap"}}>
             {[
               {label:"bWAR", val:d.war},
               {label:"fWAR", val:d.war2},
@@ -2016,15 +2026,15 @@ function FullProfile({T, mode, player, onClose}) {
               return (
                 <div key={label} style={{
                   display:"inline-flex", flexDirection:"column", alignItems:"center",
-                  padding:"4px 12px",
+                  padding:"3px 10px",
                   background: pos ? "rgba(206,17,65,0.12)" : "rgba(59,130,246,0.12)",
                   border: `1px solid ${pos ? "rgba(206,17,65,0.45)" : "rgba(59,130,246,0.45)"}`,
                   borderRadius:8,
-                  minWidth:62,
+                  minWidth:54,
                 }}>
                   <span style={{fontSize:9, fontWeight:800, letterSpacing:"0.14em", color:T.textMuted}}>{label}</span>
                   <span style={{
-                    fontFamily:"'JetBrains Mono',monospace", fontSize:16, fontWeight:800,
+                    fontFamily:"'JetBrains Mono',monospace", fontSize:14, fontWeight:800,
                     color: pos ? "#ff6b85" : "#60a5fa", lineHeight:1,
                   }}>{display}</span>
                 </div>
@@ -2032,6 +2042,7 @@ function FullProfile({T, mode, player, onClose}) {
             })}
           </div>
         </div>
+      </div>
         {/* Wordmark removed for trademark hygiene */}
       </div>
 
@@ -2045,15 +2056,15 @@ function FullProfile({T, mode, player, onClose}) {
       {/* Action bar */}
       <div data-share-ignore="1" style={{
         display:"grid", gridTemplateColumns:"1fr 1fr", gap:10,
-        marginTop:16, paddingTop:14,
+        marginTop:10, paddingTop:8,
         borderTop:`1px solid ${T.borderFaint}`,
       }}>
         <button onClick={handleShare} disabled={sharing} style={{
           background: "linear-gradient(180deg, rgba(20,30,60,0.95), rgba(13,19,40,0.95))",
           border:`1.5px solid ${BRAND.gold}`,
           color: BRAND.goldBright,
-          fontWeight:800, fontSize:13, letterSpacing:"0.04em",
-          padding:"12px 16px", borderRadius:10,
+          fontWeight:800, fontSize:12, letterSpacing:"0.04em",
+          padding:"8px 14px", borderRadius:10,
           cursor: sharing ? "wait" : "pointer",
           opacity: sharing ? 0.7 : 1,
           fontFamily:"inherit",
@@ -2063,8 +2074,8 @@ function FullProfile({T, mode, player, onClose}) {
           background: "linear-gradient(180deg, #CE1141 0%, #8b0a2a 100%)",
           border:"1.5px solid rgba(206,17,65,0.7)",
           color:"#fff",
-          fontWeight:800, fontSize:13, letterSpacing:"0.04em",
-          padding:"12px 16px", borderRadius:10,
+          fontWeight:800, fontSize:12, letterSpacing:"0.04em",
+          padding:"8px 14px", borderRadius:10,
           cursor:"pointer",
           fontFamily:"inherit",
           boxShadow:"0 2px 8px rgba(206,17,65,0.3)",
@@ -2143,17 +2154,17 @@ function StatRow({T, label, value, sub, heatRef, last=false}) {
   return (
     <div style={{
       display:"flex", justifyContent:"space-between", alignItems:"baseline",
-      padding:"9px 2px",
+      padding:"4px 2px",
       borderBottom: last ? "none" : `1px solid ${T.borderFaint}`,
     }}>
-      <span style={{fontSize:13, color:T.textMid, fontWeight:500, letterSpacing:"0.01em"}}>{label}</span>
+      <span style={{fontSize:12, color:T.textMid, fontWeight:500, letterSpacing:"0.01em"}}>{label}</span>
       <span style={{
         fontFamily:"'JetBrains Mono', monospace",
-        fontSize:14.5, fontWeight:800,
+        fontSize:13.5, fontWeight:800,
         color: valueColor,
         letterSpacing:"0.02em",
       }}>
-        {value}{sub ? <span style={{fontSize:11, fontWeight:600, color:T.textMuted, marginLeft:4}}>{sub}</span> : null}
+        {value}{sub ? <span style={{fontSize:10, fontWeight:600, color:T.textMuted, marginLeft:4}}>{sub}</span> : null}
       </span>
     </div>
   );
@@ -2162,13 +2173,13 @@ function StatRow({T, label, value, sub, heatRef, last=false}) {
 /* Section title block — used inside the FullProfile two-column grid */
 function ProfileSection({T, title, children}) {
   return (
-    <div style={{marginBottom:18}}>
+    <div style={{marginBottom:8}}>
       <div data-share-gold="1" data-share-clamp="1" style={{
-        fontSize:10.5, letterSpacing:"0.22em", fontWeight:800,
+        fontSize:9.5, letterSpacing:"0.22em", fontWeight:800,
         ...goldText,
-        paddingBottom:5,
+        paddingBottom:3,
         borderBottom:`1px solid ${BRAND.gold}40`,
-        marginBottom:2,
+        marginBottom:4,
         textTransform:"uppercase",
       }}>{title}</div>
       <div>{children}</div>
@@ -2182,20 +2193,25 @@ function ProfileSection({T, title, children}) {
 function ProfileTabs({T, tabs, active, onChange}) {
   return (
     <div style={{
-      display:"flex", gap:24, flexWrap:"wrap",
+      display:"flex", gap:16, flexWrap:"nowrap",
       borderBottom:`1px solid ${T.borderFaint}`,
-      marginBottom:14, paddingBottom:0,
+      marginBottom:8, paddingBottom:0,
+      overflowX:"auto",
+      scrollbarWidth:"none",
+      msOverflowStyle:"none",
     }}>
       {tabs.map(label => {
         const isActive = label === active;
         return (
           <button key={label} onClick={()=>onChange(label)} style={{
-            background:"transparent", border:"none", padding:"8px 0 10px 0",
+            background:"transparent", border:"none", padding:"6px 0 8px 0",
             fontFamily:"inherit", cursor:"pointer",
-            fontSize:11.5, fontWeight:800, letterSpacing:"0.18em",
+            fontSize:11, fontWeight:800, letterSpacing:"0.16em",
             color: isActive ? BRAND.goldBright : T.textMuted,
             position:"relative",
             textTransform:"uppercase",
+            whiteSpace:"nowrap",
+            flexShrink:0,
           }}>
             {label}
             {isActive ? (
