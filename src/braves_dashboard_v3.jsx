@@ -2375,7 +2375,6 @@ function HitterStatBoxes({T, d, sc}) {
             <StatRow T={T} label="Pull-Air%" value={sc?.pullAir}       heatRef={leagueRef("pullAir")} last/>
           </ProfileSection>
         );
-      } else if (active === "Batting") {
   } else if (active === "Batting") {
     body = (
       <ProfileSection T={T} title="Batting">
