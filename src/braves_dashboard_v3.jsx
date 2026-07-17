@@ -2032,9 +2032,7 @@ function FullProfile({T, mode, player, onClose}) {
             })}
           </div>
         </div>
-      </div>
         {/* Wordmark removed for trademark hygiene */}
-      </div>
 
       {/* Two-column flat stat layout */}
       {isHitter ? (
