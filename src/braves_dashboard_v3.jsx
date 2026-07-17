@@ -636,9 +636,42 @@ export default function BravesDashboardV2() {
               onSelectHitter={(h)=>setSelectedPlayer({kind:"hitter", data:h})}
               onSelectPitcher={(p)=>setSelectedPlayer({kind:"pitcher", data:p})}
             />
-          {selectedPlayer && (
-            <FullProfile T={T} mode={mode} player={selectedPlayer} onClose={()=>setSelectedPlayer(null)} />
-          )}
+               {selectedPlayer && (
+                <div
+                  onClick={() => setSelectedPlayer(null)}
+                  style={{
+                    position: "fixed",
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    background: "rgba(5, 10, 25, 0.55)",
+                    backdropFilter: "blur(3px)",
+                    WebkitBackdropFilter: "blur(3px)",
+                    zIndex: 1000,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "20px",
+                    overflowY: "auto",
+                  }}
+                >
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      maxWidth: 900,
+                      width: "100%",
+                      maxHeight: "calc(100vh - 40px)",
+                      overflowY: "auto",
+                      borderRadius: 14,
+                    }}
+                  >
+                    <FullProfile T={T} mode={mode} player={selectedPlayer} onClose={()=>setSelectedPlayer(null)} />
+                  </div>
+                </div>
+              )}
+              <style>{`
+                @media (max-width: 700px) {
+                  .brv-profile-modal-inner { max-width: 100% !important; padding: 8px !important; }
+                }
+              `}</style>
         </main>
 
         {/* Right rail */}
