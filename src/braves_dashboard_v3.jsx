@@ -2032,6 +2032,7 @@ function FullProfile({T, mode, player, onClose}) {
             })}
           </div>
         </div>
+      </div>
         {/* Wordmark removed for trademark hygiene */}
 
       {/* Two-column flat stat layout */}
