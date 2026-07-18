@@ -2651,26 +2651,25 @@ function PitcherStatBoxes({T, d, sc}) {
   const [active, setActive] = useState("Overview");
 
   let body;
-  if (active === "Overview") {
-    body = (
-      <>
-        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(110px, 1fr))", gap:8}}>
-          <OverviewStat T={T} label="IP"      value={d.ip}/>
-          <OverviewStat T={T} label="ERA"     value={d.era}     sub="lg 4.22"  heatRef={leagueRef("era",   true)}/>
-          <OverviewStat T={T} label="WHIP"    value={d.whip}    sub="lg 1.31"  heatRef={leagueRef("whip",  true)}/>
-          <OverviewStat T={T} label="K%"      value={d.kpct}    sub="lg 22.1%" heatRef={leagueRef("kpct")}/>
-          <OverviewStat T={T} label="BB%"     value={d.bbpct}   sub="lg 9.0%"  heatRef={leagueRef("bbpct", true)}/>
-          <OverviewStat T={T} label="FIP"     value={d.fip}     sub="lg 4.22"  heatRef={leagueRef("fip",   true)}/>
-          <OverviewStat T={T} label="xFIP"    value={d.xfip}    sub="lg 4.22"  heatRef={leagueRef("xfip",  true)}/>
-          <OverviewStat T={T} label="SIERA"   value={d.siera}   sub="lg 4.11"  heatRef={leagueRef("siera", true)}/>
-          <OverviewStat T={T} label="Whiff%"  value={sc?.whiff} sub="lg 25.2%" heatRef={leagueRef("whiff")}/>
-          <OverviewStat T={T} label="CSW%"    value={d.csw}     sub="lg 27.2%" heatRef={leagueRef("csw")}/>
-          <OverviewStat T={T} label="GB%"     value={sc?.gbpct} sub="lg 42.4%" heatRef={leagueRef("gbpct")}/>
-          <OverviewStat T={T} label="EV"      value={sc?.ev}    sub="lg 88.9 mph"      heatRef={leagueRef("ev", true)}/>
-        </div>
-        <WarProgressionCard T={T} d={d} isHitter={false}/>
-      </>
-    );
+    if (active === "Overview") {
+      body = (
+        <ProfileSection T={T} title="Overview">
+          <StatRow T={T} label="IP"       value={d.ip}/>
+          <StatRow T={T} label="Record"   value={recordValue} sub={recordLabel}/>
+          <StatRow T={T} label="ERA"      value={d.era}    heatRef={leagueRef("era",   true)}/>
+          <StatRow T={T} label="WHIP"     value={d.whip}   heatRef={leagueRef("whip",  true)}/>
+          <StatRow T={T} label="K%"       value={d.kpct}   heatRef={leagueRef("kpct")}/>
+          <StatRow T={T} label="BB%"      value={d.bbpct}  heatRef={leagueRef("bbpct", true)}/>
+          <StatRow T={T} label="FIP"      value={d.fip}    heatRef={leagueRef("fip",   true)}/>
+          <StatRow T={T} label="xFIP"     value={d.xfip}   heatRef={leagueRef("xfip",  true)}/>
+          <StatRow T={T} label="SIERA"    value={d.siera}  heatRef={leagueRef("siera", true)}/>
+          <StatRow T={T} label="Whiff%"   value={sc?.whiff} heatRef={leagueRef("whiff")}/>
+          <StatRow T={T} label="CSW%"     value={d.csw}    heatRef={leagueRef("csw")}/>
+          <StatRow T={T} label="GB%"      value={sc?.gbpct} heatRef={leagueRef("gbpct")}/>
+          <StatRow T={T} label="EV"       value={sc?.ev}   sub="mph" heatRef={leagueRef("ev", true)} last/>
+        </ProfileSection>
+      );
+    }
   } else if (active === "Pitching") {
     body = (
       <ProfileSection T={T} title="Pitching">
