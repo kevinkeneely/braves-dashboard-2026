@@ -1515,6 +1515,7 @@ const HIDDEN_PLAYERS = new Set([
   "Sean Murphy",
   "Rowdy Tellez",
   "Hurston Waldrep",
+  "James Karinchak",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
