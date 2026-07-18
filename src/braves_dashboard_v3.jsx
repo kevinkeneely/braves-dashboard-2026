@@ -2670,7 +2670,7 @@ function PitcherStatBoxes({T, d, sc}) {
         </ProfileSection>
       );
     }
-  } else if (active === "Pitching") {
+  else if (active === "Pitching") {
     body = (
       <ProfileSection T={T} title="Pitching">
         <StatRow T={T} label="Innings Pitched" value={d.ip}/>
