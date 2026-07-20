@@ -432,7 +432,7 @@ const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
   "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#8F713D",
-  "Bart":"#22d3ee","Jarvis":"#a3e635"
+  "Bart":"#22d3ee","Jarvis":"#a3e635","Hicklen":"#EAC678"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","Lee":"#60a5fa","Iglesias":"#4ade80",
@@ -1840,7 +1840,7 @@ const HITTER_WAR_KEY = {
   "Dominic Smith":"Smith", "Jorge Mateo":"Mateo", "Austin Riley":"Riley",
   "Eli White":"White", "Mike Yastrzemski":"Yaz", "Ha-Seong Kim":"Kim",
   "Joey Bart":"Bart", "Rowdy Tellez":"Tellez", "Jim Jarvis":"Jarvis",
-  "Sean Murphy":"Murphy",
+  "Sean Murphy":"Murphy", "Brewer Hicklen":"Hicklen",
 };
 const PITCHER_WAR_KEY = {
   "Bryce Elder":"Elder", "Chris Sale":"Sale", "Dylan Lee":"Lee",
