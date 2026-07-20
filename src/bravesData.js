@@ -392,7 +392,7 @@ export const statcastPitchers = [
   { name:"Carlos Carrasco", ev:"89.2",hardHit:"42.2%",xwoba:".358",xba:".325",xslg:".452",kpct:"11.1%",bbpct:"1.9%", barrel:"6.7%", chase:"43.6%",whiff:"17.2%",gbpct:"48.9%",fbpct:"11.1%",ldpct:"33.3%",pupct:"6.7%", pullAir:"26.2%"},
   { name:"Ian Hamilton", ev:"93.0",hardHit:"50.0%",xwoba:".342",xba:".307",xslg:".356",kpct:"17.4%",bbpct:"13.0%", barrel:"0.0%", chase:"30.0%",whiff:"28.6%",gbpct:"56.3%",fbpct:"12.5%",ldpct:"31.3%",pupct:"0.0%", pullAir:"12.5%"},
   { name:"Danny Young", ev:"96.5",hardHit:"61.5%",xwoba:".391",xba:".208",xslg:".488",kpct:"18.2%",bbpct:"18.2%", barrel:"23.1%", chase:"23.2%",whiff:"31.3%",gbpct:"61.5%",fbpct:"30.8%",ldpct:"7.7%",pupct:"0.0%", pullAir:"7.7%"},
-  { name:"Owen Murphy", ev:"93.7",hardHit:"77.8%",xwoba:".260",xba:".202",xslg:".328",kpct:"28.6%",bbpct:"0.0%", barrel:"11.1%", chase:"41.4%",whiff:"18.6%",gbpct:"22.2%",fbpct:"22.2%",ldpct:"55.6%",pupct:"0.0%", pullAir:"30.0%"},
+  { name:"Owen Murphy", ev:"94.1",hardHit:"55.0%",xwoba:".353",xba:".280",xslg:".451",kpct:"20.7%",bbpct:"6.9%", barrel:"10.0%", chase:"38.0%",whiff:"17.1%",gbpct:"20.0%",fbpct:"25.0%",ldpct:"45.0%",pupct:"10.0%", pullAir:"30.0%"},
   { name:"Víctor Mederos", ev:"86.3",hardHit:"33.3%",xwoba:".241",xba:".211",xslg:".303",kpct:"24.0%",bbpct:"4.0%", barrel:"0.0%", chase:"32.7%",whiff:"32.7%",gbpct:"38.9%",fbpct:"27.8%",ldpct:"16.7%",pupct:"16.7%", pullAir:"16.7%"},
 ];
    
