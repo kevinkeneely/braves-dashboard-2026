@@ -2412,7 +2412,7 @@ function HitterStatBoxes({T, d, sc}) {
         </ProfileSection>
       );
     }
-  } else if (active === "Batting") {
+  else if (active === "Batting") {
     body = (
       <ProfileSection T={T} title="Batting">
         <StatRow T={T} label="Batting Average" value={d.avg}        heatRef={leagueRef("avg")}/>
