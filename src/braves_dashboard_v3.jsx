@@ -2130,7 +2130,42 @@ function StatSection({T, title, children}) {
     </div>
   );
 }
-
+function formatDob(dob) {
+  if (!dob) return "—";
+  try {
+    const d = new Date(dob + "T00:00:00");
+    if (isNaN(d)) return "—";
+    return d.toLocaleDateString("en-US", {month:"short", day:"numeric", year:"numeric"});
+  } catch { return "—"; }
+}
+function calcAge(dob) {
+  if (!dob) return "—";
+  try {
+    const d = new Date(dob + "T00:00:00");
+    if (isNaN(d)) return "—";
+    const t = new Date();
+    let age = t.getFullYear() - d.getFullYear();
+    const m = t.getMonth() - d.getMonth();
+    if (m < 0 || (m === 0 && t.getDate() < d.getDate())) age--;
+    return age;
+  } catch { return "—"; }
+}
+function formatDraft(d) {
+  if (!d.draftYear) return "—";
+  if (d.draftType === "IFA") return `International FA · ${d.draftYear}`;
+  if (d.draftType === "UDFA") return `UDFA · ${d.draftYear}`;
+  if (d.draftRound != null && d.draftPick != null)
+    return `${d.draftYear} · Round ${d.draftRound} · Pick ${d.draftPick}`;
+  return `${d.draftYear} · —`;
+}
+function formatBatsThrows(d) {
+  if (!d.bats || !d.throws) return "—";
+  return `${d.bats}/${d.throws}`;
+}
+function formatThrowsHand(d) {
+  if (!d.throws) return "—";
+  return d.throws === "L" ? "LHP" : "RHP";
+}
 /* ── Flat label/value row used in the redesigned FullProfile (matches the
    reference layout: thin underline below section header, hairline border
    between rows, value right-aligned, heat-tinted text-only). ───────────── */
@@ -2361,29 +2396,22 @@ function WarProgressionCard({T, d, isHitter}) {
 }
 
 function HitterStatBoxes({T, d, sc}) {
-  const tabs = (d.abs || d.absCatch) ? ["Overview","Batting","Bat Tracking","Statcast","Fielding","Splits","ABS"] : ["Overview","Batting","Bat Tracking","Statcast","Fielding","Splits"];
-  const [activeRaw, setActive] = useState("Overview");
-  const active = tabs.includes(activeRaw) ? activeRaw : "Overview";
+  const tabs = (d.abs || d.absCatch) ? ["Bio","Batting","Bat Tracking","Statcast","Fielding","Splits","ABS"] : ["Bio","Batting","Bat Tracking","Statcast","Fielding","Splits"];
+  const [activeRaw, setActive] = useState("Bio");
+  const active = tabs.includes(activeRaw) ? activeRaw : "Bio";
 
   // Section content keyed by tab label
   let body;
-   if (active === "Overview") {
-        body = (
-          <ProfileSection T={T} title="Overview">
-            <StatRow T={T} label="AVG"      value={d.avg}              heatRef={leagueRef("avg")}/>
-            <StatRow T={T} label="OBP"      value={d.obp}              heatRef={leagueRef("obp")}/>
-            <StatRow T={T} label="SLG"      value={d.slg}              heatRef={leagueRef("slg")}/>
-            <StatRow T={T} label="wRC+"     value={d.wrc}              heatRef={leagueRef("wrc")}/>
-            <StatRow T={T} label="wOBA"     value={d.woba}             heatRef={leagueRef("woba")}/>
-            <StatRow T={T} label="xwOBA"    value={sc?.xwoba ?? d.xwoba} heatRef={leagueRef("xwoba")}/>
-            <StatRow T={T} label="K%"       value={d.kpct}             heatRef={leagueRef("kpct", true)}/>
-            <StatRow T={T} label="BB%"      value={d.bbpct}            heatRef={leagueRef("bbpct")}/>
-            <StatRow T={T} label="EV"       value={sc?.ev}             heatRef={leagueRef("ev")}/>
-            <StatRow T={T} label="Hard Hit%" value={sc?.hardHit}       heatRef={leagueRef("hardHit")}/>
-            <StatRow T={T} label="Barrel%"  value={sc?.barrel}         heatRef={leagueRef("barrel")}/>
-            <StatRow T={T} label="Pull-Air%" value={sc?.pullAir}       heatRef={leagueRef("pullAir")} last/>
-          </ProfileSection>
-        );
+    if (active === "Bio") {
+      body = (
+        <ProfileSection T={T} title="Bio">
+          <StatRow T={T} label="Bats / Throws"  value={formatBatsThrows(d)}/>
+          <StatRow T={T} label="Date of Birth"  value={formatDob(d.dob)}/>
+          <StatRow T={T} label="Age"            value={calcAge(d.dob)}/>
+          <StatRow T={T} label="Draft"          value={formatDraft(d)} last/>
+        </ProfileSection>
+      );
+    }
   } else if (active === "Batting") {
     body = (
       <ProfileSection T={T} title="Batting">
@@ -2651,26 +2679,17 @@ function HitterStatBoxes({T, d, sc}) {
 function PitcherStatBoxes({T, d, sc}) {
   const recordLabel = d.role === "CL" ? "Saves" : "Record (W-L)";
   const recordValue = d.role === "CL" ? d.sv : (d.wl || `${d.w ?? 0}-${d.l ?? 0}`);
-  const tabs = ["Overview","Pitching","Plate Discipline","Bat Tracking","Statcast","Splits"];
-  const [active, setActive] = useState("Overview");
+  const tabs = ["Bio","Pitching","Plate Discipline","Bat Tracking","Statcast","Splits"];
+  const [active, setActive] = useState("Bio");
 
   let body;
-    if (active === "Overview") {
+    if (active === "Bio") {
       body = (
-        <ProfileSection T={T} title="Overview">
-          <StatRow T={T} label="IP"       value={d.ip}/>
-          <StatRow T={T} label="Record"   value={recordValue} sub={recordLabel}/>
-          <StatRow T={T} label="ERA"      value={d.era}    heatRef={leagueRef("era",   true)}/>
-          <StatRow T={T} label="WHIP"     value={d.whip}   heatRef={leagueRef("whip",  true)}/>
-          <StatRow T={T} label="K%"       value={d.kpct}   heatRef={leagueRef("kpct")}/>
-          <StatRow T={T} label="BB%"      value={d.bbpct}  heatRef={leagueRef("bbpct", true)}/>
-          <StatRow T={T} label="FIP"      value={d.fip}    heatRef={leagueRef("fip",   true)}/>
-          <StatRow T={T} label="xFIP"     value={d.xfip}   heatRef={leagueRef("xfip",  true)}/>
-          <StatRow T={T} label="SIERA"    value={d.siera}  heatRef={leagueRef("siera", true)}/>
-          <StatRow T={T} label="Whiff%"   value={sc?.whiff} heatRef={leagueRef("whiff")}/>
-          <StatRow T={T} label="CSW%"     value={d.csw}    heatRef={leagueRef("csw")}/>
-          <StatRow T={T} label="GB%"      value={sc?.gbpct} heatRef={leagueRef("gbpct")}/>
-          <StatRow T={T} label="EV"       value={sc?.ev}   sub="mph" heatRef={leagueRef("ev", true)} last/>
+        <ProfileSection T={T} title="Bio">
+          <StatRow T={T} label="Throws"         value={formatThrowsHand(d)}/>
+          <StatRow T={T} label="Date of Birth"  value={formatDob(d.dob)}/>
+          <StatRow T={T} label="Age"            value={calcAge(d.dob)}/>
+          <StatRow T={T} label="Draft"          value={formatDraft(d)} last/>
         </ProfileSection>
       );
     }
