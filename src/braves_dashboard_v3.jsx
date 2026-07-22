@@ -1519,6 +1519,7 @@ const HIDDEN_PLAYERS = new Set([
   "Ha-Seong Kim",
   "Spencer Strider",
   "Owen Murphy",
+  "JR Ritchie",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
