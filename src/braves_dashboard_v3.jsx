@@ -432,7 +432,7 @@ const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
   "Riley":"#f59e0b","White":"#94a3b8","Yaz":"#f87171","Kim":"#8F713D",
-  "Bart":"#22d3ee","Jarvis":"#a3e635","Hicklen":"#996666"
+  "Bart":"#22d3ee","Jarvis":"#a3e635","Hicklen":"#F5F5F5","Murphy":"#996666"
 };
 const PITCHER_WAR_COLORS = {
   "Elder":"#CE1141","Sale":"#EAC678","Lee":"#60a5fa","Iglesias":"#4ade80",
