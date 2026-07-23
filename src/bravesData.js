@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "July 22, 2026";
+   export const lastUpdated = "July 23, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -180,8 +180,8 @@
      { date:"Sun, Jul 19", opp:"Rangers",    home:true, result:"W", score:"8-5", record:"57-41"},
      { date:"Mon, Jul 20", opp:"Padres",    home:true, result:"W", score:"3-2", record:"58-41"},
      { date:"Tue, Jul 21", opp:"Padres",    home:true, result:"L", score:"3-8", record:"58-42"},
+     { date:"Wed, Jul 22", opp:"Padres",    home:true, result:"W", score:"7-6", record:"59-42"},
       // Upcoming
-     { date:"Wed, Jul 22", opp:"Padres",    home:true,},
      { date:"Thu, Jul 23", opp:"Padres",    home:true,},
      { date:"Fri, Jul 24", opp:"Orioles",    home:false,},
      { date:"Sat, Jul 25", opp:"Orioles",    home:false,},
@@ -216,8 +216,8 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "58-42",
-     runs: 495,
+     record: "59-42",
+     runs: 502,
      era: "3.64",
      avg: ".248",
      obp: ".316",
