@@ -181,8 +181,8 @@
      { date:"Mon, Jul 20", opp:"Padres",    home:true, result:"W", score:"3-2", record:"58-41"},
      { date:"Tue, Jul 21", opp:"Padres",    home:true, result:"L", score:"3-8", record:"58-42"},
      { date:"Wed, Jul 22", opp:"Padres",    home:true, result:"W", score:"7-6", record:"59-42"},
+     { date:"Thu, Jul 23", opp:"Padres",    home:true, result:"W", score:"6-5", record:"60-42"},
       // Upcoming
-     { date:"Thu, Jul 23", opp:"Padres",    home:true,},
      { date:"Fri, Jul 24", opp:"Orioles",    home:false,},
      { date:"Sat, Jul 25", opp:"Orioles",    home:false,},
      { date:"Sun, Jul 26", opp:"Orioles",    home:false,},
@@ -216,13 +216,13 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "59-42",
-     runs: 502,
-     era: "3.67",
+     record: "60-42",
+     runs: 508,
+     era: "3.68",
      avg: ".250",
      obp: ".317",
-     slg: ".417",
-     ops: ".734",
+     slg: ".419",
+     ops: ".736",
      wrc: 101,
      iso: ".167",
      battingK: "21.3%",
@@ -312,7 +312,7 @@ export const hitters = [
     // Updated July 20, 2026 — bio fields (throws, dob, draftYear, draftRound, draftPick, draftType) added
     // All values initialized to null — Kevin to fill in
     // All previous stats, splits, bat tracking, plate discipline preserved
-    { name:"Chris Sale", throws:"L", dob:"1989-03-30", draftYear:2010, draftRound:1, draftPick:13, draftType:"MLB", wl:"10-6", era:"2.06", ip:"105.0", kpct:"28.9%", bbpct:"5.9%", whip:"1.057", war:3.5, war2:3.1, fip:"2.72", xfip:"3.13", siera:"3.14", batSpeed:70.9, fastSwing:"20.5%", swstr:"13.5%", cstr:"17.2%", csw:"30.7%", laSwSp:"35.7%", idealAttack:"46.2%", splits:{vsL:{ip:"26.0",era:"1.38",fip:"1.98",xfip:"2.19",whip:"1.00",avg:".214",obp:".274",slg:".296",woba:".258",kpct:"30.8%",bbpct:"4.7%",kbb:"26.2%"}, vsR:{ip:"79.0",era:"2.28",fip:"2.96",xfip:"3.42",whip:"1.08",avg:".223",obp:".285",slg:".320",woba:".272",kpct:"28.2%",bbpct:"6.3%",kbb:"21.9%"}}},
+    { name:"Chris Sale", throws:"L", dob:"1989-03-30", draftYear:2010, draftRound:1, draftPick:13, draftType:"MLB", wl:"11-6", era:"2.19", ip:"111.0", kpct:"29.7%", bbpct:"5.8%", whip:"1.057", war:3.5, war2:3.1, fip:"2.59", xfip:"3.13", siera:"3.14", batSpeed:70.9, fastSwing:"20.5%", swstr:"13.5%", cstr:"17.2%", csw:"30.7%", laSwSp:"35.7%", idealAttack:"46.2%", splits:{vsL:{ip:"26.0",era:"1.38",fip:"1.98",xfip:"2.19",whip:"1.00",avg:".214",obp:".274",slg:".296",woba:".258",kpct:"30.8%",bbpct:"4.7%",kbb:"26.2%"}, vsR:{ip:"79.0",era:"2.28",fip:"2.96",xfip:"3.42",whip:"1.08",avg:".223",obp:".285",slg:".320",woba:".272",kpct:"28.2%",bbpct:"6.3%",kbb:"21.9%"}}},
     { name:"Spencer Strider", throws:"R", dob:"1998-10-28", draftYear:2020, draftRound:4, draftPick:126, draftType:"MLB", wl:"4-2", era:"5.31", ip:"39.0", kpct:"27.9%", bbpct:"12.1%", whip:"1.359", war:-0.1, war2:0.1, fip:"5.36", xfip:"4.40", siera:"4.17", batSpeed:72.3, fastSwing:"25.1%", swstr:"12.2%", cstr:"15.2%", csw:"27.4%", laSwSp:"35.7%", idealAttack:"44.6%", splits:{vsL:{ip:"25.1",era:"4.62",fip:"5.55",xfip:"4.65",whip:"1.26",avg:".207",obp:".308",slg:".489",woba:".342",kpct:"27.1%",bbpct:"12.1%",kbb:"15.0%"}, vsR:{ip:"13.2",era:"6.59",fip:"5.00",xfip:"3.95",whip:"1.54",avg:".280",obp:".362",slg:".520",woba:".378",kpct:"29.3%",bbpct:"12.1%",kbb:"17.2%"}}},
     { name:"Reynaldo López", throws:"R", dob:"1994-01-04", draftYear:2012, draftRound:null, draftPick:null, draftType:"IFA", wl:"4-2", era:"3.95", ip:"66.0", sv:0, kpct:"21.2%", bbpct:"9.9%", whip:"1.364", fip:"4.57", war:0.4, war2:0.3, xfip:"4.45", siera:"4.41", batSpeed:71.6, fastSwing:"23.9%", swstr:"9.6%", cstr:"16.6%", csw:"26.2%", laSwSp:"38.9%", idealAttack:"43.0%", splits:{vsL:{ip:"33.2",era:"4.01",fip:"4.94",xfip:"5.17",whip:"1.49",avg:".210",obp:".338",slg:".387",woba:".325",kpct:"20.8%",bbpct:"16.1%",kbb:"4.7%"}, vsR:{ip:"28.0",era:"2.89",fip:"3.53",xfip:"3.64",whip:"1.00",avg:".250",obp:".261",slg:".398",woba:".284",kpct:"20.7%",bbpct:"0.9%",kbb:"19.8%"}}},
     { name:"Martín Pérez", throws:"L", dob:"1991-04-04", draftYear:2007, draftRound:null, draftPick:null, draftType:"IFA", wl:"6-6", era:"3.38", ip:"85.1", kpct:"18.6%", bbpct:"10.3%", whip:"1.195", fip:"4.44", war:1.6, war2:0.6, xfip:"4.24", siera:"4.61", batSpeed:73.4, fastSwing:"34.7%", swstr:"8.8%", cstr:"18.7%", csw:"27.6%", laSwSp:"35.0%", idealAttack:"52.0%", splits:{vsL:{ip:"24.0",era:"4.50",fip:"4.52",xfip:"3.56",whip:"1.17",avg:".242",obp:".303",slg:".440",woba:".323",kpct:"21.2%",bbpct:"6.1%",kbb:"15.2%"}, vsR:{ip:"57.1",era:"3.14",fip:"4.39",xfip:"4.50",whip:"1.20",avg:".212",obp:".296",slg:".365",woba:".290",kpct:"17.5%",bbpct:"11.1%",kbb:"6.4%"}}},
@@ -341,11 +341,11 @@ export const hitters = [
   ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:59,l:42,pct:".584",gb:"—", home:"31-20",away:"28-22", rs:502, ra:397, diff:+105, strk:"W1", l10:"6-4", highlight:true,  srs:1.0 },
-     { team:"PHI", full:"Philadelphia Phillies", w:56,l:47,pct:".544",gb:"4.0", home:"27-25",away:"29-22", rs:448, ra:463, diff:-15, strk:"L2", l10:"5-5", highlight:false, srs:-0.1 },
-     { team:"MIA", full:"Miami Marlins",        w:52,l:51,pct:".505",gb:"8.0", home:"31-20",away:"21-31", rs:457, ra:446, diff:+11, strk:"L9", l10:"1-9", highlight:false, srs:0.1 },
-     { team:"WSN", full:"Washington Nationals", w:52,l:51,pct:".505",gb:"8.0", home:"20-31",away:"32-20", rs:567, ra:541, diff:+26, strk:"W1", l10:"5-5", highlight:false, srs:0.3 },
-     { team:"NYM", full:"New York Mets",        w:43,l:60,pct:".417",gb:"16.0", home:"21-28",away:"22-32", rs:419, ra:483, diff:-64, strk:"L1", l10:"4-6", highlight:false, srs:-0.6 },
+     { team:"ATL", full:"Atlanta Braves",       w:60,l:42,pct:".588",gb:"—", home:"32-20",away:"28-22", rs:508, ra:402, diff:+106, strk:"W2", l10:"6-4", highlight:true,  srs:1.0 },
+     { team:"PHI", full:"Philadelphia Phillies", w:56,l:47,pct:".544",gb:"4.5", home:"27-25",away:"29-22", rs:448, ra:463, diff:-15, strk:"L2", l10:"5-5", highlight:false, srs:-0.1 },
+     { team:"MIA", full:"Miami Marlins",        w:52,l:51,pct:".505",gb:"8.5", home:"31-20",away:"21-31", rs:457, ra:446, diff:+11, strk:"L9", l10:"1-9", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:52,l:51,pct:".505",gb:"8.5", home:"20-31",away:"32-20", rs:567, ra:541, diff:+26, strk:"W1", l10:"5-5", highlight:false, srs:0.3 },
+     { team:"NYM", full:"New York Mets",        w:43,l:60,pct:".417",gb:"17.5", home:"21-28",away:"22-32", rs:419, ra:483, diff:-64, strk:"L1", l10:"4-6", highlight:false, srs:-0.6 },
    ];
    
 export const statcastHitters = [
@@ -382,7 +382,7 @@ export const statcastPitchers = [
   { name:"Dylan Lee", ev:"87.0",hardHit:"30.8%",xwoba:".214",xba:".177",xslg:".256",kpct:"33.7%",bbpct:"4.7%", barrel:"3.8%", chase:"37.4%",whiff:"38.8%",gbpct:"35.6%",fbpct:"29.8%",ldpct:"25.0%",pupct:"9.6%", pullAir:"25.5%"},
   { name:"Robert Suarez", ev:"84.9",hardHit:"33.0%",xwoba:".282",xba:".252",xslg:".351",kpct:"21.5%",bbpct:"5.0%", barrel:"3.4%", chase:"38.8%",whiff:"24.0%",gbpct:"47.7%",fbpct:"23.9%",ldpct:"20.5%",pupct:"8.0%", pullAir:"13.6%"},
   { name:"Bryce Elder", ev:"90.0",hardHit:"39.9%",xwoba:".304",xba:".246",xslg:".391",kpct:"19.7%",bbpct:"7.2%", barrel:"6.0%", chase:"29.4%",whiff:"22.5%",gbpct:"43.5%",fbpct:"26.9%",ldpct:"23.3%",pupct:"6.3%", pullAir:"18.8%"},
-  { name:"Chris Sale", ev:"87.3",hardHit:"32.7%",xwoba:".283",xba:".228",xslg:".342",kpct:"28.9%",bbpct:"5.9%", barrel:"5.9%", chase:"35.2%",whiff:"29.6%",gbpct:"44.2%",fbpct:"24.5%",ldpct:"25.3%",pupct:"5.9%", pullAir:"16.7%"},
+  { name:"Chris Sale", ev:"87.3",hardHit:"32.7%",xwoba:".283",xba:".228",xslg:".342",kpct:"29.7%",bbpct:"5.8%", barrel:"5.9%", chase:"35.2%",whiff:"29.6%",gbpct:"44.2%",fbpct:"24.5%",ldpct:"25.3%",pupct:"5.9%", pullAir:"16.7%"},
   { name:"Spencer Strider", ev:"89.3",hardHit:"36.0%",xwoba:".276",xba:".178",xslg:".326",kpct:"27.9%",bbpct:"12.1%", barrel:"10.5%", chase:"28.8%",whiff:"31.1%",gbpct:"30.2%",fbpct:"38.4%",ldpct:"22.1%",pupct:"9.3%", pullAir:"27.6%"},
   { name:"Didier Fuentes", ev:"88.9",hardHit:"35.1%",xwoba:".281",xba:".229",xslg:".341",kpct:"27.6%",bbpct:"7.5%", barrel:"5.5%", chase:"29.8%",whiff:"26.6%",gbpct:"39.6%",fbpct:"27.0%",ldpct:"23.4%",pupct:"9.9%", pullAir:"9.6%"},
   { name:"Hurston Waldrep", ev:"89.3",hardHit:"34.3%",xwoba:".359",xba:".231",xslg:".389",kpct:"16.1%",bbpct:"17.9%", barrel:"8.6%", chase:"21.1%",whiff:"23.3%",gbpct:"71.4%",fbpct:"14.3%",ldpct:"5.7%",pupct:"8.6%", pullAir:"11.4%"},
