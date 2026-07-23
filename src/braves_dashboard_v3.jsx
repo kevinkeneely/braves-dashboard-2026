@@ -657,7 +657,7 @@ export default function BravesDashboardV2() {
                     ref={(el) => { if (el) el.scrollTop = 0; }}
                     onClick={(e) => e.stopPropagation()}
                     style={{
-                      width: "min(900px, 100%)",
+                      width: "min(500px, 100%)",
                       maxHeight: "calc(100vh - 40px)",
                       overflowY: "auto",
                       borderRadius: 14,
