@@ -3073,7 +3073,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tbody>
               {sorted.map((h, i) => (
                 <tr key={h.name} onClick={()=>onSelect(h)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i, true), color: sT.text}}>{h.name}</td>
                   <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>{h.pos}</td>
                   {cols.map(c => {
                     const ref = heatRefFor(c.key);
@@ -3177,7 +3177,7 @@ const sT = THEME.light;  // stat cells render as light-mode (cream) regardless o
             <tbody>
               {sorted.map((p, i) => (
                 <tr key={p.name} onClick={()=>onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{p.name}</td>
+                  <td style={{...tdStyle(sT, i, true), color: sT.text}}>{p.name}</td>
                   <td style={{...tdStyle(sT, i), background: sT.rowBase, textAlign:"center", color:sT.textMuted}}>{p.displayRole}</td>
                   {cols.map(c => {
                     const ref = c.key === "ip" ? null : leagueRef(c.key, c.invert ?? false);
@@ -3299,7 +3299,7 @@ const sT = THEME.light;
               const h = hitters.find(x => x.name === s.name);
               return (
                 <tr key={s.name} onClick={()=>h && onSelect(h)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{h.name}</td>
+                  <td style={{...tdStyle(sT, i, true), color: sT.text}}>{h.name}</td>
                   {cols.map(c => {
                     const ref = leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
@@ -3401,7 +3401,7 @@ const sT = THEME.light;
               const p = allArms.find(x => x.name === s.name);
               return (
                 <tr key={s.name} onClick={()=>p && onSelect(p)} style={{cursor:"pointer"}}>
-                  <td style={{...tdStyle(sT, i, true), background: sT.rowBase, color: sT.text}}>{s.name}</td>
+                  <td style={{...tdStyle(sT, i, true), color: sT.text}}>{s.name}</td>
                   {cols.map(c => {
                     const ref = leagueRef(c.key, c.invert ?? false);
                     const heatStyle = ref ? heat(s[c.key], ref.mean, ref.spread, ref.invert, sT) : null;
