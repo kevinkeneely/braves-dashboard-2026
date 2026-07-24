@@ -4064,8 +4064,8 @@ function StandingsTab({T}) {
                 <td style={{
                   ...tdStyle(T, i, true),
                   background: s.highlight
-                    ? "linear-gradient(90deg, rgba(206,17,65,0.22) 0%, rgba(206,17,65,0.04) 100%)"
-                    : (i % 2 === 0 ? T.rowBase : T.rowAlt),
+                   ? `linear-gradient(90deg, rgba(206,17,65,0.22) 0%, rgba(206,17,65,0.04) 100%), ${i % 2 === 0 ? T.rowBase : T.rowAlt}`
+                   : (i % 2 === 0 ? T.rowBase : T.rowAlt),
                   color: s.highlight ? BRAND.goldBright : T.text,
                   borderLeft: s.highlight ? `3px solid ${BRAND.red}` : "3px solid transparent",
                 }}>{s.team} <span style={{fontWeight:500, color:T.textMuted, fontFamily:"'Inter',sans-serif"}}>· {s.full}</span></td>
