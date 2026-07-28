@@ -4034,11 +4034,307 @@ function TeamStatsTab({T}) {
   );
 }
 
+/* ── SEASON CALENDAR (GitHub-style dot grid) ─────────────────────────────── */
+function SeasonCalendar({T}) {
+  const [tip, setTip] = useState(null);
+  const isDark = T === THEME.dark;
+
+  const cal = useMemo(() => {
+    const MONTHS_MAP = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+    const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const gameByKey = {};
+    for (const g of SCHEDULE) {
+      const m = g.date.match(/([A-Za-z]{3})\s+(\d+)/);
+      if (!m) continue;
+      const month = MONTHS_MAP[m[1]];
+      const day = parseInt(m[2], 10);
+      gameByKey[`2026-${month}-${day}`] = g;
+    }
+    const startCanvas = new Date(2026, 2, 22);   // Mar 22 (Sunday)
+    const endCanvas   = new Date(2026, 10, 14);  // Nov 14
+    const weeks = [];
+    const cursor = new Date(startCanvas);
+    while (cursor <= endCanvas) {
+      const week = [];
+      for (let i = 0; i < 7; i++) {
+        week.push(new Date(cursor));
+        cursor.setDate(cursor.getDate() + 1);
+      }
+      weeks.push(week);
+    }
+    const weekMonth = weeks.map(wk => {
+      const counts = {};
+      for (const d of wk) {
+        if (d >= startCanvas && d <= endCanvas) {
+          const m = d.getMonth();
+          counts[m] = (counts[m] || 0) + 1;
+        }
+      }
+      let best = -1, bestCount = 0;
+      for (const m in counts) {
+        const c = counts[m];
+        if (c > bestCount) { best = parseInt(m,10); bestCount = c; }
+      }
+      return best;
+    });
+    const monthGroups = [];
+    for (let wi = 0; wi < weekMonth.length; wi++) {
+      const m = weekMonth[wi];
+      if (monthGroups.length && monthGroups[monthGroups.length-1].month === m) {
+        monthGroups[monthGroups.length-1].span++;
+      } else {
+        monthGroups.push({month: m, span: 1});
+      }
+    }
+    return {weeks, monthGroups, gameByKey, MONTH_NAMES, startCanvas, endCanvas};
+  }, []);
+
+  const winColor      = BRAND.redGlow;
+  const winGlow       = "rgba(255,40,85,0.9)";
+  const winGlowFar    = "rgba(255,40,85,0.4)";
+  const lossColor     = "#3b82f6";
+  const lossGlow      = "rgba(59,130,246,0.9)";
+  const lossGlowFar   = "rgba(59,130,246,0.4)";
+  const goldColor     = BRAND.goldBright;
+  const dotEmptyBg      = isDark ? "rgba(255,255,255,0.05)" : "rgba(19,39,79,0.06)";
+  const dotEmptyBorder  = isDark ? "rgba(255,255,255,0.12)" : "rgba(19,39,79,0.15)";
+  const upcomingBg      = isDark ? "rgba(212,167,71,0.10)"  : "rgba(196,163,90,0.18)";
+  const upcomingBorder  = isDark ? "rgba(212,167,71,0.30)"  : "rgba(196,163,90,0.55)";
+  const cardBg = isDark
+    ? "linear-gradient(180deg, #0f1730 0%, #0d1428 100%)"
+    : "linear-gradient(180deg, rgba(255,251,240,0.95) 0%, rgba(248,240,220,0.95) 100%)";
+
+  const dayLabels = ["S","M","T","W","T","F","S"];
+
+  const showTip = (e, text) => setTip({x: e.clientX + 12, y: e.clientY - 30, text});
+  const moveTip = (e) => setTip(prev => prev ? {...prev, x: e.clientX + 12, y: e.clientY - 30} : null);
+  const hideTip = () => setTip(null);
+
+  return (
+    <div style={{
+      background: cardBg,
+      border: `1px solid ${T.borderFaint}`,
+      borderRadius: 16,
+      padding: "18px 16px 20px",
+      marginBottom: 12,
+    }}>
+      {/* Header */}
+      <div style={{
+        display:"flex",
+        justifyContent:"space-between",
+        alignItems:"center",
+        marginBottom: 14,
+        flexWrap:"wrap",
+        gap: 10,
+      }}>
+        <div style={{
+          fontFamily:"'Cinzel',serif",
+          fontSize: 13,
+          fontWeight: 700,
+          letterSpacing:"0.14em",
+          color: T.textMuted,
+        }}>
+          SEASON CALENDAR · 2026
+        </div>
+        <div style={{
+          display:"flex",
+          gap: 14,
+          alignItems:"center",
+          fontSize: 10,
+          letterSpacing:"0.10em",
+          textTransform:"uppercase",
+          color: T.textMuted,
+          flexWrap:"wrap",
+        }}>
+          <div style={{display:"flex", gap:6, alignItems:"center"}}>
+            <span style={{
+              width:10, height:10, borderRadius:"50%",
+              background: winColor,
+              boxShadow: `0 0 6px ${winGlow}`,
+              flexShrink: 0,
+            }}/>Win
+          </div>
+          <div style={{display:"flex", gap:6, alignItems:"center"}}>
+            <span style={{
+              width:10, height:10, borderRadius:"50%",
+              background: lossColor,
+              boxShadow: `0 0 6px ${lossGlow}`,
+              flexShrink: 0,
+            }}/>Loss
+          </div>
+          <div style={{display:"flex", gap:6, alignItems:"center"}}>
+            <span style={{
+              width:10, height:10, borderRadius:"50%",
+              background: dotEmptyBg,
+              border: `1px solid ${dotEmptyBorder}`,
+              flexShrink: 0,
+            }}/>Off / Upcoming
+          </div>
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div style={{
+        overflowX:"auto",
+        overflowY:"visible",
+        WebkitOverflowScrolling:"touch",
+        padding:"4px 0 8px",
+      }}>
+        <table style={{borderSpacing:2, borderCollapse:"separate"}}>
+          <tbody>
+            {/* Month row */}
+            <tr>
+              <td style={{minWidth:22, padding:0, height:16}}></td>
+              {cal.monthGroups.map((grp, i) => (
+                <td
+                  key={i}
+                  colSpan={grp.span}
+                  style={{
+                    padding:"0 2px",
+                    height: 16,
+                    fontSize: 10,
+                    letterSpacing:"0.14em",
+                    textTransform:"uppercase",
+                    color: T.textMuted,
+                    textAlign:"left",
+                    whiteSpace:"nowrap",
+                  }}
+                >
+                  {grp.month === 2 ? "" : cal.MONTH_NAMES[grp.month]}
+                </td>
+              ))}
+            </tr>
+
+            {/* Day rows */}
+            {[0,1,2,3,4,5,6].map(dow => (
+              <tr key={dow}>
+                <td style={{
+                  fontSize: 9,
+                  color: T.textMuted,
+                  letterSpacing:"0.10em",
+                  textTransform:"uppercase",
+                  padding:"0 6px 0 0",
+                  textAlign:"right",
+                  whiteSpace:"nowrap",
+                  minWidth: 22,
+                }}>
+                  {(dow===1||dow===3||dow===5) ? dayLabels[dow] : ""}
+                </td>
+                {cal.weeks.map((wk, wi) => {
+                  const day = wk[dow];
+                  const inRange = day >= cal.startCanvas && day <= cal.endCanvas;
+
+                  if (!inRange) {
+                    return <td key={wi} style={{width:12, height:12, padding:0}}></td>;
+                  }
+
+                  // All-Star Game July 14
+                  if (day.getMonth() === 6 && day.getDate() === 14) {
+                    const tipText = "Jul 14 · All-Star Game";
+                    return (
+                      <td key={wi} style={{width:12, height:12, padding:0, position:"relative"}}>
+                        <div
+                          onMouseEnter={(e) => showTip(e, tipText)}
+                          onMouseMove={moveTip}
+                          onMouseLeave={hideTip}
+                          style={{
+                            width:12, height:12,
+                            display:"flex", alignItems:"center", justifyContent:"center",
+                            color: goldColor,
+                            fontSize: 16, lineHeight: 1,
+                            textShadow:"0 0 6px rgba(212,167,71,0.9), 0 0 12px rgba(212,167,71,0.5)",
+                            cursor:"default",
+                          }}
+                        >★</div>
+                      </td>
+                    );
+                  }
+
+                  const key = `2026-${day.getMonth()}-${day.getDate()}`;
+                  const game = cal.gameByKey[key];
+                  const dateStr = `${cal.MONTH_NAMES[day.getMonth()]} ${day.getDate()}`;
+
+                  let dotStyle = {
+                    width:12, height:12, borderRadius:"50%",
+                    background: dotEmptyBg,
+                    border: `1px solid ${dotEmptyBorder}`,
+                    cursor:"default",
+                  };
+                  let tipText = `${dateStr} · Off day`;
+
+                  if (game && game.result) {
+                    const isWin = game.result === "W";
+                    dotStyle = {
+                      width:12, height:12, borderRadius:"50%",
+                      background: isWin ? winColor : lossColor,
+                      border: "1px solid transparent",
+                      boxShadow: isWin
+                        ? `0 0 6px ${winGlow}, 0 0 12px ${winGlowFar}`
+                        : `0 0 6px ${lossGlow}, 0 0 12px ${lossGlowFar}`,
+                      cursor:"default",
+                    };
+                    const oppStr = (game.home ? "vs " : "@ ") + game.opp;
+                    tipText = `${dateStr} · ${oppStr} · ${game.result} ${game.score}`;
+                  } else if (game) {
+                    dotStyle = {
+                      width:12, height:12, borderRadius:"50%",
+                      background: upcomingBg,
+                      border: `1px solid ${upcomingBorder}`,
+                      cursor:"default",
+                    };
+                    const oppStr = (game.home ? "vs " : "@ ") + game.opp;
+                    tipText = `${dateStr} · ${oppStr} · Upcoming`;
+                  }
+
+                  return (
+                    <td key={wi} style={{width:12, height:12, padding:0, position:"relative"}}>
+                      <div
+                        style={dotStyle}
+                        onMouseEnter={(e) => showTip(e, tipText)}
+                        onMouseMove={moveTip}
+                        onMouseLeave={hideTip}
+                      />
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Tooltip */}
+      {tip && (
+        <div style={{
+          position:"fixed",
+          left: tip.x,
+          top: tip.y,
+          background: isDark ? "#050a19" : "#f4ede0",
+          border: `1px solid ${T.borderFaint}`,
+          borderRadius: 6,
+          padding:"6px 10px",
+          fontSize: 11,
+          letterSpacing:"0.02em",
+          color: T.text,
+          whiteSpace:"nowrap",
+          boxShadow:"0 4px 16px rgba(0,0,0,0.6)",
+          zIndex: 100,
+          pointerEvents:"none",
+          fontFamily:"'Inter',sans-serif",
+        }}>
+          {tip.text}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ── STANDINGS TAB ───────────────────────────────────────────────────────── */
 function StandingsTab({T}) {
   const max = Math.max(...standings.map(s => Math.abs(s.srs))) || 1;
   return (
     <>
+      <SeasonCalendar T={T}/>
       <TabTitle T={T} eyebrow="NL EAST" title="STANDINGS"/>
       <div style={{overflowX:"auto", marginBottom:16}}>
         <table style={tableShell(T)}>
