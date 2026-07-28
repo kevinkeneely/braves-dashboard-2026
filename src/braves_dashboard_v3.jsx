@@ -4106,8 +4106,10 @@ function SeasonCalendar({T}) {
 
   const dayLabels = ["S","M","T","W","T","F","S"];
 
-  const showTip = (e, text) => setTip({x: e.clientX + 12, y: e.clientY - 30, text});
-  const moveTip = (e) => setTip(prev => prev ? {...prev, x: e.clientX + 12, y: e.clientY - 30} : null);
+  const showTip = (e, text) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    setTip({x: r.left + r.width / 2, y: r.top - 8, text});
+  };
   const hideTip = () => setTip(null);
 
   return (
@@ -4235,7 +4237,6 @@ function SeasonCalendar({T}) {
                       <td key={wi} style={{width:12, height:12, padding:0, position:"relative"}}>
                         <div
                           onMouseEnter={(e) => showTip(e, tipText)}
-                          onMouseMove={moveTip}
                           onMouseLeave={hideTip}
                           style={{
                             width:12, height:12,
@@ -4291,7 +4292,6 @@ function SeasonCalendar({T}) {
                       <div
                         style={dotStyle}
                         onMouseEnter={(e) => showTip(e, tipText)}
-                        onMouseMove={moveTip}
                         onMouseLeave={hideTip}
                       />
                     </td>
@@ -4309,6 +4309,7 @@ function SeasonCalendar({T}) {
           position:"fixed",
           left: tip.x,
           top: tip.y,
+          transform:"translate(-50%, -100%)",
           background: isDark ? "#050a19" : "#f4ede0",
           border: `1px solid ${T.borderFaint}`,
           borderRadius: 6,
