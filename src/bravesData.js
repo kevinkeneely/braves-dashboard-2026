@@ -227,6 +227,25 @@
      { date:"Sat, Sep 5", opp:"Phillies",    home:false,},
      { date:"Sun, Sep 6", opp:"Phillies",    home:false,},
      { date:"Mon, Sep 7", opp:"Phillies",    home:false,},
+     { date:"Tue, Sep 8", opp:"Rays",    home:true,},
+     { date:"Wed, Sep 9", opp:"Rays",    home:true,},
+     { date:"Thu, Sep 10", opp:"Rays",    home:true,},
+     { date:"Fri, Sep 11", opp:"Phillies",    home:true,},
+     { date:"Sat, Sep 12", opp:"Phillies",    home:true,},
+     { date:"Sun, Sep 13", opp:"Phillies",    home:true,},
+     { date:"Mon, Sep 14", opp:"Cubs",    home:false,},
+     { date:"Tue, Sep 15", opp:"Cubs",    home:false,},
+     { date:"Wed, Sep 16", opp:"Cubs",    home:false,},
+     { date:"Fri, Sep 18", opp:"Astros",    home:false,},
+     { date:"Sat, Sep 19", opp:"Astros",    home:false,},
+     { date:"Sun, Sep 20", opp:"Astros",    home:false,},
+     { date:"Tue, Sep 22", opp:"Reds",    home:true,},
+     { date:"Wed, Sep 23", opp:"Reds",    home:true,},
+     { date:"Thu, Sep 24", opp:"Reds",    home:true,},
+     { date:"Fri, Sep 25", opp:"Marlins",    home:false,},
+     { date:"Sat, Sep 26", opp:"Marlins",    home:false,},
+     { date:"Sun, Sep 27", opp:"Marlins",    home:false,},
+      // End of Season
    ];
    
    export const TEAM_HEADER = {
