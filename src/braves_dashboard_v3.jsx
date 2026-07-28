@@ -4037,6 +4037,7 @@ function TeamStatsTab({T}) {
 /* ── SEASON CALENDAR (GitHub-style dot grid) ─────────────────────────────── */
 function SeasonCalendar({T}) {
   const [tip, setTip] = useState(null);
+  const cardRef = useRef(null);
   const isDark = T === THEME.dark;
 
   const cal = useMemo(() => {
@@ -4107,13 +4108,20 @@ function SeasonCalendar({T}) {
   const dayLabels = ["S","M","T","W","T","F","S"];
 
   const showTip = (e, text) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    setTip({x: r.left + r.width / 2, y: r.top - 8, text});
+    if (!cardRef.current) return;
+    const dotRect  = e.currentTarget.getBoundingClientRect();
+    const cardRect = cardRef.current.getBoundingClientRect();
+    setTip({
+      x: dotRect.left - cardRect.left + dotRect.width / 2,
+      y: dotRect.top  - cardRect.top  - 8,
+      text
+    });
   };
   const hideTip = () => setTip(null);
 
   return (
-    <div style={{
+    <div ref={cardRef} style={{
+      position:"relative",
       background: cardBg,
       border: `1px solid ${T.borderFaint}`,
       borderRadius: 16,
@@ -4303,10 +4311,10 @@ function SeasonCalendar({T}) {
         </table>
       </div>
 
-      {/* Tooltip */}
+      {/* Tooltip — positioned absolute inside the card so ancestor transforms can't throw it off */}
       {tip && (
         <div style={{
-          position:"fixed",
+          position:"absolute",
           left: tip.x,
           top: tip.y,
           transform:"translate(-50%, -100%)",
