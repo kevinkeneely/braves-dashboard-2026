@@ -187,8 +187,8 @@
      { date:"Sun, Jul 26", opp:"Orioles",    home:false, result:"W", score:"3-2 F/11", record:"62-43"},
      { date:"Mon, Jul 27", opp:"Mets",    home:false, result:"L", score:"3-14", record:"62-44"},
       // Upcoming
-     { date:"Tue, Jul 28", opp:"Mets",    home:false,},
-     { date:"Wed, Jul 29", opp:"Mets",    home:false,},
+     { date:"Wed, Jul 29", opp:"Mets/GM 1",    home:false,},
+     { date:"Wed, Jul 29", opp:"Mets/GM 2",    home:false,},
      { date:"Thu, Jul 30", opp:"Nationals",    home:true,},
      { date:"Fri, Jul 31", opp:"Nationals",    home:true,},
       // August
