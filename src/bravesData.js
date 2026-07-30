@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "July 29, 2026";
+   export const lastUpdated = "July 30, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -251,18 +251,18 @@
    export const TEAM_HEADER = {
      record: "63-45",
      runs: 526,
-     era: "3.74",
-     avg: ".249",
+     era: "3.71",
+     avg: ".248",
      obp: ".315",
-     slg: ".416",
-     ops: ".732",
+     slg: ".414",
+     ops: ".729",
      wrc: 100,
      iso: ".167",
      battingK: "21.4%",
      battingBB: "8.0%",
      woba: ".319",
      xwoba: ".319",
-     fip: "4.17",
+     fip: "4.13",
      xera: "3.96",
      xfip: "4.12",
      whip: "1.26",
@@ -374,7 +374,7 @@ export const starters = [
    export const standings = [
      { team:"ATL", full:"Atlanta Braves",       w:63,l:45,pct:".583",gb:"—", home:"32-20",away:"31-25", rs:526, ra:430, diff:+96, strk:"W1", l10:"6-4", highlight:true,  srs:0.9 },
      { team:"PHI", full:"Philadelphia Phillies", w:57,l:52,pct:".523",gb:"6.5", home:"28-27",away:"29-25", rs:473, ra:488, diff:-15, strk:"L3", l10:"2-8", highlight:false, srs:0.0 },
-     { team:"WSN", full:"Washington Nationals", w:55,l:54,pct:".505",gb:"8.5", home:"23-34",away:"32-20", rs:596, ra:568, diff:+28, strk:"L1", l10:"6-4", highlight:false, srs:0.4 },
+     { team:"WSN", full:"Washington Nationals", w:55,l:54,pct:".505",gb:"8.5", home:"23-34",away:"32-20", rs:596, ra:568, diff:+28, strk:"L1", l10:"6-4", highlight:false, srs:0.3 },
      { team:"MIA", full:"Miami Marlins",        w:55,l:54,pct:".505",gb:"8.5", home:"34-23",away:"21-31", rs:481, ra:475, diff:+6, strk:"W3", l10:"3-7", highlight:false, srs:0.1 },
      { team:"NYM", full:"New York Mets",        w:46,l:63,pct:".421",gb:"17.5", home:"24-31",away:"22-32", rs:449, ra:500, diff:-51, strk:"L1", l10:"5-5", highlight:false, srs:-0.4 },
    ];
