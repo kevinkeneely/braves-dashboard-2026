@@ -249,8 +249,8 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "62-44",
-     runs: 523,
+     record: "63-45",
+     runs: 526,
      era: "3.74",
      avg: ".249",
      obp: ".315",
@@ -372,11 +372,11 @@ export const starters = [
   ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:62,l:44,pct:".585",gb:"—", home:"32-20",away:"30-24", rs:523, ra:427, diff:+96, strk:"L1", l10:"6-4", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:57,l:51,pct:".528",gb:"6.0", home:"28-27",away:"29-24", rs:467, ra:480, diff:-13, strk:"L2", l10:"3-7", highlight:false, srs:0.0 },
-     { team:"WSN", full:"Washington Nationals", w:55,l:53,pct:".509",gb:"8.0", home:"23-33",away:"32-20", rs:594, ra:563, diff:+31, strk:"W1", l10:"6-4", highlight:false, srs:0.4 },
-     { team:"MIA", full:"Miami Marlins",        w:54,l:54,pct:".500",gb:"9.0", home:"33-23",away:"21-31", rs:473, ra:469, diff:+4, strk:"W2", l10:"2-8", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:45,l:62,pct:".421",gb:"17.5", home:"23-30",away:"22-32", rs:446, ra:497, diff:-51, strk:"W2", l10:"5-5", highlight:false, srs:-0.4 },
+     { team:"ATL", full:"Atlanta Braves",       w:63,l:45,pct:".583",gb:"—", home:"32-20",away:"31-25", rs:526, ra:430, diff:+96, strk:"W1", l10:"6-4", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:57,l:52,pct:".523",gb:"6.5", home:"28-27",away:"29-25", rs:473, ra:488, diff:-15, strk:"L3", l10:"2-8", highlight:false, srs:0.0 },
+     { team:"WSN", full:"Washington Nationals", w:55,l:54,pct:".505",gb:"8.5", home:"23-34",away:"32-20", rs:596, ra:568, diff:+28, strk:"L1", l10:"6-4", highlight:false, srs:0.4 },
+     { team:"MIA", full:"Miami Marlins",        w:55,l:54,pct:".505",gb:"8.5", home:"34-23",away:"21-31", rs:481, ra:475, diff:+6, strk:"W3", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"NYM", full:"New York Mets",        w:46,l:63,pct:".421",gb:"17.5", home:"24-31",away:"22-32", rs:449, ra:500, diff:-51, strk:"L1", l10:"5-5", highlight:false, srs:-0.4 },
    ];
    
 export const statcastHitters = [
