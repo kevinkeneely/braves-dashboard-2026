@@ -1520,6 +1520,7 @@ const HIDDEN_PLAYERS = new Set([
   "Owen Murphy",
   "Brewer Hicklen",
   "AJ Smith-Shawver",
+  "Robert Suarez",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
