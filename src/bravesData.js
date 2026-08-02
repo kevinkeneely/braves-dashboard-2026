@@ -501,7 +501,7 @@ const LG_HIT = {
   chase:   { mean: 30.0,  sd: 4.0   },   // inverted (lower = better)
 };
 const W_HIT = {
-  woba: 0.26, ldpct: 0.17, whiff: 0.15, laSwSp: 0.12, hardHit: 0.11, ev: 0.11, chase: 0.08,
+  woba: 0.26, ldpct: 0.14, whiff: 0.18, laSwSp: 0.12, hardHit: 0.11, ev: 0.11, chase: 0.08,
 };
 
 const LG_PIT = {
