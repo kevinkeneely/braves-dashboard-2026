@@ -385,20 +385,21 @@ export const starters = [
    ];
    
 export const statcastHitters = [
-  // Updated August 2, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
-  // Ha-Seong Kim removed from hidden list July 31 — held today (below Savant qualifier, not on main leaderboard); pullAir 17.6% confirmed on today's pull-air leaderboard
-  // Lane Thomas newly on roster — Kevin maintaining his fields manually (not touched by refresh)
+  // Updated August 3, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
+  // MLB Trade Deadline — new player rows will appear in tomorrow's screenshots
+  // Ha-Seong Kim not on main leaderboard (below qualifier); pullAir 17.6% confirmed on today's pull-air leaderboard — held
+  // Lane Thomas — Kevin maintaining fields manually (not touched by refresh)
   // Hidden players (Tromp, León, S. Murphy, Tellez, Hicklen) — all fields held per hiding protocol
-  { name:"Michael Harris II", ev:"90.8",hardHit:"49.1%",xwoba:".353",xba:".294",xslg:".499",barrel:"11.8%",chase:"44.9%",whiff:"25.1%",kpct:"19.4%",bbpct:"3.8%", gbpct:"44.4%",fbpct:"23.9%",ldpct:"24.8%",pupct:"6.8%",pullAir:"18.9%"},
-  { name:"Matt Olson", ev:"92.6",hardHit:"50.3%",xwoba:".359",xba:".247",xslg:".513",barrel:"14.7%",chase:"26.8%",whiff:"24.8%",kpct:"24.8%",bbpct:"10.3%", gbpct:"36.9%",fbpct:"34.7%",ldpct:"19.4%",pupct:"8.9%",pullAir:"21.0%"},
+  { name:"Michael Harris II", ev:"90.9",hardHit:"49.2%",xwoba:".352",xba:".293",xslg:".496",barrel:"11.7%",chase:"44.9%",whiff:"24.9%",kpct:"19.3%",bbpct:"3.8%", gbpct:"44.6%",fbpct:"24.0%",ldpct:"24.6%",pupct:"6.8%",pullAir:"18.8%"},
+  { name:"Matt Olson", ev:"92.6",hardHit:"50.0%",xwoba:".360",xba:".248",xslg:".515",barrel:"14.8%",chase:"27.0%",whiff:"24.8%",kpct:"24.6%",bbpct:"10.2%", gbpct:"36.8%",fbpct:"34.6%",ldpct:"19.5%",pupct:"9.1%",pullAir:"21.4%"},
   { name:"Dominic Smith", ev:"87.9",hardHit:"34.1%",xwoba:".312",xba:".251",xslg:".395",barrel:"5.9%",chase:"31.2%",whiff:"20.0%",kpct:"13.7%",bbpct:"7.6%", gbpct:"40.5%",fbpct:"28.8%",ldpct:"24.9%",pupct:"5.9%",pullAir:"18.0%"},
-  { name:"Drake Baldwin", ev:"91.6",hardHit:"51.3%",xwoba:".384",xba:".281",xslg:".517",barrel:"14.6%",chase:"33.3%",whiff:"23.6%",kpct:"20.9%",bbpct:"10.9%", gbpct:"45.6%",fbpct:"24.5%",ldpct:"24.9%",pupct:"5.0%",pullAir:"12.3%"},
-  { name:"Mauricio Dubón", ev:"86.7",hardHit:"30.6%",xwoba:".310",xba:".268",xslg:".383",barrel:"4.4%",chase:"37.3%",whiff:"16.6%",kpct:"13.6%",bbpct:"6.2%", gbpct:"40.8%",fbpct:"24.2%",ldpct:"26.2%",pupct:"8.7%",pullAir:"15.2%"},
+  { name:"Drake Baldwin", ev:"91.6",hardHit:"51.5%",xwoba:".386",xba:".283",xslg:".521",barrel:"14.8%",chase:"32.9%",whiff:"23.5%",kpct:"20.7%",bbpct:"11.1%", gbpct:"45.8%",fbpct:"24.6%",ldpct:"24.6%",pupct:"4.9%",pullAir:"12.1%"},
+  { name:"Mauricio Dubón", ev:"86.7",hardHit:"30.3%",xwoba:".310",xba:".269",xslg:".384",barrel:"4.3%",chase:"37.2%",whiff:"16.5%",kpct:"13.5%",bbpct:"6.2%", gbpct:"41.0%",fbpct:"24.0%",ldpct:"26.3%",pupct:"8.7%",pullAir:"15.3%"},
   { name:"Jorge Mateo", ev:"90.3",hardHit:"46.6%",xwoba:".322",xba:".260",xslg:".440",barrel:"10.2%",chase:"41.8%",whiff:"30.8%",kpct:"29.9%",bbpct:"5.8%", gbpct:"38.6%",fbpct:"30.7%",ldpct:"27.3%",pupct:"3.4%",pullAir:"21.6%"},
-  { name:"Austin Riley", ev:"90.9",hardHit:"43.9%",xwoba:".293",xba:".205",xslg:".375",barrel:"11.0%",chase:"32.4%",whiff:"32.7%",kpct:"30.7%",bbpct:"7.8%", gbpct:"38.6%",fbpct:"30.7%",ldpct:"21.6%",pupct:"9.1%",pullAir:"17.0%"},
-  { name:"Ozzie Albies", ev:"86.8",hardHit:"28.5%",xwoba:".286",xba:".237",xslg:".364",barrel:"4.3%",chase:"38.5%",whiff:"21.6%",kpct:"14.6%",bbpct:"6.4%", gbpct:"33.9%",fbpct:"33.1%",ldpct:"24.5%",pupct:"8.5%",pullAir:"26.9%"},
-  { name:"Mike Yastrzemski", ev:"90.3",hardHit:"43.7%",xwoba:".302",xba:".228",xslg:".355",barrel:"6.6%",chase:"26.8%",whiff:"24.2%",kpct:"24.6%",bbpct:"9.8%", gbpct:"38.8%",fbpct:"31.1%",ldpct:"24.0%",pupct:"6.0%",pullAir:"23.0%"},
-  { name:"Ronald Acuña Jr.", ev:"90.2",hardHit:"44.4%",xwoba:".379",xba:".253",xslg:".493",barrel:"14.4%",chase:"25.7%",whiff:"29.6%",kpct:"22.5%",bbpct:"14.5%", gbpct:"40.6%",fbpct:"29.4%",ldpct:"21.3%",pupct:"8.8%",pullAir:"18.1%"},
+  { name:"Austin Riley", ev:"90.9",hardHit:"44.0%",xwoba:".293",xba:".206",xslg:".375",barrel:"10.9%",chase:"32.3%",whiff:"32.5%",kpct:"30.7%",bbpct:"7.8%", gbpct:"38.7%",fbpct:"30.5%",ldpct:"21.8%",pupct:"9.0%",pullAir:"16.9%"},
+  { name:"Ozzie Albies", ev:"86.8",hardHit:"28.3%",xwoba:".285",xba:".236",xslg:".363",barrel:"4.3%",chase:"38.7%",whiff:"21.5%",kpct:"14.5%",bbpct:"6.4%", gbpct:"34.1%",fbpct:"33.1%",ldpct:"24.3%",pupct:"8.5%",pullAir:"26.7%"},
+  { name:"Mike Yastrzemski", ev:"90.4",hardHit:"44.1%",xwoba:".305",xba:".230",xslg:".361",barrel:"7.0%",chase:"26.7%",whiff:"23.9%",kpct:"24.3%",bbpct:"9.7%", gbpct:"38.7%",fbpct:"31.7%",ldpct:"23.7%",pupct:"5.9%",pullAir:"23.1%"},
+  { name:"Ronald Acuña Jr.", ev:"90.3",hardHit:"45.1%",xwoba:".376",xba:".252",xslg:".489",barrel:"14.2%",chase:"26.0%",whiff:"30.1%",kpct:"22.9%",bbpct:"14.3%", gbpct:"41.4%",fbpct:"29.0%",ldpct:"21.0%",pupct:"8.6%",pullAir:"17.9%"},
   { name:"Eli White", ev:"86.4",hardHit:"31.1%",xwoba:".269",xba:".224",xslg:".326",barrel:"5.9%",chase:"29.8%",whiff:"27.7%",kpct:"21.5%",bbpct:"6.3%", gbpct:"55.3%",fbpct:"26.2%",ldpct:"16.5%",pupct:"1.9%",pullAir:"9.7%"},
   { name:"Ha-Seong Kim", ev:"85.2",hardHit:"21.6%",xwoba:".212",xba:".146",xslg:".203",barrel:"4.1%",chase:"24.4%",whiff:"21.1%",kpct:"26.8%",bbpct:"11.0%", gbpct:"43.1%",fbpct:"37.3%",ldpct:"9.8%",pupct:"9.8%",pullAir:"17.6%"},
   { name:"Sandy León", ev:"81.9",hardHit:"19.2%",xwoba:".132",xba:".135",xslg:".170",barrel:"0.0%",chase:"40.0%",whiff:"29.7%",kpct:"40.9%",bbpct:"0.0%", gbpct:"46.2%",fbpct:"15.4%",ldpct:"19.2%",pupct:"19.2%",pullAir:"30.8%"},
@@ -406,31 +407,32 @@ export const statcastHitters = [
   { name:"Sean Murphy", ev:"80.3",hardHit:"25.0%",xwoba:".133",xba:".140",xslg:".160",barrel:"0.0%",chase:"54.5%",whiff:"45.8%",kpct:"42.9%",bbpct:"0.0%", gbpct:"62.5%",fbpct:"25.0%",ldpct:"12.5%",pupct:"0.0%",pullAir:"0.0%"},
   { name:"Joey Bart", ev:"86.2",hardHit:"34.2%",xwoba:".293",xba:".208",xslg:".375",barrel:"7.9%",chase:"31.4%",whiff:"27.4%",kpct:"26.1%",bbpct:"5.0%", gbpct:"40.8%",fbpct:"35.5%",ldpct:"15.8%",pupct:"7.9%",pullAir:"21.1%"},
   { name:"Rowdy Tellez", ev:"91.8",hardHit:"42.9%",xwoba:".506",xba:".339",xslg:".828",barrel:"28.6%",chase:"29.6%",whiff:"30.4%",kpct:"27.3%",bbpct:"9.1%", gbpct:"14.3%",fbpct:"57.1%",ldpct:"28.6%",pupct:"0.0%",pullAir:"14.3%"},
-  { name:"Jim Jarvis", ev:"88.5",hardHit:"37.3%",xwoba:".290",xba:".256",xslg:".339",barrel:"4.5%",chase:"26.3%",whiff:"14.8%",kpct:"15.1%",bbpct:"5.8%", gbpct:"58.2%",fbpct:"19.4%",ldpct:"19.4%",pupct:"3.0%",pullAir:"11.9%"},
+  { name:"Jim Jarvis", ev:"88.1",hardHit:"37.7%",xwoba:".284",xba:".252",xslg:".332",barrel:"4.3%",chase:"26.2%",whiff:"15.6%",kpct:"15.7%",bbpct:"5.6%", gbpct:"59.4%",fbpct:"18.8%",ldpct:"18.8%",pupct:"2.9%",pullAir:"11.6%"},
   { name:"Brewer Hicklen", ev:"94.9",hardHit:"54.5%",xwoba:".354",xba:".256",xslg:".405",barrel:"9.1%",chase:"28.8%",whiff:"44.4%",kpct:"34.8%",bbpct:"17.4%", gbpct:"45.5%",fbpct:"18.2%",ldpct:"36.4%",pupct:"0.0%",pullAir:"18.2%"},
   { name:"Lane Thomas", ev:"89.5",hardHit:"42.6%",xwoba:".318",xba:".245",xslg:".375",barrel:"6.7%",chase:"20.6%",whiff:"21.3%",kpct:"23.8%",bbpct:"11.9%", gbpct:"36.8%",fbpct:"23.9%",ldpct:"25.4%",pupct:"13.9%",pullAir:"26.3%"},
 ];
 
 export const statcastPitchers = [
-  // Updated August 2, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
-  // James Karinchak & JR Ritchie removed from hidden list July 31 — now getting real stat updates (both had minor changes today)
-  // AJ Smith-Shawver & Robert Suarez ADDED to hidden list — all fields held per hiding protocol
+  // Updated August 3, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
+  // MLB Trade Deadline — new player rows will appear in tomorrow's screenshots
+  // Reynaldo López not on today's main pitcher leaderboard (still on pull-air leaderboard with unchanged 19.1%) — all main fields held; flag to verify if traded/DL'd
   // Elieser Hernández on today's pitcher pull-air leaderboard (27.8%) but not on main — still NOT auto-added per prior "release confirmed" note
+  // Tyler Mahle — Kevin maintaining fields manually (not touched by refresh)
   // Hidden players (Strider, Waldrep, Carrasco, Hamilton, Owen Murphy, AJ Smith-Shawver, Robert Suarez) — all fields held per hiding protocol
-  { name:"Raisel Iglesias", ev:"87.8",hardHit:"36.3%",xwoba:".267",xba:".218",xslg:".344",kpct:"27.9%",bbpct:"5.8%", barrel:"7.9%", chase:"41.0%",whiff:"30.1%",gbpct:"37.3%",fbpct:"29.4%",ldpct:"23.5%",pupct:"9.8%", pullAir:"22.5%"},
-  { name:"Dylan Lee", ev:"86.7",hardHit:"31.0%",xwoba:".235",xba:".188",xslg:".303",kpct:"33.0%",bbpct:"4.3%", barrel:"6.0%", chase:"36.8%",whiff:"38.2%",gbpct:"36.2%",fbpct:"31.0%",ldpct:"23.3%",pupct:"9.5%", pullAir:"25.9%"},
+  { name:"Raisel Iglesias", ev:"87.5",hardHit:"35.6%",xwoba:".267",xba:".216",xslg:".340",kpct:"27.8%",bbpct:"6.3%", barrel:"7.8%", chase:"40.4%",whiff:"29.7%",gbpct:"37.5%",fbpct:"28.8%",ldpct:"24.0%",pupct:"9.6%", pullAir:"22.1%"},
+  { name:"Dylan Lee", ev:"86.7",hardHit:"30.8%",xwoba:".235",xba:".187",xslg:".301",kpct:"33.0%",bbpct:"4.8%", barrel:"6.0%", chase:"36.5%",whiff:"38.2%",gbpct:"36.8%",fbpct:"30.8%",ldpct:"23.1%",pupct:"9.4%", pullAir:"25.6%"},
   { name:"Robert Suarez", ev:"84.9",hardHit:"33.0%",xwoba:".282",xba:".252",xslg:".351",kpct:"21.5%",bbpct:"5.0%", barrel:"3.4%", chase:"38.8%",whiff:"24.0%",gbpct:"47.7%",fbpct:"23.9%",ldpct:"20.5%",pupct:"8.0%", pullAir:"13.6%"},
   { name:"Bryce Elder", ev:"90.2",hardHit:"41.1%",xwoba:".309",xba:".247",xslg:".396",kpct:"20.0%",bbpct:"7.9%", barrel:"6.4%", chase:"28.1%",whiff:"22.4%",gbpct:"43.6%",fbpct:"26.4%",ldpct:"23.3%",pupct:"6.7%", pullAir:"18.6%"},
   { name:"Chris Sale", ev:"87.4",hardHit:"32.9%",xwoba:".272",xba:".221",xslg:".327",kpct:"30.4%",bbpct:"5.5%", barrel:"5.5%", chase:"35.8%",whiff:"30.7%",gbpct:"44.5%",fbpct:"24.7%",ldpct:"24.7%",pupct:"6.2%", pullAir:"16.1%"},
   { name:"Spencer Strider", ev:"89.3",hardHit:"36.0%",xwoba:".276",xba:".178",xslg:".326",kpct:"27.9%",bbpct:"12.1%", barrel:"10.5%", chase:"28.8%",whiff:"31.1%",gbpct:"30.2%",fbpct:"38.4%",ldpct:"22.1%",pupct:"9.3%", pullAir:"27.6%"},
-  { name:"Didier Fuentes", ev:"88.6",hardHit:"35.3%",xwoba:".278",xba:".224",xslg:".333",kpct:"29.3%",bbpct:"8.0%", barrel:"5.2%", chase:"31.0%",whiff:"28.3%",gbpct:"38.8%",fbpct:"26.7%",ldpct:"24.1%",pupct:"10.3%", pullAir:"8.6%"},
+  { name:"Didier Fuentes", ev:"88.7",hardHit:"35.6%",xwoba:".272",xba:".220",xslg:".326",kpct:"30.4%",bbpct:"7.7%", barrel:"5.1%", chase:"30.7%",whiff:"28.7%",gbpct:"39.0%",fbpct:"26.3%",ldpct:"24.6%",pupct:"10.2%", pullAir:"9.3%"},
   { name:"Hurston Waldrep", ev:"89.3",hardHit:"34.3%",xwoba:".359",xba:".231",xslg:".389",kpct:"16.1%",bbpct:"17.9%", barrel:"8.6%", chase:"21.1%",whiff:"23.3%",gbpct:"71.4%",fbpct:"14.3%",ldpct:"5.7%",pupct:"8.6%", pullAir:"11.4%"},
   { name:"Tyler Kinley", ev:"85.6",hardHit:"28.2%",xwoba:".285",xba:".204",xslg:".365",kpct:"24.1%",bbpct:"10.1%", barrel:"7.8%", chase:"25.2%",whiff:"27.9%",gbpct:"31.1%",fbpct:"34.0%",ldpct:"24.3%",pupct:"10.7%", pullAir:"33.0%"},
   { name:"Martín Pérez", ev:"88.3",hardHit:"37.6%",xwoba:".324",xba:".256",xslg:".394",kpct:"18.8%",bbpct:"9.8%", barrel:"6.0%", chase:"26.0%",whiff:"22.1%",gbpct:"47.9%",fbpct:"21.6%",ldpct:"25.9%",pupct:"4.6%", pullAir:"21.6%"},
   { name:"Grant Holmes", ev:"90.7",hardHit:"42.9%",xwoba:".336",xba:".251",xslg:".435",kpct:"19.6%",bbpct:"10.2%", barrel:"9.8%", chase:"31.5%",whiff:"26.7%",gbpct:"42.2%",fbpct:"27.9%",ldpct:"23.7%",pupct:"6.2%", pullAir:"20.1%"},
   { name:"Reynaldo López", ev:"87.7",hardHit:"36.4%",xwoba:".330",xba:".256",xslg:".426",kpct:"21.6%",bbpct:"9.5%", barrel:"7.7%", chase:"27.2%",whiff:"21.8%",gbpct:"36.8%",fbpct:"28.7%",ldpct:"26.8%",pupct:"7.7%", pullAir:"19.1%"},
-  { name:"JR Ritchie", ev:"89.4",hardHit:"38.0%",xwoba:".336",xba:".235",xslg:".402",kpct:"20.8%",bbpct:"14.0%", barrel:"8.7%", chase:"25.8%",whiff:"23.7%",gbpct:"45.3%",fbpct:"29.3%",ldpct:"20.0%",pupct:"5.3%", pullAir:"19.3%"},
-  { name:"Dylan Dodd", ev:"89.2",hardHit:"39.0%",xwoba:".261",xba:".195",xslg:".316",kpct:"28.8%",bbpct:"8.8%", barrel:"6.5%", chase:"32.1%",whiff:"28.4%",gbpct:"31.2%",fbpct:"27.3%",ldpct:"24.7%",pupct:"16.9%", pullAir:"35.1%"},
+  { name:"JR Ritchie", ev:"89.6",hardHit:"39.5%",xwoba:".343",xba:".240",xslg:".407",kpct:"20.7%",bbpct:"14.1%", barrel:"9.3%", chase:"25.5%",whiff:"23.3%",gbpct:"45.1%",fbpct:"29.6%",ldpct:"20.4%",pupct:"4.9%", pullAir:"20.4%"},
+  { name:"Dylan Dodd", ev:"89.0",hardHit:"38.0%",xwoba:".255",xba:".191",xslg:".309",kpct:"28.9%",bbpct:"8.6%", barrel:"6.3%", chase:"32.0%",whiff:"28.0%",gbpct:"30.4%",fbpct:"26.6%",ldpct:"25.3%",pupct:"17.7%", pullAir:"35.4%"},
   { name:"James Karinchak", ev:"88.4",hardHit:"33.3%",xwoba:".268",xba:".158",xslg:".299",kpct:"21.6%",bbpct:"13.5%", barrel:"8.3%", chase:"23.0%",whiff:"26.6%",gbpct:"29.2%",fbpct:"37.5%",ldpct:"16.7%",pupct:"16.7%", pullAir:"12.5%"},
   { name:"Carlos Carrasco", ev:"89.2",hardHit:"42.2%",xwoba:".358",xba:".325",xslg:".452",kpct:"11.1%",bbpct:"1.9%", barrel:"6.7%", chase:"43.6%",whiff:"17.2%",gbpct:"48.9%",fbpct:"11.1%",ldpct:"33.3%",pupct:"6.7%", pullAir:"26.2%"},
   { name:"Ian Hamilton", ev:"93.0",hardHit:"50.0%",xwoba:".342",xba:".307",xslg:".356",kpct:"17.4%",bbpct:"13.0%", barrel:"0.0%", chase:"30.0%",whiff:"28.6%",gbpct:"56.3%",fbpct:"12.5%",ldpct:"31.3%",pupct:"0.0%", pullAir:"12.5%"},
