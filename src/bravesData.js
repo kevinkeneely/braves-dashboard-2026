@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 2, 2026";
+   export const lastUpdated = "August 3, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -253,11 +253,11 @@
    export const TEAM_HEADER = {
      record: "67-45",
      runs: 549,
-     era: "3.69",
+     era: "3.67",
      avg: ".249",
      obp: ".315",
-     slg: ".417",
-     ops: ".732",
+     slg: ".418",
+     ops: ".733",
      wrc: 100,
      iso: ".168",
      battingK: "21.3%",
