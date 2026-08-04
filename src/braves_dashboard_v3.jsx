@@ -1527,6 +1527,7 @@ const HIDDEN_PLAYERS = new Set([
   "Robert Suarez",
   "Eli White",
   "Jorge Mateo",
+  "Joey Bart",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
