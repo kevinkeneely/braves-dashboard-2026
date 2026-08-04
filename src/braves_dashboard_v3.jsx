@@ -1530,6 +1530,7 @@ const HIDDEN_PLAYERS = new Set([
   "Joey Bart",
   "JR Ritchie",
   "James Karinchak",
+  "Reynaldo López",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
