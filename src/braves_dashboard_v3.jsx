@@ -1528,6 +1528,8 @@ const HIDDEN_PLAYERS = new Set([
   "Eli White",
   "Jorge Mateo",
   "Joey Bart",
+  "JR Ritchie",
+  "James Karinchak",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
