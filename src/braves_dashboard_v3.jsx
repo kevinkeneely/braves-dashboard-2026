@@ -1518,7 +1518,6 @@ const HIDDEN_PLAYERS = new Set([
   "Sandy León",
   "Ian Hamilton",
   "Carlos Carrasco",
-  "Sean Murphy",
   "Rowdy Tellez",
   "Hurston Waldrep",
   "Spencer Strider",
@@ -1526,6 +1525,8 @@ const HIDDEN_PLAYERS = new Set([
   "Brewer Hicklen",
   "AJ Smith-Shawver",
   "Robert Suarez",
+  "Eli White",
+  "Jorge Mateo",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
