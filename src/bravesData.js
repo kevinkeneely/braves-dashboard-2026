@@ -442,8 +442,8 @@ export const statcastPitchers = [
   { name:"Owen Murphy", ev:"94.1",hardHit:"55.0%",xwoba:".353",xba:".280",xslg:".451",kpct:"20.7%",bbpct:"6.9%", barrel:"10.0%", chase:"38.0%",whiff:"17.1%",gbpct:"20.0%",fbpct:"25.0%",ldpct:"45.0%",pupct:"10.0%", pullAir:"30.0%"},
   { name:"Víctor Mederos", ev:"89.6",hardHit:"40.9%",xwoba:".262",xba:".221",xslg:".314",kpct:"18.6%",bbpct:"6.8%", barrel:"4.5%", chase:"33.6%",whiff:"32.1%",gbpct:"38.6%",fbpct:"22.7%",ldpct:"18.2%",pupct:"20.5%", pullAir:"18.2%"},
   { name:"AJ Smith-Shawver", ev:"92.0",hardHit:"53.8%",xwoba:".387",xba:".299",xslg:".522",kpct:"21.1%",bbpct:"10.5%", barrel:"15.4%", chase:"18.2%",whiff:"6.9%",gbpct:"38.5%",fbpct:"30.8%",ldpct:"30.8%",pupct:"0.0%", pullAir:"23.1%"},
-  { name:"Tyler Mahle", ev:"89.8",hardHit:"36.6%",xwoba:".312",xba:".244",xslg:".390",kpct:"22.0%",bbpct:"9.2%", barrel:"6.9%", chase:"28.3%",whiff:"21.6%",gbpct:"0.0%",fbpct:"0.0%",ldpct:"0.0%",pupct:"0.0%", pullAir:"14.9%"},
-  { name:"Brent Suter", ev:"86.3",hardHit:"30.4%",xwoba:".319",xba:".264",xslg:".413",kpct:"20.7%",bbpct:"6.8%", barrel:"6.4%", chase:"0.0%",whiff:"0.0%",gbpct:"0.0%",fbpct:"0.0%",ldpct:"0.0%",pupct:"0.0%", pullAir:"0.0%"},
+  { name:"Tyler Mahle", ev:"89.8",hardHit:"36.6%",xwoba:".312",xba:".244",xslg:".390",kpct:"22.0%",bbpct:"9.2%", barrel:"6.9%", chase:"28.3%",whiff:"21.6%",gbpct:"44.2%",fbpct:"27.9%",ldpct:"21.7%",pupct:"6.2%", pullAir:"14.9%"},
+  { name:"Brent Suter", ev:"86.3",hardHit:"30.4%",xwoba:".319",xba:".264",xslg:".413",kpct:"20.7%",bbpct:"6.8%", barrel:"6.4%", chase:"28.9%",whiff:"22.3%",gbpct:"49.2%",fbpct:"20.9%",ldpct:"24.6%",pupct:"5.2%", pullAir:"16.2%"},
 ];
    
    export const hitterWarProgress = [
