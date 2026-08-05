@@ -164,6 +164,8 @@ const LEAGUE_AVG = {
   // K% / BB% — same league averages; invert flag is set per column at the call site
   kpct:   { mean: 22.1,  spread: 3.5 },
   bbpct:  { mean: 8.9,   spread: 1.8 },
+  // K-BB% — higher is better for pitchers (not inverted)
+  kbb:    { mean: 13.2,  spread: 3.0 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
   era:    { mean: 4.19,  spread: 0.80 },
   fip:    { mean: 4.19,  spread: 0.80 },
@@ -221,7 +223,7 @@ const LG_AVG_SLASH_KEYS  = new Set(["avg","obp","slg","ops","woba","xwoba","xba"
 const LG_AVG_TWO_DEC_KEYS = new Set(["era","fip","xfip","siera","whip"]);
 const LG_AVG_INT_KEYS     = new Set(["wrc"]);
 const LG_AVG_PCT_KEYS     = new Set([
-  "kpct","bbpct","swstr","cstr","csw",
+  "kpct","bbpct","kbb","swstr","cstr","csw",
   "hardHit","barrel","chase","whiff",
   "squaredUp","fastSwing","laSwSp","idealAttack",
   "gbpct","fbpct","ldpct","pupct","pullAir",
@@ -3123,6 +3125,7 @@ function PitchingTab({T, onSelect}) {
     { key:"whip",  label:"WHIP",  invert:true },
     { key:"kpct",  label:"K%"    },
     { key:"bbpct", label:"BB%",   invert:true },
+    { key:"kbb",   label:"K-BB%" },
     { key:"fip",   label:"FIP",   invert:true },
     { key:"xfip",  label:"xFIP",  invert:true },
     { key:"siera", label:"SIERA", invert:true },
@@ -3132,10 +3135,18 @@ function PitchingTab({T, onSelect}) {
     { key:"war",   label:"bWAR"  },
     { key:"war2",  label:"fWAR"  },
   ];
-  const allArms = useMemo(() => [
-    ...starters.map(p => ({...p, displayRole:"SP", recLabel:"W-L", recValue:p.wl})),
-    ...bullpen.map(p => ({...p, displayRole:p.role, recLabel:p.role === "CL" ? "SV" : "W-L", recValue:p.role === "CL" ? p.sv : (p.wl || "0-0")})),
-  ].filter(p => !isHidden(p.name)), []);
+ const allArms = useMemo(() => {
+    const withKbb = (p) => {
+      const k = parseStat(p.kpct);
+      const b = parseStat(p.bbpct);
+      const kbb = (k != null && b != null) ? ((k - b).toFixed(1) + "%") : null;
+      return {...p, kbb};
+    };
+    return [
+      ...starters.map(p => withKbb({...p, displayRole:"SP", recLabel:"W-L", recValue:p.wl})),
+      ...bullpen.map(p => withKbb({...p, displayRole:p.role, recLabel:p.role === "CL" ? "SV" : "W-L", recValue:p.role === "CL" ? p.sv : (p.wl || "0-0")})),
+    ].filter(p => !isHidden(p.name));
+  }, []);
   const sorted = useMemo(() => {
     const arr = allArms.slice();
     arr.sort((a,b) => {
