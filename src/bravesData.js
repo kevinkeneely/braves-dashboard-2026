@@ -197,7 +197,7 @@
       // August
      { date:"Sat, Aug 1", opp:"Nationals",    home:true, result:"W", score:"8-3", record:"66-45"},
      { date:"Sun, Aug 2", opp:"Nationals",    home:true, result:"W", score:"4-2", record:"67-45"},
-     { date:"Tue, Aug 4", opp:"Marlins",    home:true, result:"W", score"4-2", record:"68-45"},
+     { date:"Tue, Aug 4", opp:"Marlins",    home:true, result:"W", score:"4-2", record:"68-45"},
       // Upcoming
      { date:"Wed, Aug 5", opp:"Marlins",    home:true,},
      { date:"Thu, Aug 6", opp:"Marlins",    home:true,},
