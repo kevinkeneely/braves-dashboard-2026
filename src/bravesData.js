@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 4, 2026";
+   export const lastUpdated = "August 5, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -263,29 +263,29 @@
      wrc: 101,
      iso: ".169",
      battingK: "21.2%",
-     battingBB: "8.0%",
+     battingBB: "7.9%",
      woba: ".320",
      xwoba: ".320",
-     fip: "4.14",
-     xera: "4.00",
+     fip: "4.12",
+     xera: "3.99",
      xfip: "4.11",
      whip: "1.24",
      gb: "41.6%",
-     siera: "4.02",
-     pitchingK: "23.0%",
+     siera: "4.03",
+     pitchingK: "22.9%",
      pitchingBB: "9.2%",
      pitchingKBB: "13.8%",
      swstr: "11.4%",
      cstr: "16.0%",
      csw: "27.4%",
-     fastSwing: "27.1%",
-     sqUpSw: "24.3%",
-     blastSw: "10.3%",
-     idealAtk: "50.0%",
-     batFastSwing: "32.1%",
+     fastSwing: "27.3%",
+     sqUpSw: "24.4%",
+     blastSw: "10.2%",
+     idealAtk: "50.1%",
+     batFastSwing: "32.2%",
      batSqUpSw: "24.3%",
      batBlastSw: "11.0%",
-     batIdealAtk: "49.6%",
+     batIdealAtk: "49.5%",
      batSwStr: "11.0%",
      batCStr: "14.8%",
      batCSW: "25.8%",
