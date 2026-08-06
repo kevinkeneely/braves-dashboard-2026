@@ -3137,6 +3137,7 @@ function PitchingTab({T, onSelect}) {
   ];
  const allArms = useMemo(() => {
     const withKbb = (p) => {
+      if (p.kbb != null && p.kbb !== "") return p; // exact value already stored (from FanGraphs)
       const k = parseStat(p.kpct);
       const b = parseStat(p.bbpct);
       const kbb = (k != null && b != null) ? ((k - b).toFixed(1) + "%") : null;
