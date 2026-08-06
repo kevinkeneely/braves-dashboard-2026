@@ -50,7 +50,7 @@
       //   - Hurston Waldrep
       //   - JR Ritchie
       //   - Owen Murphy
-      //  - Tyler Mahle
+      //   - Tyler Mahle
    
       BULLPEN (11):
       //   - Raisel Iglesias
