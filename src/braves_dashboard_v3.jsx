@@ -4460,7 +4460,7 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco", "White", "Bart", "Mateo", "Waldrep", "Hicklen"]);
 
   // Define which pitcher keys are starters vs. relievers
   const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Smith-Shawver", "Waldrep", "O.Murphy", "Mahle"]);
