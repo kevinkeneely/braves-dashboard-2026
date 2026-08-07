@@ -460,8 +460,8 @@ export const statcastPitchers = [
      { week:"G90", "Olson":2.9,"Albies":1.8,"Baldwin":1.4,"Harris":2.6,"Dubón":2.1,"Acuña":0.9,"Smith":-0.2,"Mateo":0.7,"Riley":0.0,"White":0.4,"Yaz":0.2,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.0,"Tellez":0.0,"Jarvis":-0.1,"Hicklen":0.0,"Thomas":0.0 },
      { week:"All-Star", "Olson":2.8,"Albies":1.7,"Baldwin":1.4,"Harris":2.5,"Dubón":2.1,"Acuña":0.9,"Smith":-0.2,"Mateo":0.5,"Riley":0.1,"White":0.4,"Yaz":0.4,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.1,"Tellez":0.0,"Jarvis":0.2,"Hicklen":0.0,"Thomas":0.0 },
      { week:"G100", "Olson":2.9,"Albies":1.6,"Baldwin":2.0,"Harris":2.9,"Dubón":1.9,"Acuña":0.9,"Smith":-0.3,"Mateo":0.6,"Riley":0.5,"White":0.5,"Yaz":0.3,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.1,"Tellez":0.0,"Jarvis":0.2,"Hicklen":0.2,"Thomas":0.0 },
-     { week:"G108", "Olson":3.0,"Albies":1.6,"Baldwin":2.4,"Harris":3.0,"Dubón":1.7,"Acuña":0.6,"Smith":-0.2,"Mateo":0.5,"Riley":0.4,"White":0.6,"Yaz":0.2,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.3,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.8 },
-     { week:"G114", "Olson":3.0,"Albies":1.6,"Baldwin":2.4,"Harris":3.0,"Dubón":1.7,"Acuña":0.6,"Smith":-0.2,"Mateo":0.5,"Riley":0.4,"White":0.6,"Yaz":0.2,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.3,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.8 },
+     { week:"G108", "Olson":3.0,"Albies":1.6,"Baldwin":2.4,"Harris":3.0,"Dubón":1.7,"Acuña":0.6,"Smith":-0.2,"Mateo":0.5,"Riley":0.4,"White":0.6,"Yaz":0.2,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.3,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.0 },
+     { week:"G114", "Olson":3.5,"Albies":1.6,"Baldwin":2.2,"Harris":3.1,"Dubón":1.8,"Acuña":0.7,"Smith":-0.1,"Mateo":0.6,"Riley":0.8,"White":0.6,"Yaz":0.4,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.2,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.7 },
    ];
    
    export const pitcherWarProgress = [
@@ -481,7 +481,7 @@ export const statcastPitchers = [
      { week:"All-Star", "Sale":2.7,"Lee":1.7,"Fuentes":1.2,"Elder":1.1,"Iglesias":1.0,"Suarez":0.8,"Pérez":0.6,"López":0.5,"Dodd":0.3,"Holmes":0.2,"Mederos":0.1,"Kinley":0.0,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.1,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.1,"Smith-Shawver":0.0,"Mahle":0.0,"Suter":0.0 },
      { week:"G100", "Sale":3.1,"Lee":1.8,"Fuentes":1.4,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":0.6,"López":0.3,"Dodd":0.4,"Holmes":0.3,"Mederos":0.3,"Kinley":-0.1,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.0,"Mahle":0.0,"Suter":0.0 },
      { week:"G108", "Sale":3.9,"Lee":1.6,"Fuentes":1.4,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":0.7,"López":0.5,"Dodd":0.5,"Holmes":0.5,"Mederos":0.3,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.0,"Suter":0.0 },
-     { week:"G114", "Sale":3.9,"Lee":1.6,"Fuentes":1.4,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":0.7,"López":0.5,"Dodd":0.5,"Holmes":0.5,"Mederos":0.3,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.0,"Suter":0.0 },
+     { week:"G114", "Sale":3.9,"Lee":1.7,"Fuentes":1.7,"Elder":1.3,"Iglesias":0.8,"Suarez":0.8,"Pérez":0.9,"López":0.5,"Dodd":0.6,"Holmes":0.4,"Mederos":0.4,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.8,"Suter":0.5 },
    ];
 
 // ════════════════════════════════════════════════════════════════════════════
