@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 6, 2026";
+   export const lastUpdated = "August 7, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -261,7 +261,7 @@
      slg: ".421",
      ops: ".737",
      wrc: 102,
-     iso: ".168",
+     iso: ".170",
      battingK: "21.3%",
      battingBB: "7.9%",
      woba: ".320",
