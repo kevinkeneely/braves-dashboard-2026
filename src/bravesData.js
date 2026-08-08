@@ -200,7 +200,7 @@
      { date:"Tue, Aug 4", opp:"Marlins",    home:true, result:"W", score:"4-2", record:"68-45"},
      { date:"Wed, Aug 5", opp:"Marlins",    home:true, result:"W", score:"4-1", record:"69-45"},
      { date:"Thu, Aug 6", opp:"Marlins",    home:true, result:"W", score:"11-3", record:"70-45"},
-     { date:"Fri, Aug 7", opp:"Yankees",    home:false, result:"L", score:"2-3", record:"70-46"},
+     { date:"Fri, Aug 7", opp:"Yankees",    home:false, result:"L", score:"2-3 F/10", record:"70-46"},
      { date:"Sat, Aug 8", opp:"Yankees",    home:false, result:"L", score:"4-5", record:"70-47"},
       // Upcoming
      { date:"Sun, Aug 9", opp:"Yankees",    home:false,},
