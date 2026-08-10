@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 8, 2026";
+   export const lastUpdated = "August 10, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -202,8 +202,8 @@
      { date:"Thu, Aug 6", opp:"Marlins",    home:true, result:"W", score:"11-3", record:"70-45"},
      { date:"Fri, Aug 7", opp:"Yankees",    home:false, result:"L", score:"2-3 F/10", record:"70-46"},
      { date:"Sat, Aug 8", opp:"Yankees",    home:false, result:"L", score:"4-5", record:"70-47"},
+     { date:"Sun, Aug 9", opp:"Yankees",    home:false, result:"W", score:"2-1 F/10", record:"71-47"},
       // Upcoming
-     { date:"Sun, Aug 9", opp:"Yankees",    home:false,},
      { date:"Mon, Aug 10", opp:"Mets",    home:true,},
      { date:"Tue, Aug 11", opp:"Mets",    home:true,},
      { date:"Wed, Aug 12", opp:"Mets",    home:true,},
@@ -253,8 +253,8 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "70-47",
-     runs: 574,
+     record: "71-47",
+     runs: 576,
      era: "3.63",
      avg: ".250",
      obp: ".315",
@@ -379,7 +379,7 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:70,l:47,pct:".598",gb:"—", home:"39-20",away:"31-27", rs:574, ra:455, diff:+119, strk:"L2", l10:"8-2", highlight:true,  srs:1.0 },
+     { team:"ATL", full:"Atlanta Braves",       w:71,l:47,pct:".598",gb:"—", home:"39-20",away:"32-27", rs:576, ra:456, diff:+120, strk:"W1", l10:"8-2", highlight:true,  srs:1.0 },
      { team:"PHI", full:"Philadelphia Phillies", w:62,l:56,pct:".525",gb:"8.5", home:"31-30",away:"31-26", rs:521, ra:522, diff:-1, strk:"L2", l10:"5-5", highlight:false, srs:0.1 },
      { team:"MIA", full:"Miami Marlins",        w:59,l:59,pct:".500",gb:"11.5", home:"35-24",away:"24-35", rs:512, ra:506, diff:+6, strk:"W1", l10:"5-5", highlight:false, srs:0.0 },
      { team:"WSN", full:"Washington Nationals", w:58,l:61,pct:".487",gb:"13.0", home:"25-34",away:"33-27", rs:636, ra:618, diff:+18, strk:"W2", l10:"3-7", highlight:false, srs:0.2 },
