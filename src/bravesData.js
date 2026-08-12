@@ -270,7 +270,7 @@
      xera: "3.99",
      xfip: "4.09",
      whip: "1.24",
-     gb: "41.5%",
+     gb: "41.4%",
      siera: "4.01",
      pitchingK: "23.0%",
      pitchingBB: "9.3%",
@@ -289,33 +289,33 @@
      batSwStr: "11.1%",
      batCStr: "14.8%",
      batCSW: "25.9%",
-     batChase: "33.6%",
+     batChase: "33.5%",
      batWhiff: "24.7%",
-     chase: "30.1%",
+     chase: "30.2%",
      whiff: "26.5%",
      batBatSpeed: "72.7",
      batSpeed: "72.3",
 // Plate Discipline additions
      batZoneSwing: "68.8",
      batZoneContact: "83.8%",
-     batChaseContact: "60.2%",
-     zoneSwing: "67.2%",
+     batChaseContact: "60.1%",
+     zoneSwing: "67.1%",
      zoneContact: "83.5%",
-     chaseContact: "53.8%",
+     chaseContact: "53.9%",
 // Statcast (hitters)
      batBarrel: "9.0%",
-     batHardHit: "40.1%",
+     batHardHit: "40.3%",
      batExitVelo: "89.3",
      batXBA: ".246",
-     batXSLG: ".417",
+     batXSLG: ".416",
      batXwOBAcon: ".370",
 // batXwOBA reuses existing `xwoba` field (.326)
 // Statcast (pitchers)
      barrel: "7.5%",
-     hardHit: "38.2%",
+     hardHit: "38.4%",
      exitVelo: "88.9",
      xBA: ".237",
-     xSLG: ".383",
+     xSLG: ".384",
      pXwOBA: ".309",
      xwOBAcon: ".358",
  };
@@ -460,7 +460,7 @@ export const statcastPitchers = [
      { week:"G100", "Olson":2.9,"Albies":1.6,"Baldwin":2.0,"Harris":2.9,"Dubón":1.9,"Acuña":0.9,"Smith":-0.3,"Mateo":0.6,"Riley":0.5,"White":0.5,"Yaz":0.3,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.1,"Tellez":0.0,"Jarvis":0.2,"Hicklen":0.2,"Thomas":0.0 },
      { week:"G108", "Olson":3.0,"Albies":1.6,"Baldwin":2.4,"Harris":3.0,"Dubón":1.7,"Acuña":0.6,"Smith":-0.2,"Mateo":0.5,"Riley":0.4,"White":0.6,"Yaz":0.2,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.3,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.0 },
      { week:"G114", "Olson":3.5,"Albies":1.6,"Baldwin":2.2,"Harris":3.1,"Dubón":1.8,"Acuña":0.7,"Smith":-0.1,"Mateo":0.6,"Riley":0.8,"White":0.6,"Yaz":0.4,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.2,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.7 },
-     { week:"G120", "Olson":3.5,"Albies":1.6,"Baldwin":2.2,"Harris":3.1,"Dubón":1.8,"Acuña":0.7,"Smith":-0.1,"Mateo":0.6,"Riley":0.8,"White":0.6,"Yaz":0.4,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":-0.2,"Bart":0.2,"Tellez":0.0,"Jarvis":0.1,"Hicklen":0.3,"Thomas":0.7 },
+     { week:"G120", "Olson":3.9,"Albies":1.7,"Baldwin":2.1,"Harris":3.2,"Dubón":1.8,"Acuña":0.8,"Smith":-0.2,"Mateo":0.6,"Riley":0.7,"White":0.6,"Yaz":0.4,"León":-0.5,"Kim":-1.2,"Tromp":-0.2,"Murphy":-0.3,"Bart":0.2,"Tellez":0.0,"Jarvis":0.0,"Hicklen":0.3,"Thomas":0.7 },
    ];
    
    export const pitcherWarProgress = [
@@ -481,7 +481,7 @@ export const statcastPitchers = [
      { week:"G100", "Sale":3.1,"Lee":1.8,"Fuentes":1.4,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":0.6,"López":0.3,"Dodd":0.4,"Holmes":0.3,"Mederos":0.3,"Kinley":-0.1,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.0,"Mahle":0.0,"Suter":0.0 },
      { week:"G108", "Sale":3.9,"Lee":1.6,"Fuentes":1.4,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":0.7,"López":0.5,"Dodd":0.5,"Holmes":0.5,"Mederos":0.3,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.0,"Suter":0.0 },
      { week:"G114", "Sale":3.9,"Lee":1.7,"Fuentes":1.7,"Elder":1.3,"Iglesias":0.8,"Suarez":0.8,"Pérez":0.9,"López":0.5,"Dodd":0.6,"Holmes":0.4,"Mederos":0.4,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.8,"Suter":0.5 },
-     { week:"G120", "Sale":3.9,"Lee":1.7,"Fuentes":1.7,"Elder":1.3,"Iglesias":0.8,"Suarez":0.8,"Pérez":0.9,"López":0.5,"Dodd":0.6,"Holmes":0.4,"Mederos":0.4,"Kinley":-0.3,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.2,"Smith-Shawver":0.1,"Mahle":0.8,"Suter":0.5 },
+     { week:"G120", "Sale":4.2,"Lee":1.8,"Fuentes":1.7,"Elder":1.1,"Iglesias":0.9,"Suarez":0.8,"Pérez":1.1,"López":0.5,"Dodd":0.7,"Holmes":0.5,"Mederos":0.3,"Kinley":-0.2,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.4,"Smith-Shawver":0.1,"Mahle":1.2,"Suter":0.6 },
    ];
 
 // ════════════════════════════════════════════════════════════════════════════
