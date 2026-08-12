@@ -352,16 +352,16 @@ const TWO_OUTS_AVG = {
 /* 2026 MLB league averages vs. LHP (from FanGraphs splits leaderboard).
    Used only to color the "vs. LHP" tile grid in the profile Splits tab. */
 const VS_LHP_AVG = {
-  avg:   { mean: 0.243, spread: 0.030 },
-  obp:   { mean: 0.318, spread: 0.030 },
-  slg:   { mean: 0.395, spread: 0.045 },
-  ops:   { mean: 0.713, spread: 0.070 },
-  wrc:   { mean: 98,    spread: 20    },
-  woba:  { mean: 0.314, spread: 0.030 },
-  iso:   { mean: 0.153, spread: 0.045 },
-  babip: { mean: 0.291, spread: 0.035 },
+  avg:   { mean: 0.242, spread: 0.030 },
+  obp:   { mean: 0.317, spread: 0.030 },
+  slg:   { mean: 0.393, spread: 0.045 },
+  ops:   { mean: 0.710, spread: 0.070 },
+  wrc:   { mean: 97,    spread: 20    },
+  woba:  { mean: 0.313, spread: 0.030 },
+  iso:   { mean: 0.150, spread: 0.045 },
+  babip: { mean: 0.292, spread: 0.035 },
   bbpct: { mean: 8.9,   spread: 3.0   },
-  kpct:  { mean: 22.5,  spread: 4.0   },
+  kpct:  { mean: 22.7,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages vs. RHP (from FanGraphs splits leaderboard).
@@ -369,47 +369,47 @@ const VS_LHP_AVG = {
 const VS_RHP_AVG = {
   avg:   { mean: 0.244, spread: 0.030 },
   obp:   { mean: 0.319, spread: 0.030 },
-  slg:   { mean: 0.405, spread: 0.045 },
-  ops:   { mean: 0.724, spread: 0.070 },
+  slg:   { mean: 0.404, spread: 0.045 },
+  ops:   { mean: 0.723, spread: 0.070 },
   wrc:   { mean: 101,   spread: 20    },
   woba:  { mean: 0.318, spread: 0.030 },
-  iso:   { mean: 0.161, spread: 0.045 },
-  babip: { mean: 0.287, spread: 0.035 },
-  bbpct: { mean: 9.0,   spread: 3.0   },
-  kpct:  { mean: 22.0,  spread: 4.0   },
+  iso:   { mean: 0.160, spread: 0.045 },
+  babip: { mean: 0.288, spread: 0.035 },
+  bbpct: { mean: 8.9,   spread: 3.0   },
+  kpct:  { mean: 21.9,  spread: 4.0   },
 };
 
 /* 2026 MLB league averages for PITCHERS vs. LHH (FanGraphs splits leaderboard).
    Used only to color the "vs. LHH" tile grid on the pitcher profile Splits tab.
    For most pitching stats lower = better, so heat() is called with invert=true. */
 const VS_LHH_AVG = {
-  era:   { mean: 4.31,  spread: 1.00  },
-  fip:   { mean: 4.34,  spread: 1.00  },
-  xfip:  { mean: 4.29,  spread: 0.80  },
+  era:   { mean: 4.22,  spread: 1.00  },
+  fip:   { mean: 4.29,  spread: 1.00  },
+  xfip:  { mean: 4.26,  spread: 0.80  },
   whip:  { mean: 1.35,  spread: 0.20  },
   avg:   { mean: 0.246, spread: 0.030 },
-  obp:   { mean: 0.326, spread: 0.030 },
-  slg:   { mean: 0.410, spread: 0.045 },
-  woba:  { mean: 0.323, spread: 0.030 },
+  obp:   { mean: 0.324, spread: 0.030 },
+  slg:   { mean: 0.407, spread: 0.045 },
+  woba:  { mean: 0.321, spread: 0.030 },
   kpct:  { mean: 22.0,  spread: 4.0   },
   bbpct: { mean: 9.6,   spread: 3.0   },
-  kbb:   { mean: 12.4,  spread: 5.0   },
+  kbb:   { mean: 12.3,  spread: 5.0   },
 };
 
 /* 2026 MLB league averages for PITCHERS vs. RHH (FanGraphs splits leaderboard).
    Used only to color the "vs. RHH" tile grid on the pitcher profile Splits tab. */
 const VS_RHH_AVG = {
-  era:   { mean: 4.13,  spread: 1.00  },
-  fip:   { mean: 4.10,  spread: 1.00  },
-  xfip:  { mean: 4.14,  spread: 0.80  },
+  era:   { mean: 4.14,  spread: 1.00  },
+  fip:   { mean: 4.07,  spread: 1.00  },
+  xfip:  { mean: 4.10,  spread: 0.80  },
   whip:  { mean: 1.26,  spread: 0.20  },
-  avg:   { mean: 0.241, spread: 0.030 },
-  obp:   { mean: 0.312, spread: 0.030 },
-  slg:   { mean: 0.394, spread: 0.045 },
-  woba:  { mean: 0.311, spread: 0.030 },
-  kpct:  { mean: 22.2,  spread: 4.0   },
-  bbpct: { mean: 8.4,   spread: 3.0   },
-  kbb:   { mean: 13.8,  spread: 5.0   },
+  avg:   { mean: 0.242, spread: 0.030 },
+  obp:   { mean: 0.313, spread: 0.030 },
+  slg:   { mean: 0.395, spread: 0.045 },
+  woba:  { mean: 0.312, spread: 0.030 },
+  kpct:  { mean: 22.3,  spread: 4.0   },
+  bbpct: { mean: 8.3,   spread: 3.0   },
+  kbb:   { mean: 14.0,  spread: 5.0   },
 };
 /** Build a heatRef for the heat() function from LEAGUE_AVG, or return null if
     the stat has no league baseline (plain rendering). */
