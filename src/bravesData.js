@@ -485,7 +485,7 @@ export const statcastPitchers = [
 
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
-// Updated June 25, 2026
+// Updated August 11, 2026
 //   Hitters:  wOBA (23) · LD% (17) · Whiff% inv (15) · LA SwSp% (12) ·
 //             Hard Hit% (11) · EV (11) · Chase% inv (08)
 //   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
@@ -500,25 +500,25 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 
 // ─── League constants ──────────────────────────────────────────────────────
 const LG_HIT = {
-  woba:    { mean: 0.317, sd: 0.030 },
-  ldpct:   { mean: 23.7,  sd: 3.0   },
-  whiff:   { mean: 25.0,  sd: 4.0   },   // inverted (lower = better)
+  woba:    { mean: 0.316, sd: 0.030 },
+  ldpct:   { mean: 23.6,  sd: 3.0   },
+  whiff:   { mean: 25.1,  sd: 4.0   },   // inverted (lower = better)
   laSwSp:  { mean: 33.7,  sd: 4.0   },
-  hardHit: { mean: 39.2,  sd: 6.0   },
-  ev:      { mean: 88.7,  sd: 2.0   },
-  chase:   { mean: 30.0,  sd: 4.0   },   // inverted (lower = better)
+  hardHit: { mean: 38.8,  sd: 6.0   },
+  ev:      { mean: 88.8,  sd: 2.0   },
+  chase:   { mean: 30.4,  sd: 4.0   },   // inverted (lower = better)
 };
 const W_HIT = {
   woba: 0.26, ldpct: 0.14, whiff: 0.18, laSwSp: 0.12, hardHit: 0.11, ev: 0.11, chase: 0.08,
 };
 
 const LG_PIT = {
-  siera: { mean: 4.05,  sd: 0.50  },   // inverted (lower = better)
-  kbb:   { mean: 15.0,  sd: 5.0   },
+  siera: { mean: 4.07,  sd: 0.50  },   // inverted (lower = better)
+  kbb:   { mean: 13.2,  sd: 5.0   },
   whip:  { mean: 1.30,  sd: 0.15  },   // inverted (lower = better)
-  xwoba: { mean: 0.320, sd: 0.030 },   // inverted (lower allowed = better)
-  swstr: { mean: 11.5,  sd: 2.5   },
-  ev:    { mean: 88.7,  sd: 2.0   },   // inverted (lower allowed = better)
+  xwoba: { mean: 0.315, sd: 0.030 },   // inverted (lower allowed = better)
+  swstr: { mean: 10.9,  sd: 2.5   },
+  ev:    { mean: 88.8,  sd: 2.0   },   // inverted (lower allowed = better)
 };
 const W_PIT = {
   siera: 0.26, kbb: 0.24, whip: 0.20, xwoba: 0.12, swstr: 0.10, ev: 0.08,
