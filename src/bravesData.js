@@ -380,9 +380,9 @@ export const starters = [
    
    export const standings = [
      { team:"ATL", full:"Atlanta Braves",       w:73,l:48,pct:".603",gb:"—", home:"41-21",away:"32-27", rs:591, ra:467, diff:+124, strk:"W2", l10:"7-3", highlight:true,  srs:1.0 },
-     { team:"PHI", full:"Philadelphia Phillies", w:64,l:58,pct:".525",gb:"9.5", home:"32-30",away:"32-28", rs:535, ra:542, diff:-7, strk:"L2", l10:"5-5", highlight:false, srs:0.1 },
-     { team:"MIA", full:"Miami Marlins",        w:62,l:59,pct:".512",gb:"11.0", home:"38-24",away:"24-35", rs:534, ra:511, diff:+23, strk:"W4", l10:"6-4", highlight:false, srs:0.2 },
-     { team:"WSN", full:"Washington Nationals", w:59,l:63,pct:".484",gb:"14.5", home:"26-36",away:"33-27", rs:655, ra:639, diff:+16, strk:"L2", l10:"4-6", highlight:false, srs:0.3 },
+     { team:"PHI", full:"Philadelphia Phillies", w:65,l:58,pct:".528",gb:"9.0", home:"32-30",away:"33-28", rs:542, ra:543, diff:-1, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"MIA", full:"Miami Marlins",        w:62,l:60,pct:".508",gb:"11.5", home:"38-25",away:"24-35", rs:535, ra:524, diff:+11, strk:"L1", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:60,l:63,pct:".488",gb:"14.0", home:"27-36",away:"33-27", rs:662, ra:639, diff:+23, strk:"W1", l10:"5-5", highlight:false, srs:0.3 },
      { team:"NYM", full:"New York Mets",        w:53,l:69,pct:".434",gb:"20.5", home:"25-34",away:"28-35", rs:510, ra:557, diff:-47, strk:"L2", l10:"6-4", highlight:false, srs:-0.2 },
    ];
    
