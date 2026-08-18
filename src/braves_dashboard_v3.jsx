@@ -1879,7 +1879,7 @@ const PITCHER_WAR_KEY = {
   "Brent Suter":"Suter",
 };
 
-function FullProfile({T, mode, player, onClose}) {
+function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
   const isHitter = player.kind === "hitter";
   const d = player.data;
   const tier = isHitter ? hitterRoleTier(d) : pitcherRoleTier(d);
@@ -2068,9 +2068,9 @@ function FullProfile({T, mode, player, onClose}) {
 
       {/* Two-column flat stat layout */}
       {isHitter ? (
-        <HitterStatBoxes T={T} d={d} sc={sc}/>
+        <HitterStatBoxes T={T} d={d} sc={sc} defaultTab={defaultTab}/>
       ) : (
-        <PitcherStatBoxes T={T} d={d} sc={sc}/>
+        <PitcherStatBoxes T={T} d={d} sc={sc} defaultTab={defaultTab}/>
       )}
 
       {/* Action bar */}
@@ -2422,9 +2422,9 @@ function WarProgressionCard({T, d, isHitter}) {
   );
 }
 
-function HitterStatBoxes({T, d, sc}) {
+function HitterStatBoxes({T, d, sc, defaultTab = "Bio"}) {
   const tabs = (d.abs || d.absCatch) ? ["Bio","Batting","Bat Tracking","Statcast","Fielding","Splits","ABS"] : ["Bio","Batting","Bat Tracking","Statcast","Fielding","Splits"];
-  const [activeRaw, setActive] = useState("Bio");
+  const [activeRaw, setActive] = useState(defaultTab);
   const active = tabs.includes(activeRaw) ? activeRaw : "Bio";
 
   // Section content keyed by tab label
@@ -2703,11 +2703,11 @@ function HitterStatBoxes({T, d, sc}) {
   );
 }
 
-function PitcherStatBoxes({T, d, sc}) {
+function PitcherStatBoxes({T, d, sc, defaultTab = "Bio"}) {
   const recordLabel = d.role === "CL" ? "Saves" : "Record (W-L)";
   const recordValue = d.role === "CL" ? d.sv : (d.wl || `${d.w ?? 0}-${d.l ?? 0}`);
   const tabs = ["Bio","Pitching","Plate Discipline","Bat Tracking","Statcast","Splits"];
-  const [active, setActive] = useState("Bio");
+  const [active, setActive] = useState(defaultTab);
 
   let body;
     if (active === "Bio") {
@@ -3559,7 +3559,7 @@ function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
   );
 }
 
-function ExpandedProfile({T, mode, kind, player, scale, onClose, wrapperClass = "brv-splits-expand"}) {
+function ExpandedProfile({T, mode, kind, player, scale, onClose, wrapperClass = "brv-splits-expand", defaultTab = "Bio"}) {
   const innerRef = useRef(null);
   const [h, setH] = useState(null);
   useEffect(() => {
@@ -3576,7 +3576,7 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose, wrapperClass = 
   return (
     <div className={wrapperClass} style={{ height: h ? `${h}px` : undefined }}>
       <div ref={innerRef} style={{ transform:`scale(${scale})`, transformOrigin:"top left", width:`${100/scale}%` }}>
-        <FullProfile T={T} mode={mode} player={{kind, data:player}} onClose={onClose}/>
+        <FullProfile T={T} mode={mode} player={{kind, data:player}} onClose={onClose} defaultTab={defaultTab}/>
       </div>
     </div>
   );
@@ -3657,6 +3657,7 @@ function SplitsTab({T, mode}) {
             scale={isNarrow ? 0.85 : 0.55}
             onClose={()=>{}}
             wrapperClass="brv-splits-full-item"
+            defaultTab="Splits"
           />
         ))}
       </div>
