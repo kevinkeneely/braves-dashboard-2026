@@ -768,6 +768,16 @@ export default function BravesDashboardV2() {
            height is set to the scaled height so it hugs the content. */
         .brv-splits-expand { grid-column: span 2; overflow: hidden; border-radius: 14px; }
         @media (max-width: 560px) { .brv-splits-expand { grid-column: span 1; } }
+        /* Always-expanded grid at top of Splits tab: every player's full profile
+           shown at once. 3-across on wide screens, 2 on medium, 1 on phone. */
+        .brv-splits-full-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+        @media (max-width: 1200px) { .brv-splits-full-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 720px)  { .brv-splits-full-grid { grid-template-columns: 1fr; } }
+        .brv-splits-full-item { overflow: hidden; border-radius: 14px; }
         @media (max-width: 1100px) {
           .brv-grid { grid-template-columns: 1fr !important; }
           .brv-left, .brv-right { display: none !important; }
@@ -3549,7 +3559,7 @@ function SplitsCard({T, player, kind, onClick, splitsKey = "risp"}) {
   );
 }
 
-function ExpandedProfile({T, mode, kind, player, scale, onClose}) {
+function ExpandedProfile({T, mode, kind, player, scale, onClose, wrapperClass = "brv-splits-expand"}) {
   const innerRef = useRef(null);
   const [h, setH] = useState(null);
   useEffect(() => {
@@ -3564,7 +3574,7 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose}) {
     return () => { if (ro) ro.disconnect(); };
   }, [scale, kind, player]);
   return (
-    <div className="brv-splits-expand" style={{ height: h ? `${h}px` : undefined }}>
+    <div className={wrapperClass} style={{ height: h ? `${h}px` : undefined }}>
       <div ref={innerRef} style={{ transform:`scale(${scale})`, transformOrigin:"top left", width:`${100/scale}%` }}>
         <FullProfile T={T} mode={mode} player={{kind, data:player}} onClose={onClose}/>
       </div>
@@ -3633,6 +3643,30 @@ function SplitsTab({T, mode}) {
           ? "Hitters with RISP up top, high-leverage splits in the middle, with 2 outs down below · tap any card to expand it in place"
           : "Pitchers vs LHH up top, vs RHH below the line · tap any card to expand it in place"}
       </div>
+      {/* ALL PLAYERS · FULL SPLITS — every player's full profile shown at once,
+          3-across on wide desktop, 2-across on medium, stacked on mobile. */}
+      <div style={{
+        fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
+        fontFamily:"'Cinzel',serif", marginBottom:10,
+      }}>{splitsView === "hitters" ? "ALL HITTERS · FULL SPLITS" : "ALL PITCHERS · FULL SPLITS"}</div>
+      <div className="brv-splits-full-grid">
+        {list.map(pl => (
+          <ExpandedProfile
+            key={`full:${pl.name}`}
+            T={T} mode={mode} kind={kind} player={pl}
+            scale={isNarrow ? 0.85 : 0.55}
+            onClose={()=>{}}
+            wrapperClass="brv-splits-full-item"
+          />
+        ))}
+      </div>
+      {/* RED DIVIDER separating always-expanded section from tap-to-expand sections below */}
+      <div style={{
+        height:4, borderRadius:3, margin:"26px 0 22px",
+        background:`linear-gradient(90deg, ${BRAND.red} 0%, #8a0a28 100%)`,
+        boxShadow:`0 0 12px rgba(206,17,65,0.55)`,
+        border:`1px solid ${BRAND.goldBright}55`,
+      }}/>
       {/* TOP SECTION */}
       <div style={{
         fontSize:11, fontWeight:800, letterSpacing:"0.12em", color:BRAND.goldBright,
