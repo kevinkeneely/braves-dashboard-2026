@@ -1521,7 +1521,7 @@ function computePitcherOVR(p) {
   return Math.max(50, Math.min(99, Math.round(v)));
 }
 /* ── Role labels: STARTER/BENCH for hitters, SP/RP for pitchers ────────── */
-const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harris II","Mauricio Dubón","Ronald Acuña Jr.","Austin Riley","Jim Jarvis","Lane Thomas"];
+const STARTING_NINE = ["Matt Olson","Ozzie Albies","Drake Baldwin","Michael Harris II","Mauricio Dubón","Ronald Acuña Jr.","Austin Riley","Mike Yastrzemski","Lane Thomas"];
 
 /* Players to hide from the visible UI. Their data still lives in the arrays so
    they can be restored instantly, but every rendered surface filters through this. */
@@ -1535,7 +1535,6 @@ const HIDDEN_PLAYERS = new Set([
   "Spencer Strider",
   "Owen Murphy",
   "Brewer Hicklen",
-  "AJ Smith-Shawver",
   "Robert Suarez",
   "Eli White",
   "Jorge Mateo",
@@ -1544,6 +1543,7 @@ const HIDDEN_PLAYERS = new Set([
   "James Karinchak",
   "Reynaldo López",
   "Danny Young",
+  "Tyler Kinley",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
