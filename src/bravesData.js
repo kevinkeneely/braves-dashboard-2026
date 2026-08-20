@@ -254,14 +254,14 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "74-53",
-     runs: 606,
-     era: "3.67",
+     record: "75-53",
+     runs: 608,
+     era: "3.64",
      avg: ".246",
-     obp: ".311",
-     slg: ".414",
-     ops: ".725",
-     wrc: 99,
+     obp: ".310",
+     slg: ".413",
+     ops: ".723",
+     wrc: 98,
      iso: ".168",
      battingK: "21.6%",
      battingBB: "7.8%",
@@ -381,11 +381,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:74,l:53,pct:".583",gb:"—", home:"42-23",away:"32-30", rs:606, ra:496, diff:+110, strk:"L3", l10:"4-6", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:70,l:58,pct:".547",gb:"4.5", home:"35-30",away:"35-28", rs:574, ra:559, diff:+15, strk:"W6", l10:"8-2", highlight:false, srs:0.2 },
-     { team:"MIA", full:"Miami Marlins",        w:64,l:64,pct:".500",gb:"10.5", home:"38-25",away:"26-39", rs:560, ra:546, diff:+14, strk:"L3", l10:"5-5", highlight:false, srs:0.1 },
-     { team:"WSN", full:"Washington Nationals", w:61,l:67,pct:".477",gb:"13.5", home:"27-36",away:"34-31", rs:676, ra:657, diff:+19, strk:"W1", l10:"4-6", highlight:false, srs:0.2 },
-     { team:"NYM", full:"New York Mets",        w:58,l:70,pct:".453",gb:"16.5", home:"30-35",away:"28-35", rs:531, ra:573, diff:-42, strk:"W1", l10:"7-3", highlight:false, srs:-0.2 },
+     { team:"ATL", full:"Atlanta Braves",       w:75,l:53,pct:".586",gb:"—", home:"42-23",away:"33-30", rs:608, ra:496, diff:+112, strk:"W1", l10:"4-6", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:70,l:58,pct:".547",gb:"5.0", home:"35-30",away:"35-28", rs:574, ra:559, diff:+15, strk:"W6", l10:"8-2", highlight:false, srs:0.2 },
+     { team:"MIA", full:"Miami Marlins",        w:64,l:64,pct:".500",gb:"11.0", home:"38-25",away:"26-39", rs:560, ra:546, diff:+14, strk:"L3", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:61,l:67,pct:".477",gb:"14.0", home:"27-36",away:"34-31", rs:676, ra:657, diff:+19, strk:"W1", l10:"4-6", highlight:false, srs:0.2 },
+     { team:"NYM", full:"New York Mets",        w:58,l:70,pct:".453",gb:"17.0", home:"30-35",away:"28-35", rs:531, ra:573, diff:-42, strk:"W1", l10:"7-3", highlight:false, srs:-0.2 },
    ];
    
 export const statcastHitters = [
@@ -441,9 +441,9 @@ export const statcastPitchers = [
   { name:"Owen Murphy", ev:"94.1",hardHit:"55.0%",xwoba:".353",xba:".280",xslg:".451",kpct:"20.7%",bbpct:"6.9%", barrel:"10.0%", chase:"38.0%",whiff:"17.1%",gbpct:"20.0%",fbpct:"25.0%",ldpct:"45.0%",pupct:"10.0%", pullAir:"30.0%"},
   { name:"Víctor Mederos", ev:"88.1",hardHit:"38.2%",xwoba:".275",xba:".212",xslg:".305",kpct:"22.9%",bbpct:"8.4%", barrel:"5.5%", chase:"35.3%",whiff:"32.7%",gbpct:"34.5%",fbpct:"25.5%",ldpct:"20.0%",pupct:"20.0%", pullAir:"16.4%"},
   { name:"AJ Smith-Shawver", ev:"92.0",hardHit:"53.8%",xwoba:".387",xba:".299",xslg:".522",kpct:"21.1%",bbpct:"10.5%", barrel:"15.4%", chase:"18.2%",whiff:"6.9%",gbpct:"38.5%",fbpct:"30.8%",ldpct:"30.8%",pupct:"0.0%", pullAir:"23.1%"},
-  { name:"Tyler Mahle", ev:"89.9",hardHit:"37.1%",xwoba:".306",xba:".240",xslg:".384",kpct:"23.4%",bbpct:"8.7%", barrel:"7.0%", chase:"28.0%",whiff:"23.0%",gbpct:"43.0%",fbpct:"28.1%",ldpct:"22.2%",pupct:"6.6%", pullAir:"15.4%"},
-  { name:"Brent Suter", ev:"86.6",hardHit:"32.1%",xwoba:".320",xba:".264",xslg:".414",kpct:"19.7%",bbpct:"7.0%", barrel:"6.5%", chase:"28.7%",whiff:"22.4%",gbpct:"48.2%",fbpct:"22.0%",ldpct:"24.3%",pupct:"5.5%", pullAir:"18.5%"},
-  { name:"Ray Kerr", ev:"93.0",hardHit:"22.2%",xwoba:".283",xba:".225",xslg:".301",kpct:"0.0%",bbpct:"0.0%", barrel:"0.0%", chase:"40.0%",whiff:"20.0%",gbpct:"55.6%",fbpct:"11.1%",ldpct:"11.1%",pupct:"22.2%", pullAir:""},
+  { name:"Tyler Mahle", ev:"89.9",hardHit:"37.1%",xwoba:".306",xba:".240",xslg:".384",kpct:"23.4%",bbpct:"8.7%", barrel:"7.0%", chase:"28.0%",whiff:"23.0%",gbpct:"43.0%",fbpct:"28.1%",ldpct:"22.2%",pupct:"6.6%", pullAir:"15.2%"},
+  { name:"Brent Suter", ev:"86.6",hardHit:"32.1%",xwoba:".320",xba:".264",xslg:".414",kpct:"19.7%",bbpct:"7.0%", barrel:"6.5%", chase:"28.7%",whiff:"22.4%",gbpct:"48.2%",fbpct:"22.0%",ldpct:"24.3%",pupct:"5.5%", pullAir:"16.5%"},
+  { name:"Ray Kerr", ev:"93.0",hardHit:"22.2%",xwoba:".283",xba:".225",xslg:".301",kpct:"0.0%",bbpct:"0.0%", barrel:"0.0%", chase:"40.0%",whiff:"20.0%",gbpct:"55.6%",fbpct:"11.1%",ldpct:"11.1%",pupct:"22.2%", pullAir:"11.1%"},
 ];
    
    export const hitterWarProgress = [
