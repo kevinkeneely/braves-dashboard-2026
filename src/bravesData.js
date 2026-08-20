@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 19, 2026";
+   export const lastUpdated = "August 20, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -65,6 +65,7 @@
       //   - Danny Young
       //   - Víctor Mederos
       //   - Brent Suter
+      //   - Ray Kerr
       ───────────────────────────────────────────────────────────────────────────
       QUICK CHECK before saving:
       • Did you keep quotes on rate stats?   avg:".271"   kpct:"11.8%"
