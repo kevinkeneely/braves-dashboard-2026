@@ -410,7 +410,7 @@ export const statcastHitters = [
   { name:"Rowdy Tellez", ev:"91.8",hardHit:"42.9%",xwoba:".506",xba:".339",xslg:".828",barrel:"28.6%",chase:"29.6%",whiff:"30.4%",kpct:"27.3%",bbpct:"9.1%", gbpct:"14.3%",fbpct:"57.1%",ldpct:"28.6%",pupct:"0.0%",pullAir:"14.3%"},
   { name:"Jim Jarvis", ev:"88.7",hardHit:"36.7%",xwoba:".272",xba:".237",xslg:".308",barrel:"3.3%",chase:"27.9%",whiff:"18.2%",kpct:"18.2%",bbpct:"6.6%", gbpct:"58.9%",fbpct:"18.9%",ldpct:"20.0%",pupct:"2.2%",pullAir:"10.0%"},
   { name:"Brewer Hicklen", ev:"94.9",hardHit:"54.5%",xwoba:".354",xba:".256",xslg:".405",barrel:"9.1%",chase:"28.8%",whiff:"44.4%",kpct:"34.8%",bbpct:"17.4%", gbpct:"45.5%",fbpct:"18.2%",ldpct:"36.4%",pupct:"0.0%",pullAir:"18.2%"},
-  { name:"Lane Thomas", ev:"89.6",hardHit:"42.3%",xwoba:".316",xba:".241",xslg:".373",barrel:"6.8%",chase:"20.8%",whiff:"22.7%",kpct:"25.0%",bbpct:"11.9%", gbpct:"36.8%",fbpct:"24.5%",ldpct:"25.0%",pupct:"13.6%",pullAir:"18.2%"},
+  { name:"Lane Thomas", ev:"89.6",hardHit:"42.3%",xwoba:".316",xba:".241",xslg:".373",barrel:"6.8%",chase:"20.8%",whiff:"22.7%",kpct:"25.0%",bbpct:"11.9%", gbpct:"36.8%",fbpct:"24.5%",ldpct:"25.0%",pupct:"13.6%",pullAir:"25.9%"},
 ];
  
 export const statcastPitchers = [
@@ -437,8 +437,8 @@ export const statcastPitchers = [
   { name:"Owen Murphy", ev:"94.1",hardHit:"55.0%",xwoba:".353",xba:".280",xslg:".451",kpct:"20.7%",bbpct:"6.9%", barrel:"10.0%", chase:"38.0%",whiff:"17.1%",gbpct:"20.0%",fbpct:"25.0%",ldpct:"45.0%",pupct:"10.0%", pullAir:"30.0%"},
   { name:"Víctor Mederos", ev:"89.4",hardHit:"42.9%",xwoba:".291",xba:".233",xslg:".341",kpct:"21.7%",bbpct:"7.6%", barrel:"4.8%", chase:"35.1%",whiff:"32.0%",gbpct:"34.9%",fbpct:"27.0%",ldpct:"20.6%",pupct:"17.5%", pullAir:"14.3%"},
   { name:"AJ Smith-Shawver", ev:"88.7",hardHit:"35.7%",xwoba:".363",xba:".292",xslg:".441",kpct:"17.5%",bbpct:"12.5%", barrel:"7.1%", chase:"26.4%",whiff:"21.4%",gbpct:"39.3%",fbpct:"21.4%",ldpct:"28.6%",pupct:"10.7%", pullAir:"21.4%"},
-  { name:"Tyler Mahle", ev:"90.0",hardHit:"37.8%",xwoba:".315",xba:".247",xslg:".405",kpct:"22.8%",bbpct:"8.5%", barrel:"7.5%", chase:"28.7%",whiff:"22.7%",gbpct:"41.8%",fbpct:"29.4%",ldpct:"22.3%",pupct:"6.5%", pullAir:"17.0%"},
-  { name:"Brent Suter", ev:"86.6",hardHit:"32.1%",xwoba:".320",xba:".264",xslg:".414",kpct:"19.7%",bbpct:"7.0%", barrel:"6.5%", chase:"28.7%",whiff:"22.4%",gbpct:"48.2%",fbpct:"22.0%",ldpct:"24.3%",pupct:"5.5%", pullAir:"18.5%"},
+  { name:"Tyler Mahle", ev:"90.0",hardHit:"37.8%",xwoba:".315",xba:".247",xslg:".405",kpct:"22.8%",bbpct:"8.5%", barrel:"7.5%", chase:"28.7%",whiff:"22.7%",gbpct:"41.8%",fbpct:"29.4%",ldpct:"22.3%",pupct:"6.5%", pullAir:"15.2%"},
+  { name:"Brent Suter", ev:"86.6",hardHit:"32.1%",xwoba:".320",xba:".264",xslg:".414",kpct:"19.7%",bbpct:"7.0%", barrel:"6.5%", chase:"28.7%",whiff:"22.4%",gbpct:"48.2%",fbpct:"22.0%",ldpct:"24.3%",pupct:"5.5%", pullAir:"16.5%"},
   { name:"Ray Kerr", ev:"93.0",hardHit:"22.2%",xwoba:".283",xba:".225",xslg:".301",kpct:"0.0%",bbpct:"0.0%", barrel:"0.0%", chase:"40.0%",whiff:"20.0%",gbpct:"55.6%",fbpct:"11.1%",ldpct:"11.1%",pupct:"22.2%", pullAir:"11.1%"},
 ];
    
