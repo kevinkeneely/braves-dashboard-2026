@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 22, 2026";
+   export const lastUpdated = "August 24, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
