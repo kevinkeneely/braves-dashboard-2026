@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "August 27, 2026";
+   export const lastUpdated = "August 28, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -256,26 +256,26 @@
    export const TEAM_HEADER = {
      record: "79-55",
      runs: 625,
-     era: "3.61",
-     avg: ".248",
-     obp: ".312",
-     slg: ".413",
-     ops: ".725",
-     wrc: 98,
+     era: "3.58",
+     avg: ".247",
+     obp: ".311",
+     slg: ".412",
+     ops: ".723",
+     wrc: 99,
      iso: ".165",
-     battingK: "21.6%",
+     battingK: "21.7%",
      battingBB: "7.8%",
      woba: ".316",
-     xwoba: ".317",
-     fip: "4.07",
+     xwoba: ".318",
+     fip: "4.05",
      xera: "4.04",
-     xfip: "4.08",
+     xfip: "4.10",
      whip: "1.25",
      gb: "41.5%",
-     siera: "4.01",
-     pitchingK: "22.8%",
+     siera: "4.02",
+     pitchingK: "22.7%",
      pitchingBB: "9.1%",
-     pitchingKBB: "13.7%",
+     pitchingKBB: "13.6%",
      swstr: "11.4%",
      cstr: "16.1%",
      csw: "27.5%",
@@ -369,13 +369,13 @@ export const starters = [
     // ALL other fields preserved exactly as before (bio, top-level stats, bat tracking, plate discipline)
     // Tyler Mahle & Brent Suter splits NOT updated per user instruction (trade-adjusted context)
     // Ray Kerr vsL not on FanGraphs leaderboard (0 LHH faced) — vsL block held as-is, no new fields added
-    { name:"Raisel Iglesias", role:"CL", throws:"R", dob:"1990-01-04", draftYear:2014, draftRound:null, draftPick:null, draftType:"IFA", era:"2.94", ip:"49.0", sv:28, kpct:"25.9%", bbpct:"8.0%", kbb:"18.4%", whip:"1.188", fip:"3.31", war:0.9, war2:0.8, xfip:"3.69", siera:"3.30", batSpeed:71.8, fastSwing:"27.3%", swstr:"13.9%", cstr:"17.8%", csw:"31.6%", laSwSp:"31.8%", idealAttack:"49.3%", splits:{vsL:{ip:"27.2",era:"2.60",fip:"3.81",xfip:"4.31",whip:"1.08",avg:".212",obp:".278",slg:".354",woba:".281",kpct:"21.3%",bbpct:"8.3%",kbb:"13.0%",swstr:"13.8%",cstr:"17.0%",csw:"30.8%"}, vsR:{ip:"20.1",era:"3.54",fip:"2.64",xfip:"2.85",whip:"1.33",avg:".259",obp:".318",slg:".370",woba:".307",kpct:"31.8%",bbpct:"6.8%",kbb:"25.0%",swstr:"14.1%",cstr:"18.2%",csw:"32.4%"}}},
-    { name:"Dylan Lee", role:"RP", throws:"L", dob:"1994-08-01", draftYear:2016, draftRound:10, draftPick:293, draftType:"MLB", era:"2.41", ip:"59.2", sv:0, kpct:"32.0%", bbpct:"6.6%", kbb:"26.8%", whip:"0.784", fip:"1.98", war:1.9, war2:1.9, xfip:"2.96", siera:"2.45", batSpeed:72.6, fastSwing:"28.4%", swstr:"18.0%", cstr:"15.4%", csw:"33.4%", laSwSp:"33.1%", idealAttack:"49.9%", splits:{vsL:{ip:"21.1",era:"2.11",fip:"1.44",xfip:"2.72",whip:"0.80",avg:".139",obp:".213",slg:".250",woba:".208",kpct:"34.6%",bbpct:"8.6%",kbb:"25.9%",swstr:"17.9%",cstr:"13.9%",csw:"31.8%"}, vsR:{ip:"37.1",era:"2.17",fip:"2.28",xfip:"3.10",whip:"0.78",avg:".168",obp:".209",slg:".275",woba:".211",kpct:"32.4%",bbpct:"5.0%",kbb:"27.3%",swstr:"18.1%",cstr:"16.2%",csw:"34.3%"}}},
+    { name:"Raisel Iglesias", role:"CL", throws:"R", dob:"1990-01-04", draftYear:2014, draftRound:null, draftPick:null, draftType:"IFA", era:"2.94", ip:"49.0", sv:28, kpct:"25.9%", bbpct:"8.0%", kbb:"17.9%", whip:"1.188", fip:"3.33", war:0.9, war2:0.8, xfip:"3.76", siera:"3.35", batSpeed:71.8, fastSwing:"27.3%", swstr:"13.9%", cstr:"17.8%", csw:"31.6%", laSwSp:"31.8%", idealAttack:"49.3%", splits:{vsL:{ip:"27.2",era:"2.60",fip:"3.81",xfip:"4.31",whip:"1.08",avg:".212",obp:".278",slg:".354",woba:".281",kpct:"21.3%",bbpct:"8.3%",kbb:"13.0%",swstr:"13.8%",cstr:"17.0%",csw:"30.8%"}, vsR:{ip:"20.1",era:"3.54",fip:"2.64",xfip:"2.85",whip:"1.33",avg:".259",obp:".318",slg:".370",woba:".307",kpct:"31.8%",bbpct:"6.8%",kbb:"25.0%",swstr:"14.1%",cstr:"18.2%",csw:"32.4%"}}},
+    { name:"Dylan Lee", role:"RP", throws:"L", dob:"1994-08-01", draftYear:2016, draftRound:10, draftPick:293, draftType:"MLB", era:"2.41", ip:"59.2", sv:0, kpct:"32.0%", bbpct:"6.6%", kbb:"25.4%", whip:"0.784", fip:"2.04", war:1.9, war2:1.9, xfip:"3.06", siera:"2.59", batSpeed:72.6, fastSwing:"28.4%", swstr:"18.0%", cstr:"15.4%", csw:"33.4%", laSwSp:"33.1%", idealAttack:"49.9%", splits:{vsL:{ip:"21.1",era:"2.11",fip:"1.44",xfip:"2.72",whip:"0.80",avg:".139",obp:".213",slg:".250",woba:".208",kpct:"34.6%",bbpct:"8.6%",kbb:"25.9%",swstr:"17.9%",cstr:"13.9%",csw:"31.8%"}, vsR:{ip:"37.1",era:"2.17",fip:"2.28",xfip:"3.10",whip:"0.78",avg:".168",obp:".209",slg:".275",woba:".211",kpct:"32.4%",bbpct:"5.0%",kbb:"27.3%",swstr:"18.1%",cstr:"16.2%",csw:"34.3%"}}},
     { name:"Robert Suarez", role:"RP", throws:"R", dob:"1991-03-01", draftYear:2021, draftRound:null, draftPick:null, draftType:"IFA", era:"0.56", ip:"32.0", sv:4, kpct:"21.5%", bbpct:"5.0%", whip:"0.844", fip:"2.45", war:1.7, war2:0.8, xfip:"3.40", siera:"3.35", batSpeed:71.4, fastSwing:"22.7%", swstr:"12.2%", cstr:"12.4%", csw:"24.6%", laSwSp:"33.0%", idealAttack:"53.6%", splits:{vsL:{ip:"18.2",era:"0.48",fip:"2.79",xfip:"3.73",whip:"0.64",avg:".143",obp:".182",slg:".190",woba:".170",kpct:"20.9%",bbpct:"4.5%",kbb:"16.4%"}, vsR:{ip:"13.1",era:"0.68",fip:"1.99",xfip:"3.02",whip:"1.13",avg:".235",obp:".278",slg:".255",woba:".243",kpct:"22.2%",bbpct:"5.6%",kbb:"16.7%"}}},
-    { name:"Didier Fuentes", role:"RP", throws:"R", dob:"2005-06-17", draftYear:2022, draftRound:null, draftPick:null, draftType:"IFA", era:"2.43", ip:"59.1", sv:2, kpct:"31.0%", bbpct:"7.4%", kbb:"25.3%", whip:"1.081", fip:"2.30", war:1.8, war2:1.9, xfip:"2.84", siera:"2.55", batSpeed:71.9, fastSwing:"24.8%", swstr:"14.6%", cstr:"14.5%", csw:"29.1%", laSwSp:"34.5%", idealAttack:"43.2%", splits:{vsL:{ip:"31.0",era:"3.19",fip:"2.57",xfip:"2.40",whip:"1.10",avg:".231",obp:".276",slg:".376",woba:".285",kpct:"36.2%",bbpct:"5.5%",kbb:"30.7%",swstr:"14.4%",cstr:"12.6%",csw:"27.0%"}, vsR:{ip:"26.1",era:"1.71",fip:"1.98",xfip:"3.36",whip:"1.06",avg:".211",obp:".276",slg:".242",woba:".236",kpct:"26.4%",bbpct:"7.5%",kbb:"18.9%",swstr:"15.1%",cstr:"16.6%",csw:"31.7%"}}},
-    { name:"Dylan Dodd", role:"RP", throws:"L", dob:"1998-06-06", draftYear:2021, draftRound:3, draftPick:96, draftType:"MLB", era:"2.14", ip:"42.0", sv:1, kpct:"26.4%", bbpct:"8.0%", kbb:"19.0%", whip:"0.910", fip:"3.36", war:1.3, war2:0.6, xfip:"3.82", siera:"3.32", batSpeed:72.4, fastSwing:"29.8%", swstr:"12.9%", cstr:"11.3%", csw:"24.2%", laSwSp:"38.0%", idealAttack:"53.1%", splits:{vsL:{ip:"17.1",era:"2.08",fip:"3.66",xfip:"3.91",whip:"1.10",avg:".161",obp:".278",slg:".323",woba:".268",kpct:"31.9%",bbpct:"12.5%",kbb:"19.4%",swstr:"14.0%",cstr:"14.0%",csw:"28.1%"}, vsR:{ip:"23.1",era:"2.31",fip:"3.13",xfip:"3.76",whip:"0.77",avg:".175",obp:".224",slg:".288",woba:".228",kpct:"23.3%",bbpct:"4.7%",kbb:"18.6%",swstr:"11.9%",cstr:"9.1%",csw:"21.1%"}}},
+    { name:"Didier Fuentes", role:"RP", throws:"R", dob:"2005-06-17", draftYear:2022, draftRound:null, draftPick:null, draftType:"IFA", era:"2.43", ip:"59.1", sv:2, kpct:"31.0%", bbpct:"7.4%", kbb:"23.6%", whip:"1.081", fip:"2.44", war:1.8, war2:1.9, xfip:"2.99", siera:"2.73", batSpeed:71.9, fastSwing:"24.8%", swstr:"14.6%", cstr:"14.5%", csw:"29.1%", laSwSp:"34.5%", idealAttack:"43.2%", splits:{vsL:{ip:"31.0",era:"3.19",fip:"2.57",xfip:"2.40",whip:"1.10",avg:".231",obp:".276",slg:".376",woba:".285",kpct:"36.2%",bbpct:"5.5%",kbb:"30.7%",swstr:"14.4%",cstr:"12.6%",csw:"27.0%"}, vsR:{ip:"26.1",era:"1.71",fip:"1.98",xfip:"3.36",whip:"1.06",avg:".211",obp:".276",slg:".242",woba:".236",kpct:"26.4%",bbpct:"7.5%",kbb:"18.9%",swstr:"15.1%",cstr:"16.6%",csw:"31.7%"}}},
+    { name:"Dylan Dodd", role:"RP", throws:"L", dob:"1998-06-06", draftYear:2021, draftRound:3, draftPick:96, draftType:"MLB", era:"2.14", ip:"42.0", sv:1, kpct:"26.4%", bbpct:"8.0%", kbb:"18.4%", whip:"0.910", fip:"3.35", war:1.3, war2:0.6, xfip:"3.94", siera:"3.42", batSpeed:72.4, fastSwing:"29.8%", swstr:"12.9%", cstr:"11.3%", csw:"24.2%", laSwSp:"38.0%", idealAttack:"53.1%", splits:{vsL:{ip:"17.1",era:"2.08",fip:"3.66",xfip:"3.91",whip:"1.10",avg:".161",obp:".278",slg:".323",woba:".268",kpct:"31.9%",bbpct:"12.5%",kbb:"19.4%",swstr:"14.0%",cstr:"14.0%",csw:"28.1%"}, vsR:{ip:"23.1",era:"2.31",fip:"3.13",xfip:"3.76",whip:"0.77",avg:".175",obp:".224",slg:".288",woba:".228",kpct:"23.3%",bbpct:"4.7%",kbb:"18.6%",swstr:"11.9%",cstr:"9.1%",csw:"21.1%"}}},
     { name:"Brent Suter", role:"RP", throws:"L", dob:"1989-08-29", draftYear:2012, draftRound:31, draftPick:946, draftType:"MLB", era:"3.70", ip:"75.1", sv:0, kpct:"19.7%", bbpct:"6.7%", kbb:"13.1%", whip:"1.261", fip:"3.70", war:0.4, war2:0.5, xfip:"3.66", siera:"3.72", batSpeed:71.1, fastSwing:"20.4%", swstr:"8.9%", cstr:"18.7%", csw:"27.5%", laSwSp:"34.9%", idealAttack:"42.7%", splits:{vsL:{ip:"30.0",era:"4.80",fip:"4.12",xfip:"3.64",whip:"1.30",avg:".274",obp:".328",slg:".487",woba:".351",kpct:"19.7%",bbpct:"6.6%",kbb:"13.1%"}, vsR:{ip:"45.1",era:"2.98",fip:"3.42",xfip:"3.67",whip:"1.24",avg:".244",obp:".296",slg:".375",woba:".294",kpct:"19.8%",bbpct:"6.8%",kbb:"13.0%"}}},
-    { name:"Víctor Mederos", role:"RP", throws:"R", dob:"2001-06-08", draftYear:2022, draftRound:6, draftPick:178, draftType:"MLB", era:"3.28", ip:"24.2", sv:1, kpct:"24.0%", bbpct:"8.7%", kbb:"15.5%", whip:"1.130", fip:"2.91", war:0.3, war2:0.4, xfip:"4.52", siera:"3.75", batSpeed:73.0, fastSwing:"34.7%", swstr:"13.5%", cstr:"13.5%", csw:"27.0%", laSwSp:"34.8%", idealAttack:"56.9%", splits:{vsL:{ip:"10.1",era:"5.23",fip:"2.60",xfip:"4.94",whip:"1.16",avg:".282",obp:".326",slg:".410",woba:".320",kpct:"15.9%",bbpct:"2.3%",kbb:"13.6%",swstr:"13.9%",cstr:"14.6%",csw:"28.5%"}, vsR:{ip:"12.2",era:"2.13",fip:"3.16",xfip:"4.17",whip:"1.11",avg:".170",obp:".264",slg:".319",woba:".263",kpct:"28.8%",bbpct:"11.5%",kbb:"17.3%",swstr:"13.5%",cstr:"13.1%",csw:"26.6%"}}},
+    { name:"Víctor Mederos", role:"RP", throws:"R", dob:"2001-06-08", draftYear:2022, draftRound:6, draftPick:178, draftType:"MLB", era:"3.28", ip:"24.2", sv:1, kpct:"24.0%", bbpct:"8.7%", kbb:"15.4%", whip:"1.130", fip:"2.92", war:0.3, war2:0.5, xfip:"4.54", siera:"3.76", batSpeed:73.0, fastSwing:"34.7%", swstr:"13.5%", cstr:"13.5%", csw:"27.0%", laSwSp:"34.8%", idealAttack:"56.9%", splits:{vsL:{ip:"10.1",era:"5.23",fip:"2.60",xfip:"4.94",whip:"1.16",avg:".282",obp:".326",slg:".410",woba:".320",kpct:"15.9%",bbpct:"2.3%",kbb:"13.6%",swstr:"13.9%",cstr:"14.6%",csw:"28.5%"}, vsR:{ip:"12.2",era:"2.13",fip:"3.16",xfip:"4.17",whip:"1.11",avg:".170",obp:".264",slg:".319",woba:".263",kpct:"28.8%",bbpct:"11.5%",kbb:"17.3%",swstr:"13.5%",cstr:"13.1%",csw:"26.6%"}}},
     { name:"Tyler Kinley", role:"RP", throws:"R", dob:"1991-01-31", draftYear:2013, draftRound:16, draftPick:472, draftType:"MLB", era:"4.01", ip:"42.2", sv:0, kpct:"23.5%", bbpct:"11.2%", kbb:"12.3%", whip:"1.286", fip:"5.40", war:0.4, war2:-0.4, xfip:"4.73", siera:"4.17", batSpeed:70.9, fastSwing:"17.8%", swstr:"11.7%", cstr:"18.3%", csw:"30.1%", laSwSp:"34.8%", idealAttack:"56.4%", splits:{vsL:{ip:"21.0",era:"6.86",fip:"6.76",xfip:"4.37",whip:"1.14",avg:".194",obp:".289",slg:".514",woba:".327",kpct:"26.5%",bbpct:"12.0%",kbb:"14.5%"}, vsR:{ip:"20.0",era:"0.90",fip:"3.29",xfip:"4.76",whip:"1.35",avg:".247",obp:".326",slg:".338",woba:".301",kpct:"20.9%",bbpct:"9.3%",kbb:"11.6%"}}},
     { name:"Ray Kerr", role:"RP", throws:"R", dob:"1994-09-10", draftYear:2017, draftRound:null, draftPick:null, draftType:"UDFA", era:"0.0", ip:"2.1", sv:0, kpct:"0.0%", bbpct:"0.0%", kbb:"0.0%", whip:"0.429", fip:"4.37", war:0.1, war2:0.0, xfip:"6.32", siera:"5.68", batSpeed:72.2, fastSwing:"28.6%", swstr:"8.8%", cstr:"5.9%", csw:"14.7%", laSwSp:"22.2%", idealAttack:"50.0%", splits:{vsL:{ip:"0.1",era:"0.00",fip:"3.09",xfip:"3.09",whip:"0.00",avg:".000",obp:".000",slg:".000",woba:".000",kpct:"0.0%",bbpct:"0.0%",kbb:"0.0%"}, vsR:{ip:"2.0",era:"0.00",fip:"4.59",xfip:"6.85",whip:"0.50",avg:".143",obp:".250",slg:".143",woba:".202",kpct:"0.0%",bbpct:"0.0%",kbb:"0.0%",swstr:"10.0%",cstr:"6.7%",csw:"16.7%"}}},
     { name:"James Karinchak", role:"RP", throws:"R", dob:"1995-09-22", draftYear:2017, draftRound:9, draftPick:282, draftType:"MLB", era:"1.86", ip:"9.2", sv:0, kpct:"21.6%", bbpct:"13.5%", whip:"0.931", fip:"4.34", war:0.3, war2:0.0, xfip:"5.38", siera:"4.93", batSpeed:71.9, fastSwing:"25.5%", swstr:"8.6%", cstr:"19.8%", csw:"28.4%", laSwSp:"32.4%", idealAttack:"61.8%", splits:{vsL:{ip:"3.1",era:"2.70",fip:"7.00",xfip:"5.39",whip:"1.50",avg:".250",obp:".357",slg:".583",woba:".399",kpct:"21.4%",bbpct:"14.3%",kbb:"7.1%"}, vsR:{ip:"6.1",era:"1.42",fip:"2.94",xfip:"5.35",whip:"0.63",avg:".053",obp:".174",slg:".053",woba:".130",kpct:"21.7%",bbpct:"13.0%",kbb:"8.7%"}}},
@@ -389,7 +389,7 @@ export const starters = [
      { team:"PHI", full:"Philadelphia Phillies", w:74,l:60,pct:".552",gb:"5.0", home:"38-30",away:"36-30", rs:608, ra:585, diff:+23, strk:"W1", l10:"8-2", highlight:false, srs:0.2 },
      { team:"MIA", full:"Miami Marlins",        w:68,l:66,pct:".507",gb:"11.0", home:"42-27",away:"26-39", rs:582, ra:563, diff:+19, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
      { team:"WSN", full:"Washington Nationals", w:63,l:73,pct:".463",gb:"17.0", home:"29-38",away:"34-35", rs:704, ra:692, diff:+12, strk:"W1", l10:"3-7", highlight:false, srs:0.2 },
-     { team:"NYM", full:"New York Mets",        w:60,l:74,pct:".448",gb:"19.0", home:"31-37",away:"29-37", rs:552, ra:604, diff:-52, strk:"L2", l10:"6-4", highlight:false, srs:-0.1 },
+     { team:"NYM", full:"New York Mets",        w:60,l:74,pct:".448",gb:"19.0", home:"31-37",away:"29-37", rs:552, ra:604, diff:-52, strk:"L2", l10:"5-5", highlight:false, srs:-0.1 },
    ];
    
 export const statcastHitters = [
