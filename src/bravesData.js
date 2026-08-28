@@ -393,7 +393,7 @@ export const starters = [
    ];
    
 export const statcastHitters = [
-  // Updated August 24, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
+  // Updated August 28, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
   // Hidden players (Tromp, León, Tellez, White, Mateo, Bart, Jarvis) — all fields held per hiding protocol
   { name:"Michael Harris II", ev:"90.6",hardHit:"48.8%",xwoba:".343",xba:".288",xslg:".478",barrel:"10.8%",chase:"44.1%",whiff:"25.2%",kpct:"19.7%",bbpct:"3.7%", gbpct:"45.3%",fbpct:"22.6%",ldpct:"25.9%",pupct:"6.2%",pullAir:"17.8%"},
   { name:"Matt Olson", ev:"92.5",hardHit:"49.6%",xwoba:".362",xba:".249",xslg:".520",barrel:"15.7%",chase:"26.8%",whiff:"24.6%",kpct:"25.3%",bbpct:"10.1%", gbpct:"35.9%",fbpct:"34.7%",ldpct:"20.7%",pupct:"8.7%",pullAir:"21.3%"},
@@ -418,7 +418,7 @@ export const statcastHitters = [
 ];
  
 export const statcastPitchers = [
-  // Updated August 24, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
+  // Updated August 28, 2026 — EV, HH%, xwOBA, xBA, xSLG, Barrel%, K%, BB%, Chase%, Whiff%, GB%, FB%, LD%, PU%, pullAir refreshed from Baseball Savant
   // Hidden players (Strider, Waldrep, Carrasco, Hamilton, Owen Murphy, Robert Suarez, López, Ritchie, Karinchak, Danny Young, Tyler Kinley) — all fields held per hiding protocol
   { name:"Raisel Iglesias", ev:"88.2",hardHit:"36.8%",xwoba:".284",xba:".223",xslg:".359",kpct:"26.7%",bbpct:"7.3%", barrel:"9.7%", chase:"38.1%",whiff:"30.6%",gbpct:"36.8%",fbpct:"29.6%",ldpct:"24.8%",pupct:"8.8%", pullAir:"23.2%"},
   { name:"Dylan Lee", ev:"86.7",hardHit:"30.8%",xwoba:".233",xba:".177",xslg:".290",kpct:"33.3%",bbpct:"6.5%", barrel:"6.2%", chase:"35.1%",whiff:"37.6%",gbpct:"34.6%",fbpct:"34.6%",ldpct:"22.3%",pupct:"8.5%", pullAir:"28.5%"},
