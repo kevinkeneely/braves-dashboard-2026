@@ -219,8 +219,8 @@
      { date:"Sun, Aug 23", opp:"Brewers",    home:false, result:"W", score:"4-2", record:"76-55"},
      { date:"Tue, Aug 25", opp:"Dodgers",    home:true, result:"W", score:"4-3", record:"77-55"},
      { date:"Wed, Aug 26", opp:"Dodgers",    home:true, result:"W", score:"6-5", record:"78-55"},
+     { date:"Thu, Aug 27", opp:"Dodgers",    home:true, result:"W", score:"1-0", record:"79-55"},
       // Upcoming
-     { date:"Thu, Aug 27", opp:"Dodgers",    home:true,},
      { date:"Fri, Aug 28", opp:"Rockies",    home:true,},
      { date:"Sat, Aug 29", opp:"Rockies",    home:true,},
      { date:"Sun, Aug 30", opp:"Rockies",    home:true,},
@@ -254,8 +254,8 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "78-55",
-     runs: 624,
+     record: "79-55",
+     runs: 625,
      era: "3.61",
      avg: ".248",
      obp: ".312",
@@ -351,7 +351,7 @@ export const starters = [
     // ALL other fields preserved exactly as before (bio, top-level stats, bat tracking, plate discipline)
     // Tyler Mahle & Brent Suter splits NOT updated per user instruction (trade-adjusted context)
     // Ray Kerr vsL not on FanGraphs leaderboard (0 LHH faced) — vsL block held as-is, no new fields added
-    { name:"Chris Sale", throws:"L", dob:"1989-03-30", draftYear:2010, draftRound:1, draftPick:13, draftType:"MLB", wl:"12-9", era:"2.20", ip:"135.0", kpct:"30.6%", bbpct:"5.2%", kbb:"25.5%", whip:"1.030", war:4.5, war2:4.9, fip:"2.24", xfip:"2.73", siera:"2.81", batSpeed:71.0, fastSwing:"20.6%", swstr:"13.7%", cstr:"17.4%", csw:"31.1%", laSwSp:"34.6%", idealAttack:"44.6%", splits:{vsL:{ip:"31.2",era:"1.99",fip:"1.70",xfip:"1.95",whip:"1.11",avg:".244",obp:".295",slg:".350",woba:".287",kpct:"31.6%",bbpct:"3.8%",kbb:"27.8%",swstr:"12.3%",cstr:"21.4%",csw:"33.7%"}, vsR:{ip:"103.1",era:"2.26",fip:"2.41",xfip:"2.97",whip:"1.01",avg:".214",obp:".269",slg:".291",woba:".253",kpct:"30.3%",bbpct:"5.6%",kbb:"24.7%",swstr:"14.1%",cstr:"16.3%",csw:"30.4%"}}},
+    { name:"Chris Sale", throws:"L", dob:"1989-03-30", draftYear:2010, draftRound:1, draftPick:13, draftType:"MLB", wl:"13-9", era:"2.06", ip:"144.0", kpct:"30.7%", bbpct:"4.9%", kbb:"25.9%", whip:"1.000", war:4.6, war2:5.4, fip:"2.18", xfip:"2.74", siera:"2.78", batSpeed:71.0, fastSwing:"20.6%", swstr:"13.7%", cstr:"17.4%", csw:"31.1%", laSwSp:"34.6%", idealAttack:"44.6%", splits:{vsL:{ip:"31.2",era:"1.99",fip:"1.70",xfip:"1.95",whip:"1.11",avg:".244",obp:".295",slg:".350",woba:".287",kpct:"31.6%",bbpct:"3.8%",kbb:"27.8%",swstr:"12.3%",cstr:"21.4%",csw:"33.7%"}, vsR:{ip:"103.1",era:"2.26",fip:"2.41",xfip:"2.97",whip:"1.01",avg:".214",obp:".269",slg:".291",woba:".253",kpct:"30.3%",bbpct:"5.6%",kbb:"24.7%",swstr:"14.1%",cstr:"16.3%",csw:"30.4%"}}},
     { name:"Tyler Mahle", throws:"R", dob:"1994-09-29", draftYear:2013, draftRound:7, draftPick:226, draftType:"MLB", wl:"5-10", era:"4.41", ip:"118.1", kpct:"22.5%", bbpct:"8.5%", kbb:"14.0%", whip:"1.318", war:1.1, war2:1.4, fip:"4.09", xfip:"3.94", siera:"4.09", batSpeed:72.3, fastSwing:"27.5%", swstr:"9.5%", cstr:"17.7%", csw:"27.2%", laSwSp:"34.1%", idealAttack:"53.1%", splits:{vsL:{ip:"68.0",era:"3.97",fip:"3.44",xfip:"3.62",whip:"1.07",avg:".225",obp:".281",slg:".385",woba:".291",kpct:"26.1%",bbpct:"6.7%",kbb:"19.4%"}, vsR:{ip:"50.1",era:"5.01",fip:"4.97",xfip:"4.38",whip:"1.65",avg:".294",obp:".370",slg:".448",woba:".361",kpct:"18.3%",bbpct:"10.5%",kbb:"7.9%"}}},
     { name:"Reynaldo López", throws:"R", dob:"1994-01-04", draftYear:2012, draftRound:null, draftPick:null, draftType:"IFA", wl:"4-3", era:"3.64", ip:"71.2", kpct:"21.6%", bbpct:"9.5%", kbb:"12.1%", whip:"1.340", fip:"4.33", war:0.8, war2:0.5, xfip:"4.42", siera:"4.32", batSpeed:71.7, fastSwing:"23.6%", swstr:"9.2%", cstr:"16.6%", csw:"25.8%", laSwSp:"37.8%", idealAttack:"43.2%", splits:{vsL:{ip:"37.2",era:"4.06",fip:"5.09",xfip:"5.23",whip:"1.57",avg:".218",obp:".347",slg:".394",woba:".333",kpct:"21.6%",bbpct:"16.4%",kbb:"5.3%"}, vsR:{ip:"34.0",era:"3.18",fip:"3.48",xfip:"3.54",whip:"1.09",avg:".273",obp:".281",slg:".432",woba:".307",kpct:"21.5%",bbpct:"0.7%",kbb:"20.7%"}}},
     { name:"Martín Pérez", throws:"L", dob:"1991-04-04", draftYear:2007, draftRound:null, draftPick:null, draftType:"IFA", wl:"8-8", era:"3.12", ip:"115.1", kpct:"17.9%", bbpct:"10.1%", kbb:"7.8%", whip:"1.214", fip:"4.26", war:2.4, war2:1.1, xfip:"4.31", siera:"4.71", batSpeed:73.5, fastSwing:"37.3%", swstr:"8.6%", cstr:"18.4%", csw:"27.0%", laSwSp:"34.1%", idealAttack:"52.1%", splits:{vsL:{ip:"32.2",era:"3.58",fip:"4.06",xfip:"3.18",whip:"1.16",avg:".246",obp:".296",slg:".413",woba:".311",kpct:"22.2%",bbpct:"5.2%",kbb:"17.0%",swstr:"9.0%",cstr:"16.6%",csw:"25.7%"}, vsR:{ip:"82.2",era:"2.94",fip:"4.34",xfip:"4.76",whip:"1.23",avg:".208",obp:".301",slg:".341",woba:".287",kpct:"16.2%",bbpct:"12.1%",kbb:"4.1%",swstr:"8.4%",cstr:"19.2%",csw:"27.6%"}}},
@@ -385,11 +385,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:78,l:55,pct:".586",gb:"—", home:"44-23",away:"34-32", rs:624, ra:512, diff:+112, strk:"W3", l10:"5-5", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:74,l:60,pct:".552",gb:"4.5", home:"38-30",away:"36-30", rs:608, ra:585, diff:+23, strk:"W1", l10:"8-2", highlight:false, srs:0.2 },
-     { team:"MIA", full:"Miami Marlins",        w:68,l:66,pct:".507",gb:"10.5", home:"42-27",away:"26-39", rs:582, ra:563, diff:+19, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
-     { team:"WSN", full:"Washington Nationals", w:62,l:73,pct:".459",gb:"17.0", home:"28-38",away:"34-35", rs:697, ra:691, diff:+6, strk:"L2", l10:"2-8", highlight:false, srs:0.2 },
-     { team:"NYM", full:"New York Mets",        w:60,l:73,pct:".451",gb:"18.0", home:"31-36",away:"29-37", rs:550, ra:596, diff:-46, strk:"L1", l10:"6-4", highlight:false, srs:-0.1 },
+     { team:"ATL", full:"Atlanta Braves",       w:79,l:55,pct:".590",gb:"—", home:"45-23",away:"34-32", rs:625, ra:512, diff:+113, strk:"W4", l10:"5-5", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:74,l:60,pct:".552",gb:"5.0", home:"38-30",away:"36-30", rs:608, ra:585, diff:+23, strk:"W1", l10:"8-2", highlight:false, srs:0.2 },
+     { team:"MIA", full:"Miami Marlins",        w:68,l:66,pct:".507",gb:"11.0", home:"42-27",away:"26-39", rs:582, ra:563, diff:+19, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:63,l:73,pct:".463",gb:"17.0", home:"28-38",away:"34-35", rs:697, ra:691, diff:+6, strk:"L2", l10:"2-8", highlight:false, srs:0.2 },
+     { team:"NYM", full:"New York Mets",        w:60,l:73,pct:".451",gb:"18.5", home:"31-36",away:"29-37", rs:550, ra:596, diff:-46, strk:"L1", l10:"6-4", highlight:false, srs:-0.1 },
    ];
    
 export const statcastHitters = [
