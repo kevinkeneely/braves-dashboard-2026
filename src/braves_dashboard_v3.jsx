@@ -440,7 +440,7 @@ const HITTER_WAR_COLORS = {
   "Olson":"#CE1141","Albies":"#EAC678","Baldwin":"#60a5fa","Harris":"#4ade80",
   "Dubón":"#c084fc","Acuña":"#fb923c","Smith":"#f472b6","Mateo":"#818cf8",
   "Riley":"#F5F5F5","White":"#94a3b8","Yaz":"#f87171","Kim":"#8F713D",
-  "Bart":"#22d3ee","Jarvis":"#a3e635","Hicklen":"#f59e0b","Murphy":"#996666",
+  "Bart":"#22d3ee","Jarvis":"#a3e635","Hicklen":"#a3e635","Murphy":"#996666",
   "Thomas":"#2dd4bf"
 };
 const PITCHER_WAR_COLORS = {
@@ -4498,7 +4498,7 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco", "White", "Bart", "Mateo", "Waldrep", "O.Murphy", "Karinchak"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco", "White", "Bart", "Mateo", "Waldrep", "O.Murphy", "Karinchak", "Jarvis", "Strider", "Ritchie"]);
 
   // Define which pitcher keys are starters vs. relievers
   const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Smith-Shawver", "Waldrep", "O.Murphy", "Mahle"]);
