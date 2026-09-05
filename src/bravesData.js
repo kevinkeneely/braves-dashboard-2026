@@ -500,11 +500,11 @@ export const statcastPitchers = [
 
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
-// Updated August 11, 2026
-//   Hitters:  wOBA (23) · LD% (17) · Whiff% inv (15) · LA SwSp% (12) ·
-//             Hard Hit% (11) · EV (11) · Chase% inv (08)
-//   Pitchers: SIERA inv (26) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
-//             SwStr% (10) · EV inv (8)
+// Updated September 5, 2026
+//   Hitters:  wOBA (24) · LD% (14) · Whiff% inv (16) · LA SwSp% (8) ·
+//             Hard Hit% (15) · EV (15) · Chase% inv (8)
+//   Pitchers: SIERA inv (24) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
+//             SwStr% (12) · EV inv (8)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
 // constants at season end from Baseball Savant / FanGraphs MLB-wide leaderboards.
 // ════════════════════════════════════════════════════════════════════════════
@@ -524,7 +524,7 @@ const LG_HIT = {
   chase:   { mean: 30.4,  sd: 4.0   },   // inverted (lower = better)
 };
 const W_HIT = {
-  woba: 0.26, whiff: 0.18, ldpct: 0.14, hardHit: 0.13, ev: 0.13, laSwSp: 0.08, chase: 0.08,
+  woba: 0.24, whiff: 0.16, hardHit: 0.15, ev: 0.15, ldpct: 0.14, laSwSp: 0.08, chase: 0.08,
 };
 
 const LG_PIT = {
@@ -536,7 +536,7 @@ const LG_PIT = {
   ev:    { mean: 88.8,  sd: 2.0   },   // inverted (lower allowed = better)
 };
 const W_PIT = {
-  siera: 0.26, kbb: 0.24, whip: 0.20, xwoba: 0.12, swstr: 0.10, ev: 0.08,
+  siera: 0.24, kbb: 0.24, whip: 0.20, xwoba: 0.12, swstr: 0.12, ev: 0.08,
 };
 
 // ─── Lookup tables ─────────────────────────────────────────────────────────
