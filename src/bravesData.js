@@ -230,8 +230,8 @@
      { date:"Tue, Sep 1", opp:"Nationals",    home:false, result:"L", score:"5-9", record:"82-57"},
      { date:"Wed, Sep 2", opp:"Nationals",    home:false, result:"W", score:"9-0", record:"83-57"},
      { date:"Fri, Sep 4", opp:"Phillies",    home:false, result:"W", score:"5-2", record:"84-57"},
+     { date:"Sat, Sep 5", opp:"Phillies",    home:false, result:"L", score:"2-4", record:"84-58"},
       // Upcoming
-     { date:"Sat, Sep 5", opp:"Phillies",    home:false,},
      { date:"Sun, Sep 6", opp:"Phillies",    home:false,},
      { date:"Mon, Sep 7", opp:"Phillies",    home:false,},
      { date:"Tue, Sep 8", opp:"Rays",    home:true,},
@@ -256,13 +256,13 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "84-57",
-     runs: 658,
-     era: "3.57",
-     avg: ".249",
+     record: "84-58",
+     runs: 660,
+     era: "3.58",
+     avg: ".248",
      obp: ".312",
-     slg: ".413",
-     ops: ".725",
+     slg: ".412",
+     ops: ".724",
      wrc: 99,
      iso: ".164",
      battingK: "21.8%",
