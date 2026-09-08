@@ -1543,7 +1543,6 @@ const HIDDEN_PLAYERS = new Set([
   "Joey Bart",
   "JR Ritchie",
   "James Karinchak",
-  "Reynaldo López",
   "Danny Young",
   "Tyler Kinley",
 ]);
