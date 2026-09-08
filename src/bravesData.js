@@ -259,11 +259,11 @@
    export const TEAM_HEADER = {
      record: "85-59",
      runs: 665,
-     era: "3.57",
-     avg: ".248",
-     obp: ".312",
-     slg: ".413",
-     ops: ".725",
+     era: "3.55",
+     avg: ".247",
+     obp: ".311",
+     slg: ".411",
+     ops: ".722",
      wrc: 99,
      iso: ".164",
      battingK: "21.8%",
@@ -389,11 +389,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:85,l:58,pct:".594",gb:"—", home:"48-24",away:"37-34", rs:665, ra:545, diff:+120, strk:"W1", l10:"7-3", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:80,l:63,pct:".559",gb:"5.0", home:"39-32",away:"41-31", rs:641, ra:607, diff:+34, strk:"L1", l10:"7-3", highlight:false, srs:0.3 },
-     { team:"MIA", full:"Miami Marlins",        w:72,l:72,pct:".500",gb:"13.5", home:"43-29",away:"29-43", rs:631, ra:616, diff:+15, strk:"W1", l10:"4-6", highlight:false, srs:0.2 },
-     { team:"WSN", full:"Washington Nationals", w:67,l:78,pct:".462",gb:"19.0", home:"33-40",away:"34-38", rs:748, ra:739, diff:+9, strk:"L4", l10:"5-5", highlight:false, srs:0.2 },
-     { team:"NYM", full:"New York Mets",        w:65,l:78,pct:".455",gb:"20.0", home:"34-40",away:"31-38", rs:596, ra:644, diff:-48, strk:"W1", l10:"5-5", highlight:false, srs:-0.2 },
+     { team:"ATL", full:"Atlanta Braves",       w:85,l:59,pct:".590",gb:"—", home:"48-24",away:"37-35", rs:665, ra:546, diff:+119, strk:"L1", l10:"6-4", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:81,l:63,pct:".563",gb:"4.0", home:"40-32",away:"41-31", rs:642, ra:607, diff:+35, strk:"W1", l10:"7-3", highlight:false, srs:0.3 },
+     { team:"MIA", full:"Miami Marlins",        w:72,l:73,pct:".497",gb:"13.5", home:"43-30",away:"29-43", rs:635, ra:625, diff:+10, strk:"L1", l10:"4-6", highlight:false, srs:0.2 },
+     { team:"WSN", full:"Washington Nationals", w:67,l:79,pct:".459",gb:"19.0", home:"33-40",away:"34-39", rs:750, ra:742, diff:+8, strk:"L5", l10:"4-6", highlight:false, srs:0.2 },
+     { team:"NYM", full:"New York Mets",        w:66,l:78,pct:".458",gb:"19.0", home:"34-40",away:"32-38", rs:605, ra:648, diff:-43, strk:"W2", l10:"6-4", highlight:false, srs:-0.2 },
    ];
    
 export const statcastHitters = [
