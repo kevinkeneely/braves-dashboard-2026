@@ -3829,7 +3829,12 @@ function TSSideCard(props) {
   const sT = props.sT;
   const sections = props.sections;
   const cardStyle = {
-    position: "relative", background: sT.rowBase, borderRadius: 10,
+    position: "relative",
+    // Brightened background (Sep 6): was sT.rowBase (rgba(255,251,240,0.7)) — swapped for
+    // a cleaner off-white cream at higher opacity so numbers read more clearly. Only Team
+    // Stats cards use this override; Splits cards still use sT.rowBase.
+    background: "rgba(253, 250, 240, 0.98)",
+    borderRadius: 10,
     padding: "16px 12px 12px", minWidth: 0, overflow: "hidden",
   };
   const stripStyle = {
