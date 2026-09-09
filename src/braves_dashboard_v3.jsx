@@ -449,7 +449,7 @@ const PITCHER_WAR_COLORS = {
   "Kinley":"#a78bfa","López":"#60a5fa","Strider":"#fbbf24","Dodd":"#f87171",
   "Ritchie":"#f87171","Karinchak":"#22d3ee","Waldrep":"#8F713D","Mederos":"#a3e635",
   "O.Murphy":"#a78bfa","Young":"#EAC678","Smith-Shawver":"#e879f9",
-  "Mahle":"#8F713D","Suter":"#facc15","Kerr":"#14b8a6"
+  "Mahle":"#8F713D","Suter":"#facc15","Kerr":"#14b8a6","Hernández":"#F5F5F5"
 };
 
 /* ── HELPERS ────────────────────────────────────────────────────────────── */
@@ -1878,7 +1878,7 @@ const PITCHER_WAR_KEY = {
   "JR Ritchie":"Ritchie", "James Karinchak":"Karinchak", "Ian Hamilton":"Hamilton",
   "Hurston Waldrep":"Waldrep", "Víctor Mederos":"Mederos", "Owen Murphy":"O.Murphy",
   "Danny Young":"Young", "AJ Smith-Shawver":"Smith-Shawver", "Tyler Mahle":"Mahle",
-  "Brent Suter":"Suter", "Ray Kerr":"Kerr",
+  "Brent Suter":"Suter", "Ray Kerr":"Kerr", "Elieser Hernández":"Hernández",
 };
 
 function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
@@ -4503,7 +4503,7 @@ function StandingsTab({T}) {
 
 /* ── WAR PROGRESS TAB ────────────────────────────────────────────────────── */
 function WarProgressTab({T}) {
-  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco", "White", "Bart", "Mateo", "Waldrep", "O.Murphy", "Karinchak", "Jarvis", "Strider", "Ritchie", "Young", "Kinley"]);
+  const WAR_PROGRESS_HIDDEN = new Set(["Tromp", "Carrasco", "White", "Bart", "Mateo", "Waldrep", "O.Murphy", "Karinchak", "Jarvis", "Strider", "Young", "Kinley"]);
 
   // Define which pitcher keys are starters vs. relievers
   const SP_KEYS = new Set(["Sale", "Pérez", "Elder", "López", "Strider", "Ritchie", "Holmes", "Smith-Shawver", "Waldrep", "O.Murphy", "Mahle"]);
