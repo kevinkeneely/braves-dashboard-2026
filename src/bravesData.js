@@ -233,8 +233,8 @@
      { date:"Sat, Sep 5", opp:"Phillies",    home:false, result:"L", score:"2-4", record:"84-58"},
      { date:"Sun, Sep 6", opp:"Phillies",    home:false, result:"W", score:"5-4", record:"85-58"},
      { date:"Mon, Sep 7", opp:"Phillies",    home:false, result:"L", score:"0-1", record:"85-59"},
+     { date:"Tue, Sep 8", opp:"Rays",    home:true, result:"L", score:"1-7", record:"85-60"},
       // Upcoming
-     { date:"Tue, Sep 8", opp:"Rays",    home:true,},
      { date:"Wed, Sep 9", opp:"Rays",    home:true,},
      { date:"Thu, Sep 10", opp:"Rays",    home:true,},
      { date:"Fri, Sep 11", opp:"Phillies",    home:true,},
@@ -257,8 +257,8 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "85-59",
-     runs: 665,
+     record: "85-60",
+     runs: 666,
      era: "3.55",
      avg: ".247",
      obp: ".311",
@@ -389,8 +389,8 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:85,l:59,pct:".590",gb:"—", home:"48-24",away:"37-35", rs:665, ra:546, diff:+119, strk:"L1", l10:"6-4", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:81,l:63,pct:".563",gb:"4.0", home:"40-32",away:"41-31", rs:642, ra:607, diff:+35, strk:"W1", l10:"7-3", highlight:false, srs:0.3 },
+     { team:"ATL", full:"Atlanta Braves",       w:85,l:60,pct:".586",gb:"—", home:"48-25",away:"37-35", rs:666, ra:553, diff:+113, strk:"L2", l10:"6-4", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:81,l:64,pct:".559",gb:"4.0", home:"40-33",away:"41-31", rs:647, ra:613, diff:+34, strk:"L1", l10:"7-3", highlight:false, srs:0.3 },
      { team:"MIA", full:"Miami Marlins",        w:72,l:73,pct:".497",gb:"13.5", home:"43-30",away:"29-43", rs:635, ra:625, diff:+10, strk:"L1", l10:"4-6", highlight:false, srs:0.1 },
      { team:"WSN", full:"Washington Nationals", w:67,l:79,pct:".459",gb:"19.0", home:"33-40",away:"34-39", rs:750, ra:742, diff:+8, strk:"L5", l10:"4-6", highlight:false, srs:0.2 },
      { team:"NYM", full:"New York Mets",        w:66,l:78,pct:".458",gb:"19.0", home:"34-40",away:"32-38", rs:605, ra:648, diff:-43, strk:"W2", l10:"6-4", highlight:false, srs:-0.2 },
