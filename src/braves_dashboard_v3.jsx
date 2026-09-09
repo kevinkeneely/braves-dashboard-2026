@@ -1546,6 +1546,7 @@ const HIDDEN_PLAYERS = new Set([
   "Danny Young",
   "Tyler Kinley",
   "Bryce Elder",
+  "Elieser Hernández",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
