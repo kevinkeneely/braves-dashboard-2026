@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 8, 2026";
+   export const lastUpdated = "September 9, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -434,7 +434,7 @@ export const statcastPitchers = [
   { name:"Hurston Waldrep", ev:"89.3",hardHit:"34.3%",xwoba:".359",xba:".231",xslg:".389",kpct:"16.1%",bbpct:"17.9%", barrel:"8.6%", chase:"21.1%",whiff:"23.3%",gbpct:"71.4%",fbpct:"14.3%",ldpct:"5.7%",pupct:"8.6%", pullAir:"11.4%"},
   { name:"Tyler Kinley", ev:"85.5",hardHit:"28.1%",xwoba:".285",xba:".206",xslg:".369",kpct:"23.4%",bbpct:"10.9%", barrel:"8.0%", chase:"26.7%",whiff:"27.3%",gbpct:"30.7%",fbpct:"33.3%",ldpct:"24.6%",pupct:"11.4%", pullAir:"34.2%"},
   { name:"Martín Pérez", ev:"88.2",hardHit:"37.9%",xwoba:".333",xba:".267",xslg:".402",kpct:"18.0%",bbpct:"10.4%", barrel:"5.2%", chase:"26.9%",whiff:"21.9%",gbpct:"47.0%",fbpct:"20.5%",ldpct:"27.0%",pupct:"5.4%", pullAir:"20.3%"},
-  { name:"Grant Holmes", ev:"91.4",hardHit:"44.6%",xwoba:".333",xba:".254",xslg:".429",kpct:"18.9%",bbpct:"9.8%", barrel:"8.5%", chase:"31.2%",whiff:"27.5%",gbpct:"43.3%",fbpct:"26.4%",ldpct:"24.9%",pupct:"5.3%", pullAir:"20.5%"},
+  { name:"Grant Holmes", ev:"91.4",hardHit:"44.6%",xwoba:".333",xba:".254",xslg:".429",kpct:"18.9%",bbpct:"9.8%", barrel:"8.5%", chase:"31.2%",whiff:"27.5%",gbpct:"43.3%",fbpct:"26.4%",ldpct:"24.9%",pupct:"5.3%", pullAir:"20.3%"},
   { name:"Reynaldo López", ev:"87.7",hardHit:"36.4%",xwoba:".330",xba:".256",xslg:".426",kpct:"21.6%",bbpct:"9.5%", barrel:"7.7%", chase:"27.2%",whiff:"21.8%",gbpct:"36.8%",fbpct:"28.7%",ldpct:"26.8%",pupct:"7.7%", pullAir:"19.1%"},
   { name:"JR Ritchie", ev:"89.6",hardHit:"39.5%",xwoba:".343",xba:".240",xslg:".407",kpct:"20.7%",bbpct:"14.1%", barrel:"9.3%", chase:"25.5%",whiff:"23.3%",gbpct:"45.1%",fbpct:"29.6%",ldpct:"20.4%",pupct:"4.9%", pullAir:"20.4%"},
   { name:"Dylan Dodd", ev:"89.3",hardHit:"37.7%",xwoba:".278",xba:".200",xslg:".363",kpct:"26.6%",bbpct:"7.9%", barrel:"8.8%", chase:"34.7%",whiff:"29.1%",gbpct:"27.2%",fbpct:"33.3%",ldpct:"24.6%",pupct:"14.9%", pullAir:"32.4%"},
@@ -447,8 +447,8 @@ export const statcastPitchers = [
   { name:"AJ Smith-Shawver", ev:"88.7",hardHit:"38.0%",xwoba:".336",xba:".244",xslg:".405",kpct:"17.5%",bbpct:"12.6%", barrel:"8.5%", chase:"28.9%",whiff:"23.5%",gbpct:"42.3%",fbpct:"26.8%",ldpct:"21.1%",pupct:"9.9%", pullAir:"22.5%"},
   { name:"Tyler Mahle", ev:"90.0",hardHit:"38.7%",xwoba:".313",xba:".251",xslg:".397",kpct:"22.8%",bbpct:"7.9%", barrel:"6.7%", chase:"29.3%",whiff:"23.3%",gbpct:"43.5%",fbpct:"26.9%",ldpct:"23.5%",pupct:"6.1%", pullAir:"15.6%"},
   { name:"Brent Suter", ev:"86.3",hardHit:"30.2%",xwoba:".308",xba:".255",xslg:".393",kpct:"20.3%",bbpct:"7.3%", barrel:"6.0%", chase:"29.3%",whiff:"23.4%",gbpct:"50.6%",fbpct:"20.4%",ldpct:"24.3%",pupct:"4.7%", pullAir:"14.9%"},
-  { name:"Ray Kerr", ev:"89.5",hardHit:"31.0%",xwoba:".258",xba:".209",xslg:".314",kpct:"15.8%",bbpct:"2.6%", barrel:"3.4%", chase:"39.7%",whiff:"22.2%",gbpct:"44.8%",fbpct:"20.7%",ldpct:"13.8%",pupct:"20.7%", pullAir:"8.3%"},
-  { name:"Elieser Hernández", ev:"86.4",hardHit:"29.6%",xwoba:".240",xba:".175",xslg:".259",kpct:"17.9%",bbpct:"12.8%", barrel:"3.7%", chase:"25.3%",whiff:"23.5%",gbpct:"29.6%",fbpct:"33.3%",ldpct:"11.1%",pupct:"25.9%", pullAir:"33.3"},
+  { name:"Ray Kerr", ev:"89.5",hardHit:"31.0%",xwoba:".258",xba:".209",xslg:".314",kpct:"15.8%",bbpct:"2.6%", barrel:"3.4%", chase:"39.7%",whiff:"22.2%",gbpct:"44.8%",fbpct:"20.7%",ldpct:"13.8%",pupct:"20.7%", pullAir:"17.2%"},
+  { name:"Elieser Hernández", ev:"88.0",hardHit:"37.5%",xwoba:".272",xba:".194",xslg:".299",kpct:"22.0%",bbpct:"12.0%", barrel:"9.4%", chase:"30.0%",whiff:"27.5%",gbpct:"31.3%",fbpct:"28.1%",ldpct:"18.8%",pupct:"21.9%", pullAir:"34.4"},
 ];
    
    export const hitterWarProgress = [
