@@ -3279,12 +3279,13 @@ function StatcastHitTable({T, onSelect}) {
     { key:"chase",     label:"CHASE%",   invert:true },
     { key:"whiff",     label:"WHIFF%",   invert:true },
     { key:"batSpeed",  label:"AVG BAT SPD" },
-    { key:"fastSwing", label:"FAST SWING%" },
+    { key:"squaredUp", label:"SQUARED UP%" },
+    { key:"pullAir",   label:"PULL-AIR%"   },
   ];
-  // augment with batSpeed/fastSwing from hitters[]
+  // augment with batSpeed/squaredUp from hitters[] (pullAir is already on statcast record)
   const augmented = useMemo(() => visibleStatcastHitters.map(s => {
     const h = hitters.find(x => x.name === s.name);
-    return { ...s, batSpeed:h?.batSpeed, fastSwing:h?.fastSwing };
+    return { ...s, batSpeed:h?.batSpeed, squaredUp:h?.squaredUp };
   }), []);
   const sorted = useMemo(() => {
     const arr = augmented.slice();
@@ -3380,13 +3381,14 @@ function StatcastPitTable({T, onSelect}) {
     { key:"chase",     label:"CHASE%"      },
     { key:"whiff",     label:"WHIFF%"      },
     { key:"batSpeed",  label:"AVG BAT SPD", invert:true },
-    { key:"fastSwing", label:"FAST SWING%", invert:true },
+    { key:"squaredUp", label:"SQUARED UP%", invert:true },
+    { key:"pullAir",   label:"PULL-AIR%",   invert:true },
   ];
   const allArms = useMemo(() => [...starters, ...bullpen], []);
-  // augment with batSpeed/fastSwing from pitcher records
+  // augment with batSpeed/squaredUp from pitcher records (pullAir is already on statcast record)
   const augmented = useMemo(() => visibleStatcastPitchers.map(s => {
     const p = allArms.find(x => x.name === s.name);
-    return { ...s, batSpeed:p?.batSpeed, fastSwing:p?.fastSwing };
+    return { ...s, batSpeed:p?.batSpeed, squaredUp:p?.squaredUp };
   }), [allArms]);
   const sorted = useMemo(() => {
     const arr = augmented.slice();
