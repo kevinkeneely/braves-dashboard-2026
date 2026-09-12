@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 10, 2026";
+   export const lastUpdated = "September 12, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -294,8 +294,10 @@
      batSwStr: "11.2%",
      batCStr: "14.5%",
      batCSW: "25.8%",
+     batOSwing: "36.2%",   // add alongside batChase / batWhiff
      batChase: "33.6%",
      batWhiff: "24.7%",
+     oSwing: "33.3%",   // add alongside chase / whiff
      chase: "30.8%",
      whiff: "26.5%",
      batBatSpeed: "72.8",
