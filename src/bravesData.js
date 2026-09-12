@@ -260,11 +260,11 @@
    export const TEAM_HEADER = {
      record: "87-61",
      runs: 677,
-     era: "3.58",
+     era: "3.57",
      avg: ".246",
      obp: ".309",
-     slg: ".408",
-     ops: ".717",
+     slg: ".409",
+     ops: ".718",
      wrc: 97,
      iso: ".163",
      battingK: "21.8%",
@@ -391,11 +391,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:87,l:61,pct:".588",gb:"—", home:"50-26",away:"37-35", rs:671, ra:561, diff:+111, strk:"W2", l10:"5-5", highlight:true,  srs:0.8 },
-     { team:"PHI", full:"Philadelphia Phillies", w:82,l:66,pct:".554",gb:"5.0", home:"41-34",away:"41-32", rs:659, ra:622, diff:+36, strk:"L2", l10:"4-6", highlight:false, srs:0.3 },
-     { team:"MIA", full:"Miami Marlins",        w:72,l:76,pct:".486",gb:"15.0", home:"43-33",away:"29-43", rs:654, ra:647, diff:+3, strk:"L4", l10:"3-7", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:68,l:79,pct:".463",gb:"18.5", home:"34-40",away:"34-39", rs:627, ra:667, diff:-42, strk:"L1", l10:"7-3", highlight:false, srs:-0.1 },
-     { team:"WSN", full:"Washington Nationals", w:68,l:81,pct:".456",gb:"19.5", home:"34-40",away:"34-41", rs:756, ra:756, diff:+1, strk:"W1", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"ATL", full:"Atlanta Braves",       w:87,l:61,pct:".588",gb:"—", home:"50-26",away:"37-35", rs:677, ra:566, diff:+111, strk:"W2", l10:"5-5", highlight:true,  srs:0.8 },
+     { team:"PHI", full:"Philadelphia Phillies", w:82,l:66,pct:".554",gb:"5.0", home:"41-34",away:"41-32", rs:664, ra:628, diff:+36, strk:"L2", l10:"4-6", highlight:false, srs:0.3 },
+     { team:"MIA", full:"Miami Marlins",        w:72,l:76,pct:".486",gb:"15.0", home:"43-33",away:"29-43", rs:656, ra:653, diff:+3, strk:"L4", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"NYM", full:"New York Mets",        w:68,l:79,pct:".463",gb:"18.5", home:"34-40",away:"34-39", rs:631, ra:673, diff:-42, strk:"L1", l10:"7-3", highlight:false, srs:-0.1 },
+     { team:"WSN", full:"Washington Nationals", w:68,l:81,pct:".456",gb:"19.5", home:"34-40",away:"34-41", rs:760, ra:759, diff:+1, strk:"W1", l10:"3-7", highlight:false, srs:0.1 },
    ];
    
 export const statcastHitters = [
