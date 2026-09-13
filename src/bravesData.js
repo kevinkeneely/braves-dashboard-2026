@@ -240,8 +240,8 @@
      { date:"Thu, Sep 10", opp:"Rays",    home:true, result:"W", score:"3-1", record:"86-61"},
      { date:"Fri, Sep 11", opp:"Phillies",    home:true, result:"W", score:"6-5 F/11", record:"87-61"},
      { date:"Sat, Sep 12", opp:"Phillies",    home:true, result:"W", score:"12-2", record:"88-61"},
+     { date:"Sun, Sep 13", opp:"Phillies",    home:true, result:"L", score:"4-9", record:"88-62"},
       // Upcoming
-     { date:"Sun, Sep 13", opp:"Phillies",    home:true,},
      { date:"Mon, Sep 14", opp:"Cubs",    home:false,},
      { date:"Tue, Sep 15", opp:"Cubs",    home:false,},
      { date:"Wed, Sep 16", opp:"Cubs",    home:false,},
@@ -259,13 +259,13 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "88-61",
-     runs: 689,
-     era: "3.56",
+     record: "88-62",
+     runs: 693,
+     era: "3.59",
      avg: ".247",
-     obp: ".310",
+     obp: ".311",
      slg: ".410",
-     ops: ".720",
+     ops: ".721",
      wrc: 98,
      iso: ".163",
      battingK: "21.6%",
@@ -395,11 +395,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:88,l:61,pct:".591",gb:"—", home:"51-26",away:"37-35", rs:689, ra:568, diff:+121, strk:"W3", l10:"6-4", highlight:true,  srs:0.9 },
-     { team:"PHI", full:"Philadelphia Phillies", w:82,l:67,pct:".550",gb:"6.0", home:"41-34",away:"41-33", rs:666, ra:640, diff:+26, strk:"L3", l10:"3-7", highlight:false, srs:0.2 },
-     { team:"MIA", full:"Miami Marlins",        w:73,l:76,pct:".490",gb:"15.0", home:"44-33",away:"29-43", rs:660, ra:656, diff:+4, strk:"W1", l10:"3-7", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:69,l:79,pct:".466",gb:"18.5", home:"34-40",away:"35-39", rs:643, ra:675, diff:-32, strk:"W1", l10:"7-3", highlight:false, srs:-0.1 },
-     { team:"WSN", full:"Washington Nationals", w:69,l:81,pct:".460",gb:"19.5", home:"35-40",away:"34-41", rs:766, ra:764, diff:+2, strk:"W2", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"ATL", full:"Atlanta Braves",       w:88,l:62,pct:".587",gb:"—", home:"51-27",away:"37-35", rs:693, ra:577, diff:+116, strk:"L1", l10:"5-5", highlight:true,  srs:0.9 },
+     { team:"PHI", full:"Philadelphia Phillies", w:83,l:67,pct:".553",gb:"5.0", home:"41-34",away:"42-33", rs:675, ra:644, diff:+31, strk:"W1", l10:"4-6", highlight:false, srs:0.2 },
+     { team:"MIA", full:"Miami Marlins",        w:74,l:76,pct:".490",gb:"14.0", home:"45-33",away:"29-43", rs:666, ra:660, diff:+6, strk:"W2", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:70,l:81,pct:".464",gb:"18.5", home:"36-40",away:"34-41", rs:772, ra:769, diff:+3, strk:"W3", l10:"3-7", highlight:false, srs:0.1 },
+     { team:"NYM", full:"New York Mets",        w:69,l:80,pct:".463",gb:"18.5", home:"34-40",away:"35-40", rs:643, ra:677, diff:-34, strk:"L1", l10:"7-3", highlight:false, srs:-0.1 },
    ];
    
 export const statcastHitters = [
