@@ -425,7 +425,7 @@ export const statcastHitters = [
   { name:"Jim Jarvis", ev:"88.7",hardHit:"36.7%",xwoba:".272",xba:".237",xslg:".308",barrel:"3.3%",chase:"27.9%",whiff:"18.2%",kpct:"18.2%",bbpct:"6.6%", gbpct:"58.9%",fbpct:"18.9%",ldpct:"20.0%",pupct:"2.2%",pullAir:"9.8%"},
   { name:"Brewer Hicklen", ev:"92.0",hardHit:"50.0%",xwoba:".346",xba:".242",xslg:".362",barrel:"7.1%",chase:"26.2%",whiff:"42.9%",kpct:"33.3%",bbpct:"20.0%", gbpct:"42.9%",fbpct:"21.4%",ldpct:"35.7%",pupct:"0.0%",pullAir:"16.7%"},
   { name:"Lane Thomas", ev:"89.3",hardHit:"40.9%",xwoba:".311",xba:".238",xslg:".365",barrel:"6.4%",chase:"20.6%",whiff:"22.9%",kpct:"24.9%",bbpct:"11.8%", gbpct:"37.9%",fbpct:"24.3%",ldpct:"24.7%",pupct:"13.2%",pullAir:"25.2%"},
-  { name:"DaShawn Keirsey Jr.", ev:"89.3",hardHit:"40.9%",xwoba:".311",xba:".238",xslg:".365",barrel:"6.4%",chase:"20.6%",whiff:"22.9%",kpct:"24.9%",bbpct:"11.8%", gbpct:"37.9%",fbpct:"24.3%",ldpct:"24.7%",pupct:"13.2%",pullAir:"25.2%"},
+  { name:"DaShawn Keirsey Jr.", ev:"87.8",hardHit:"0.0%",xwoba:".917",xba:".983",xslg:"1.111",barrel:"0.0%",chase:"100%",whiff:"0.0%",kpct:"0.0%",bbpct:"0.0%", gbpct:"0.0%",fbpct:"0.0%",ldpct:"100%",pupct:"0.0%",pullAir:"0.0%"},
 ];
  
 export const statcastPitchers = [
