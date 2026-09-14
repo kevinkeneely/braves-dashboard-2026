@@ -3726,7 +3726,6 @@ function tsCellHeat(value, ref) {
   let delta = (num - ref.mean) / ref.spread;
   if (ref.invert) delta = -delta;
   const mag = Math.min(Math.abs(delta), 2);
-  if (mag < 0.30) return {};
   const intensity = mag / 2;
   const alpha = (0.08 + intensity * 0.26).toFixed(3);
   if (delta > 0) {
