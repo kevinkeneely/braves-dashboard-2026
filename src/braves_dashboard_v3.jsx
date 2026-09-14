@@ -1535,7 +1535,6 @@ const HIDDEN_PLAYERS = new Set([
   "Rowdy Tellez",
   "Hurston Waldrep",
   "Spencer Strider",
-  "Owen Murphy",
   "Jim Jarvis",
   "Robert Suarez",
   "Eli White",
@@ -1547,6 +1546,7 @@ const HIDDEN_PLAYERS = new Set([
   "Tyler Kinley",
   "Bryce Elder",
   "Elieser Hernández",
+  "Bailey Falter",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
