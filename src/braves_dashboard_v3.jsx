@@ -1967,6 +1967,14 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
         onclone: (clonedDoc, clonedNode) => {
           const scope = clonedNode || clonedDoc.body;
           const view = clonedDoc.defaultView || window;
+          // Also stretch the card wrapper itself to the capture width so its own
+          // dark navy background extends behind the expanded Splits table —
+          // otherwise the right half of the table renders over the modal backdrop.
+          if (clonedNode && clonedNode.style) {
+            clonedNode.style.width = w + "px";
+            clonedNode.style.maxWidth = "none";
+            clonedNode.style.boxSizing = "border-box";
+          }
           // Re-open any horizontal scroll containers in the clone so the wider
           // capture canvas actually shows the full table instead of a clipped view.
           scope.querySelectorAll('[data-share-expand="1"]').forEach((n) => {
