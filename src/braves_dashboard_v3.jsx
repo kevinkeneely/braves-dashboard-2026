@@ -1540,13 +1540,13 @@ const HIDDEN_PLAYERS = new Set([
   "Eli White",
   "Jorge Mateo",
   "Joey Bart",
-  "JR Ritchie",
   "James Karinchak",
   "Danny Young",
   "Tyler Kinley",
   "Bryce Elder",
   "Elieser Hernández",
   "Bailey Falter",
+  "Reynaldo López",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
