@@ -1939,16 +1939,20 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
     try {
       const html2canvas = await loadHtml2Canvas();
       const rect = node.getBoundingClientRect();
-      // Any [data-share-expand="1"] scroll container (e.g. the Splits table wrapper)
-      // has natural content wider than the mobile card. If we capture at the card's
-      // visible width, html2canvas squeezes those tables — cells collapse and
-      // numbers collide ("13921275 7"). Sum the overflow of each scroller to get
-      // the true width the export needs; scrollWidth-clientWidth reads it without
-      // touching the live DOM. Then re-open the scrollers inside the clone so the
-      // wider layout actually renders.
+      // Two things can shrink the capture below the card's true content width:
+      //  (1) [data-share-expand="1"] scroll containers (e.g. the Splits table
+      //      wrapper) have natural content wider than the mobile card — capture
+      //      at visible width and cells collapse, numbers collide.
+      //  (2) The Splits tab wraps each card in `transform: scale(0.55)` to fit
+      //      three across — rect.width returns the post-transform size, which
+      //      is ~55% of the actual DOM layout.
+      // Fix (1): sum each scroller's overflow (scrollWidth − clientWidth) and
+      // add it to the width; re-open the scrollers in the clone (onclone below).
+      // Fix (2): use node.offsetWidth (natural pre-transform layout width) as
+      // the base instead of rect.width.
       const scrollers = Array.from(node.querySelectorAll('[data-share-expand="1"]'));
       const extraW = scrollers.reduce((m, el) => Math.max(m, el.scrollWidth - el.clientWidth), 0);
-      const w = Math.ceil(rect.width) + extraW;
+      const w = (node.offsetWidth || Math.ceil(rect.width)) + extraW;
       const canvas = await html2canvas(node, {
         backgroundColor: T.surface || T.navyDeep || "#0a1530",
         // Integer scale — fractional scale causes subpixel text + letter-spacing
