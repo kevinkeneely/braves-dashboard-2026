@@ -1939,7 +1939,16 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
     try {
       const html2canvas = await loadHtml2Canvas();
       const rect = node.getBoundingClientRect();
-      const w = Math.ceil(rect.width);
+      // Any [data-share-expand="1"] scroll container (e.g. the Splits table wrapper)
+      // has natural content wider than the mobile card. If we capture at the card's
+      // visible width, html2canvas squeezes those tables — cells collapse and
+      // numbers collide ("13921275 7"). Sum the overflow of each scroller to get
+      // the true width the export needs; scrollWidth-clientWidth reads it without
+      // touching the live DOM. Then re-open the scrollers inside the clone so the
+      // wider layout actually renders.
+      const scrollers = Array.from(node.querySelectorAll('[data-share-expand="1"]'));
+      const extraW = scrollers.reduce((m, el) => Math.max(m, el.scrollWidth - el.clientWidth), 0);
+      const w = Math.ceil(rect.width) + extraW;
       const canvas = await html2canvas(node, {
         backgroundColor: T.surface || T.navyDeep || "#0a1530",
         // Integer scale — fractional scale causes subpixel text + letter-spacing
@@ -1947,7 +1956,8 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
         scale: 2,
         useCORS: true,
         logging: false,
-        // Pin width so the clone doesn't reflow to a different layout than on screen.
+        // Pin width to the true content width (visible + horizontal overflow), so
+        // the Splits table renders at its full minWidth instead of being squashed.
         width: w,
         windowWidth: w,
         scrollX: 0,
@@ -1957,6 +1967,12 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
         onclone: (clonedDoc, clonedNode) => {
           const scope = clonedNode || clonedDoc.body;
           const view = clonedDoc.defaultView || window;
+          // Re-open any horizontal scroll containers in the clone so the wider
+          // capture canvas actually shows the full table instead of a clipped view.
+          scope.querySelectorAll('[data-share-expand="1"]').forEach((n) => {
+            n.style.overflow = "visible";
+            n.style.overflowX = "visible";
+          });
           // Explicitly-tagged headers: relax letter-spacing so glyphs don't collide.
           scope.querySelectorAll("[data-share-clamp='1']").forEach((n) => {
             n.style.letterSpacing = "0.04em";
@@ -2530,7 +2546,7 @@ function HitterStatBoxes({T, d, sc, defaultTab = "Bio"}) {
         {splitRows.length === 0 ? (
           <div style={{fontSize:12, color:sT.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
         ) : (
-          <div style={{
+         <div data-share-expand="1" style={{
             position:"relative",
             background:sT.rowBase,
             borderRadius:10,
@@ -2820,7 +2836,7 @@ function PitcherStatBoxes({T, d, sc, defaultTab = "Bio"}) {
         {splitRows.length === 0 ? (
           <div style={{fontSize:12, color:sT.textMuted, padding:"10px 2px"}}>Platoon split data not available.</div>
         ) : (
-          <div style={{
+         <div data-share-expand="1" style={{
             position:"relative",
             background:sT.rowBase,
             borderRadius:10,
