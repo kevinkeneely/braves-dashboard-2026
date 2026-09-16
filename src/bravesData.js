@@ -514,8 +514,8 @@ export const statcastPitchers = [
 // ════════════════════════════════════════════════════════════════════════════
 // TrackerHit+ / TrackerArm+ — Composite performance metrics
 // Updated September 5, 2026
-//   Hitters:  wOBA (24) · LD% (14) · Whiff% inv (16) · LA SwSp% (8) ·
-//             Hard Hit% (15) · EV (15) · Chase% inv (8)
+//   Hitters: Hard Hit% (22) · Squared-Up% (18) · EV (16) · Bat Speed (14) ·
+//            LD% (12) · Whiff% inv (10) · Chase% inv (8)
 //   Pitchers: SIERA inv (24) · K-BB% (24) · WHIP inv (20) · xwOBA inv (12) ·
 //             SwStr% (12) · EV inv (8)
 // 100-centered, 15 points per pooled standard deviation. Recalibrate league
@@ -528,16 +528,16 @@ const _z   = (val, mean, sd) => (sd > 0 ? (val - mean) / sd : 0);
 
 // ─── League constants ──────────────────────────────────────────────────────
 const LG_HIT = {
-  woba:    { mean: 0.316, sd: 0.030 },
-  ldpct:   { mean: 23.6,  sd: 3.0   },
-  whiff:   { mean: 25.1,  sd: 4.0   },   // inverted (lower = better)
-  laSwSp:  { mean: 33.7,  sd: 4.0   },
-  hardHit: { mean: 38.8,  sd: 6.0   },
-  ev:      { mean: 88.8,  sd: 2.0   },
-  chase:   { mean: 30.4,  sd: 4.0   },   // inverted (lower = better)
+  hardHit:   { mean: 38.8, sd: 6.0 },
+  squaredUp: { mean: 24.8, sd: 4.0 },
+  ev:        { mean: 88.8, sd: 2.0 },
+  batSpeed:  { mean: 72.0, sd: 3.0 },
+  ldpct:     { mean: 23.6, sd: 3.0 },
+  whiff:     { mean: 25.1, sd: 4.0 },   // inverted (lower = better)
+  chase:     { mean: 30.4, sd: 4.0 },   // inverted (lower = better)
 };
 const W_HIT = {
-  woba: 0.24, whiff: 0.16, hardHit: 0.15, ev: 0.15, ldpct: 0.14, laSwSp: 0.08, chase: 0.08,
+  hardHit: 0.22, squaredUp: 0.18, ev: 0.16, batSpeed: 0.14, ldpct: 0.12, whiff: 0.10, chase: 0.08,
 };
 
 const LG_PIT = {
@@ -557,26 +557,26 @@ const _scHitterByName  = Object.fromEntries(statcastHitters.map(s => [s.name, s]
 const _scPitcherByName = Object.fromEntries(statcastPitchers.map(s => [s.name, s]));
 
 // ─── Compute TrackerHit+ for a hitter ──────────────────────────────────────
-const _computeTrackerHit = (h) => {
-  const sc = _scHitterByName[h.name] || {};
-  const woba    = _num(h.woba);
-  const ldpct   = _pct(sc.ldpct);
-  const whiff   = _pct(sc.whiff);
-  const laSwSp  = _pct(h.laSwSp);
-  const hardHit = _pct(sc.hardHit);
-  const ev      = _num(sc.ev);
-  const chase   = _pct(sc.chase);
-  if ([woba, ldpct, whiff, laSwSp, hardHit, ev, chase].some(v => !isFinite(v))) return null;
-  const z =
-      W_HIT.woba    *  _z(woba,    LG_HIT.woba.mean,    LG_HIT.woba.sd)
-    + W_HIT.ldpct   *  _z(ldpct,   LG_HIT.ldpct.mean,   LG_HIT.ldpct.sd)
-    + W_HIT.whiff   * -_z(whiff,   LG_HIT.whiff.mean,   LG_HIT.whiff.sd)   // inverted
-    + W_HIT.laSwSp  *  _z(laSwSp,  LG_HIT.laSwSp.mean,  LG_HIT.laSwSp.sd)
-    + W_HIT.hardHit *  _z(hardHit, LG_HIT.hardHit.mean, LG_HIT.hardHit.sd)
-    + W_HIT.ev      *  _z(ev,      LG_HIT.ev.mean,      LG_HIT.ev.sd)
-    + W_HIT.chase   * -_z(chase,   LG_HIT.chase.mean,   LG_HIT.chase.sd);  // inverted
-  return Math.round(100 + 15 * z);
-};
+  const _computeTrackerHit = (h) => {
+    const sc = _scHitterByName[h.name] || {};
+    const hardHit   = _pct(sc.hardHit);
+    const squaredUp = _pct(h.squaredUp);
+    const ev        = _num(sc.ev);
+    const batSpeed  = _num(h.batSpeed);
+    const ldpct     = _pct(sc.ldpct);
+    const whiff     = _pct(sc.whiff);
+    const chase     = _pct(sc.chase);
+    if ([hardHit, squaredUp, ev, batSpeed, ldpct, whiff, chase].some(v => !isFinite(v))) return null;
+    const z =
+        W_HIT.hardHit   *  _z(hardHit,   LG_HIT.hardHit.mean,   LG_HIT.hardHit.sd)
+      + W_HIT.squaredUp *  _z(squaredUp, LG_HIT.squaredUp.mean, LG_HIT.squaredUp.sd)
+      + W_HIT.ev        *  _z(ev,        LG_HIT.ev.mean,        LG_HIT.ev.sd)
+      + W_HIT.batSpeed  *  _z(batSpeed,  LG_HIT.batSpeed.mean,  LG_HIT.batSpeed.sd)
+      + W_HIT.ldpct     *  _z(ldpct,     LG_HIT.ldpct.mean,     LG_HIT.ldpct.sd)
+      + W_HIT.whiff     * -_z(whiff,     LG_HIT.whiff.mean,     LG_HIT.whiff.sd)   // inverted
+      + W_HIT.chase     * -_z(chase,     LG_HIT.chase.mean,     LG_HIT.chase.sd);  // inverted
+    return Math.round(100 + 15 * z);
+  };
 
 // ─── Compute TrackerArm+ for a pitcher ─────────────────────────────────────
 const _computeTrackerArm = (p) => {
