@@ -1882,7 +1882,7 @@ const PITCHER_WAR_KEY = {
   "Brent Suter":"Suter", "Ray Kerr":"Kerr", "Elieser Hernández":"Hernández",
 };
 
-function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
+function FullProfile({T, mode, player, onClose, defaultTab = "Bio", hideShare = false}) {
   const isHitter = player.kind === "hitter";
   const d = player.data;
   const tier = isHitter ? hitterRoleTier(d) : pitcherRoleTier(d);
@@ -2104,23 +2104,28 @@ function FullProfile({T, mode, player, onClose, defaultTab = "Bio"}) {
         <PitcherStatBoxes T={T} d={d} sc={sc} defaultTab={defaultTab}/>
       )}
 
-      {/* Action bar */}
+      {/* Action bar — Share Card hidden inside the Splits tab (see ExpandedProfile),
+          because those cards live inside a `transform: scale(0.55)` wrapper that
+          html2canvas can't rasterize cleanly. Canonical share flow is Player Stats
+          → click player → Share Card. */}
       <div data-share-ignore="1" style={{
-        display:"grid", gridTemplateColumns:"1fr 1fr", gap:10,
+        display:"grid", gridTemplateColumns: hideShare ? "1fr" : "1fr 1fr", gap:10,
         marginTop:10, paddingTop:8,
         borderTop:`1px solid ${T.borderFaint}`,
       }}>
-        <button onClick={handleShare} disabled={sharing} style={{
-          background: "linear-gradient(180deg, rgba(20,30,60,0.95), rgba(13,19,40,0.95))",
-          border:`1.5px solid ${BRAND.gold}`,
-          color: BRAND.goldBright,
-          fontWeight:800, fontSize:12, letterSpacing:"0.04em",
-          padding:"8px 14px", borderRadius:10,
-          cursor: sharing ? "wait" : "pointer",
-          opacity: sharing ? 0.7 : 1,
-          fontFamily:"inherit",
-          boxShadow:"0 2px 8px rgba(0,0,0,0.3)",
-        }}>{sharing ? "Saving…" : "↗ Share Card"}</button>
+        {!hideShare && (
+          <button onClick={handleShare} disabled={sharing} style={{
+            background: "linear-gradient(180deg, rgba(20,30,60,0.95), rgba(13,19,40,0.95))",
+            border:`1.5px solid ${BRAND.gold}`,
+            color: BRAND.goldBright,
+            fontWeight:800, fontSize:12, letterSpacing:"0.04em",
+            padding:"8px 14px", borderRadius:10,
+            cursor: sharing ? "wait" : "pointer",
+            opacity: sharing ? 0.7 : 1,
+            fontFamily:"inherit",
+            boxShadow:"0 2px 8px rgba(0,0,0,0.3)",
+          }}>{sharing ? "Saving…" : "↗ Share Card"}</button>
+        )}
         <button onClick={onClose} style={{
           background: "linear-gradient(180deg, #CE1141 0%, #8b0a2a 100%)",
           border:"1.5px solid rgba(206,17,65,0.7)",
@@ -3609,7 +3614,7 @@ function ExpandedProfile({T, mode, kind, player, scale, onClose, wrapperClass = 
   return (
     <div className={wrapperClass} style={{ height: h ? `${h}px` : undefined }}>
       <div ref={innerRef} style={{ transform:`scale(${scale})`, transformOrigin:"top left", width:`${100/scale}%` }}>
-        <FullProfile T={T} mode={mode} player={{kind, data:player}} onClose={onClose} defaultTab={defaultTab}/>
+      <FullProfile T={T} mode={mode} player={{kind, data:player}} onClose={onClose} defaultTab={defaultTab} hideShare/>
       </div>
     </div>
   );
