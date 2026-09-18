@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 16, 2026";
+   export const lastUpdated = "September 17, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -243,8 +243,8 @@
      { date:"Sun, Sep 13", opp:"Phillies",    home:true, result:"L", score:"4-9", record:"88-62"},
      { date:"Mon, Sep 14", opp:"Cubs",    home:false, result:"L", score:"7-3", record:"88-63"},
      { date:"Tue, Sep 15", opp:"Cubs",    home:false, result:"W", score:"6-3", record:"89-63"},
+     { date:"Wed, Sep 16", opp:"Cubs",    home:false, result:"L", score:"4-8", record:"89-64"},
       // Upcoming
-     { date:"Wed, Sep 16", opp:"Cubs",    home:false,},
      { date:"Fri, Sep 18", opp:"Astros",    home:false,},
      { date:"Sat, Sep 19", opp:"Astros",    home:false,},
      { date:"Sun, Sep 20", opp:"Astros",    home:false,},
