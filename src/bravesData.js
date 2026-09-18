@@ -424,7 +424,7 @@ export const statcastHitters = [
   { name:"Rowdy Tellez", ev:"91.8",hardHit:"42.9%",xwoba:".506",xba:".339",xslg:".828",barrel:"28.6%",chase:"29.6%",whiff:"30.4%",kpct:"27.3%",bbpct:"9.1%", gbpct:"14.3%",fbpct:"57.1%",ldpct:"28.6%",pupct:"0.0%",pullAir:"14.3%"},
   { name:"Jim Jarvis", ev:"88.7",hardHit:"36.7%",xwoba:".272",xba:".237",xslg:".308",barrel:"3.3%",chase:"27.9%",whiff:"18.2%",kpct:"18.2%",bbpct:"6.6%", gbpct:"58.9%",fbpct:"18.9%",ldpct:"20.0%",pupct:"2.2%",pullAir:"9.8%"},
   { name:"Brewer Hicklen", ev:"93.3",hardHit:"53.3%",xwoba:".365",xba:".248",xslg:".405",barrel:"13.3%",chase:"27.0%",whiff:"42.9%",kpct:"35.3%",bbpct:"20.6%", gbpct:"40.0%",fbpct:"20.0%",ldpct:"40.0%",pupct:"0.0%",pullAir:"26.7%"},
-  { name:"Lane Thomas", ev:"89.3",hardHit:"40.9%",xwoba:".311",xba:".238",xslg:".365",barrel:"6.4%",chase:"20.6%",whiff:"22.9%",kpct:"24.9%",bbpct:"11.8%", gbpct:"37.9%",fbpct:"24.3%",ldpct:"24.7%",pupct:"13.2%",pullAir:"15.4%"},
+  { name:"Lane Thomas", ev:"89.3",hardHit:"40.9%",xwoba:".311",xba:".238",xslg:".365",barrel:"6.4%",chase:"20.6%",whiff:"22.9%",kpct:"24.9%",bbpct:"11.8%", gbpct:"37.9%",fbpct:"24.3%",ldpct:"24.7%",pupct:"13.2%",pullAir:"25.1%"},
   { name:"DaShawn Keirsey Jr.", ev:"87.8",hardHit:"0.0%",xwoba:".917",xba:".983",xslg:"1.111",barrel:"0.0%",chase:"100%",whiff:"0.0%",kpct:"0.0%",bbpct:"0.0%", gbpct:"0.0%",fbpct:"0.0%",ldpct:"100%",pupct:"0.0%",pullAir:"0.0%"},
 ];
  
@@ -452,11 +452,11 @@ export const statcastPitchers = [
   { name:"Owen Murphy", ev:"92.2",hardHit:"50.0%",xwoba:".380",xba:".302",xslg:".511",kpct:"19.0%",bbpct:"7.1%", barrel:"10.0%", chase:"36.5%",whiff:"19.1%",gbpct:"16.7%",fbpct:"36.7%",ldpct:"40.0%",pupct:"6.7%", pullAir:"36.7%"},
   { name:"Víctor Mederos", ev:"88.1",hardHit:"40.4%",xwoba:".303",xba:".245",xslg:".340",kpct:"21.8%",bbpct:"9.0%", barrel:"3.4%", chase:"33.6%",whiff:"29.6%",gbpct:"34.8%",fbpct:"25.8%",ldpct:"23.6%",pupct:"15.7%", pullAir:"13.5%"},
   { name:"AJ Smith-Shawver", ev:"88.7",hardHit:"36.8%",xwoba:".332",xba:".242",xslg:".397",kpct:"16.1%",bbpct:"12.9%", barrel:"8.0%", chase:"28.3%",whiff:"22.6%",gbpct:"39.1%",fbpct:"26.4%",ldpct:"21.8%",pupct:"12.6%", pullAir:"21.8%"},
-  { name:"Tyler Mahle", ev:"89.9",hardHit:"37.8%",xwoba:".310",xba:".250",xslg:".395",kpct:"22.3%",bbpct:"7.5%", barrel:"6.6%", chase:"29.2%",whiff:"23.0%",gbpct:"44.6%",fbpct:"26.7%",ldpct:"22.9%",pupct:"5.8%", pullAir:"18.2%"},
-  { name:"Brent Suter", ev:"86.5",hardHit:"30.5%",xwoba:".308",xba:".253",xslg:".396",kpct:"20.3%",bbpct:"7.1%", barrel:"6.2%", chase:"29.4%",whiff:"23.4%",gbpct:"50.4%",fbpct:"21.0%",ldpct:"24.0%",pupct:"4.6%", pullAir:"11.3%"},
+  { name:"Tyler Mahle", ev:"89.9",hardHit:"37.8%",xwoba:".310",xba:".250",xslg:".395",kpct:"22.3%",bbpct:"7.5%", barrel:"6.6%", chase:"29.2%",whiff:"23.0%",gbpct:"44.6%",fbpct:"26.7%",ldpct:"22.9%",pupct:"5.8%", pullAir:"15.9%"},
+  { name:"Brent Suter", ev:"86.5",hardHit:"30.5%",xwoba:".308",xba:".253",xslg:".396",kpct:"20.3%",bbpct:"7.1%", barrel:"6.2%", chase:"29.4%",whiff:"23.4%",gbpct:"50.4%",fbpct:"21.0%",ldpct:"24.0%",pupct:"4.6%", pullAir:"14.9%"},
   { name:"Ray Kerr", ev:"89.4",hardHit:"31.6%",xwoba:".245",xba:".202",xslg:".309",kpct:"19.6%",bbpct:"2.0%", barrel:"5.3%", chase:"36.0%",whiff:"23.5%",gbpct:"42.1%",fbpct:"18.4%",ldpct:"15.8%",pupct:"23.7%", pullAir:"18.4%"},
   { name:"Elieser Hernández", ev:"88.0",hardHit:"37.5%",xwoba:".272",xba:".194",xslg:".299",kpct:"22.0%",bbpct:"12.0%", barrel:"9.4%", chase:"30.0%",whiff:"27.5%",gbpct:"31.3%",fbpct:"28.1%",ldpct:"18.8%",pupct:"21.9%", pullAir:"34.4"},
-  { name:"Bailey Falter", ev:"90.6",hardHit:"44.0%",xwoba:".398",xba:".341",xslg:".516",kpct:"11.1%",bbpct:"9.5%", barrel:"8.0%", chase:"21.7%",whiff:"18.7%",gbpct:"34.0%",fbpct:"18.0%",ldpct:"40.0%",pupct:"8.0%", pullAir:"30.0"},
+  { name:"Bailey Falter", ev:"90.6",hardHit:"44.0%",xwoba:".398",xba:".341",xslg:".516",kpct:"11.1%",bbpct:"9.5%", barrel:"8.0%", chase:"21.7%",whiff:"18.7%",gbpct:"34.0%",fbpct:"18.0%",ldpct:"40.0%",pupct:"8.0%", pullAir:"27.3"},
 ];
    
    export const hitterWarProgress = [
