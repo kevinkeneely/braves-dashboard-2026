@@ -433,7 +433,7 @@ const leagueRef = (statKey, invert = false) => {
 
 /* ── STATCAST PITCHERS ──────────────────────────────────────────────────── */
 
-/* ── WAR PROGRESS (every 6 games, thru G95 · July 16) ────────────────────── */
+/* ── WAR PROGRESS (every 6 games, thru G150 · Sept 18) ────────────────────── */
 
 
 const HITTER_WAR_COLORS = {
@@ -4647,7 +4647,7 @@ function WarProgressTab({T}) {
 
   return (
     <>
-      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G90" title="WAR PROGRESS"/>
+      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G150" title="WAR PROGRESS"/>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:12, lineHeight:1.4}}>
         Cumulative fWAR gained as the 2026 season has progressed · weekly checkpoints · FanGraphs
       </div>
