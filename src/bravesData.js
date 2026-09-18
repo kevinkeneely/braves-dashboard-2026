@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 17, 2026";
+   export const lastUpdated = "September 18, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -396,10 +396,10 @@ export const starters = [
    
    export const standings = [
      { team:"ATL", full:"Atlanta Braves",       w:89,l:64,pct:".582",gb:"—", home:"51-27",away:"38-37", rs:706, ra:595, diff:+111, strk:"L1", l10:"4-6", highlight:true,  srs:0.8 },
-     { team:"PHI", full:"Philadelphia Phillies", w:84,l:68,pct:".553",gb:"4.5", home:"41-34",away:"43-34", rs:681, ra:650, diff:+31, strk:"W1", l10:"4-6", highlight:false, srs:0.3 },
-     { team:"MIA", full:"Miami Marlins",        w:76,l:77,pct:".497",gb:"13.0", home:"45-33",away:"31-44", rs:681, ra:673, diff:+8, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"PHI", full:"Philadelphia Phillies", w:85,l:68,pct:".556",gb:"4.0", home:"41-34",away:"44-34", rs:684, ra:650, diff:+34, strk:"W2", l10:"5-5", highlight:false, srs:0.3 },
+     { team:"MIA", full:"Miami Marlins",        w:76,l:77,pct:".497",gb:"13.0", home:"45-33",away:"31-44", rs:681, ra:673, diff:+8, strk:"W2", l10:"5-5", highlight:false, srs:0.1 },
      { team:"WSN", full:"Washington Nationals", w:71,l:82,pct:".464",gb:"18.0", home:"37-41",away:"34-41", rs:778, ra:775, diff:+3, strk:"L1", l10:"4-6", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:69,l:83,pct:".454",gb:"19.5", home:"34-43",away:"35-40", rs:650, ra:693, diff:-43, strk:"L4", l10:"5-5", highlight:false, srs:-0.1 },
+     { team:"NYM", full:"New York Mets",        w:69,l:84,pct:".451",gb:"20.0", home:"34-44",away:"35-40", rs:650, ra:696, diff:-46, strk:"L5", l10:"4-6", highlight:false, srs:-0.1 },
    ];
    
 export const statcastHitters = [
