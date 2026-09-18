@@ -259,25 +259,25 @@
    ];
    
    export const TEAM_HEADER = {
-     record: "89-63",
-     runs: 702,
-     era: "3.61",
-     avg: ".248",
+     record: "89-64",
+     runs: 706,
+     era: "3.64",
+     avg: ".247",
      obp: ".311",
-     slg: ".411",
-     ops: ".722",
+     slg: ".410",
+     ops: ".721",
      wrc: 98,
      iso: ".163",
-     battingK: "21.6%",
+     battingK: "21.7%",
      battingBB: "7.7%",
-     woba: ".316",
-     xwoba: ".316",
-     fip: "4.09",
-     xera: "4.07",
+     woba: ".315",
+     xwoba: ".315",
+     fip: "4.10",
+     xera: "4.08",
      xfip: "4.13",
      whip: "1.25",
      gb: "41.7%",
-     siera: "4.07",
+     siera: "4.06",
      pitchingK: "22.3%",
      pitchingBB: "8.9%",
      pitchingKBB: "13.4%",
@@ -287,32 +287,32 @@
      fastSwing: "27.7%",
      sqUpSw: "24.8%",
      blastSw: "10.4%",
-     idealAtk: "50.0%",
+     idealAtk: "50.1%",
      batFastSwing: "33.8%",
      batSqUpSw: "24.0%",
-     batBlastSw: "10.9%",
+     batBlastSw: "10.8%",
      batIdealAtk: "49.5%",
      batSwStr: "11.2%",
-     batCStr: "14.6%",
+     batCStr: "14.5%",
      batCSW: "25.8%",
-     batOSwing: "36.3%",   // add alongside batChase / batWhiff
-     batChase: "33.7%",
+     batOSwing: "36.4%",   // add alongside batChase / batWhiff
+     batChase: "33.8%",
      batWhiff: "24.6%",
-     oSwing: "33.1%",   // add alongside chase / whiff
+     oSwing: "33.2%",   // add alongside chase / whiff
      chase: "30.7%",
      whiff: "26.2%",
      batBatSpeed: "72.8",
      batSpeed: "72.2",
 // Plate Discipline additions
-     batZoneSwing: "69.3",
+     batZoneSwing: "69.4",
      batZoneContact: "83.8%",
-     batChaseContact: "60.3%",
+     batChaseContact: "60.2%",
      zoneSwing: "67.1%",
      zoneContact: "83.7%",
-     chaseContact: "54.7%",
+     chaseContact: "54.6%",
 // Statcast (hitters)
      batBarrel: "8.5%",
-     batHardHit: "39.8%",
+     batHardHit: "39.7%",
      batExitVelo: "89.3",
      batXBA: ".245",
      batXSLG: ".411",
@@ -320,19 +320,19 @@
 // batXwOBA reuses existing `xwoba` field (.326)
 // Statcast (pitchers)
      barrel: "7.3%",
-     hardHit: "38.1%",
+     hardHit: "38.2%",
      exitVelo: "88.9",
      xBA: ".241",
-     xSLG: ".387",
-     pXwOBA: ".310",
-     xwOBAcon: ".357",
+     xSLG: ".388",
+     pXwOBA: ".311",
+     xwOBAcon: ".358",
  };
    
 export const hitters = [
     // Updated August 25, 2026 — vsL, vsR, risp, highLeverage splits refreshed from FanGraphs splits leaderboards (twoOuts unchanged)
     // ALL other fields preserved exactly as before (bio, top-level stats, bat tracking, ABS)
-    { name:"Drake Baldwin", pos:"C", bats:"L", throws:"R", dob:"2001-03-28", draftYear:2022, draftRound:3, draftPick:96, draftType:"MLB", pa:573, avg:".280", obp:".354", slg:".456", ops:".810", hr:24, rbi:77, r:80, h:143, doubles:18, triples:0, sb:3, bbpct:"9.1%", kpct:"21.8", war:3.6, war2:3.0, wrc:124, woba:".355", xwoba:".363", oaa:null, frv:0, batSpeed:75.3, squaredUp:"24.6%", fastSwing:"57.0%", laSwSp:"35.5%", idealAttack:"46.3%", avgPop:1.93, armValue:null, armStrength:79.7, abs:{netOvr:1.4, netRuns:0.5, chal:1, won:1, lost:0, wonPct:"100%", chalRate:"0.6%", xChalRate:"4.1%", rateVsExp:"-3.5%"}, absCatch:{netOvr:11.6, netRuns:0.4, chal:43, won:30, lost:13, wonPct:"70%", chalRate:"1.8%", xChalRate:"2.1%", rateVsExp:"-0.3%"}, splits:{vsL:{pa:211,r:25,h:47,hr:7,rbi:19,avg:".245",obp:".313",slg:".385",ops:".698",wrc:94,woba:".311",iso:".141",bbpct:"7.6%",kpct:"22.3%",babip:".290"}, vsR:{pa:357,r:53,h:94,hr:16,rbi:56,avg:".299",obp:".378",slg:".490",ops:".869",wrc:139,woba:".378",iso:".191",bbpct:"10.1%",kpct:"21.6%",babip:".350"}, risp:{pa:134,r:2,h:36,hr:2,rbi:52,avg:".327",obp:".433",slg:".455",ops:".887",wrc:147,woba:".390",iso:".127",bbpct:"13.4%",kpct:"17.2%",babip:".391"}, highLeverage:{pa:47,r:19,h:12,hr:0,rbi:14,avg:".279",obp:".340",slg:".372",ops:".713",wrc:100,woba:".319",iso:".093",bbpct:"6.4%",kpct:"21.3%",babip:".364"}, twoOuts:{pa:169,r:24,h:47,hr:3,rbi:24,avg:".301",obp:".355",slg:".378",ops:".733",wrc:105,woba:".326",iso:".077",bbpct:"7.7%",kpct:"19.5%",babip:".367"}}},
-    { name:"Ronald Acuña Jr.", pos:"RF", bats:"R", throws:"R", dob:"1997-12-18", draftYear:2014, draftRound:null, draftPick:null, draftType:"IFA", pa:436, avg:".254", obp:".346", slg:".447", ops:".793", hr:18, rbi:49, r:57, h:96, doubles:17, triples:1, sb:20, bbpct:"11.5%", kpct:"22.2%", war:1.4, war2:1.6, wrc:119, woba:".347", xwoba:".364", oaa:-7, frv:-4, batSpeed:75.8, squaredUp:"20.3%", fastSwing:"60.5%", laSwSp:"32.6%", idealAttack:"54.3%", armValue:null, armStrength:93.6, abs:{netOvr:-3.3, netRuns:-0.7, chal:16, won:7, lost:9, wonPct:"44%", chalRate:"14.4%", xChalRate:"6.3%", rateVsExp:"+8.1%"}, splits:{vsL:{pa:139,r:21,h:27,hr:5,rbi:7,avg:".229",obp:".345",slg:".415",ops:".761",wrc:111,woba:".336",iso:".186",bbpct:"14.4%",kpct:"23.7%",babip:".275"}, vsR:{pa:292,r:35,h:68,hr:12,rbi:40,avg:".267",obp:".349",slg:".455",ops:".804",wrc:121,woba:".351",iso:".188",bbpct:"10.3%",kpct:"21.6%",babip:".306"}, risp:{pa:90,r:3,h:19,hr:3,rbi:30,avg:".257",obp:".356",slg:".405",ops:".761",wrc:106,woba:".328",iso:".149",bbpct:"12.2%",kpct:"20.0%",babip:".286"}, highLeverage:{pa:37,r:13,h:5,hr:1,rbi:6,avg:".167",obp:".297",slg:".267",ops:".564",wrc:64,woba:".266",iso:".100",bbpct:"13.5%",kpct:"16.2%",babip:".167"}, twoOuts:{pa:123,r:13,h:26,hr:3,rbi:14,avg:".250",obp:".366",slg:".404",ops:".770",wrc:116,woba:".343",iso:".154",bbpct:"13.8%",kpct:"22.8%",babip:".315"}}},
+    { name:"Drake Baldwin", pos:"C", bats:"L", throws:"R", dob:"2001-03-28", draftYear:2022, draftRound:3, draftPick:96, draftType:"MLB", pa:577, avg:".278", obp:".352", slg:".452", ops:".804", hr:24, rbi:77, r:80, h:143, doubles:18, triples:0, sb:3, bbpct:"9.1%", kpct:"21.8", war:3.5, war2:3.0, wrc:124, woba:".355", xwoba:".363", oaa:null, frv:0, batSpeed:75.3, squaredUp:"24.6%", fastSwing:"57.0%", laSwSp:"35.5%", idealAttack:"46.3%", avgPop:1.93, armValue:null, armStrength:79.7, abs:{netOvr:1.4, netRuns:0.5, chal:1, won:1, lost:0, wonPct:"100%", chalRate:"0.6%", xChalRate:"4.1%", rateVsExp:"-3.5%"}, absCatch:{netOvr:11.6, netRuns:0.4, chal:43, won:30, lost:13, wonPct:"70%", chalRate:"1.8%", xChalRate:"2.1%", rateVsExp:"-0.3%"}, splits:{vsL:{pa:211,r:25,h:47,hr:7,rbi:19,avg:".245",obp:".313",slg:".385",ops:".698",wrc:94,woba:".311",iso:".141",bbpct:"7.6%",kpct:"22.3%",babip:".290"}, vsR:{pa:357,r:53,h:94,hr:16,rbi:56,avg:".299",obp:".378",slg:".490",ops:".869",wrc:139,woba:".378",iso:".191",bbpct:"10.1%",kpct:"21.6%",babip:".350"}, risp:{pa:134,r:2,h:36,hr:2,rbi:52,avg:".327",obp:".433",slg:".455",ops:".887",wrc:147,woba:".390",iso:".127",bbpct:"13.4%",kpct:"17.2%",babip:".391"}, highLeverage:{pa:47,r:19,h:12,hr:0,rbi:14,avg:".279",obp:".340",slg:".372",ops:".713",wrc:100,woba:".319",iso:".093",bbpct:"6.4%",kpct:"21.3%",babip:".364"}, twoOuts:{pa:169,r:24,h:47,hr:3,rbi:24,avg:".301",obp:".355",slg:".378",ops:".733",wrc:105,woba:".326",iso:".077",bbpct:"7.7%",kpct:"19.5%",babip:".367"}}},
+    { name:"Ronald Acuña Jr.", pos:"RF", bats:"R", throws:"R", dob:"1997-12-18", draftYear:2014, draftRound:null, draftPick:null, draftType:"IFA", pa:440, avg:".257", obp:".348", slg:".450", ops:".798", hr:18, rbi:49, r:58, h:98, doubles:18, triples:1, sb:20, bbpct:"11.5%", kpct:"22.2%", war:1.4, war2:1.6, wrc:119, woba:".347", xwoba:".364", oaa:-7, frv:-4, batSpeed:75.8, squaredUp:"20.3%", fastSwing:"60.5%", laSwSp:"32.6%", idealAttack:"54.3%", armValue:null, armStrength:93.6, abs:{netOvr:-3.3, netRuns:-0.7, chal:16, won:7, lost:9, wonPct:"44%", chalRate:"14.4%", xChalRate:"6.3%", rateVsExp:"+8.1%"}, splits:{vsL:{pa:139,r:21,h:27,hr:5,rbi:7,avg:".229",obp:".345",slg:".415",ops:".761",wrc:111,woba:".336",iso:".186",bbpct:"14.4%",kpct:"23.7%",babip:".275"}, vsR:{pa:292,r:35,h:68,hr:12,rbi:40,avg:".267",obp:".349",slg:".455",ops:".804",wrc:121,woba:".351",iso:".188",bbpct:"10.3%",kpct:"21.6%",babip:".306"}, risp:{pa:90,r:3,h:19,hr:3,rbi:30,avg:".257",obp:".356",slg:".405",ops:".761",wrc:106,woba:".328",iso:".149",bbpct:"12.2%",kpct:"20.0%",babip:".286"}, highLeverage:{pa:37,r:13,h:5,hr:1,rbi:6,avg:".167",obp:".297",slg:".267",ops:".564",wrc:64,woba:".266",iso:".100",bbpct:"13.5%",kpct:"16.2%",babip:".167"}, twoOuts:{pa:123,r:13,h:26,hr:3,rbi:14,avg:".250",obp:".366",slg:".404",ops:".770",wrc:116,woba:".343",iso:".154",bbpct:"13.8%",kpct:"22.8%",babip:".315"}}},
     { name:"Matt Olson", pos:"1B", bats:"L", throws:"R", dob:"1994-03-29", draftYear:2012, draftRound:1, draftPick:47, draftType:"MLB", pa:658, avg:".250", obp:".324", slg:".505", ops:".829", hr:39, rbi:85, r:96, h:147, doubles:33, triples:0, sb:4, bbpct:"9.6%", kpct:"25.2%", war:4.2, war2:3.8, wrc:123, woba:".354", xwoba:".353", oaa:10, frv:10, batSpeed:74.8, squaredUp:"23.6%", fastSwing:"50.3%", laSwSp:"32.9%", idealAttack:"50.2%", armValue:null, armStrength:82.6, abs:{netOvr:-0.2, netRuns:-0.2, chal:14, won:4, lost:10, wonPct:"29%", chalRate:"4.9%", xChalRate:"3.3%", rateVsExp:"+1.7%"}, splits:{vsL:{pa:267,r:39,h:62,hr:15,rbi:33,avg:".254",obp:".315",slg:".496",ops:".811",wrc:120,woba:".349",iso:".242",bbpct:"7.5%",kpct:"26.2%",babip:".294"}, vsR:{pa:387,r:57,h:83,hr:24,rbi:52,avg:".244",obp:".328",slg:".512",ops:".840",wrc:125,woba:".356",iso:".268",bbpct:"11.1%",kpct:"24.5%",babip:".263"}, risp:{pa:150,r:6,h:26,hr:6,rbi:42,avg:".218",obp:".353",slg:".420",ops:".774",wrc:107,woba:".329",iso:".202",bbpct:"18.0%",kpct:"22.7%",babip:".241"}, highLeverage:{pa:55,r:24,h:13,hr:5,rbi:17,avg:".283",obp:".382",slg:".609",ops:".991",wrc:155,woba:".401",iso:".326",bbpct:"14.5%",kpct:"25.5%",babip:".286"}, twoOuts:{pa:230,r:44,h:50,hr:15,rbi:33,avg:".248",obp:".339",slg:".515",ops:".854",wrc:129,woba:".363",iso:".267",bbpct:"11.3%",kpct:"24.8%",babip:".269"}}},
     { name:"Michael Harris II", pos:"CF", bats:"L", throws:"L", dob:"2001-03-07", draftYear:2019, draftRound:3, draftPick:98, draftType:"MLB", pa:583, avg:".290", obp:".317", slg:".486", ops:".803", hr:25, rbi:83, r:72, h:161, doubles:32, triples:1, sb:11, bbpct:"3.6%", kpct:"19.7%", war:4.6, war2:4.0, wrc:118, woba:".345", xwoba:".340", oaa:12, frv:11, batSpeed:75.0, squaredUp:"23.9%", fastSwing:"50.4%", laSwSp:"29.6%", idealAttack:"46.8%", armValue:null, armStrength:84.4, abs:{netOvr:-3.2, netRuns:-0.9, chal:10, won:3, lost:7, wonPct:"30%", chalRate:"5.6%", xChalRate:"3.1%", rateVsExp:"+2.5%"}, splits:{vsL:{pa:210,r:22,h:56,hr:8,rbi:25,avg:".284",obp:".321",slg:".462",ops:".783",wrc:114,woba:".339",iso:".178",bbpct:"4.3%",kpct:"18.6%",babip:".318"}, vsR:{pa:369,r:50,h:105,hr:17,rbi:58,avg:".297",obp:".318",slg:".506",ops:".824",wrc:122,woba:".352",iso:".209",bbpct:"3.3%",kpct:"20.3%",babip:".333"}, risp:{pa:120,r:4,h:32,hr:4,rbi:50,avg:".296",obp:".342",slg:".500",ops:".842",wrc:125,woba:".357",iso:".204",bbpct:"5.8%",kpct:"11.7%",babip:".301"}, highLeverage:{pa:57,r:17,h:12,hr:1,rbi:15,avg:".235",obp:".281",slg:".392",ops:".673",wrc:81,woba:".290",iso:".157",bbpct:"3.5%",kpct:"17.5%",babip:".262"}, twoOuts:{pa:183,r:25,h:46,hr:6,rbi:28,avg:".269",obp:".317",slg:".421",ops:".738",wrc:102,woba:".322",iso:".152",bbpct:"6.0%",kpct:"21.3%",babip:".317"}}},
     { name:"Ozzie Albies", pos:"2B", bats:"S", throws:"R", dob:"1997-01-07", draftYear:2013, draftRound:null, draftPick:null, draftType:"IFA", pa:645, avg:".245", obp:".299", slg:".409", ops:".708", hr:22, rbi:71, r:83, h:142, doubles:27, triples:1, sb:4, bbpct:"6.8%", kpct:"14.4%", war:1.6, war2:1.4, wrc:92, woba:".307", xwoba:".283", oaa:0, frv:-3, batSpeed:68.8, squaredUp:"26.9%", fastSwing:"5.1%", laSwSp:"33.3%", idealAttack:"57.6%", armValue:null, armStrength:71.6, abs:{netOvr:-0.2, netRuns:0.4, chal:9, won:4, lost:5, wonPct:"44%", chalRate:"5.8%", xChalRate:"5.7%", rateVsExp:"+0.1%"}, splits:{vsL:{pa:247,r:23,h:63,hr:8,rbi:31,avg:".274",obp:".300",slg:".439",ops:".739",wrc:98,woba:".315",iso:".165",bbpct:"3.6%",kpct:"9.3%",babip:".268"}, vsR:{pa:394,r:58,h:77,hr:13,rbi:38,avg:".223",obp:".297",slg:".379",ops:".676",wrc:86,woba:".297",iso:".156",bbpct:"8.9%",kpct:"17.8%",babip:".236"}, risp:{pa:155,r:3,h:32,hr:3,rbi:47,avg:".256",obp:".310",slg:".360",ops:".670",wrc:78,woba:".286",iso:".104",bbpct:"9.0%",kpct:"12.9%",babip:".250"}, highLeverage:{pa:57,r:28,h:12,hr:3,rbi:15,avg:".245",obp:".316",slg:".490",ops:".806",wrc:116,woba:".342",iso:".245",bbpct:"7.0%",kpct:"14.0%",babip:".225"}, twoOuts:{pa:218,r:30,h:45,hr:4,rbi:21,avg:".220",obp:".266",slg:".322",ops:".588",wrc:62,woba:".262",iso:".102",bbpct:"4.6%",kpct:"13.3%",babip:".238"}}},
@@ -395,11 +395,11 @@ export const starters = [
    ];
    
    export const standings = [
-     { team:"ATL", full:"Atlanta Braves",       w:89,l:63,pct:".586",gb:"—", home:"51-27",away:"38-36", rs:702, ra:587, diff:+115, strk:"W1", l10:"5-5", highlight:true,  srs:0.8 },
-     { team:"PHI", full:"Philadelphia Phillies", w:83,l:68,pct:".550",gb:"5.5", home:"41-34",away:"42-34", rs:678, ra:650, diff:+28, strk:"L1", l10:"4-6", highlight:false, srs:0.2 },
-     { team:"MIA", full:"Miami Marlins",        w:74,l:77,pct:".490",gb:"14.5", home:"45-33",away:"29-44", rs:673, ra:668, diff:+5, strk:"L1", l10:"3-7", highlight:false, srs:0.1 },
-     { team:"WSN", full:"Washington Nationals", w:71,l:81,pct:".467",gb:"18.0", home:"37-40",away:"34-41", rs:778, ra:772, diff:+6, strk:"W4", l10:"4-6", highlight:false, srs:0.1 },
-     { team:"NYM", full:"New York Mets",        w:69,l:82,pct:".457",gb:"19.5", home:"34-42",away:"35-40", rs:649, ra:686, diff:-37, strk:"L3", l10:"5-5", highlight:false, srs:-0.1 },
+     { team:"ATL", full:"Atlanta Braves",       w:89,l:64,pct:".582",gb:"—", home:"51-27",away:"38-37", rs:706, ra:595, diff:+111, strk:"L1", l10:"4-6", highlight:true,  srs:0.8 },
+     { team:"PHI", full:"Philadelphia Phillies", w:84,l:68,pct:".553",gb:"4.5", home:"41-34",away:"43-34", rs:681, ra:650, diff:+31, strk:"W1", l10:"4-6", highlight:false, srs:0.3 },
+     { team:"MIA", full:"Miami Marlins",        w:76,l:77,pct:".497",gb:"13.0", home:"45-33",away:"31-44", rs:681, ra:673, diff:+8, strk:"W1", l10:"5-5", highlight:false, srs:0.1 },
+     { team:"WSN", full:"Washington Nationals", w:71,l:82,pct:".464",gb:"18.0", home:"37-41",away:"34-41", rs:778, ra:775, diff:+3, strk:"L1", l10:"4-6", highlight:false, srs:0.1 },
+     { team:"NYM", full:"New York Mets",        w:69,l:83,pct:".454",gb:"19.5", home:"34-43",away:"35-40", rs:650, ra:693, diff:-43, strk:"L4", l10:"5-5", highlight:false, srs:-0.1 },
    ];
    
 export const statcastHitters = [
