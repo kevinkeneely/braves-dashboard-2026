@@ -159,8 +159,8 @@ const LEAGUE_AVG = {
   // Hitter rate stats
   avg:    { mean: 0.244, spread: 0.020 },
   obp:    { mean: 0.319, spread: 0.020 },
-  slg:    { mean: 0.400, spread: 0.035 },
-  ops:    { mean: 0.719, spread: 0.050 },
+  slg:    { mean: 0.401, spread: 0.035 },
+  ops:    { mean: 0.720, spread: 0.050 },
   woba:   { mean: 0.317, spread: 0.020 },
   wrc:    { mean: 100,   spread: 15    },
   // K% / BB% — same league averages; invert flag is set per column at the call site
@@ -169,10 +169,10 @@ const LEAGUE_AVG = {
   // K-BB% — higher is better for pitchers (not inverted)
   kbb:    { mean: 13.2,  spread: 3.0 },
   // Pitcher rate stats (lower = better — call sites pass invert:true on cols)
-  era:    { mean: 4.18,  spread: 0.80 },
-  fip:    { mean: 4.18,  spread: 0.80 },
-  xfip:   { mean: 4.18,  spread: 0.60 },
-  siera:  { mean: 4.07,  spread: 0.60 },
+  era:    { mean: 4.19,  spread: 0.80 },
+  fip:    { mean: 4.19,  spread: 0.80 },
+  xfip:   { mean: 4.19,  spread: 0.60 },
+  siera:  { mean: 4.08,  spread: 0.60 },
   whip:   { mean: 1.31,  spread: 0.15 },
   // Plate discipline (pitcher view) — higher = better for pitchers
   swstr:  { mean: 10.8,  spread: 2.5 },
@@ -196,10 +196,10 @@ const LEAGUE_AVG = {
   whiff:       { mean: 25.1,  spread: 3.5  },
   // Bat tracking — higher = better for hitters
   batSpeed:    { mean: 72.1,  spread: 2.0  },
-  fastSwing:   { mean: 26.6,  spread: 8.0  },
+  fastSwing:   { mean: 26.7,  spread: 8.0  },
   squaredUp:   { mean: 24.8,  spread: 4.0  },
   laSwSp:      { mean: 33.8,  spread: 4.0  },
-  idealAttack: { mean: 50.8,  spread: 7.0  },
+  idealAttack: { mean: 50.9,  spread: 7.0  },
   // Batted-ball mix — interpretation depends on context (no default invert here;
   // hitter tables generally read GB% as bad → invert true; pitcher tables read
   // GB% as good → no invert). Pull-Air% is "good" for hitters; PU% is bad.
@@ -3915,19 +3915,19 @@ function TeamStatsTab({T}) {
   const LG = {
     avg:        { mean: 0.244, spread: 0.012 },
     obp:        { mean: 0.319, spread: 0.012 },
-    slg:        { mean: 0.400, spread: 0.020 },
-    ops:        { mean: 0.719, spread: 0.030 },
+    slg:        { mean: 0.401, spread: 0.020 },
+    ops:        { mean: 0.720, spread: 0.030 },
     wrc:        { mean: 100,   spread: 8     },
     woba:       { mean: 0.317, spread: 0.012 },
     xwoba:      { mean: 0.315, spread: 0.012 },
-    iso:        { mean: 0.156, spread: 0.015 },
+    iso:        { mean: 0.157, spread: 0.015 },
     battingK:   { mean: 22.1,  spread: 1.8, invert:true },
     battingBB:  { mean: 8.9,   spread: 1.0 },
-    era:        { mean: 4.18,  spread: 0.35, invert:true },
-    xera:       { mean: 4.18,  spread: 0.35, invert:true },
-    fip:        { mean: 4.18,  spread: 0.35, invert:true },
-    xfip:       { mean: 4.18,  spread: 0.30, invert:true },
-    siera:      { mean: 4.07,  spread: 0.30, invert:true },
+    era:        { mean: 4.19,  spread: 0.35, invert:true },
+    xera:       { mean: 4.19,  spread: 0.35, invert:true },
+    fip:        { mean: 4.19,  spread: 0.35, invert:true },
+    xfip:       { mean: 4.19,  spread: 0.30, invert:true },
+    siera:      { mean: 4.08,  spread: 0.30, invert:true },
     whip:       { mean: 1.31,  spread: 0.08, invert:true },
     gb:         { mean: 42.4,  spread: 3.0  },
     pitchingK:  { mean: 22.1,  spread: 1.8 },
@@ -3939,14 +3939,14 @@ function TeamStatsTab({T}) {
     teamChase:  { mean: 30.5,  spread: 3.5 },
     teamOSwing: { mean: 32.9,  spread: 3.5 },   // ← ADD THIS LINE
     teamWhiff:  { mean: 25.1,  spread: 3.5 },
-    teamFastSw: { mean: 26.6,  spread: 3.0, invert:true },
+    teamFastSw: { mean: 26.7,  spread: 3.0, invert:true },
     teamSqUpSw: { mean: 24.8,  spread: 2.0, invert:true },
     teamBlastSw:{ mean: 10.4,  spread: 2.0, invert:true },
-    teamIdealAtk:{ mean: 50.8, spread: 4.0, invert:true },
-    teamBatFastSw: { mean: 26.6,  spread: 3.0 },
+    teamIdealAtk:{ mean: 50.9, spread: 4.0, invert:true },
+    teamBatFastSw: { mean: 26.7,  spread: 3.0 },
     teamBatSqUpSw: { mean: 24.8,  spread: 2.0 },
     teamBatBlastSw:{ mean: 10.4,  spread: 2.0 },
-    teamBatIdealAtk:{ mean: 50.8, spread: 4.0 },
+    teamBatIdealAtk:{ mean: 50.9, spread: 4.0 },
     teamBatSwStr: { mean: 10.8,  spread: 1.5, invert:true },
     teamBatCStr:  { mean: 16.2,  spread: 1.2, invert:true },
     teamBatCSW:   { mean: 27.0,  spread: 1.8, invert:true },
@@ -3981,8 +3981,8 @@ function TeamStatsTab({T}) {
   const battingGridA = [
     { label:"AVG",   value:TEAM_HEADER.avg,  sub:"lg .244", heatRef:LG.avg  },
     { label:"OBP",   value:TEAM_HEADER.obp,  sub:"lg .319", heatRef:LG.obp  },
-    { label:"SLG",   value:TEAM_HEADER.slg,  sub:"lg .400", heatRef:LG.slg  },
-    { label:"OPS",   value:TEAM_HEADER.ops,  sub:"lg .719", heatRef:LG.ops  },
+    { label:"SLG",   value:TEAM_HEADER.slg,  sub:"lg .401", heatRef:LG.slg  },
+    { label:"OPS",   value:TEAM_HEADER.ops,  sub:"lg .720", heatRef:LG.ops  },
     { label:"wRC+",  value:TEAM_HEADER.wrc,  sub:"lg 100",  heatRef:LG.wrc  },
   ];
   // Row B of Batting Standard (4 stats)
@@ -3990,7 +3990,7 @@ function TeamStatsTab({T}) {
     { label:"K%",    value:TEAM_HEADER.battingK,  sub:"lg 22.1%", heatRef:LG.battingK  },
     { label:"BB%",   value:TEAM_HEADER.battingBB, sub:"lg 8.9%",  heatRef:LG.battingBB },
     { label:"wOBA",  value:TEAM_HEADER.woba,      sub:"lg .317",  heatRef:LG.woba      },
-    { label:"ISO",   value:TEAM_HEADER.iso,       sub:"lg .156",  heatRef:LG.iso       },
+    { label:"ISO",   value:TEAM_HEADER.iso,       sub:"lg .157",  heatRef:LG.iso       },
   ];
 
   // Row A of Batting Statcast (4 stats)
@@ -4029,20 +4029,20 @@ function TeamStatsTab({T}) {
   // Row A of Batting Bat Tracking (3 stats)
   const battingBatTrackingA = [
     { label:"Bat Speed",   value:TEAM_HEADER.batBatSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.6%", heatRef:LG.teamBatFastSw   },
+    { label:"Fast Swing%", value:TEAM_HEADER.batFastSwing, sub:"lg 26.7%", heatRef:LG.teamBatFastSw   },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.batSqUpSw,    sub:"lg 24.8%", heatRef:LG.teamBatSqUpSw   },
   ];
   // Row B of Batting Bat Tracking (2 stats)
   const battingBatTrackingB = [
     { label:"Blast Sw%",  value:TEAM_HEADER.batBlastSw,  sub:"lg 10.4%", heatRef:LG.teamBatBlastSw },
-    { label:"Ideal Atk%", value:TEAM_HEADER.batIdealAtk, sub:"lg 50.8%", heatRef:LG.teamBatIdealAtk},
+    { label:"Ideal Atk%", value:TEAM_HEADER.batIdealAtk, sub:"lg 50.9%", heatRef:LG.teamBatIdealAtk},
   ];
 
   // ─── PITCHING — split into two-row sub-groups ───────────────────────────
   // Row A of Pitching Standard (5 stats)
   const pitchingGridA = [
-    { label:"ERA",   value:TEAM_HEADER.era,        sub:"lg 4.18",  heatRef:LG.era        },
-    { label:"xERA",  value:TEAM_HEADER.xera,       sub:"lg 4.18",  heatRef:LG.xera       },
+    { label:"ERA",   value:TEAM_HEADER.era,        sub:"lg 4.19",  heatRef:LG.era        },
+    { label:"xERA",  value:TEAM_HEADER.xera,       sub:"lg 4.19",  heatRef:LG.xera       },
     { label:"WHIP",  value:TEAM_HEADER.whip,       sub:"lg 1.31",  heatRef:LG.whip       },
     { label:"K%",    value:TEAM_HEADER.pitchingK,  sub:"lg 22.1%", heatRef:LG.pitchingK  },
     { label:"BB%",   value:TEAM_HEADER.pitchingBB, sub:"lg 8.9%",  heatRef:LG.pitchingBB },
@@ -4050,9 +4050,9 @@ function TeamStatsTab({T}) {
   // Row B of Pitching Standard (4 stats)
   const pitchingGridB = [
     { label:"K-BB%", value:TEAM_HEADER.pitchingKBB, sub:"lg 13.2%", heatRef:LG.pitchingKBB},
-    { label:"FIP",   value:TEAM_HEADER.fip,         sub:"lg 4.18",  heatRef:LG.fip       },
-    { label:"xFIP",  value:TEAM_HEADER.xfip,        sub:"lg 4.18",  heatRef:LG.xfip      },
-    { label:"SIERA", value:TEAM_HEADER.siera,       sub:"lg 4.07",  heatRef:LG.siera     },
+    { label:"FIP",   value:TEAM_HEADER.fip,         sub:"lg 4.19",  heatRef:LG.fip       },
+    { label:"xFIP",  value:TEAM_HEADER.xfip,        sub:"lg 4.19",  heatRef:LG.xfip      },
+    { label:"SIERA", value:TEAM_HEADER.siera,       sub:"lg 4.08",  heatRef:LG.siera     },
   ];
 
   // Row A of Pitching Statcast (4 stats)
@@ -4091,13 +4091,13 @@ function TeamStatsTab({T}) {
   // Row A of Pitching Bat Tracking (3 stats)
   const pitchingBatTrackingA = [
     { label:"Bat Speed",   value:TEAM_HEADER.batSpeed,  sub:"lg 72.1",  heatRef:LG.teamBatSpeed },
-    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.6%", heatRef:LG.teamFastSw   },
+    { label:"Fast Swing%", value:TEAM_HEADER.fastSwing, sub:"lg 26.7%", heatRef:LG.teamFastSw   },
     { label:"Sq-Up Sw%",   value:TEAM_HEADER.sqUpSw,    sub:"lg 24.8%", heatRef:LG.teamSqUpSw   },
   ];
   // Row B of Pitching Bat Tracking (2 stats)
   const pitchingBatTrackingB = [
     { label:"Blast Sw%",  value:TEAM_HEADER.blastSw,  sub:"lg 10.4%", heatRef:LG.teamBlastSw },
-    { label:"Ideal Atk%", value:TEAM_HEADER.idealAtk, sub:"lg 50.8%", heatRef:LG.teamIdealAtk},
+    { label:"Ideal Atk%", value:TEAM_HEADER.idealAtk, sub:"lg 50.9%", heatRef:LG.teamIdealAtk},
   ];
 
   const sT = THEME.light;
