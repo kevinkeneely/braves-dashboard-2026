@@ -1536,7 +1536,6 @@ const HIDDEN_PLAYERS = new Set([
   "Hurston Waldrep",
   "Spencer Strider",
   "Jim Jarvis",
-  "Robert Suarez",
   "Eli White",
   "Jorge Mateo",
   "Joey Bart",
