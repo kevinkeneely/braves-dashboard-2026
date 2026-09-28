@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 27, 2026";
+   export const lastUpdated = "September 28, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -247,14 +247,14 @@
      { date:"Fri, Sep 18", opp:"Astros",    home:false, result:"W", score:"6-2", record:"90-64"},
      { date:"Sat, Sep 19", opp:"Astros",    home:false, result:"W", score:"6-3", record:"91-64"},
      { date:"Sun, Sep 20", opp:"Astros",    home:false, result:"W", score:"4-2", record:"92-64"},
-      // Upcoming
-     { date:"Tue, Sep 22", opp:"Reds",    home:true,},
-     { date:"Wed, Sep 23", opp:"Reds",    home:true,},
-     { date:"Thu, Sep 24", opp:"Reds",    home:true,},
-     { date:"Fri, Sep 25", opp:"Marlins",    home:false,},
-     { date:"Sat, Sep 26", opp:"Marlins",    home:false,},
-     { date:"Sun, Sep 27", opp:"Marlins",    home:false,},
+     { date:"Tue, Sep 22", opp:"Reds",    home:true, result:"L", score:"0-4", record:"92-65"},
+     { date:"Wed, Sep 23", opp:"Reds",    home:true, result:"W", score:"3-2 F/10", record:"93-65"},
+     { date:"Thu, Sep 24", opp:"Reds",    home:true, result:"L", score:"6-7", record:"93-66"},
+     { date:"Fri, Sep 25", opp:"Marlins",    home:false, result:"L", score:"0-3", record:"93-67"},
+     { date:"Sat, Sep 26", opp:"Marlins",    home:false, result:"W", score:"8-3", record:"94-67"},
+     { date:"Sun, Sep 27", opp:"Marlins",    home:false, result:"L", score:"3-5", record:"94-68"},
       // End of the Regular Season
+      // Upcoming
       // Playoffs Start
    ];
    
