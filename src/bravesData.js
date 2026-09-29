@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "September 28, 2026";
+   export const lastUpdated = "September 29, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -276,7 +276,7 @@
      xera: "4.07",
      xfip: "4.11",
      whip: "1.24",
-     gb: "41.7%",
+     gb: "41.8%",
      siera: "4.04",
      pitchingK: "22.4%",
      pitchingBB: "8.8%",
@@ -296,36 +296,36 @@
      batCStr: "14.6%",
      batCSW: "25.8%",
      batOSwing: "36.4%",   // add alongside batChase / batWhiff
-     batChase: "33.8%",
+     batChase: "33.7%",
      batWhiff: "24.7%",
      oSwing: "33.2%",   // add alongside chase / whiff
-     chase: "30.8%",
+     chase: "30.9%",
      whiff: "26.3%",
      batBatSpeed: "72.8",
      batSpeed: "72.3",
 // Plate Discipline additions
      batZoneSwing: "69.4",
-     batZoneContact: "83.8%",
-     batChaseContact: "60.2%",
-     zoneSwing: "67.1%",
-     zoneContact: "83.6%",
-     chaseContact: "54.7%",
+     batZoneContact: "83.7%",
+     batChaseContact: "60.1%",
+     zoneSwing: "67.3%",
+     zoneContact: "83.4%",
+     chaseContact: "54.9%",
 // Statcast (hitters)
      batBarrel: "8.6%",
-     batHardHit: "39.7%",
-     batExitVelo: "89.2",
+     batHardHit: "39.9%",
+     batExitVelo: "89.3",
      batXBA: ".245",
-     batXSLG: ".411",
+     batXSLG: ".412",
      batXwOBAcon: ".367",
 // batXwOBA reuses existing `xwoba` field (.326)
 // Statcast (pitchers)
-     barrel: "7.3%",
-     hardHit: "38.1%",
+     barrel: "7.4%",
+     hardHit: "38.3%",
      exitVelo: "88.9",
-     xBA: ".240",
-     xSLG: ".386",
+     xBA: ".241",
+     xSLG: ".389",
      pXwOBA: ".310",
-     xwOBAcon: ".357",
+     xwOBAcon: ".358",
  };
    
 export const hitters = [
