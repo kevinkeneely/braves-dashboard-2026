@@ -1546,6 +1546,9 @@ const HIDDEN_PLAYERS = new Set([
   "Elieser Hernández",
   "Bailey Falter",
   "Reynaldo López",
+  "Martín Pérez",
+  "JR Ritchie",
+  "Owen Murphy",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
