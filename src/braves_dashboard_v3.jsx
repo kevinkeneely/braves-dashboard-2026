@@ -1549,6 +1549,8 @@ const HIDDEN_PLAYERS = new Set([
   "Martín Pérez",
   "JR Ritchie",
   "Owen Murphy",
+  "AJ Smith-Shawver",
+  "Lane Thomas",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
