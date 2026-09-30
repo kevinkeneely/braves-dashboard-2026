@@ -483,6 +483,7 @@ export const statcastPitchers = [
      { week:"G138", "Olson":3.9,"Albies":1.6,"Baldwin":2.7,"Harris":4.0,"Dubón":1.8,"Acuña":1.0,"Smith":-0.3,"Mateo":0.6,"Riley":1.0,"White":0.6,"Yaz":0.3,"León":-0.5,"Kim":-1.2,"Tromp":-0.2,"Murphy":0.1,"Bart":0.2,"Tellez":0.0,"Jarvis":-0.1,"Hicklen":0.2,"Thomas":0.7,"Keirsey":0.0 },
      { week:"G144", "Olson":3.5,"Albies":1.4,"Baldwin":2.6,"Harris":3.9,"Dubón":1.7,"Acuña":1.5,"Smith":-0.4,"Mateo":0.6,"Riley":1.0,"White":0.6,"Yaz":0.4,"León":-0.5,"Kim":-1.1,"Tromp":-0.2,"Murphy":0.3,"Bart":0.2,"Tellez":0.0,"Jarvis":-0.1,"Hicklen":0.3,"Thomas":0.7,"Keirsey":0.0 },
      { week:"G150", "Olson":3.7,"Albies":1.3,"Baldwin":2.7,"Harris":4.0,"Dubón":1.7,"Acuña":1.7,"Smith":-0.5,"Mateo":0.5,"Riley":1.0,"White":0.6,"Yaz":0.5,"León":-0.5,"Kim":-1.0,"Tromp":-0.2,"Murphy":0.2,"Bart":0.2,"Tellez":0.0,"Jarvis":-0.1,"Hicklen":0.3,"Thomas":0.7,"Keirsey":0.0 },
+     { week:"G162", "Olson":4.0,"Albies":1.1,"Baldwin":3.3,"Harris":4.5,"Dubón":2.4,"Acuña":1.8,"Smith":-0.5,"Mateo":0.6,"Riley":1.0,"White":0.6,"Yaz":0.6,"León":-0.5,"Kim":-1.2,"Tromp":-0.2,"Murphy":0.0,"Bart":0.2,"Tellez":0.0,"Jarvis":-0.1,"Hicklen":0.2,"Thomas":0.7,"Keirsey":-0.1 },
    ];
    
    export const pitcherWarProgress = [
@@ -509,6 +510,7 @@ export const statcastPitchers = [
      { week:"G138", "Sale":5.3,"Lee":2.0,"Fuentes":1.9,"Elder":1.1,"Iglesias":0.8,"Suarez":0.8,"Pérez":1.3,"López":0.5,"Dodd":0.7,"Holmes":0.7,"Mederos":0.5,"Kinley":-0.4,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.5,"Smith-Shawver":0.1,"Mahle":1.7,"Suter":0.5,"Kerr":0.0,"Hernández":0.0 },
      { week:"G144", "Sale":5.4,"Lee":2.0,"Fuentes":2.0,"Elder":1.1,"Iglesias":1.0,"Suarez":0.8,"Pérez":1.2,"López":0.5,"Dodd":0.4,"Holmes":0.9,"Mederos":0.6,"Kinley":-0.4,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.5,"Smith-Shawver":0.1,"Mahle":1.8,"Suter":0.6,"Kerr":0.1,"Hernández":0.0 },
      { week:"G150", "Sale":5.7,"Lee":2.0,"Fuentes":2.1,"Elder":1.2,"Iglesias":0.9,"Suarez":0.8,"Pérez":1.4,"López":0.5,"Dodd":0.4,"Holmes":0.9,"Mederos":0.5,"Kinley":-0.4,"Strider":0.1,"O.Murphy":0.1,"Ritchie":-0.2,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.5,"Smith-Shawver":-0.1,"Mahle":2.0,"Suter":0.6,"Kerr":0.2,"Hernández":-0.2 },
+     { week:"G162", "Sale":5.8,"Lee":2.1,"Fuentes":2.1,"Elder":1.2,"Iglesias":1.1,"Suarez":0.9,"Pérez":1.5,"López":0.6,"Dodd":0.5,"Holmes":0.8,"Mederos":0.6,"Kinley":-0.4,"Strider":0.1,"O.Murphy":-0.3,"Ritchie":-0.3,"Karinchak":0.0,"Waldrep":-0.3,"Hamilton":0.0,"Young":-0.5,"Smith-Shawver":-0.2,"Mahle":2.1,"Suter":0.8,"Kerr":0.2,"Hernández":-0.1 },
    ];
 
 // ════════════════════════════════════════════════════════════════════════════
