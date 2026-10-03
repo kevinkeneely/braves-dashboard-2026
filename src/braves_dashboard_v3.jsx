@@ -1546,10 +1546,8 @@ const HIDDEN_PLAYERS = new Set([
   "Bailey Falter",
   "Reynaldo López",
   "Martín Pérez",
-  "JR Ritchie",
   "Owen Murphy",
-  "AJ Smith-Shawver",
-  "Lane Thomas",
+  "DaShawn Keirsey Jr.",
 ]);
 const isHidden = (name) => HIDDEN_PLAYERS.has(name);
 const visibleHitters = hitters.filter(h => !isHidden(h.name));
