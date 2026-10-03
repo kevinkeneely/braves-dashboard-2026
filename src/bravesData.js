@@ -11,7 +11,7 @@
    Do NOT rename keys or remove commas/braces — only change the values.
    ═══════════════════════════════════════════════════════════════════════════ */
  
-   export const lastUpdated = "October 1, 2026";
+   export const lastUpdated = "October 2, 2026";
  
    /* ═══════════════════════════════════════════════════════════════════════════
       ROSTER CHECKLIST — exact spellings (for Ctrl+F). Update when adding/removing
@@ -254,8 +254,11 @@
      { date:"Sat, Sep 26", opp:"Marlins",    home:false, result:"W", score:"8-3", record:"94-67"},
      { date:"Sun, Sep 27", opp:"Marlins",    home:false, result:"L", score:"3-5", record:"94-68"},
       // End of the Regular Season
-      // Upcoming
       // Playoffs Start
+     { date:"Tue, Sep 29", opp:"Phillies",    home:true, result:"W", score:"5-3", record:"1-0"},
+      // Upcoming
+     { date:"Wed, Sep 30", opp:"Phillies",    home:true},
+     { date:"Thu, Oct 1", opp:"Phillies",    home:true},
    ];
    
    export const TEAM_HEADER = {
