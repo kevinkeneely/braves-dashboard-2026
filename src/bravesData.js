@@ -255,10 +255,15 @@
      { date:"Sun, Sep 27", opp:"Marlins",    home:false, result:"L", score:"3-5", record:"94-68"},
       // End of the Regular Season
       // Playoffs Start
-     { date:"Tue, Sep 29", opp:"Phillies",    home:true, result:"W", score:"5-3", record:"1-0"},
+     { date:"Tue, Sep 29", opp:"Phillies",    home:true, result:"W", score:"5-3", record:"1-0 NLWC"},
+     { date:"Wed, Sep 30", opp:"Phillies",    home:true, result:"L", score:"3-4 F/10", record:"1-1 NLWC"},
+     { date:"Thu, Oct 1", opp:"Phillies",    home:true, result:"W", score:"6-2", record:"2-1 NLWC"},
       // Upcoming
-     { date:"Wed, Sep 30", opp:"Phillies",    home:true},
-     { date:"Thu, Oct 1", opp:"Phillies",    home:true},
+     { date:"Sat, Oct 3", opp:"Dodgers",    home:false},
+     { date:"Sun, Oct 4", opp:"Dodgers",    home:false},
+     { date:"Tue, Oct 6", opp:"Dodgers",    home:true},
+     { date:"Wed, Oct 7", opp:"Dodgers",    home:true},
+     { date:"Fri, Oct 9", opp:"Dodgers",    home:false},
    ];
    
    export const TEAM_HEADER = {
