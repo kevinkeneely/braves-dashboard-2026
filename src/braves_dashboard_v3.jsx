@@ -1532,7 +1532,6 @@ const HIDDEN_PLAYERS = new Set([
   "Sandy León",
   "Ian Hamilton",
   "Carlos Carrasco",
-  "Rowdy Tellez",
   "Hurston Waldrep",
   "Spencer Strider",
   "Jim Jarvis",
