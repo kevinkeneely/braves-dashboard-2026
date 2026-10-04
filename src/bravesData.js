@@ -260,7 +260,7 @@
      { date:"Wed, Sep 30", opp:"Phillies",    home:true, result:"L", score:"3-4 F/10", record:"1-1 NLWC"},
      { date:"Thu, Oct 1", opp:"Phillies",    home:true, result:"W", score:"6-2", record:"2-1 NLWC"},
       // National League Division Series
-     { date:"Sat, Oct 3", opp:"Dodgers",    home:false result:"L", score:"3-5", recoord:"0-1 NLDS"},
+     { date:"Sat, Oct 3", opp:"Dodgers",    home:false, result:"L", score:"3-5", recoord:"0-1 NLDS"},
       // Upcoming
      { date:"Sun, Oct 4", opp:"Dodgers",    home:false},
      { date:"Tue, Oct 6", opp:"Dodgers",    home:true},
