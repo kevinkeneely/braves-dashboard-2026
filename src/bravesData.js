@@ -260,7 +260,7 @@
      { date:"Wed, Sep 30", opp:"Phillies",    home:true, result:"L", score:"3-4 F/10", record:"1-1 NLWC"},
      { date:"Thu, Oct 1", opp:"Phillies",    home:true, result:"W", score:"6-2", record:"2-1 NLWC"},
       // National League Division Series
-     { date:"Sat, Oct 3", opp:"Dodgers",    home:false, result:"L", score:"3-5", recoord:"0-1 NLDS"},
+     { date:"Sat, Oct 3", opp:"Dodgers",    home:false, result:"L", score:"3-5", record:"0-1 NLDS"},
       // Upcoming
      { date:"Sun, Oct 4", opp:"Dodgers",    home:false},
      { date:"Tue, Oct 6", opp:"Dodgers",    home:true},
@@ -449,7 +449,7 @@ export const statcastPitchers = [
   { name:"Martín Pérez", ev:"87.9",hardHit:"35.0%",xwoba:".326",xba:".262",xslg:".386",kpct:"17.1%",bbpct:"10.4%", barrel:"4.7%", chase:"27.4%",whiff:"21.1%",gbpct:"47.6%",fbpct:"21.4%",ldpct:"24.9%",pupct:"6.1%", pullAir:"19.8%"},
   { name:"Grant Holmes", ev:"91.5",hardHit:"45.2%",xwoba:".342",xba:".262",xslg:".447",kpct:"17.9%",bbpct:"9.7%", barrel:"8.9%", chase:"31.8%",whiff:"27.3%",gbpct:"43.7%",fbpct:"26.4%",ldpct:"24.7%",pupct:"5.2%", pullAir:"21.0%"},
   { name:"Reynaldo López", ev:"87.6",hardHit:"35.9%",xwoba:".335",xba:".262",xslg:".428",kpct:"21.1%",bbpct:"9.8%", barrel:"7.2%", chase:"27.2%",whiff:"22.3%",gbpct:"38.0%",fbpct:"26.2%",ldpct:"28.3%",pupct:"7.6%", pullAir:"19.0%"},
-  { name:"JR Ritchie", ev:"89.4",hardHit:"39.6%",xwoba:".338",xba:".234",xslg:".401",kpct:"22.0%",bbpct:"13.7%", barrel:"9.6%", chase:"26.2%",whiff:"23.8%",gbpct:"45.5%",fbpct:"29.4%",ldpct:"20.3%",pupct:"4.8%", pullAir:"20.5%"},
+  { name:"JR Ritchie", ev:"89.4",hardHit:"41.6%",xwoba:".345",xba:".246",xslg:".417",kpct:"20.9%",bbpct:"13.2%", barrel:"9.6%", chase:"26.0%",whiff:"22.4%",gbpct:"47.4%",fbpct:"27.3%",ldpct:"20.1%",pupct:"5.3%", pullAir:"19.1%"},
   { name:"Dylan Dodd", ev:"89.5",hardHit:"37.1%",xwoba:".273",xba:".198",xslg:".354",kpct:"27.3%",bbpct:"7.2%", barrel:"8.9%", chase:"34.9%",whiff:"29.5%",gbpct:"27.4%",fbpct:"33.1%",ldpct:"24.2%",pupct:"15.3%", pullAir:"33.9%"},
   { name:"James Karinchak", ev:"88.4",hardHit:"33.3%",xwoba:".268",xba:".158",xslg:".299",kpct:"21.6%",bbpct:"13.5%", barrel:"8.3%", chase:"23.0%",whiff:"26.6%",gbpct:"29.2%",fbpct:"37.5%",ldpct:"16.7%",pupct:"16.7%", pullAir:"12.5%"},
   { name:"Carlos Carrasco", ev:"89.2",hardHit:"42.2%",xwoba:".358",xba:".325",xslg:".452",kpct:"11.1%",bbpct:"1.9%", barrel:"6.7%", chase:"43.6%",whiff:"17.2%",gbpct:"48.9%",fbpct:"11.1%",ldpct:"33.3%",pupct:"6.7%", pullAir:"26.2%"},
