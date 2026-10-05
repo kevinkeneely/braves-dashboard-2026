@@ -4648,7 +4648,7 @@ function WarProgressTab({T}) {
 
   return (
     <>
-      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH G150" title="WAR PROGRESS"/>
+      <TabTitle T={T} eyebrow="CUMULATIVE fWAR THROUGH 162 GAMES" title="WAR PROGRESS"/>
       <div style={{fontSize:11, color:T.textMuted, marginBottom:12, lineHeight:1.4}}>
         Cumulative fWAR gained as the 2026 season has progressed · weekly checkpoints · FanGraphs
       </div>
