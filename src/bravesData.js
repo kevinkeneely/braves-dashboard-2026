@@ -262,10 +262,9 @@
       // National League Division Series
      { date:"Sat, Oct 3", opp:"Dodgers",    home:false, result:"L", score:"3-5", record:"0-1 NLDS"},
      { date:"Sun, Oct 4", opp:"Dodgers",    home:false, result:"W", score:"3-2", record:"1-1 NLDS"},
-      // Upcoming
-     { date:"Tue, Oct 6", opp:"Dodgers",    home:true},
-     { date:"Wed, Oct 7", opp:"Dodgers",    home:true},
-     { date:"Fri, Oct 9", opp:"Dodgers",    home:false},
+     { date:"Tue, Oct 6", opp:"Dodgers",    home:true, result:"L", score:"1-3", record:"1-2 NLDS"},
+     { date:"Wed, Oct 7", opp:"Dodgers",    home:true, result:"L", score:"1-4", record:"1-3 NLDS"},
+      // Eliminated from playoffs
    ];
    
    export const TEAM_HEADER = {
